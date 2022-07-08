@@ -1,4 +1,4 @@
-part of '../element.dart';
+part of element;
 
 /// {@template enum}
 ///
@@ -24,6 +24,11 @@ class Enum extends Element {
       values: values ?? this.values,
     );
   }
+
+  @override
+  StringSink visit([StringSink? output]) {
+    return visitEnum(this, output);
+  }
 }
 
 /// {@template enum_value}
@@ -44,5 +49,10 @@ class EnumValue extends Element {
     return EnumValue(
       name: name ?? this.name,
     );
+  }
+
+  @override
+  StringSink visit([StringSink? output]) {
+    return visitEnumValue(this, output);
   }
 }
