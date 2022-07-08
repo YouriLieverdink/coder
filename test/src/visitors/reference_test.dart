@@ -3,14 +3,12 @@ import 'package:test/test.dart';
 
 void main() {
   group(
-    'visitReference',
+    'visitTypeReference',
     () {
       test(
-        'should create a Reference',
+        'should create a TypeReference',
         () {
-          const element = Reference(
-            symbol: 'String',
-          );
+          const element = TypeReference('String');
 
           final result = element //
               .visit()
@@ -24,12 +22,12 @@ void main() {
       );
 
       test(
-        'should create a Reference with a type parameter',
+        'should create a TypeReference with a type parameter',
         () {
-          const element = Reference(
-            symbol: 'List',
+          const element = TypeReference(
+            'List',
             types: [
-              Reference(symbol: 'String'),
+              TypeReference('String'),
             ],
           );
 
@@ -45,13 +43,13 @@ void main() {
       );
 
       test(
-        'should create a Reference with multiple type parameters',
+        'should create a TypeReference with multiple type parameters',
         () {
-          const element = Reference(
-            symbol: 'Map',
+          const element = TypeReference(
+            'Map',
             types: [
-              Reference(symbol: 'String'),
-              Reference(symbol: 'dynamic'),
+              TypeReference('String'),
+              TypeReference('dynamic'),
             ],
           );
 
@@ -67,10 +65,10 @@ void main() {
       );
 
       test(
-        'should create a nullable reference',
+        'should create a nullable TypeReference',
         () {
-          const element = Reference(
-            symbol: 'String',
+          const element = TypeReference(
+            'String',
             isNullable: true,
           );
 
@@ -81,6 +79,29 @@ void main() {
           expect(
             result,
             equals('String?'),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'FunctionReference',
+    () {
+      test(
+        'should create a FunctionReference',
+        () {
+          const element = FunctionReference(
+            returns: TypeReference('String'),
+          );
+
+          final result = element //
+              .visit()
+              .toString();
+
+          expect(
+            result,
+            equals('String Function()'),
           );
         },
       );

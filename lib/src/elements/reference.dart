@@ -3,10 +3,18 @@ part of element;
 /// {@template reference}
 ///
 /// {@endtemplate}
-class Reference extends Element {
+abstract class Reference extends Element {
   /// {@macro reference}
-  const Reference({
-    required this.symbol,
+  const Reference();
+}
+
+/// {@template type_reference}
+///
+/// {@endtemplate}
+class TypeReference extends Reference {
+  /// {@macro type_reference}
+  const TypeReference(
+    this.symbol, {
     this.url,
     this.isNullable = false,
     this.types = const [],
@@ -21,14 +29,14 @@ class Reference extends Element {
   final List<Reference> types;
 
   @override
-  Reference copyWith({
+  TypeReference copyWith({
     String? symbol,
     String? url,
     bool? isNullable,
     List<Reference>? types,
   }) {
-    return Reference(
-      symbol: symbol ?? this.symbol,
+    return TypeReference(
+      symbol ?? this.symbol,
       url: url ?? this.url,
       isNullable: isNullable ?? this.isNullable,
       types: types ?? this.types,
@@ -36,5 +44,33 @@ class Reference extends Element {
   }
 
   @override
-  StringSink visit([StringSink? output]) => visitReference(this, output);
+  StringSink visit([StringSink? output]) {
+    return visitTypeReference(this, output);
+  }
+}
+
+/// {@template function_reference}
+///
+/// {@endtemplate}
+class FunctionReference extends Reference {
+  /// {@macro function_reference}
+  const FunctionReference({
+    this.returns = const TypeReference('void'),
+  });
+
+  final Reference returns;
+
+  @override
+  FunctionReference copyWith({
+    Reference? returns,
+  }) {
+    return FunctionReference(
+      returns: returns ?? this.returns,
+    );
+  }
+
+  @override
+  StringSink visit([StringSink? output]) {
+    return visitFunctionReference(this, output);
+  }
 }

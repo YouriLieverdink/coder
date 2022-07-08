@@ -3,14 +3,29 @@ import 'package:test/test.dart';
 
 void main() {
   group(
-    'Reference',
+    'TypeReference',
     () {
       test(
         'supports property equality',
         () {
           expect(
-            const Reference(symbol: 'Status'),
-            equals(const Reference(symbol: 'Status')),
+            const TypeReference('Status'),
+            equals(const TypeReference('Status')),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'FunctionReference',
+    () {
+      test(
+        'supports property equality',
+        () {
+          expect(
+            const FunctionReference(),
+            equals(const FunctionReference()),
           );
         },
       );

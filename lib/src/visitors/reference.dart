@@ -1,7 +1,7 @@
 part of visitor;
 
-StringSink visitReference(
-  Reference element, [
+StringSink visitTypeReference(
+  TypeReference element, [
   StringSink? output,
 ]) {
   output ??= StringBuffer();
@@ -25,6 +25,19 @@ StringSink visitReference(
   if (element.isNullable) {
     output.write('?');
   }
+
+  return output;
+}
+
+StringSink visitFunctionReference(
+  FunctionReference element, [
+  StringSink? output,
+]) {
+  output ??= StringBuffer();
+
+  element.returns.visit(output);
+
+  output.write(' Function()');
 
   return output;
 }
