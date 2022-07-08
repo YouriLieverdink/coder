@@ -1,6 +1,12 @@
 part of emitter;
 
+/// {@template enum_emitter}
+///
+/// {@endtemplate}
 class EnumEmitter extends Emitter<Enum> {
+  /// {@macro enum_emitter}
+  EnumEmitter(super.context);
+
   @override
   StringSink emit(
     Enum element, [
@@ -11,7 +17,7 @@ class EnumEmitter extends Emitter<Enum> {
     output.write('enum ${element.name} {');
 
     for (final v in element.values) {
-      EnumValueEmitter().emit(v, output);
+      EnumValueEmitter(context).emit(v, output);
 
       if (v != element.values.last) {
         output.write(',');
@@ -24,7 +30,13 @@ class EnumEmitter extends Emitter<Enum> {
   }
 }
 
+/// {@template enum_value_emitter}
+///
+/// {@endtemple}
 class EnumValueEmitter extends Emitter<EnumValue> {
+  /// {@macro enum_value_emitter}
+  EnumValueEmitter(super.context);
+
   @override
   StringSink emit(
     EnumValue element, [

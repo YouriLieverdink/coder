@@ -2,6 +2,8 @@ import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
 void main() {
+  const context = Context();
+
   group(
     'TypeReferenceEmitter',
     () {
@@ -10,7 +12,7 @@ void main() {
         () {
           const element = TypeReference('String');
 
-          final result = TypeReferenceEmitter() //
+          final result = TypeReferenceEmitter(context) //
               .emit(element)
               .toString();
 
@@ -31,7 +33,7 @@ void main() {
             ],
           );
 
-          final result = TypeReferenceEmitter() //
+          final result = TypeReferenceEmitter(context) //
               .emit(element)
               .toString();
 
@@ -53,7 +55,7 @@ void main() {
             ],
           );
 
-          final result = TypeReferenceEmitter() //
+          final result = TypeReferenceEmitter(context) //
               .emit(element)
               .toString();
 
@@ -72,7 +74,7 @@ void main() {
             isNullable: true,
           );
 
-          final result = TypeReferenceEmitter() //
+          final result = TypeReferenceEmitter(context) //
               .emit(element)
               .toString();
 
@@ -95,7 +97,7 @@ void main() {
             returns: TypeReference('String'),
           );
 
-          final result = FunctionReferenceEmitter() //
+          final result = FunctionReferenceEmitter(context) //
               .emit(element)
               .toString();
 

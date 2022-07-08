@@ -1,6 +1,6 @@
 library emitter;
 
-import 'package:coder/src/element.dart';
+import 'package:coder/coder.dart';
 
 part './emitters/class.dart';
 part './emitters/enum.dart';
@@ -12,7 +12,11 @@ part './emitters/reference.dart';
 /// {@endtemplate}
 abstract class Emitter<T extends Element> {
   /// {@macro emitter}
-  const Emitter();
+  const Emitter(
+    this.context,
+  );
+
+  final Context context;
 
   /// Emits [element] as valid Dart code into [output].
   StringSink emit(

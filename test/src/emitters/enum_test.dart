@@ -2,6 +2,8 @@ import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
 void main() {
+  const context = Context();
+
   group(
     'EnumEmitter',
     () {
@@ -17,7 +19,7 @@ void main() {
             ],
           );
 
-          final result = EnumEmitter() //
+          final result = EnumEmitter(context) //
               .emit(element)
               .toString();
 
@@ -40,7 +42,7 @@ void main() {
         () {
           const element = EnumValue('todo');
 
-          final result = EnumValueEmitter() //
+          final result = EnumValueEmitter(context) //
               .emit(element)
               .toString();
 

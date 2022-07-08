@@ -2,6 +2,8 @@ import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
 void main() {
+  const context = Context();
+
   group(
     'ClassEmitter',
     () {
@@ -12,7 +14,7 @@ void main() {
             name: 'Animal',
           );
 
-          final result = ClassEmitter() //
+          final result = ClassEmitter(context) //
               .emit(element)
               .toString();
 
@@ -31,7 +33,7 @@ void main() {
             extends_: TypeReference('Animal'),
           );
 
-          final result = ClassEmitter() //
+          final result = ClassEmitter(context) //
               .emit(element)
               .toString();
 
@@ -59,7 +61,7 @@ void main() {
             ],
           );
 
-          final result = ClassEmitter() //
+          final result = ClassEmitter(context) //
               .emit(element)
               .toString();
 

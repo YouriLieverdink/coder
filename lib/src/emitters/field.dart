@@ -1,6 +1,12 @@
 part of emitter;
 
+/// {@template field_emitter}
+///
+/// {@endtemplate}
 class FieldEmitter extends Emitter<Field> {
+  /// {@macro field_emitter}
+  FieldEmitter(super.context);
+
   @override
   StringSink emit(
     Field element, [
@@ -29,7 +35,7 @@ class FieldEmitter extends Emitter<Field> {
         break;
     }
 
-    ReferenceEmitter().emit(element.type, output);
+    ReferenceEmitter(context).emit(element.type, output);
 
     output.write(' ${element.name}');
     output.write(';');

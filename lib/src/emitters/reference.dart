@@ -1,6 +1,12 @@
 part of emitter;
 
+/// {@template reference_emitter}
+///
+/// {@endtemplate}
 class ReferenceEmitter extends Emitter<Reference> {
+  /// {@macro reference_emitter}
+  ReferenceEmitter(super.context);
+
   @override
   StringSink emit(
     Reference element, [
@@ -9,17 +15,23 @@ class ReferenceEmitter extends Emitter<Reference> {
     output ??= StringBuffer();
 
     if (element is TypeReference) {
-      TypeReferenceEmitter().emit(element, output);
+      TypeReferenceEmitter(context).emit(element, output);
     } //
     else if (element is FunctionReference) {
-      FunctionReferenceEmitter().emit(element, output);
+      FunctionReferenceEmitter(context).emit(element, output);
     }
 
     return output;
   }
 }
 
+/// {@template type_reference_emitter}
+///
+/// {@endtemplate}
 class TypeReferenceEmitter extends Emitter<TypeReference> {
+  /// {@macro type_reference_emitter}
+  TypeReferenceEmitter(super.context);
+
   @override
   StringSink emit(
     TypeReference element, [
@@ -33,7 +45,7 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
       output.write('<');
 
       for (final v in element.types) {
-        ReferenceEmitter().emit(v, output);
+        ReferenceEmitter(context).emit(v, output);
 
         if (v != element.types.last) {
           output.write(',');
@@ -51,7 +63,13 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
   }
 }
 
+/// {@template function_reference_emitter}
+///
+/// {@endtemplate}
 class FunctionReferenceEmitter extends Emitter<FunctionReference> {
+  /// {@macro function_reference_emitter}
+  FunctionReferenceEmitter(super.context);
+
   @override
   StringSink emit(
     FunctionReference element, [
@@ -59,7 +77,7 @@ class FunctionReferenceEmitter extends Emitter<FunctionReference> {
   ]) {
     output ??= StringBuffer();
 
-    ReferenceEmitter().emit(element.returns, output);
+    ReferenceEmitter(context).emit(element.returns, output);
 
     output.write(' Function()');
 

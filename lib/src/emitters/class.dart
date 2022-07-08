@@ -1,6 +1,12 @@
 part of emitter;
 
+/// {@template class_emitter}
+///
+/// {@endtemplate}
 class ClassEmitter extends Emitter<Class> {
+  /// {@macro class_emitter}
+  ClassEmitter(super.context);
+
   @override
   StringSink emit(
     Class element, [
@@ -12,13 +18,13 @@ class ClassEmitter extends Emitter<Class> {
 
     if (element.extends_ != null) {
       output.write(' extends ');
-      ReferenceEmitter().emit(element.extends_!, output);
+      ReferenceEmitter(context).emit(element.extends_!, output);
     }
 
     output.write(' {');
 
     for (final v in element.fields) {
-      FieldEmitter().emit(v, output);
+      FieldEmitter(context).emit(v, output);
     }
 
     output.write('}');

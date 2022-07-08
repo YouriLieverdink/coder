@@ -2,13 +2,15 @@ import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
 void main() {
+  const context = Context();
+
   group('FieldEmitter', () {
     test(
       'should create a Field',
       () {
         const element = Field(name: 'status');
 
-        final result = FieldEmitter() //
+        final result = FieldEmitter(context) //
             .emit(element)
             .toString();
 
@@ -34,7 +36,7 @@ void main() {
           ),
         );
 
-        final result = FieldEmitter() //
+        final result = FieldEmitter(context) //
             .emit(element)
             .toString();
 
@@ -53,7 +55,7 @@ void main() {
           isStatic: true,
         );
 
-        final result = FieldEmitter() //
+        final result = FieldEmitter(context) //
             .emit(element)
             .toString();
 
@@ -72,7 +74,7 @@ void main() {
           isLate: true,
         );
 
-        final result = FieldEmitter() //
+        final result = FieldEmitter(context) //
             .emit(element)
             .toString();
 
@@ -91,7 +93,7 @@ void main() {
           modifier: FieldModifier.const_,
         );
 
-        final result = FieldEmitter() //
+        final result = FieldEmitter(context) //
             .emit(element)
             .toString();
 
@@ -110,7 +112,7 @@ void main() {
           modifier: FieldModifier.final_,
         );
 
-        final result = FieldEmitter() //
+        final result = FieldEmitter(context) //
             .emit(element)
             .toString();
 
@@ -131,7 +133,7 @@ void main() {
           modifier: FieldModifier.final_,
         );
 
-        final result = FieldEmitter() //
+        final result = FieldEmitter(context) //
             .emit(element)
             .toString();
 
