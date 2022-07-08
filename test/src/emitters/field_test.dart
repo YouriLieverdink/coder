@@ -4,8 +4,6 @@ import 'package:test/test.dart';
 import '../matchers/equals_code.dart';
 
 void main() {
-  const context = Context();
-
   group('FieldEmitter', () {
     test(
       'should create a Field',

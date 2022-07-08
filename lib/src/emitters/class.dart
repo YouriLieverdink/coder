@@ -23,6 +23,10 @@ class ClassEmitter extends Emitter<Class> {
 
     output.write(' {');
 
+    for (final v in element.constructors) {
+      ConstructorEmitter(context, parent: element).emit(v, output);
+    }
+
     for (final v in element.fields) {
       FieldEmitter(context).emit(v, output);
     }
