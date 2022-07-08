@@ -1,4 +1,4 @@
-part of '../element.dart';
+part of element;
 
 /// {@template enum}
 ///

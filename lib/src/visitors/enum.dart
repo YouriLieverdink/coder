@@ -1,4 +1,4 @@
-part of '../visitor.dart';
+part of visitor;
 
 StringSink visitEnum(
   Enum element, [
