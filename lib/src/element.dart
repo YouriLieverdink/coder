@@ -1,6 +1,7 @@
 library element;
 
 part './elements/enum.dart';
+part './elements/field.dart';
 part './elements/reference.dart';
 
 /// {@template element}
