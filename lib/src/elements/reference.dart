@@ -44,8 +44,9 @@ class TypeReference extends Reference {
   }
 
   @override
-  StringSink visit([StringSink? output]) {
-    return visitTypeReference(this, output);
+  StringSink emit([StringSink? output]) {
+    //
+    return TypeReferenceEmitter().emit(this, output);
   }
 }
 
@@ -70,7 +71,8 @@ class FunctionReference extends Reference {
   }
 
   @override
-  StringSink visit([StringSink? output]) {
-    return visitFunctionReference(this, output);
+  StringSink emit([StringSink? output]) {
+    //
+    return FunctionReferenceEmitter().emit(this, output);
   }
 }

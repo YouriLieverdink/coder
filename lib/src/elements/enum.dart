@@ -26,8 +26,9 @@ class Enum extends Element {
   }
 
   @override
-  StringSink visit([StringSink? output]) {
-    return visitEnum(this, output);
+  StringSink emit([StringSink? output]) {
+    //
+    return EnumEmitter().emit(this, output);
   }
 }
 
@@ -52,7 +53,8 @@ class EnumValue extends Element {
   }
 
   @override
-  StringSink visit([StringSink? output]) {
-    return visitEnumValue(this, output);
+  StringSink emit([StringSink? output]) {
+    //
+    return EnumValueEmitter().emit(this, output);
   }
 }

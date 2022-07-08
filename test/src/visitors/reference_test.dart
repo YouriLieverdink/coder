@@ -11,7 +11,7 @@ void main() {
           const element = TypeReference('String');
 
           final result = element //
-              .visit()
+              .emit()
               .toString();
 
           expect(
@@ -32,7 +32,7 @@ void main() {
           );
 
           final result = element //
-              .visit()
+              .emit()
               .toString();
 
           expect(
@@ -54,7 +54,7 @@ void main() {
           );
 
           final result = element //
-              .visit()
+              .emit()
               .toString();
 
           expect(
@@ -73,7 +73,7 @@ void main() {
           );
 
           final result = element //
-              .visit()
+              .emit()
               .toString();
 
           expect(
@@ -96,7 +96,7 @@ void main() {
           );
 
           final result = element //
-              .visit()
+              .emit()
               .toString();
 
           expect(

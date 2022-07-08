@@ -15,6 +15,6 @@ abstract class Element {
   /// Returns an instance of `this` with the provided values.
   Element copyWith();
 
-  /// Visit `this` element and emit Dart code to [output].
-  StringSink visit([StringSink? output]);
+  /// Emits `this` element as valid Dart code into [output].
+  StringSink emit([StringSink? output]);
 }
