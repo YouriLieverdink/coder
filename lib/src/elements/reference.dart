@@ -34,4 +34,7 @@ class Reference extends Element {
       types: types ?? this.types,
     );
   }
+
+  @override
+  StringSink visit([StringSink? output]) => visitReference(this, output);
 }

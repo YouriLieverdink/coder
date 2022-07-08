@@ -12,7 +12,9 @@ void main() {
             symbol: 'String',
           );
 
-          final result = visitReference(element).toString();
+          final result = element //
+              .visit()
+              .toString();
 
           expect(
             result,
@@ -31,7 +33,9 @@ void main() {
             ],
           );
 
-          final result = visitReference(element).toString();
+          final result = element //
+              .visit()
+              .toString();
 
           expect(
             result,
@@ -51,7 +55,9 @@ void main() {
             ],
           );
 
-          final result = visitReference(element).toString();
+          final result = element //
+              .visit()
+              .toString();
 
           expect(
             result,
@@ -68,7 +74,9 @@ void main() {
             isNullable: true,
           );
 
-          final result = visitReference(element).toString();
+          final result = element //
+              .visit()
+              .toString();
 
           expect(
             result,

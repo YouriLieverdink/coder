@@ -17,7 +17,9 @@ void main() {
             ],
           );
 
-          final result = visitEnum(element).toString();
+          final result = element //
+              .visit()
+              .toString();
 
           expect(
             result,

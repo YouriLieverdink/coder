@@ -11,12 +11,7 @@ StringSink visit<T extends Element>(
 ]) {
   output ??= StringBuffer();
 
-  if (element is Enum) {
-    visitEnum(element, output);
-  } //
-  else if (element is Reference) {
-    visitReference(element, output);
-  }
+  element.visit(output);
 
   return output;
 }

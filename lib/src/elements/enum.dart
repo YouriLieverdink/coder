@@ -24,6 +24,9 @@ class Enum extends Element {
       values: values ?? this.values,
     );
   }
+
+  @override
+  StringSink visit([StringSink? output]) => visitEnum(this, output);
 }
 
 /// {@template enum_value}
@@ -45,4 +48,7 @@ class EnumValue extends Element {
       name: name ?? this.name,
     );
   }
+
+  @override
+  StringSink visit([StringSink? output]) => visitEnumValue(this, output);
 }

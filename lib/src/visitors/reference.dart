@@ -9,10 +9,17 @@ StringSink visitReference(
   output.write(element.symbol);
 
   if (element.types.isNotEmpty) {
-    output
-      ..write('<')
-      ..writeAll(element.types.map((v) => visitReference(v)), ',')
-      ..write('>');
+    output.write('<');
+
+    for (final v in element.types) {
+      v.visit(output);
+
+      if (v != element.types.last) {
+        output.write(',');
+      }
+    }
+
+    output.write('>');
   }
 
   if (element.isNullable) {
