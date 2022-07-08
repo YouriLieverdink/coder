@@ -1,9 +1,9 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-void main() {
-  const context = Context();
+import '../matchers/equals_code.dart';
 
+void main() {
   group(
     'TypeReferenceEmitter',
     () {
@@ -12,13 +12,13 @@ void main() {
         () {
           const element = TypeReference('String');
 
-          final result = TypeReferenceEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('String'),
+            element,
+            equalsCode(
+              '''
+                String
+              ''',
+            ),
           );
         },
       );
@@ -33,13 +33,13 @@ void main() {
             ],
           );
 
-          final result = TypeReferenceEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('List<String>'),
+            element,
+            equalsCode(
+              '''
+                List<String>
+              ''',
+            ),
           );
         },
       );
@@ -55,13 +55,13 @@ void main() {
             ],
           );
 
-          final result = TypeReferenceEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('Map<String,dynamic>'),
+            element,
+            equalsCode(
+              '''
+                Map<String,dynamic>
+              ''',
+            ),
           );
         },
       );
@@ -74,13 +74,13 @@ void main() {
             isNullable: true,
           );
 
-          final result = TypeReferenceEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('String?'),
+            element,
+            equalsCode(
+              '''
+                String?
+              ''',
+            ),
           );
         },
       );
@@ -97,13 +97,13 @@ void main() {
             returns: TypeReference('String'),
           );
 
-          final result = FunctionReferenceEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('String Function()'),
+            element,
+            equalsCode(
+              '''
+                String Function()
+              ''',
+            ),
           );
         },
       );

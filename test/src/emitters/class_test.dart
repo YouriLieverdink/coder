@@ -1,9 +1,9 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-void main() {
-  const context = Context();
+import '../matchers/equals_code.dart';
 
+void main() {
   group(
     'ClassEmitter',
     () {
@@ -14,13 +14,14 @@ void main() {
             name: 'Animal',
           );
 
-          final result = ClassEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('class Animal {}'),
+            element,
+            equalsCode(
+              '''
+                class Animal {
+                }
+              ''',
+            ),
           );
         },
       );
@@ -33,13 +34,14 @@ void main() {
             extends_: TypeReference('Animal'),
           );
 
-          final result = ClassEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('class Cat extends Animal {}'),
+            element,
+            equalsCode(
+              '''
+                class Cat extends Animal {
+                }
+              ''',
+            ),
           );
         },
       );
@@ -61,13 +63,16 @@ void main() {
             ],
           );
 
-          final result = ClassEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals('class Cat {String name;int age;}'),
+            element,
+            equalsCode(
+              '''
+                class Cat {
+                  String name;
+                  int age;
+                }
+              ''',
+            ),
           );
         },
       );

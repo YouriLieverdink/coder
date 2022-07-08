@@ -14,12 +14,12 @@ class FieldEmitter extends Emitter<Field> {
   ]) {
     output ??= StringBuffer();
 
-    if (element.isLate) {
-      output.write('late ');
-    }
-
     if (element.isStatic) {
       output.write('static ');
+    }
+
+    if (element.isLate) {
+      output.write('late ');
     }
 
     switch (element.modifier) {

@@ -1,9 +1,9 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-void main() {
-  const context = Context();
+import '../matchers/equals_code.dart';
 
+void main() {
   group(
     'EnumEmitter',
     () {
@@ -19,36 +19,17 @@ void main() {
             ],
           );
 
-          final result = EnumEmitter(context) //
-              .emit(element)
-              .toString();
-
           expect(
-            result,
-            equals(
-              'enum Status {todo,inProgress,done}',
+            element,
+            equalsCode(
+              '''
+                enum Status {
+                  todo,
+                  inProgress,
+                  done
+                }
+              ''',
             ),
-          );
-        },
-      );
-    },
-  );
-
-  group(
-    'EnumValueEmitter',
-    () {
-      test(
-        'should create an enum value',
-        () {
-          const element = EnumValue('todo');
-
-          final result = EnumValueEmitter(context) //
-              .emit(element)
-              .toString();
-
-          expect(
-            result,
-            equals('todo'),
           );
         },
       );

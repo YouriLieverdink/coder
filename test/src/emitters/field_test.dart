@@ -1,6 +1,8 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
+import '../matchers/equals_code.dart';
+
 void main() {
   const context = Context();
 
@@ -10,13 +12,13 @@ void main() {
       () {
         const element = Field(name: 'status');
 
-        final result = FieldEmitter(context) //
-            .emit(element)
-            .toString();
-
         expect(
-          result,
-          equals('dynamic status;'),
+          element,
+          equalsCode(
+            '''
+              dynamic status;
+            ''',
+          ),
         );
       },
     );
@@ -36,13 +38,13 @@ void main() {
           ),
         );
 
-        final result = FieldEmitter(context) //
-            .emit(element)
-            .toString();
-
         expect(
-          result,
-          equals('Future<Status> Function() getStatus;'),
+          element,
+          equalsCode(
+            '''
+              Future<Status> Function() getStatus;
+            ''',
+          ),
         );
       },
     );
@@ -55,13 +57,13 @@ void main() {
           isStatic: true,
         );
 
-        final result = FieldEmitter(context) //
-            .emit(element)
-            .toString();
-
         expect(
-          result,
-          equals('static dynamic status;'),
+          element,
+          equalsCode(
+            '''
+              static dynamic status;
+            ''',
+          ),
         );
       },
     );
@@ -74,13 +76,13 @@ void main() {
           isLate: true,
         );
 
-        final result = FieldEmitter(context) //
-            .emit(element)
-            .toString();
-
         expect(
-          result,
-          equals('late dynamic status;'),
+          element,
+          equalsCode(
+            '''
+              late dynamic status;
+            ''',
+          ),
         );
       },
     );
@@ -93,13 +95,13 @@ void main() {
           modifier: FieldModifier.const_,
         );
 
-        final result = FieldEmitter(context) //
-            .emit(element)
-            .toString();
-
         expect(
-          result,
-          equals('const dynamic status;'),
+          element,
+          equalsCode(
+            '''
+              const dynamic status;
+            ''',
+          ),
         );
       },
     );
@@ -112,13 +114,13 @@ void main() {
           modifier: FieldModifier.final_,
         );
 
-        final result = FieldEmitter(context) //
-            .emit(element)
-            .toString();
-
         expect(
-          result,
-          equals('final dynamic status;'),
+          element,
+          equalsCode(
+            '''
+              final dynamic status;
+            ''',
+          ),
         );
       },
     );
@@ -133,13 +135,13 @@ void main() {
           modifier: FieldModifier.final_,
         );
 
-        final result = FieldEmitter(context) //
-            .emit(element)
-            .toString();
-
         expect(
-          result,
-          equals('late static final dynamic status;'),
+          element,
+          equalsCode(
+            '''
+              static late final dynamic status;
+            ''',
+          ),
         );
       },
     );
