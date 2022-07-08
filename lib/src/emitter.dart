@@ -2,6 +2,7 @@ library emitter;
 
 import 'package:coder/src/element.dart';
 
+part './emitters/class.dart';
 part './emitters/enum.dart';
 part './emitters/field.dart';
 part './emitters/reference.dart';
