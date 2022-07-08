@@ -31,9 +31,9 @@ class Enum extends Element {
 /// {@endtemplate}
 class EnumValue extends Element {
   /// {@macro enum_value}
-  const EnumValue({
-    required this.name,
-  });
+  const EnumValue(
+    this.name,
+  );
 
   final String name;
 
@@ -42,7 +42,7 @@ class EnumValue extends Element {
     String? name,
   }) {
     return EnumValue(
-      name: name ?? this.name,
+      name ?? this.name,
     );
   }
 }

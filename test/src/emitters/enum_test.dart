@@ -11,9 +11,9 @@ void main() {
           const element = Enum(
             name: 'Status',
             values: [
-              EnumValue(name: 'todo'),
-              EnumValue(name: 'inProgress'),
-              EnumValue(name: 'done'),
+              EnumValue('todo'),
+              EnumValue('inProgress'),
+              EnumValue('done'),
             ],
           );
 
@@ -26,6 +26,27 @@ void main() {
             equals(
               'enum Status {todo,inProgress,done}',
             ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'EnumValueEmitter',
+    () {
+      test(
+        'should create an enum value',
+        () {
+          const element = EnumValue('todo');
+
+          final result = EnumValueEmitter() //
+              .emit(element)
+              .toString();
+
+          expect(
+            result,
+            equals('todo'),
           );
         },
       );

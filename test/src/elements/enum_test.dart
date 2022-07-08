@@ -24,8 +24,8 @@ void main() {
         'supports property equality',
         () {
           expect(
-            const EnumValue(name: 'todo'),
-            equals(const EnumValue(name: 'todo')),
+            const EnumValue('todo'),
+            equals(const EnumValue('todo')),
           );
         },
       );

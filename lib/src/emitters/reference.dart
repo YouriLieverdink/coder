@@ -59,7 +59,7 @@ class FunctionReferenceEmitter extends Emitter<FunctionReference> {
   ]) {
     output ??= StringBuffer();
 
-    ReferenceEmitter().emit(element, output);
+    ReferenceEmitter().emit(element.returns, output);
 
     output.write(' Function()');
 
