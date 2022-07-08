@@ -16,7 +16,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 class Animal {
                 }
@@ -36,7 +36,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 class Cat extends Animal {
                 }
@@ -65,7 +65,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 class Cat {
                   String name;

@@ -12,7 +12,7 @@ void main() {
 
         expect(
           element,
-          equalsCode(
+          const EqualsCode(
             '''
               dynamic status;
             ''',
@@ -38,7 +38,7 @@ void main() {
 
         expect(
           element,
-          equalsCode(
+          const EqualsCode(
             '''
               Future<Status> Function() getStatus;
             ''',
@@ -57,7 +57,7 @@ void main() {
 
         expect(
           element,
-          equalsCode(
+          const EqualsCode(
             '''
               static dynamic status;
             ''',
@@ -76,7 +76,7 @@ void main() {
 
         expect(
           element,
-          equalsCode(
+          const EqualsCode(
             '''
               late dynamic status;
             ''',
@@ -95,7 +95,7 @@ void main() {
 
         expect(
           element,
-          equalsCode(
+          const EqualsCode(
             '''
               const dynamic status;
             ''',
@@ -114,7 +114,7 @@ void main() {
 
         expect(
           element,
-          equalsCode(
+          const EqualsCode(
             '''
               final dynamic status;
             ''',
@@ -135,7 +135,7 @@ void main() {
 
         expect(
           element,
-          equalsCode(
+          const EqualsCode(
             '''
               static late final dynamic status;
             ''',

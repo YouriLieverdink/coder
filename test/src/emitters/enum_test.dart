@@ -21,7 +21,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 enum Status {
                   todo,

@@ -36,7 +36,9 @@ class ConstructorEmitter extends Emitter<Constructor> {
     output.write('()');
 
     if (!element.isConst) {
-      output.write('{}');
+      output //
+        ..write('{')
+        ..write('}');
     } //
     else {
       output.write(';');

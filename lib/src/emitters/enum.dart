@@ -14,7 +14,10 @@ class EnumEmitter extends Emitter<Enum> {
   ]) {
     output ??= StringBuffer();
 
-    output.write('enum ${element.name} {');
+    output //
+      ..write('enum ')
+      ..write('${element.name} ')
+      ..write('{');
 
     for (final v in element.values) {
       EnumValueEmitter(context).emit(v, output);

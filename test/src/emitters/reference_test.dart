@@ -14,7 +14,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 String
               ''',
@@ -35,7 +35,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 List<String>
               ''',
@@ -57,7 +57,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 Map<String,dynamic>
               ''',
@@ -76,7 +76,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 String?
               ''',
@@ -99,7 +99,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 String Function()
               ''',

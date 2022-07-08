@@ -19,7 +19,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 class Cat {
                   Cat() {
@@ -45,7 +45,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 class Cat {
                   const Cat();
@@ -70,7 +70,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 class Cat {
                   factory Cat() {
@@ -97,7 +97,7 @@ void main() {
 
           expect(
             element,
-            equalsCode(
+            const EqualsCode(
               '''
                 class Cat {
                   factory Cat.from() {

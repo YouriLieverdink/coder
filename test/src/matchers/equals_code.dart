@@ -4,8 +4,6 @@ import 'package:test/test.dart';
 
 final _formatter = DartFormatter();
 
-Matcher equalsCode(String expected) => EqualsCode(expected);
-
 /// {@template equals_code}
 ///
 /// {@endtemplate}
@@ -20,20 +18,13 @@ class EqualsCode extends Matcher {
 
   final Builder builder;
 
-  /// Forms the provided [value] using the [DartFormatter].
-  ///
-  /// When the [DartFormatter] fails for some reason, most often due to
-  /// incorrect source code, the [value] will simply be returned.
-  String format(
-    String value,
-  ) {
-    final _value = collapseWhitespace(value);
-
+  String format(String value) {
     try {
-      return _formatter.format(_value);
+      return _formatter.format(value);
     } //
     catch (_) {
-      return _value;
+      // The formatter throws when the provided source is invalid.
+      return collapseWhitespace(value).trim();
     }
   }
 
@@ -54,8 +45,12 @@ class EqualsCode extends Matcher {
     final expected = format(this.expected);
     final actual = format(builder.build(item));
 
-    return equals(expected)
-        .describeMismatch(actual, mismatchDescription, matchState, verbose);
+    return equals(expected).describeMismatch(
+      actual,
+      mismatchDescription,
+      matchState,
+      verbose,
+    );
   }
 
   @override

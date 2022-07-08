@@ -21,7 +21,7 @@ class ClassEmitter extends Emitter<Class> {
       ReferenceEmitter(context).emit(element.extends_!, output);
     }
 
-    output.write(' {');
+    output.write('{');
 
     for (final v in element.constructors) {
       ConstructorEmitter(context, parent: element).emit(v, output);
