@@ -11,7 +11,7 @@ class EnumEmitter extends Emitter<Enum> {
     output.write('enum ${element.name} {');
 
     for (final v in element.values) {
-      v.emit(output);
+      EnumValueEmitter().emit(v, output);
 
       if (v != element.values.last) {
         output.write(',');

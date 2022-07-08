@@ -24,12 +24,6 @@ class Enum extends Element {
       values: values ?? this.values,
     );
   }
-
-  @override
-  StringSink emit([StringSink? output]) {
-    //
-    return EnumEmitter().emit(this, output);
-  }
 }
 
 /// {@template enum_value}
@@ -50,11 +44,5 @@ class EnumValue extends Element {
     return EnumValue(
       name: name ?? this.name,
     );
-  }
-
-  @override
-  StringSink emit([StringSink? output]) {
-    //
-    return EnumValueEmitter().emit(this, output);
   }
 }

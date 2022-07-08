@@ -42,12 +42,6 @@ class TypeReference extends Reference {
       types: types ?? this.types,
     );
   }
-
-  @override
-  StringSink emit([StringSink? output]) {
-    //
-    return TypeReferenceEmitter().emit(this, output);
-  }
 }
 
 /// {@template function_reference}
@@ -68,11 +62,5 @@ class FunctionReference extends Reference {
     return FunctionReference(
       returns: returns ?? this.returns,
     );
-  }
-
-  @override
-  StringSink emit([StringSink? output]) {
-    //
-    return FunctionReferenceEmitter().emit(this, output);
   }
 }

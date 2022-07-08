@@ -1,5 +1,24 @@
 part of emitter;
 
+class ReferenceEmitter extends Emitter<Reference> {
+  @override
+  StringSink emit(
+    Reference element, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    if (element is TypeReference) {
+      TypeReferenceEmitter().emit(element, output);
+    } //
+    else if (element is FunctionReference) {
+      FunctionReferenceEmitter().emit(element, output);
+    }
+
+    return output;
+  }
+}
+
 class TypeReferenceEmitter extends Emitter<TypeReference> {
   @override
   StringSink emit(
@@ -14,7 +33,7 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
       output.write('<');
 
       for (final v in element.types) {
-        v.emit(output);
+        ReferenceEmitter().emit(v, output);
 
         if (v != element.types.last) {
           output.write(',');
@@ -40,7 +59,7 @@ class FunctionReferenceEmitter extends Emitter<FunctionReference> {
   ]) {
     output ??= StringBuffer();
 
-    element.returns.emit(output);
+    ReferenceEmitter().emit(element, output);
 
     output.write(' Function()');
 
