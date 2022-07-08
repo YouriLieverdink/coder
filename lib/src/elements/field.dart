@@ -32,14 +32,14 @@ class Field extends Element {
   Field copyWith({
     Reference? type,
     String? name,
-    FieldModifier? kind,
+    FieldModifier? modifier,
     bool? isStatic,
     bool? isLate,
   }) {
     return Field(
       type: type ?? this.type,
       name: name ?? this.name,
-      modifier: kind ?? this.modifier,
+      modifier: modifier ?? this.modifier,
       isStatic: isStatic ?? this.isStatic,
       isLate: isLate ?? this.isLate,
     );
