@@ -3,15 +3,15 @@ import 'package:test/test.dart';
 
 void main() {
   group(
-    'visitTypeReference',
+    'TypeReferenceEmitter',
     () {
       test(
         'should create a TypeReference',
         () {
           const element = TypeReference('String');
 
-          final result = element //
-              .emit()
+          final result = TypeReferenceEmitter() //
+              .emit(element)
               .toString();
 
           expect(
@@ -31,8 +31,8 @@ void main() {
             ],
           );
 
-          final result = element //
-              .emit()
+          final result = TypeReferenceEmitter() //
+              .emit(element)
               .toString();
 
           expect(
@@ -53,8 +53,8 @@ void main() {
             ],
           );
 
-          final result = element //
-              .emit()
+          final result = TypeReferenceEmitter() //
+              .emit(element)
               .toString();
 
           expect(
@@ -72,8 +72,8 @@ void main() {
             isNullable: true,
           );
 
-          final result = element //
-              .emit()
+          final result = TypeReferenceEmitter() //
+              .emit(element)
               .toString();
 
           expect(
@@ -86,7 +86,7 @@ void main() {
   );
 
   group(
-    'FunctionReference',
+    'FunctionReferenceEmitter',
     () {
       test(
         'should create a FunctionReference',
@@ -95,8 +95,8 @@ void main() {
             returns: TypeReference('String'),
           );
 
-          final result = element //
-              .emit()
+          final result = FunctionReferenceEmitter() //
+              .emit(element)
               .toString();
 
           expect(

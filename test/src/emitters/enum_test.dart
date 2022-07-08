@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group(
-    'visitEnum',
+    'EnumEmitter',
     () {
       test(
         'should create an Enum',
@@ -17,8 +17,8 @@ void main() {
             ],
           );
 
-          final result = element //
-              .emit()
+          final result = EnumEmitter() //
+              .emit(element)
               .toString();
 
           expect(
