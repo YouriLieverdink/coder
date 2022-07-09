@@ -1,9 +1,12 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-import '../../matchers/equals_code.dart';
+import '../../utilities/utilities.dart';
 
 void main() {
+  const context = Context();
+  const emitter = ParameterEmitter(context);
+
   group(
     'ParameterEmitter',
     () {
@@ -14,12 +17,13 @@ void main() {
             name: 'name',
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 dynamic name 
               ''',
+              emitter: emitter,
             ),
           );
         },

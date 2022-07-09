@@ -1,14 +1,17 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-import '../../matchers/equals_code.dart';
+import '../../utilities/utilities.dart';
 
 void main() {
+  const context = Context();
+  const emitter = EnumEmitter(context);
+
   group(
     'EnumEmitter',
     () {
       test(
-        'should create an Enum',
+        'should emit an enum',
         () {
           const element = Enum(
             name: 'Status',
@@ -19,9 +22,9 @@ void main() {
             ],
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 enum Status {
                   todo,
@@ -29,6 +32,7 @@ void main() {
                   done
                 }
               ''',
+              emitter: emitter,
             ),
           );
         },

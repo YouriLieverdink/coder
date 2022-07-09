@@ -5,7 +5,7 @@ part of emitter;
 /// {@endtemplate}
 class EnumEmitter extends Emitter<Enum> {
   /// {@macro enum_emitter}
-  EnumEmitter(super.context);
+  const EnumEmitter(super.context);
 
   @override
   StringSink emit(

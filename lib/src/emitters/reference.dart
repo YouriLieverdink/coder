@@ -5,7 +5,7 @@ part of emitter;
 /// {@endtemplate}
 class ReferenceEmitter extends Emitter<Reference> {
   /// {@macro reference_emitter}
-  ReferenceEmitter(super.context);
+  const ReferenceEmitter(super.context);
 
   @override
   StringSink emit(
@@ -30,7 +30,7 @@ class ReferenceEmitter extends Emitter<Reference> {
 /// {@endtemplate}
 class TypeReferenceEmitter extends Emitter<TypeReference> {
   /// {@macro type_reference_emitter}
-  TypeReferenceEmitter(super.context);
+  const TypeReferenceEmitter(super.context);
 
   @override
   StringSink emit(
@@ -68,7 +68,7 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
 /// {@endtemplate}
 class FunctionReferenceEmitter extends Emitter<FunctionReference> {
   /// {@macro function_reference_emitter}
-  FunctionReferenceEmitter(super.context);
+  const FunctionReferenceEmitter(super.context);
 
   @override
   StringSink emit(

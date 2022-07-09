@@ -1,32 +1,28 @@
 import 'package:coder/coder.dart';
-import 'package:dart_style/dart_style.dart';
 import 'package:test/test.dart';
 
-final _formatter = DartFormatter();
+import './utilities.dart';
 
-/// {@template equals_code}
+Equals cEquals(
+  String expected, {
+  required Emitter emitter,
+}) {
+  return Equals(expected, emitter: emitter);
+}
+
+/// {@template equals}
 ///
 /// {@endtemplate}
-class EqualsCode extends Matcher {
-  /// {@macro equals_code}
-  const EqualsCode(
+class Equals extends Matcher {
+  /// {@macro equals}
+  const Equals(
     this.expected, {
-    this.builder = const Builder(),
+    required this.emitter,
   });
 
   final String expected;
 
-  final Builder builder;
-
-  String format(String value) {
-    try {
-      return _formatter.format(value);
-    } //
-    catch (_) {
-      // The formatter throws when the provided source is invalid.
-      return collapseWhitespace(value).trim();
-    }
-  }
+  final Emitter emitter;
 
   @override
   Description describe(
@@ -43,7 +39,7 @@ class EqualsCode extends Matcher {
     bool verbose,
   ) {
     final expected = format(this.expected);
-    final actual = format(builder.build(item));
+    final actual = format('${emitter.emit(item)}');
 
     return equals(expected).describeMismatch(
       actual,
@@ -59,7 +55,7 @@ class EqualsCode extends Matcher {
     Map matchState,
   ) {
     final expected = format(this.expected);
-    final actual = format(builder.build(item));
+    final actual = format('${emitter.emit(item)}');
 
     return expected == actual;
   }

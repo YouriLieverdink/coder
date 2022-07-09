@@ -5,7 +5,7 @@ part of emitter;
 /// {@endtemplate}
 class ClassEmitter extends Emitter<Class> {
   /// {@macro class_emitter}
-  ClassEmitter(super.context);
+  const ClassEmitter(super.context);
 
   @override
   StringSink emit(

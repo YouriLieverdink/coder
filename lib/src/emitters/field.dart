@@ -5,7 +5,7 @@ part of emitter;
 /// {@endtemplate}
 class FieldEmitter extends Emitter<Field> {
   /// {@macro field_emitter}
-  FieldEmitter(super.context);
+  const FieldEmitter(super.context);
 
   @override
   StringSink emit(

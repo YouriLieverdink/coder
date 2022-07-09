@@ -1,23 +1,28 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-import '../../matchers/equals_code.dart';
+import '../../utilities/utilities.dart';
 
 void main() {
+  const context = Context();
+
   group(
     'TypeReferenceEmitter',
     () {
+      const emitter = TypeReferenceEmitter(context);
+
       test(
         'should create a TypeReference',
         () {
           const element = TypeReference('String');
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 String
               ''',
+              emitter: emitter,
             ),
           );
         },
@@ -33,12 +38,13 @@ void main() {
             ],
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 List<String>
               ''',
+              emitter: emitter,
             ),
           );
         },
@@ -55,12 +61,13 @@ void main() {
             ],
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 Map<String,dynamic>
               ''',
+              emitter: emitter,
             ),
           );
         },
@@ -74,12 +81,13 @@ void main() {
             isNullable: true,
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 String?
               ''',
+              emitter: emitter,
             ),
           );
         },
@@ -90,6 +98,8 @@ void main() {
   group(
     'FunctionReferenceEmitter',
     () {
+      const emitter = FunctionReferenceEmitter(context);
+
       test(
         'should create a FunctionReference',
         () {
@@ -97,36 +107,13 @@ void main() {
             returns: TypeReference('String'),
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 String Function()
               ''',
-            ),
-          );
-        },
-      );
-
-      test(
-        'should create a FunctionReference with parameters',
-        () {
-          const element = FunctionReference(
-            returns: TypeReference('String'),
-            parameters: [
-              Parameter(
-                type: TypeReference('int'),
-                name: 'days',
-              ),
-            ],
-          );
-
-          expect(
-            element,
-            const EqualsCode(
-              '''
-                String Function(int days)
-              ''',
+              emitter: emitter,
             ),
           );
         },

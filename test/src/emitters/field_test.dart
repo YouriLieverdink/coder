@@ -1,130 +1,132 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-import '../../matchers/equals_code.dart';
+import '../../utilities/utilities.dart';
 
 void main() {
+  const context = Context();
+  const emitter = FieldEmitter(context);
+
   group('FieldEmitter', () {
     test(
-      'should create a Field',
+      'should create a field',
       () {
         const element = Field(name: 'status');
 
-        expect(
+        cExpect(
           element,
-          const EqualsCode(
+          cEquals(
             '''
               dynamic status;
             ''',
+            emitter: emitter,
           ),
         );
       },
     );
 
     test(
-      'should create a Field with a custom type',
+      'should create a field with a type',
       () {
         const element = Field(
-          name: 'getStatus',
-          type: FunctionReference(
-            returns: TypeReference(
-              'Future',
-              types: [
-                TypeReference('Status'),
-              ],
-            ),
-          ),
+          name: 'status',
+          type: TypeReference('Status'),
         );
 
-        expect(
+        cExpect(
           element,
-          const EqualsCode(
+          cEquals(
             '''
-              Future<Status> Function() getStatus;
+              Status status;
             ''',
+            emitter: emitter,
           ),
         );
       },
     );
 
     test(
-      'should create a static Field when isStatic is true',
+      'should create a static field',
       () {
         const element = Field(
           name: 'status',
           isStatic: true,
         );
 
-        expect(
+        cExpect(
           element,
-          const EqualsCode(
+          cEquals(
             '''
               static dynamic status;
             ''',
+            emitter: emitter,
           ),
         );
       },
     );
 
     test(
-      'should create a late Field when isLate is true',
+      'should create a late field',
       () {
         const element = Field(
           name: 'status',
           isLate: true,
         );
 
-        expect(
+        cExpect(
           element,
-          const EqualsCode(
+          cEquals(
             '''
               late dynamic status;
             ''',
+            emitter: emitter,
           ),
         );
       },
     );
 
     test(
-      'should create a const Field when Kind is const_',
+      'should create a const field',
       () {
         const element = Field(
           name: 'status',
           modifier: FieldModifier.const_,
         );
 
-        expect(
+        cExpect(
           element,
-          const EqualsCode(
+          cEquals(
             '''
               const dynamic status;
             ''',
+            emitter: emitter,
           ),
         );
       },
     );
 
     test(
-      'should create a final Field when Kind is final_',
+      'should create a final field',
       () {
         const element = Field(
           name: 'status',
           modifier: FieldModifier.final_,
         );
 
-        expect(
+        cExpect(
           element,
-          const EqualsCode(
+          cEquals(
             '''
               final dynamic status;
             ''',
+            emitter: emitter,
           ),
         );
       },
     );
 
     test(
-      'should create a Field with modifiers in the correct order',
+      'should create a field with modifiers in the correct order',
       () {
         const element = Field(
           name: 'status',
@@ -133,12 +135,13 @@ void main() {
           modifier: FieldModifier.final_,
         );
 
-        expect(
+        cExpect(
           element,
-          const EqualsCode(
+          cEquals(
             '''
               static late final dynamic status;
             ''',
+            emitter: emitter,
           ),
         );
       },

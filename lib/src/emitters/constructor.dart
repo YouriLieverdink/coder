@@ -5,7 +5,7 @@ part of emitter;
 /// {@endtemplate}
 class ConstructorEmitter extends Emitter<Constructor> {
   /// {@macro constructor_emitter}
-  ConstructorEmitter(super.context, this.class_);
+  const ConstructorEmitter(super.context, this.class_);
 
   final Class class_;
 
@@ -38,8 +38,8 @@ class ConstructorEmitter extends Emitter<Constructor> {
 
     if (!element.isConst) {
       output //
-        ..write('{')
-        ..write('}');
+        ..write(' {')
+        ..write(' }');
     } //
     else {
       output.write(';');

@@ -1,82 +1,68 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-import '../../matchers/equals_code.dart';
+import '../../utilities/utilities.dart';
 
 void main() {
+  const context = Context();
+  const class_ = Class(name: 'Animal');
+  const emitter = ConstructorEmitter(context, class_);
+
   group(
     'ConstructorEmitter',
     () {
       test(
-        'should create a Constructor',
+        'should create a constructor',
         () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(),
-            ],
-          );
+          const element = Constructor();
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
-                class Cat {
-                  Cat() {
-                  }
+                Animal() {
                 }
               ''',
+              emitter: emitter,
             ),
           );
         },
       );
 
       test(
-        'should create a const Constructor when isConst is true',
+        'should create a const constructor',
         () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                isConst: true,
-              ),
-            ],
+          const element = Constructor(
+            isConst: true,
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
-                class Cat {
-                  const Cat();
-                }
+                const Animal();
               ''',
+              emitter: emitter,
             ),
           );
         },
       );
 
       test(
-        'should create a factory Constructor when isFactory is true',
+        'should create a factory constructor',
         () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                isFactory: true,
-              ),
-            ],
+          const element = Constructor(
+            isFactory: true,
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
-                class Cat {
-                  factory Cat() {
-                  }
+                factory Animal() {
                 }
               ''',
+              emitter: emitter,
             ),
           );
         },
@@ -85,208 +71,19 @@ void main() {
       test(
         'should create a named factory constructor',
         () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                isFactory: true,
-                name: 'from',
-              ),
-            ],
+          const element = Constructor(
+            isFactory: true,
+            name: 'fromCat',
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
-                class Cat {
-                  factory Cat.from() {
-                  }
+                factory Animal.fromCat() {
                 }
               ''',
-            ),
-          );
-        },
-      );
-
-      test(
-        'should create a constructor with parameters',
-        () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                parameters: [
-                  Parameter(
-                    type: TypeReference('String'),
-                    name: 'name',
-                  ),
-                  Parameter(
-                    type: TypeReference('int'),
-                    name: 'age',
-                  ),
-                ],
-              ),
-            ],
-          );
-
-          expect(
-            element,
-            const EqualsCode(
-              '''
-                class Cat {
-                  Cat(String name, int age) {
-                  }
-                }
-              ''',
-            ),
-          );
-        },
-      );
-
-      test(
-        'should create a constructor with named parameters',
-        () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                parameters: [
-                  Parameter(
-                    type: TypeReference('String'),
-                    name: 'name',
-                    isRequired: true,
-                    isNamed: true,
-                  ),
-                  Parameter(
-                    type: TypeReference('int', isNullable: true),
-                    name: 'age',
-                    isNamed: true,
-                  ),
-                ],
-              ),
-            ],
-          );
-
-          expect(
-            element,
-            const EqualsCode(
-              '''
-                class Cat {
-                  Cat({required String name, int? age}) {
-                  }
-                }
-              ''',
-            ),
-          );
-        },
-      );
-
-      test(
-        'should create a constructor with required and named parameters',
-        () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                parameters: [
-                  Parameter(
-                    type: TypeReference('String'),
-                    name: 'name',
-                  ),
-                  Parameter(
-                    type: TypeReference('int', isNullable: true),
-                    name: 'age',
-                    isNamed: true,
-                  ),
-                ],
-              ),
-            ],
-          );
-
-          expect(
-            element,
-            const EqualsCode(
-              '''
-                class Cat {
-                  Cat(String name, {int? age}) {
-                  }
-                }
-              ''',
-            ),
-          );
-        },
-      );
-
-      test(
-        'should create a constructor with required and optional parameters',
-        () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                parameters: [
-                  Parameter(
-                    type: TypeReference('String'),
-                    name: 'name',
-                  ),
-                  Parameter(
-                    type: TypeReference('int', isNullable: true),
-                    name: 'age',
-                    isOptional: true,
-                  ),
-                ],
-              ),
-            ],
-          );
-
-          expect(
-            element,
-            const EqualsCode(
-              '''
-                class Cat {
-                  Cat(String name, [int? age]) {
-                  }
-                }
-              ''',
-            ),
-          );
-        },
-      );
-
-      test(
-        'should create a constructor with initializing parameters',
-        () {
-          const element = Class(
-            name: 'Cat',
-            constructors: [
-              Constructor(
-                parameters: [
-                  Parameter(
-                    type: TypeReference('String'),
-                    name: 'name',
-                    isToThis: true,
-                  ),
-                  Parameter(
-                    type: TypeReference('int', isNullable: true),
-                    name: 'age',
-                    isToThis: true,
-                    isOptional: true,
-                  ),
-                ],
-              ),
-            ],
-          );
-
-          expect(
-            element,
-            const EqualsCode(
-              '''
-                class Cat {
-                  Cat(this.name, [this.age]) {
-                  }
-                }
-              ''',
+              emitter: emitter,
             ),
           );
         },

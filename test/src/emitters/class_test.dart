@@ -1,9 +1,12 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-import '../../matchers/equals_code.dart';
+import '../../utilities/utilities.dart';
 
 void main() {
+  const context = Context();
+  const emitter = ClassEmitter(context);
+
   group(
     'ClassEmitter',
     () {
@@ -14,13 +17,14 @@ void main() {
             name: 'Animal',
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 class Animal {
                 }
               ''',
+              emitter: emitter,
             ),
           );
         },
@@ -34,13 +38,14 @@ void main() {
             extends_: TypeReference('Animal'),
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 class Cat extends Animal {
                 }
               ''',
+              emitter: emitter,
             ),
           );
         },
@@ -63,15 +68,16 @@ void main() {
             ],
           );
 
-          expect(
+          cExpect(
             element,
-            const EqualsCode(
+            cEquals(
               '''
                 class Cat {
                   String name;
                   int age;
                 }
               ''',
+              emitter: emitter,
             ),
           );
         },
