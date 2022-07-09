@@ -79,7 +79,11 @@ class FunctionReferenceEmitter extends Emitter<FunctionReference> {
 
     ReferenceEmitter(context).emit(element.returns, output);
 
-    output.write(' Function()');
+    output.write(' Function(');
+
+    ParameterListEmitter(context).emit(element.parameters, output);
+
+    output.write(')');
 
     return output;
   }

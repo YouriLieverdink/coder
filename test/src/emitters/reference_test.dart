@@ -107,6 +107,30 @@ void main() {
           );
         },
       );
+
+      test(
+        'should create a FunctionReference with parameters',
+        () {
+          const element = FunctionReference(
+            returns: TypeReference('String'),
+            parameters: [
+              Parameter(
+                type: TypeReference('int'),
+                name: 'days',
+              ),
+            ],
+          );
+
+          expect(
+            element,
+            const EqualsCode(
+              '''
+                String Function(int days)
+              ''',
+            ),
+          );
+        },
+      );
     },
   );
 }

@@ -54,18 +54,23 @@ class FunctionReference extends Reference {
   const FunctionReference({
     this.returns = const TypeReference('void'),
     bool isNullable = false,
+    this.parameters = const [],
   }) : super(isNullable: isNullable);
 
   final Reference returns;
+
+  final List<Parameter> parameters;
 
   @override
   FunctionReference copyWith({
     Reference? returns,
     bool? isNullable,
+    List<Parameter>? parameters,
   }) {
     return FunctionReference(
       returns: returns ?? this.returns,
       isNullable: isNullable ?? this.isNullable,
+      parameters: parameters ?? this.parameters,
     );
   }
 }
