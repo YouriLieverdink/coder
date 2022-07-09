@@ -5,12 +5,9 @@ part of emitter;
 /// {@endtemplate}
 class ConstructorEmitter extends Emitter<Constructor> {
   /// {@macro constructor_emitter}
-  ConstructorEmitter(
-    super.context, {
-    required this.parent,
-  });
+  ConstructorEmitter(super.context, this.class_);
 
-  final Class parent;
+  final Class class_;
 
   @override
   StringSink emit(
@@ -27,13 +24,17 @@ class ConstructorEmitter extends Emitter<Constructor> {
       output.write('factory ');
     }
 
-    output.write(parent.name);
+    output.write(class_.name);
 
     if (element.name != null) {
       output.write('.${element.name}');
     }
 
-    output.write('()');
+    output.write('(');
+
+    ParameterListEmitter(context).emit(element.parameters, output);
+
+    output.write(')');
 
     if (!element.isConst) {
       output //

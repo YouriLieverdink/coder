@@ -1,7 +1,7 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
-import '../matchers/equals_code.dart';
+import '../../matchers/equals_code.dart';
 
 void main() {
   group('FieldEmitter', () {

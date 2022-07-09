@@ -4,6 +4,7 @@ part './elements/class.dart';
 part './elements/constructor.dart';
 part './elements/enum.dart';
 part './elements/field.dart';
+part './elements/parameter.dart';
 part './elements/reference.dart';
 
 /// {@template element}

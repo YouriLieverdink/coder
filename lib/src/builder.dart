@@ -27,6 +27,9 @@ class Builder {
     else if (element is Field) {
       FieldEmitter(context).emit(element, output);
     } //
+    else if (element is Parameter) {
+      ParameterEmitter(context).emit(element, output);
+    } //
     else if (element is Reference) {
       ReferenceEmitter(context).emit(element, output);
     }
