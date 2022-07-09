@@ -8,30 +8,30 @@ class Class extends Element {
   const Class({
     required this.name,
     this.extends_,
-    this.fields = const [],
     this.constructors = const [],
+    this.fields = const [],
   });
 
   final String name;
 
   final Reference? extends_;
 
-  final List<Field> fields;
-
   final List<Constructor> constructors;
+
+  final List<Field> fields;
 
   @override
   Element copyWith({
     String? name,
     Reference? extends_,
-    List<Field>? fields,
     List<Constructor>? constructors,
+    List<Field>? fields,
   }) {
     return Class(
       name: name ?? this.name,
       extends_: extends_ ?? this.extends_,
-      fields: fields ?? this.fields,
       constructors: constructors ?? this.constructors,
+      fields: fields ?? this.fields,
     );
   }
 }

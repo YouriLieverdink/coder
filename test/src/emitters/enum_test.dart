@@ -5,20 +5,41 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = EnumEmitter(context);
 
   group(
     'EnumEmitter',
     () {
+      const emitter = EnumEmitter(context);
+
       test(
         'should emit an enum',
         () {
           const element = Enum(
-            name: 'Status',
+            name: 'CatState',
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                enum CatState {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an enum with values',
+        () {
+          const element = Enum(
+            name: 'CatState',
             values: [
-              EnumValue('todo'),
-              EnumValue('inProgress'),
-              EnumValue('done'),
+              EnumValue('sleep'),
+              EnumValue('eat'),
+              EnumValue('purr'),
             ],
           );
 
@@ -26,11 +47,35 @@ void main() {
             element,
             cEquals(
               '''
-                enum Status {
-                  todo,
-                  inProgress,
-                  done
+                enum CatState {
+                  sleep,
+                  eat,
+                  purr
                 }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'EnumValueEmitter',
+    () {
+      const emitter = EnumValueEmitter(context);
+
+      test(
+        'should emit an enum value',
+        () {
+          const element = EnumValue('sleep');
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                sleep
               ''',
               emitter: emitter,
             ),

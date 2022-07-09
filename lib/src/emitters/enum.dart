@@ -14,20 +14,17 @@ class EnumEmitter extends Emitter<Enum> {
   ]) {
     output ??= StringBuffer();
 
-    output //
-      ..write('enum ')
-      ..write('${element.name} ')
-      ..write('{');
+    output.write(' enum ${element.name} { ');
 
     for (final v in element.values) {
       EnumValueEmitter(context).emit(v, output);
 
       if (v != element.values.last) {
-        output.write(',');
+        output.write(' , ');
       }
     }
 
-    output.write('}');
+    output.write(' } ');
 
     return output;
   }
@@ -38,7 +35,7 @@ class EnumEmitter extends Emitter<Enum> {
 /// {@endtemple}
 class EnumValueEmitter extends Emitter<EnumValue> {
   /// {@macro enum_value_emitter}
-  EnumValueEmitter(super.context);
+  const EnumValueEmitter(super.context);
 
   @override
   StringSink emit(
@@ -48,7 +45,7 @@ class EnumValueEmitter extends Emitter<EnumValue> {
     //
     output ??= StringBuffer();
 
-    output.write(element.name);
+    output.write(' ${element.name} ');
 
     return output;
   }

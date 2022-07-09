@@ -5,23 +5,107 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = ParameterEmitter(context);
 
   group(
     'ParameterEmitter',
     () {
+      const emitter = ParameterEmitter(context);
+
       test(
-        'should create a parameter',
+        'should emit a parameter',
         () {
           const element = Parameter(
-            name: 'name',
+            name: 'state',
           );
 
           cExpect(
             element,
             cEquals(
               '''
-                dynamic name 
+                dynamic state 
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a parameter with a type',
+        () {
+          const element = Parameter(
+            name: 'state',
+            type: TypeReference('CatState'),
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                CatState state 
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a required parameter when named',
+        () {
+          const element = Parameter(
+            name: 'state',
+            type: TypeReference('CatState'),
+            isRequired: true,
+            isNamed: true,
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                required CatState state
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a normal parameter when not named',
+        () {
+          const element = Parameter(
+            name: 'state',
+            type: TypeReference('CatState'),
+            isRequired: true,
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                CatState state
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a to this parameter',
+        () {
+          const element = Parameter(
+            name: 'state',
+            isToThis: true,
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                this.state
               ''',
               emitter: emitter,
             ),
@@ -29,5 +113,10 @@ void main() {
         },
       );
     },
+  );
+
+  group(
+    'ParameterListEmitter',
+    () {},
   );
 }

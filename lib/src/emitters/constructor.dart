@@ -17,11 +17,11 @@ class ConstructorEmitter extends Emitter<Constructor> {
     output ??= StringBuffer();
 
     if (element.isConst) {
-      output.write('const ');
+      output.write(' const ');
     }
 
     if (element.isFactory) {
-      output.write('factory ');
+      output.write(' factory ');
     }
 
     output.write(class_.name);
@@ -37,9 +37,7 @@ class ConstructorEmitter extends Emitter<Constructor> {
     output.write(')');
 
     if (!element.isConst) {
-      output //
-        ..write(' {')
-        ..write(' }');
+      output.write(' { } ');
     } //
     else {
       output.write(';');

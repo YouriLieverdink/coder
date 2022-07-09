@@ -11,17 +11,15 @@ void main() {
     'ClassEmitter',
     () {
       test(
-        'should create a Class',
+        'should emit a class',
         () {
-          const element = Class(
-            name: 'Animal',
-          );
+          const element = Class(name: 'Cat');
 
           cExpect(
             element,
             cEquals(
               '''
-                class Animal {
+                class Cat {
                 }
               ''',
               emitter: emitter,
@@ -31,7 +29,7 @@ void main() {
       );
 
       test(
-        'should create a Class which extends another Class',
+        'should emit a class which extends another class',
         () {
           const element = Class(
             name: 'Cat',
@@ -52,7 +50,32 @@ void main() {
       );
 
       test(
-        'should create a class with Fields',
+        'should emit a class with constructors',
+        () {
+          const element = Class(
+            name: 'Cat',
+            constructors: [
+              Constructor(),
+            ],
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                class Cat {
+                  Cat() {
+                  }
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a class with fields',
         () {
           const element = Class(
             name: 'Cat',
@@ -60,10 +83,6 @@ void main() {
               Field(
                 name: 'name',
                 type: TypeReference('String'),
-              ),
-              Field(
-                name: 'age',
-                type: TypeReference('int'),
               ),
             ],
           );
@@ -74,7 +93,6 @@ void main() {
               '''
                 class Cat {
                   String name;
-                  int age;
                 }
               ''',
               emitter: emitter,

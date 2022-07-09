@@ -14,14 +14,15 @@ class ClassEmitter extends Emitter<Class> {
   ]) {
     output ??= StringBuffer();
 
-    output.write('class ${element.name}');
+    output.write(' class ${element.name} ');
 
     if (element.extends_ != null) {
       output.write(' extends ');
+
       ReferenceEmitter(context).emit(element.extends_!, output);
     }
 
-    output.write('{');
+    output.write(' { ');
 
     for (final v in element.constructors) {
       ConstructorEmitter(context, element).emit(v, output);
@@ -31,7 +32,7 @@ class ClassEmitter extends Emitter<Class> {
       FieldEmitter(context).emit(v, output);
     }
 
-    output.write('}');
+    output.write(' } ');
 
     return output;
   }

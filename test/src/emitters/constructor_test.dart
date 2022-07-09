@@ -5,14 +5,14 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const class_ = Class(name: 'Animal');
+  const class_ = Class(name: 'Cat');
   const emitter = ConstructorEmitter(context, class_);
 
   group(
     'ConstructorEmitter',
     () {
       test(
-        'should create a constructor',
+        'should emit a constructor',
         () {
           const element = Constructor();
 
@@ -20,7 +20,7 @@ void main() {
             element,
             cEquals(
               '''
-                Animal() {
+                Cat() {
                 }
               ''',
               emitter: emitter,
@@ -30,7 +30,7 @@ void main() {
       );
 
       test(
-        'should create a const constructor',
+        'should emit a const constructor',
         () {
           const element = Constructor(
             isConst: true,
@@ -40,7 +40,7 @@ void main() {
             element,
             cEquals(
               '''
-                const Animal();
+                const Cat();
               ''',
               emitter: emitter,
             ),
@@ -49,7 +49,7 @@ void main() {
       );
 
       test(
-        'should create a factory constructor',
+        'should emit a factory constructor',
         () {
           const element = Constructor(
             isFactory: true,
@@ -59,7 +59,27 @@ void main() {
             element,
             cEquals(
               '''
-                factory Animal() {
+                factory Cat() {
+                } 
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a named constructor',
+        () {
+          const element = Constructor(
+            name: 'fromJson',
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                Cat.fromJson() {
                 }
               ''',
               emitter: emitter,
@@ -69,18 +89,22 @@ void main() {
       );
 
       test(
-        'should create a named factory constructor',
+        'should emit a constructor with parameters',
         () {
           const element = Constructor(
-            isFactory: true,
-            name: 'fromCat',
+            parameters: [
+              Parameter(
+                name: 'name',
+                type: TypeReference('String'),
+              ),
+            ],
           );
 
           cExpect(
             element,
             cEquals(
               '''
-                factory Animal.fromCat() {
+                Cat(String name) {
                 }
               ''',
               emitter: emitter,

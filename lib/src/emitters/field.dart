@@ -23,12 +23,12 @@ class FieldEmitter extends Emitter<Field> {
     }
 
     switch (element.modifier) {
-      case FieldModifier.const_:
-        output.write('const ');
-        break;
-
       case FieldModifier.final_:
         output.write('final ');
+        break;
+
+      case FieldModifier.const_:
+        output.write('const ');
         break;
 
       default:
@@ -37,8 +37,9 @@ class FieldEmitter extends Emitter<Field> {
 
     ReferenceEmitter(context).emit(element.type, output);
 
-    output.write(' ${element.name}');
-    output.write(';');
+    output //
+      ..write(' ${element.name}')
+      ..write(';');
 
     return output;
   }

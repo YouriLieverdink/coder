@@ -35,7 +35,7 @@ class ParameterEmitter extends Emitter<Parameter> {
 /// {@endtemplate}
 class ParameterListEmitter extends ListEmitter<Parameter> {
   /// {@macro parameter_list_emitter}
-  ParameterListEmitter(super.context);
+  const ParameterListEmitter(super.context);
 
   @override
   StringSink emit(

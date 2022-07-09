@@ -12,7 +12,7 @@ void main() {
       const emitter = TypeReferenceEmitter(context);
 
       test(
-        'should create a TypeReference',
+        'should emit a type reference',
         () {
           const element = TypeReference('String');
 
@@ -29,7 +29,7 @@ void main() {
       );
 
       test(
-        'should create a TypeReference with a type parameter',
+        'should emit a type reference with a type parameter',
         () {
           const element = TypeReference(
             'List',
@@ -51,7 +51,7 @@ void main() {
       );
 
       test(
-        'should create a TypeReference with multiple type parameters',
+        'should emit a type reference with multiple type parameters',
         () {
           const element = TypeReference(
             'Map',
@@ -74,7 +74,7 @@ void main() {
       );
 
       test(
-        'should create a nullable TypeReference',
+        'should emit a nullable type reference',
         () {
           const element = TypeReference(
             'String',
@@ -101,7 +101,7 @@ void main() {
       const emitter = FunctionReferenceEmitter(context);
 
       test(
-        'should create a FunctionReference',
+        'should emit a function reference',
         () {
           const element = FunctionReference(
             returns: TypeReference('String'),
@@ -112,6 +112,30 @@ void main() {
             cEquals(
               '''
                 String Function()
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a function reference with parameters',
+        () {
+          const element = FunctionReference(
+            parameters: [
+              Parameter(
+                name: 'state',
+                type: TypeReference('CatState'),
+              ),
+            ],
+          );
+
+          cExpect(
+            element,
+            cEquals(
+              '''
+                void Function(CatState state)
               ''',
               emitter: emitter,
             ),

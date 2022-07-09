@@ -7,144 +7,127 @@ void main() {
   const context = Context();
   const emitter = FieldEmitter(context);
 
-  group('FieldEmitter', () {
-    test(
-      'should create a field',
-      () {
-        const element = Field(name: 'status');
+  group(
+    'FieldEmitter',
+    () {
+      test(
+        'should emit a field',
+        () {
+          const element = Field(
+            name: 'state',
+          );
 
-        cExpect(
-          element,
-          cEquals(
-            '''
-              dynamic status;
-            ''',
-            emitter: emitter,
-          ),
-        );
-      },
-    );
+          cExpect(
+            element,
+            cEquals(
+              '''
+                dynamic state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
 
-    test(
-      'should create a field with a type',
-      () {
-        const element = Field(
-          name: 'status',
-          type: TypeReference('Status'),
-        );
+      test(
+        'should emit a field with a type',
+        () {
+          const element = Field(
+            name: 'state',
+            type: TypeReference('CatState'),
+          );
 
-        cExpect(
-          element,
-          cEquals(
-            '''
-              Status status;
-            ''',
-            emitter: emitter,
-          ),
-        );
-      },
-    );
+          cExpect(
+            element,
+            cEquals(
+              '''
+                CatState state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
 
-    test(
-      'should create a static field',
-      () {
-        const element = Field(
-          name: 'status',
-          isStatic: true,
-        );
+      test(
+        'should emit a final field',
+        () {
+          const element = Field(
+            name: 'state',
+            modifier: FieldModifier.final_,
+          );
 
-        cExpect(
-          element,
-          cEquals(
-            '''
-              static dynamic status;
-            ''',
-            emitter: emitter,
-          ),
-        );
-      },
-    );
+          cExpect(
+            element,
+            cEquals(
+              '''
+                final dynamic state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
 
-    test(
-      'should create a late field',
-      () {
-        const element = Field(
-          name: 'status',
-          isLate: true,
-        );
+      test(
+        'should emit a const field',
+        () {
+          const element = Field(
+            name: 'state',
+            modifier: FieldModifier.const_,
+          );
 
-        cExpect(
-          element,
-          cEquals(
-            '''
-              late dynamic status;
-            ''',
-            emitter: emitter,
-          ),
-        );
-      },
-    );
+          cExpect(
+            element,
+            cEquals(
+              '''
+                const dynamic state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
 
-    test(
-      'should create a const field',
-      () {
-        const element = Field(
-          name: 'status',
-          modifier: FieldModifier.const_,
-        );
+      test(
+        'should emit a static field',
+        () {
+          const element = Field(
+            name: 'state',
+            isStatic: true,
+          );
 
-        cExpect(
-          element,
-          cEquals(
-            '''
-              const dynamic status;
-            ''',
-            emitter: emitter,
-          ),
-        );
-      },
-    );
+          cExpect(
+            element,
+            cEquals(
+              '''
+                static dynamic state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
 
-    test(
-      'should create a final field',
-      () {
-        const element = Field(
-          name: 'status',
-          modifier: FieldModifier.final_,
-        );
+      test(
+        'should emit a late field',
+        () {
+          const element = Field(
+            name: 'state',
+            isLate: true,
+          );
 
-        cExpect(
-          element,
-          cEquals(
-            '''
-              final dynamic status;
-            ''',
-            emitter: emitter,
-          ),
-        );
-      },
-    );
-
-    test(
-      'should create a field with modifiers in the correct order',
-      () {
-        const element = Field(
-          name: 'status',
-          isLate: true,
-          isStatic: true,
-          modifier: FieldModifier.final_,
-        );
-
-        cExpect(
-          element,
-          cEquals(
-            '''
-              static late final dynamic status;
-            ''',
-            emitter: emitter,
-          ),
-        );
-      },
-    );
-  });
+          cExpect(
+            element,
+            cEquals(
+              '''
+                late dynamic state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
 }
