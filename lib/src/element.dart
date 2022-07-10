@@ -1,6 +1,6 @@
 library element;
 
-import 'package:coder/coder.dart';
+import 'package:orchestrator/orchestrator.dart';
 
 part './elements/class.dart';
 part './elements/constructor.dart';

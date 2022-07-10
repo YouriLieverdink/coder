@@ -1,4 +1,4 @@
-![Continuous Integration](https://github.com/YouriLieverdink/coder/actions/workflows/ci.yaml/badge.svg)
+![Continuous Integration](https://github.com/YouriLieverdink/orchestrator/actions/workflows/ci.yaml/badge.svg)
 
 # Orchestrator
 

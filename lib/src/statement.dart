@@ -1,6 +1,6 @@
 library statement;
 
-import 'package:coder/coder.dart';
+import 'package:orchestrator/orchestrator.dart';
 
 part './statements/binary.dart';
 part './statements/literal.dart';

@@ -1,6 +1,6 @@
 library emitter;
 
-import 'package:coder/coder.dart';
+import 'package:orchestrator/orchestrator.dart';
 
 part './emitters/class.dart';
 part './emitters/constructor.dart';
