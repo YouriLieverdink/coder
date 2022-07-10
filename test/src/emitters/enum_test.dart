@@ -58,6 +58,36 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit an enum with values and a trailling comma',
+        () {
+          const element = Enum(
+            name: 'CatState',
+            values: [
+              EnumValue('sleep'),
+              EnumValue('eat'),
+              EnumValue('purr'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                enum CatState {
+                  sleep,
+                  eat,
+                  purr,
+                }
+              ''',
+              emitter: EnumEmitter(
+                Context(useTraillingCommas: true),
+              ),
+            ),
+          );
+        },
+      );
     },
   );
 

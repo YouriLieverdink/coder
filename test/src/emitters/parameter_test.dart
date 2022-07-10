@@ -162,6 +162,28 @@ void main() {
       );
 
       test(
+        'should emit a list of parameters with a trailling comma',
+        () {
+          const elements = [
+            Parameter(name: 'name'),
+            Parameter(name: 'state'),
+          ];
+
+          Expect(
+            elements,
+            const Equals(
+              '''
+                dynamic name, dynamic state,
+              ''',
+              emitter: ParameterListEmitter(
+                Context(useTraillingCommas: true),
+              ),
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a list of named parameters',
         () {
           const elements = [

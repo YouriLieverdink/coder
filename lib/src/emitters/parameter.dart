@@ -75,16 +75,16 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
 
       ParameterEmitter(context).emit(curr, output);
 
+      if (curr != elements.last || context.useTraillingCommas) {
+        output.write(', ');
+      }
+
       if (curr.isNamed && (next == null || !next.isNamed)) {
         output.write('}');
       }
 
       if (curr.isOptional && (next == null || !next.isOptional)) {
         output.write(']');
-      }
-
-      if (curr != elements.last) {
-        output.write(', ');
       }
     }
 

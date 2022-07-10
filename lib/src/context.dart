@@ -8,5 +8,21 @@ import 'package:coder/coder.dart';
 /// {@endtemplate}
 class Context {
   /// {@macro context}
-  const Context();
+  const Context({
+    this.useTraillingCommas = false,
+  });
+
+  /// Whether the emitters should use trailling commas.
+  ///
+  /// Currently, trailling commas are appended to parameter lists and to values
+  /// within enums.
+  ///
+  /// ```dart
+  /// enum CatState {
+  ///   sleeping,
+  ///   purring,
+  ///   eating, <- extra comma is placed here.
+  /// }
+  /// ```
+  final bool useTraillingCommas;
 }
