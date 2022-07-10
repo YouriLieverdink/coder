@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 import './utilities.dart';
 
 /// {@template expect}
-///
+/// Used to match the provided [item] with the result of the [matcher].
 /// {@endtemplate}
 class Expect<T> {
   /// {@macro expect}
@@ -11,7 +11,6 @@ class Expect<T> {
     T item,
     Equals<T> matcher,
   ) {
-    //
     if (matcher.matches(item, {})) return;
 
     // Prepare a Buffer which holds the error description.
@@ -24,7 +23,7 @@ class Expect<T> {
     final description = StringDescription();
     matcher.describeMismatch(item, description, {}, false);
 
-    output //
+    output
       ..writeln(indent(expected, first: 'Expected: '))
       ..writeln(indent(actual, first: '  Actual: '))
       ..writeln(indent('$description', first: '   Which: '));

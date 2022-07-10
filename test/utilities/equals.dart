@@ -4,7 +4,8 @@ import 'package:test/test.dart';
 import './utilities.dart';
 
 /// {@template equals}
-///
+/// A custom [Matcher] used to check whether the [expected] formatted as Dart
+/// source code equals the actual value.
 /// {@endtemplate}
 class Equals<T> extends Matcher {
   /// {@macro equals}
