@@ -18,10 +18,7 @@ part './elements/reference.dart';
 /// be generated. Every [Element] has at least one [Emitter] that transforms
 /// its configuration into source code.
 /// {@endtemplate}
-abstract class Element {
+abstract class Element extends Spec {
   /// {@macro element}
   const Element();
-
-  /// Returns an instance of `this` with the provided values.
-  Element copyWith();
 }

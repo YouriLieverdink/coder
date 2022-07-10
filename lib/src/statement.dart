@@ -14,12 +14,9 @@ part './statements/static.dart';
 /// bodies of constructors and methods. Every [Statement] has at least one
 /// [Emitter] that transforms its configuration into source code.
 /// {@endtemplate}
-abstract class Statement {
+abstract class Statement extends Spec {
   /// {@macro statement}
   const Statement();
-
-  /// Returns an instance of `this` with the provided values.
-  Statement copyWith();
 
   /// Returns the equal to operation of `this` and [other].
   ///
