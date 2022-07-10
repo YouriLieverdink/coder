@@ -21,7 +21,7 @@ class BinaryStatement extends Statement {
   final String operator;
 
   @override
-  Statement copyWith({
+  BinaryStatement copyWith({
     Statement? left,
     Statement? right,
     String? operator,

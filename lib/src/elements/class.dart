@@ -37,7 +37,7 @@ class Class extends Element {
   final List<Field> fields;
 
   @override
-  Element copyWith({
+  Class copyWith({
     String? name,
     Reference? extends_,
     List<Reference>? implements,

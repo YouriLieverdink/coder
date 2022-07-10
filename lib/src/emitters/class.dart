@@ -9,42 +9,42 @@ class ClassEmitter extends Emitter<Class> {
 
   @override
   StringSink emit(
-    Class element, [
+    Class value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (element.isAbstract) {
+    if (value.isAbstract) {
       output.write('abstract ');
     }
 
-    output.write('class ${element.name} ');
+    output.write('class ${value.name} ');
 
-    if (element.extends_ != null) {
+    if (value.extends_ != null) {
       output.write(' extends ');
 
-      ReferenceEmitter(context).emit(element.extends_!, output);
+      ReferenceEmitter(context).emit(value.extends_!, output);
     }
 
-    if (element.with_.isNotEmpty) {
+    if (value.with_.isNotEmpty) {
       output.write(' with ');
 
-      for (final v in element.with_) {
+      for (final v in value.with_) {
         ReferenceEmitter(context).emit(v, output);
 
-        if (v != element.with_.last) {
+        if (v != value.with_.last) {
           output.write(', ');
         }
       }
     }
 
-    if (element.implements.isNotEmpty) {
+    if (value.implements.isNotEmpty) {
       output.write(' implements ');
 
-      for (final v in element.implements) {
+      for (final v in value.implements) {
         ReferenceEmitter(context).emit(v, output);
 
-        if (v != element.implements.last) {
+        if (v != value.implements.last) {
           output.write(', ');
         }
       }
@@ -52,11 +52,11 @@ class ClassEmitter extends Emitter<Class> {
 
     output.write(' { ');
 
-    for (final v in element.constructors) {
-      ConstructorEmitter(context, element).emit(v, output);
+    for (final v in value.constructors) {
+      ConstructorEmitter(context, value).emit(v, output);
     }
 
-    for (final v in element.fields) {
+    for (final v in value.fields) {
       FieldEmitter(context).emit(v, output);
     }
 

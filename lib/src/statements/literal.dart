@@ -12,7 +12,7 @@ class LiteralStatement<T> extends Statement {
   final T value;
 
   @override
-  Statement copyWith({
+  LiteralStatement copyWith({
     T? value,
   }) {
     return LiteralStatement<T>(

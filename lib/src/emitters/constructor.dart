@@ -11,35 +11,35 @@ class ConstructorEmitter extends Emitter<Constructor> {
 
   @override
   StringSink emit(
-    Constructor element, [
+    Constructor value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (element.isConst) {
+    if (value.isConst) {
       output.write(' const ');
     }
 
-    if (element.isFactory) {
+    if (value.isFactory) {
       output.write(' factory ');
     }
 
     output.write(class_.name);
 
-    if (element.name != null) {
-      output.write('.${element.name}');
+    if (value.name != null) {
+      output.write('.${value.name}');
     }
 
     output.write('(');
 
-    ParameterListEmitter(context).emit(element.parameters, output);
+    ParameterListEmitter(context).emit(value.parameters, output);
 
     output.write(')');
 
-    if (!element.isConst) {
+    if (!value.isConst) {
       output.write(' {');
 
-      for (final v in element.body) {
+      for (final v in value.body) {
         StatementEmitter(context).emit(v, output);
       }
 

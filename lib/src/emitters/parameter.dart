@@ -9,27 +9,27 @@ class ParameterEmitter extends Emitter<Parameter> {
 
   @override
   StringSink emit(
-    Parameter element, [
+    Parameter value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (element.kind == ParameterKind.named && element.isRequired) {
+    if (value.kind == ParameterKind.named && value.isRequired) {
       output.write('required ');
     }
 
-    if (!element.isToThis) {
-      ReferenceEmitter(context).emit(element.type, output);
+    if (!value.isToThis) {
+      ReferenceEmitter(context).emit(value.type, output);
     }
 
     output
-      ..write(element.isToThis ? ' this.' : ' ')
-      ..write(element.name);
+      ..write(value.isToThis ? ' this.' : ' ')
+      ..write(value.name);
 
-    if (element.assign != null) {
+    if (value.assign != null) {
       output.write(' = ');
 
-      StatementEmitter(context).emit(element.assign!, output);
+      StatementEmitter(context).emit(value.assign!, output);
     }
 
     return output;
@@ -43,9 +43,9 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
   /// {@macro parameter_list_emitter}
   const ParameterListEmitter(super.context);
 
-  T? elementAtOrNull<T>(List<T> elements, int index) {
+  T? valueAtOrNull<T>(List<T> values, int index) {
     try {
-      return elements[index];
+      return values[index];
     } //
     catch (_) {
       return null;
@@ -54,16 +54,16 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
 
   @override
   StringSink emit(
-    List<Parameter> elements, [
+    List<Parameter> values, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    for (int i = 0; i < elements.length; i++) {
+    for (int i = 0; i < values.length; i++) {
       //
-      final prev = elementAtOrNull(elements, i - 1);
-      final curr = elements[i];
-      final next = elementAtOrNull(elements, i + 1);
+      final prev = valueAtOrNull(values, i - 1);
+      final curr = values[i];
+      final next = valueAtOrNull(values, i + 1);
 
       if (curr.kind != null && (prev == null || !(prev.kind != null))) {
         output.write(curr.kind == ParameterKind.named ? '{' : '[');
@@ -71,7 +71,7 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
 
       ParameterEmitter(context).emit(curr, output);
 
-      if (curr != elements.last || context.useTraillingCommas) {
+      if (curr != values.last || context.useTraillingCommas) {
         output.write(', ');
       }
 

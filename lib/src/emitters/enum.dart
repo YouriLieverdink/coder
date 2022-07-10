@@ -9,17 +9,17 @@ class EnumEmitter extends Emitter<Enum> {
 
   @override
   StringSink emit(
-    Enum element, [
+    Enum value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    output.write(' enum ${element.name} { ');
+    output.write(' enum ${value.name} { ');
 
-    for (final v in element.values) {
+    for (final v in value.values) {
       EnumValueEmitter(context).emit(v, output);
 
-      if (v != element.values.last || context.useTraillingCommas) {
+      if (v != value.values.last || context.useTraillingCommas) {
         output.write(' , ');
       }
     }
