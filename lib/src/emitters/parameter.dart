@@ -14,7 +14,7 @@ class ParameterEmitter extends Emitter<Parameter> {
   ]) {
     output ??= StringBuffer();
 
-    if (element.isNamed && element.isRequired) {
+    if (element.kind == ParameterKind.named && element.isRequired) {
       output.write('required ');
     }
 
@@ -65,12 +65,8 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
       final curr = elements[i];
       final next = elementAtOrNull(elements, i + 1);
 
-      if (curr.isNamed && (prev == null || !prev.isNamed)) {
-        output.write('{');
-      }
-
-      if (curr.isOptional && (prev == null || !prev.isOptional)) {
-        output.write('[');
+      if (curr.kind != null && (prev == null || !(prev.kind != null))) {
+        output.write(curr.kind == ParameterKind.named ? '{' : '[');
       }
 
       ParameterEmitter(context).emit(curr, output);
@@ -79,12 +75,8 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
         output.write(', ');
       }
 
-      if (curr.isNamed && (next == null || !next.isNamed)) {
-        output.write('}');
-      }
-
-      if (curr.isOptional && (next == null || !next.isOptional)) {
-        output.write(']');
+      if (curr.kind != null && (next == null || !(next.kind != null))) {
+        output.write(curr.kind == ParameterKind.named ? '}' : ']');
       }
     }
 

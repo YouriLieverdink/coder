@@ -78,7 +78,7 @@ void main() {
             name: 'state',
             type: TypeReference('CatState'),
             isRequired: true,
-            isNamed: true,
+            kind: ParameterKind.named,
           );
 
           Expect(
@@ -189,11 +189,11 @@ void main() {
           const elements = [
             Parameter(
               name: 'name',
-              isNamed: true,
+              kind: ParameterKind.named,
             ),
             Parameter(
               name: 'state',
-              isNamed: true,
+              kind: ParameterKind.named,
             ),
           ];
 
@@ -215,11 +215,11 @@ void main() {
           const elements = [
             Parameter(
               name: 'name',
-              isOptional: true,
+              kind: ParameterKind.optional,
             ),
             Parameter(
               name: 'state',
-              isOptional: true,
+              kind: ParameterKind.optional,
             ),
           ];
 
@@ -246,13 +246,13 @@ void main() {
             Parameter(
               name: 'state',
               type: TypeReference('CatState'),
-              isNamed: true,
+              kind: ParameterKind.named,
               isRequired: true,
             ),
             Parameter(
               name: 'birthday',
               type: TypeReference('DateTime', isNullable: true),
-              isNamed: true,
+              kind: ParameterKind.named,
             ),
           ];
 
