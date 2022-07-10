@@ -60,7 +60,7 @@ void main() {
               Field(
                 name: 'numberOfMeows',
                 type: TypeReference('int'),
-                assign: Statement('0'),
+                assign: StaticStatement('0'),
               ),
             ],
           );
@@ -88,7 +88,7 @@ void main() {
               Method(
                 name: 'meow',
                 body: [
-                  Statement('numberOfMeows++;'),
+                  StaticStatement('numberOfMeows++;'),
                 ],
               ),
             ],
