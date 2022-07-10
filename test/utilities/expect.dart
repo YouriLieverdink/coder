@@ -3,7 +3,10 @@ import 'package:test/test.dart';
 import './utilities.dart';
 
 /// {@template expect}
-/// Used to match the provided [item] with the result of the [matcher].
+/// Assert that [actual] matches [matcher].
+///
+/// Custom implementation of the [expect] function to allow for a more clear
+/// description when an error occurs.
 /// {@endtemplate}
 class Expect<T> {
   /// {@macro expect}
