@@ -14,54 +14,18 @@ class Constructor extends Element {
   });
 
   /// Whether this constructor is a constant constructor.
-  ///
-  /// ```dart
-  /// class Cat {
-  ///   const Cat();
-  /// }
-  /// ```
   final bool isConst;
 
   /// Whether this constructor is a factory constructor.
-  ///
-  /// ```dart
-  /// class Cat {
-  ///   factory Cat() {}
-  /// }
-  /// ```
   final bool isFactory;
 
   /// The name of the constructor.
-  ///
-  /// ```dart
-  /// class Cat {
-  ///   Cat.fromJson() {}
-  /// }
-  /// ```
   final String? name;
 
   /// The parameters of this constructor.
-  ///
-  /// ```dart
-  /// class Cat {
-  ///   Cat(String name) {}
-  /// }
-  /// ```
-  ///
-  /// * See [Parameter] for more information.
   final List<Parameter> parameters;
 
   /// The body of this constructor.
-  ///
-  /// ```dart
-  /// class Cat {
-  ///   Cat() {
-  ///     print('meow!');
-  ///   }
-  /// }
-  /// ```
-  ///
-  /// * See [Statement] for more information.
   final List<Statement> body;
 
   @override
