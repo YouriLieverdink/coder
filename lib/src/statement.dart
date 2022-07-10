@@ -2,6 +2,8 @@ library statement;
 
 import 'package:coder/coder.dart';
 
+part './statements/binary.dart';
+part './statements/literal.dart';
 part './statements/static.dart';
 
 /// {@template statement}
@@ -18,4 +20,26 @@ abstract class Statement {
 
   /// Returns an instance of `this` with the provided values.
   Statement copyWith();
+
+  /// Returns the equal to operation of `this` and [other].
+  ///
+  /// ```dart
+  /// this == other
+  /// ```
+  Statement equalTo(
+    Statement other,
+  ) {
+    return BinaryStatement(left: this, right: other, operator: '==');
+  }
+
+  /// Returns the not equal to operator of `this` and [other].
+  ///
+  /// ```dart
+  /// this != other
+  /// ```
+  Statement notEqualTo(
+    Statement other,
+  ) {
+    return BinaryStatement(left: this, right: other, operator: '!=');
+  }
 }
