@@ -1,20 +1,28 @@
 library emitter;
 
-import 'package:coder/src/element.dart';
+import 'package:coder/coder.dart';
 
+part './emitters/class.dart';
+part './emitters/constructor.dart';
 part './emitters/enum.dart';
+part './emitters/field.dart';
+part './emitters/method.dart';
+part './emitters/parameter.dart';
 part './emitters/reference.dart';
+part './emitters/statement.dart';
 
 /// {@template emitter}
 ///
 /// {@endtemplate}
-abstract class Emitter<T extends Element> {
+abstract class Emitter<T> {
   /// {@macro emitter}
-  const Emitter();
+  const Emitter(this.context);
 
-  /// Emits [element] as valid Dart code into [output].
+  final Context context;
+
+  /// Emits [value] as valid Dart code into [output].
   StringSink emit(
-    T element, [
+    T value, [
     StringSink? output,
   ]);
 }

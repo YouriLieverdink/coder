@@ -1,30 +1,59 @@
 import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
+import '../../utilities/utilities.dart';
+
 void main() {
+  const context = Context();
+
   group(
     'EnumEmitter',
     () {
+      const emitter = EnumEmitter(context);
+
       test(
-        'should create an Enum',
+        'should emit an enum',
         () {
           const element = Enum(
-            name: 'Status',
+            name: 'CatState',
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                enum CatState {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an enum with values',
+        () {
+          const element = Enum(
+            name: 'CatState',
             values: [
-              EnumValue('todo'),
-              EnumValue('inProgress'),
-              EnumValue('done'),
+              EnumValue('sleep'),
+              EnumValue('eat'),
+              EnumValue('purr'),
             ],
           );
 
-          final result = EnumEmitter() //
-              .emit(element)
-              .toString();
-
-          expect(
-            result,
-            equals(
-              'enum Status {todo,inProgress,done}',
+          Expect(
+            element,
+            const Equals(
+              '''
+                enum CatState {
+                  sleep,
+                  eat,
+                  purr
+                }
+              ''',
+              emitter: emitter,
             ),
           );
         },
@@ -35,18 +64,21 @@ void main() {
   group(
     'EnumValueEmitter',
     () {
+      const emitter = EnumValueEmitter(context);
+
       test(
-        'should create an enum value',
+        'should emit an enum value',
         () {
-          const element = EnumValue('todo');
+          const element = EnumValue('sleep');
 
-          final result = EnumValueEmitter() //
-              .emit(element)
-              .toString();
-
-          expect(
-            result,
-            equals('todo'),
+          Expect(
+            element,
+            const Equals(
+              '''
+                sleep
+              ''',
+              emitter: emitter,
+            ),
           );
         },
       );

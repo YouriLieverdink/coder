@@ -5,7 +5,11 @@ part of element;
 /// {@endtemplate}
 abstract class Reference extends Element {
   /// {@macro reference}
-  const Reference();
+  const Reference({
+    this.isNullable = false,
+  });
+
+  final bool isNullable;
 }
 
 /// {@template type_reference}
@@ -16,15 +20,13 @@ class TypeReference extends Reference {
   const TypeReference(
     this.symbol, {
     this.url,
-    this.isNullable = false,
+    bool isNullable = false,
     this.types = const [],
-  });
+  }) : super(isNullable: isNullable);
 
   final String symbol;
 
   final String? url;
-
-  final bool isNullable;
 
   final List<Reference> types;
 
@@ -51,16 +53,24 @@ class FunctionReference extends Reference {
   /// {@macro function_reference}
   const FunctionReference({
     this.returns = const TypeReference('void'),
-  });
+    bool isNullable = false,
+    this.parameters = const [],
+  }) : super(isNullable: isNullable);
 
   final Reference returns;
+
+  final List<Parameter> parameters;
 
   @override
   FunctionReference copyWith({
     Reference? returns,
+    bool? isNullable,
+    List<Parameter>? parameters,
   }) {
     return FunctionReference(
       returns: returns ?? this.returns,
+      isNullable: isNullable ?? this.isNullable,
+      parameters: parameters ?? this.parameters,
     );
   }
 }

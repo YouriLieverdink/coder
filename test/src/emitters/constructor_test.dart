@@ -5,22 +5,23 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
+  const class_ = Class(name: 'Cat');
+  const emitter = ConstructorEmitter(context, class_);
 
   group(
-    'TypeReferenceEmitter',
+    'ConstructorEmitter',
     () {
-      const emitter = TypeReferenceEmitter(context);
-
       test(
-        'should emit a type reference',
+        'should emit a constructor',
         () {
-          const element = TypeReference('String');
+          const element = Constructor();
 
           Expect(
             element,
             const Equals(
               '''
-                String
+                Cat() {
+                }
               ''',
               emitter: emitter,
             ),
@@ -29,20 +30,17 @@ void main() {
       );
 
       test(
-        'should emit a type reference with a type parameter',
+        'should emit a const constructor',
         () {
-          const element = TypeReference(
-            'List',
-            types: [
-              TypeReference('String'),
-            ],
+          const element = Constructor(
+            isConst: true,
           );
 
           Expect(
             element,
             const Equals(
               '''
-                List<String>
+                const Cat();
               ''',
               emitter: emitter,
             ),
@@ -51,21 +49,18 @@ void main() {
       );
 
       test(
-        'should emit a type reference with multiple type parameters',
+        'should emit a factory constructor',
         () {
-          const element = TypeReference(
-            'Map',
-            types: [
-              TypeReference('String'),
-              TypeReference('dynamic'),
-            ],
+          const element = Constructor(
+            isFactory: true,
           );
 
           Expect(
             element,
             const Equals(
               '''
-                Map<String,dynamic>
+                factory Cat() {
+                } 
               ''',
               emitter: emitter,
             ),
@@ -74,44 +69,18 @@ void main() {
       );
 
       test(
-        'should emit a nullable type reference',
+        'should emit a named constructor',
         () {
-          const element = TypeReference(
-            'String',
-            isNullable: true,
+          const element = Constructor(
+            name: 'fromJson',
           );
 
           Expect(
             element,
             const Equals(
               '''
-                String?
-              ''',
-              emitter: emitter,
-            ),
-          );
-        },
-      );
-    },
-  );
-
-  group(
-    'FunctionReferenceEmitter',
-    () {
-      const emitter = FunctionReferenceEmitter(context);
-
-      test(
-        'should emit a function reference',
-        () {
-          const element = FunctionReference(
-            returns: TypeReference('String'),
-          );
-
-          Expect(
-            element,
-            const Equals(
-              '''
-                String Function()
+                Cat.fromJson() {
+                }
               ''',
               emitter: emitter,
             ),
@@ -120,13 +89,13 @@ void main() {
       );
 
       test(
-        'should emit a function reference with parameters',
+        'should emit a constructor with parameters',
         () {
-          const element = FunctionReference(
+          const element = Constructor(
             parameters: [
               Parameter(
-                name: 'state',
-                type: TypeReference('CatState'),
+                name: 'name',
+                type: TypeReference('String'),
               ),
             ],
           );
@@ -135,7 +104,37 @@ void main() {
             element,
             const Equals(
               '''
-                void Function(CatState state)
+                Cat(String name) {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a constructor with a body',
+        () {
+          const element = Constructor(
+            parameters: [
+              Parameter(
+                name: 'name',
+                type: TypeReference('String'),
+              ),
+            ],
+            body: [
+              Statement('this.name = name;'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                Cat(String name) {
+                  this.name = name;
+                }
               ''',
               emitter: emitter,
             ),
