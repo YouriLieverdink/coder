@@ -14,12 +14,40 @@ class ClassEmitter extends Emitter<Class> {
   ]) {
     output ??= StringBuffer();
 
-    output.write(' class ${element.name} ');
+    if (element.isAbstract) {
+      output.write('abstract ');
+    }
+
+    output.write('class ${element.name} ');
 
     if (element.extends_ != null) {
       output.write(' extends ');
 
       ReferenceEmitter(context).emit(element.extends_!, output);
+    }
+
+    if (element.with_.isNotEmpty) {
+      output.write(' with ');
+
+      for (final v in element.with_) {
+        ReferenceEmitter(context).emit(v, output);
+
+        if (v != element.with_.last) {
+          output.write(', ');
+        }
+      }
+    }
+
+    if (element.implements.isNotEmpty) {
+      output.write(' implements ');
+
+      for (final v in element.implements) {
+        ReferenceEmitter(context).emit(v, output);
+
+        if (v != element.implements.last) {
+          output.write(', ');
+        }
+      }
     }
 
     output.write(' { ');
