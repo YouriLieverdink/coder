@@ -1,5 +1,10 @@
 part of element;
 
+/// {@template parameter_kind}
+/// Used to indicate whether a parameter is named or optional.
+/// {@endtemplate}
+enum ParameterKind { named, optional }
+
 /// {@template parameter}
 /// Configuration for defining a `parameter`.
 /// {@endtemplate}
@@ -11,8 +16,7 @@ class Parameter extends Element {
     this.assign,
     this.isRequired = false,
     this.isToThis = false,
-    this.isNamed = false,
-    this.isOptional = false,
+    this.kind,
   });
 
   /// The type of this parameter.
@@ -30,11 +34,11 @@ class Parameter extends Element {
   /// Whether this field references `this`.
   final bool isToThis;
 
-  /// Whether this field is named.
-  final bool isNamed;
-
-  /// Whether this field is optional.
-  final bool isOptional;
+  /// What kind of parameter this is.
+  ///
+  /// This value can be left unset or set to `null` when the parameter should be
+  /// a 'normal' parameter.
+  final ParameterKind? kind;
 
   @override
   Parameter copyWith({
@@ -43,8 +47,7 @@ class Parameter extends Element {
     Statement? assign,
     bool? isRequired,
     bool? isToThis,
-    bool? isNamed,
-    bool? isOptional,
+    ParameterKind? kind,
   }) {
     return Parameter(
       type: type ?? this.type,
@@ -52,8 +55,7 @@ class Parameter extends Element {
       assign: assign ?? this.assign,
       isRequired: isRequired ?? this.isRequired,
       isToThis: isToThis ?? this.isToThis,
-      isNamed: isNamed ?? this.isNamed,
-      isOptional: isOptional ?? this.isOptional,
+      kind: kind ?? this.kind,
     );
   }
 }
