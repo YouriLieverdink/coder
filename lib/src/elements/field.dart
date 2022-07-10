@@ -13,6 +13,7 @@ class Field extends Element {
   const Field({
     this.type = const TypeReference('dynamic'),
     required this.name,
+    this.assign,
     this.modifier,
     this.isStatic = false,
     this.isLate = false,
@@ -21,6 +22,8 @@ class Field extends Element {
   final Reference type;
 
   final String name;
+
+  final Statement? assign;
 
   final FieldModifier? modifier;
 
@@ -32,6 +35,7 @@ class Field extends Element {
   Field copyWith({
     Reference? type,
     String? name,
+    Statement? assign,
     FieldModifier? modifier,
     bool? isStatic,
     bool? isLate,
@@ -39,6 +43,7 @@ class Field extends Element {
     return Field(
       type: type ?? this.type,
       name: name ?? this.name,
+      assign: assign ?? this.assign,
       modifier: modifier ?? this.modifier,
       isStatic: isStatic ?? this.isStatic,
       isLate: isLate ?? this.isLate,

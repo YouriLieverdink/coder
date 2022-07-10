@@ -8,6 +8,7 @@ class Parameter extends Element {
   const Parameter({
     this.type = const TypeReference('dynamic'),
     required this.name,
+    this.assign,
     this.isRequired = false,
     this.isToThis = false,
     this.isNamed = false,
@@ -17,6 +18,8 @@ class Parameter extends Element {
   final Reference type;
 
   final String name;
+
+  final Statement? assign;
 
   final bool isRequired;
 
@@ -30,6 +33,7 @@ class Parameter extends Element {
   Parameter copyWith({
     Reference? type,
     String? name,
+    Statement? assign,
     bool? isRequired,
     bool? isToThis,
     bool? isNamed,
@@ -38,6 +42,7 @@ class Parameter extends Element {
     return Parameter(
       type: type ?? this.type,
       name: name ?? this.name,
+      assign: assign ?? this.assign,
       isRequired: isRequired ?? this.isRequired,
       isToThis: isToThis ?? this.isToThis,
       isNamed: isNamed ?? this.isNamed,

@@ -37,9 +37,15 @@ class FieldEmitter extends Emitter<Field> {
 
     ReferenceEmitter(context).emit(element.type, output);
 
-    output //
-      ..write(' ${element.name}')
-      ..write(';');
+    output.write(' ${element.name}');
+
+    if (element.assign != null) {
+      output.write(' = ');
+
+      StatementEmitter(context).emit(element.assign!, output);
+    }
+
+    output.write(';');
 
     return output;
   }

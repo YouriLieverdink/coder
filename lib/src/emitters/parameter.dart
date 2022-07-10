@@ -26,6 +26,12 @@ class ParameterEmitter extends Emitter<Parameter> {
       ..write(element.isToThis ? ' this.' : ' ')
       ..write(element.name);
 
+    if (element.assign != null) {
+      output.write(' = ');
+
+      StatementEmitter(context).emit(element.assign!, output);
+    }
+
     return output;
   }
 }

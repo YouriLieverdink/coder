@@ -50,6 +50,27 @@ void main() {
       );
 
       test(
+        'should emit a field with an assignment',
+        () {
+          const element = Field(
+            name: 'state',
+            type: TypeReference('CatState'),
+            assign: Statement('CatState.purring'),
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                CatState state = CatState.purring;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a final field',
         () {
           const element = Field(

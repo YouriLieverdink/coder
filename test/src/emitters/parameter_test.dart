@@ -51,6 +51,27 @@ void main() {
       );
 
       test(
+        'should emit a paremeter with an assignment',
+        () {
+          const element = Parameter(
+            name: 'state',
+            type: TypeReference('CatState'),
+            assign: Statement('CatState.purring'),
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                CatState state = CatState.purring
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a required parameter when named',
         () {
           const element = Parameter(
