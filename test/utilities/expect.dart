@@ -1,23 +1,15 @@
-import 'package:coder/coder.dart';
 import 'package:test/test.dart';
 
 import './utilities.dart';
 
-void cExpect(
-  Element item,
-  Equals matcher,
-) {
-  Expect(item, matcher);
-}
-
 /// {@template expect}
 ///
 /// {@endtemplate}
-class Expect {
+class Expect<T> {
   /// {@macro expect}
   Expect(
-    Element item,
-    Equals matcher,
+    T item,
+    Equals<T> matcher,
   ) {
     //
     if (matcher.matches(item, {})) return;

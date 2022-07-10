@@ -3,17 +3,10 @@ import 'package:test/test.dart';
 
 import './utilities.dart';
 
-Equals cEquals(
-  String expected, {
-  required Emitter emitter,
-}) {
-  return Equals(expected, emitter: emitter);
-}
-
 /// {@template equals}
 ///
 /// {@endtemplate}
-class Equals extends Matcher {
+class Equals<T> extends Matcher {
   /// {@macro equals}
   const Equals(
     this.expected, {
@@ -22,7 +15,7 @@ class Equals extends Matcher {
 
   final String expected;
 
-  final Emitter emitter;
+  final Emitter<T> emitter;
 
   @override
   Description describe(
@@ -33,7 +26,7 @@ class Equals extends Matcher {
 
   @override
   Description describeMismatch(
-    covariant Element item,
+    covariant T item,
     Description mismatchDescription,
     Map matchState,
     bool verbose,
@@ -51,7 +44,7 @@ class Equals extends Matcher {
 
   @override
   bool matches(
-    covariant Element item,
+    covariant T item,
     Map matchState,
   ) {
     final expected = format(this.expected);

@@ -16,9 +16,9 @@ void main() {
         () {
           const element = Constructor();
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 Cat() {
                 }
@@ -36,9 +36,9 @@ void main() {
             isConst: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 const Cat();
               ''',
@@ -55,9 +55,9 @@ void main() {
             isFactory: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 factory Cat() {
                 } 
@@ -75,9 +75,9 @@ void main() {
             name: 'fromJson',
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 Cat.fromJson() {
                 }
@@ -100,9 +100,9 @@ void main() {
             ],
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 Cat(String name) {
                 }

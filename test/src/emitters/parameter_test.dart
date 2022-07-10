@@ -18,9 +18,9 @@ void main() {
             name: 'state',
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 dynamic state 
               ''',
@@ -38,9 +38,9 @@ void main() {
             type: TypeReference('CatState'),
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 CatState state 
               ''',
@@ -60,9 +60,9 @@ void main() {
             isNamed: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 required CatState state
               ''',
@@ -81,9 +81,9 @@ void main() {
             isRequired: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 CatState state
               ''',
@@ -101,9 +101,9 @@ void main() {
             isToThis: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 this.state
               ''',
@@ -117,6 +117,113 @@ void main() {
 
   group(
     'ParameterListEmitter',
-    () {},
+    () {
+      const emitter = ParameterListEmitter(context);
+
+      test(
+        'shoud emit a list of parameters',
+        () {
+          const elements = [
+            Parameter(name: 'name'),
+            Parameter(name: 'state'),
+          ];
+
+          Expect(
+            elements,
+            const Equals(
+              '''
+                dynamic name, dynamic state
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a list of named parameters',
+        () {
+          const elements = [
+            Parameter(
+              name: 'name',
+              isNamed: true,
+            ),
+            Parameter(
+              name: 'state',
+              isNamed: true,
+            ),
+          ];
+
+          Expect(
+            elements,
+            const Equals(
+              '''
+                {dynamic name, dynamic state}
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a list of optional parameters',
+        () {
+          const elements = [
+            Parameter(
+              name: 'name',
+              isOptional: true,
+            ),
+            Parameter(
+              name: 'state',
+              isOptional: true,
+            ),
+          ];
+
+          Expect(
+            elements,
+            const Equals(
+              '''
+                [dynamic name, dynamic state]
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a list of combined parameters',
+        () {
+          const elements = [
+            Parameter(
+              name: 'name',
+              type: TypeReference('String'),
+            ),
+            Parameter(
+              name: 'state',
+              type: TypeReference('CatState'),
+              isNamed: true,
+              isRequired: true,
+            ),
+            Parameter(
+              name: 'birthday',
+              type: TypeReference('DateTime', isNullable: true),
+              isNamed: true,
+            ),
+          ];
+
+          Expect(
+            elements,
+            const Equals(
+              '''
+                String name, {required CatState state, DateTime? birthday}
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
   );
 }

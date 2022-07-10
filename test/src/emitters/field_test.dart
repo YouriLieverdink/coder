@@ -17,9 +17,9 @@ void main() {
             name: 'state',
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 dynamic state;
               ''',
@@ -37,9 +37,9 @@ void main() {
             type: TypeReference('CatState'),
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 CatState state;
               ''',
@@ -57,9 +57,9 @@ void main() {
             modifier: FieldModifier.final_,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 final dynamic state;
               ''',
@@ -77,9 +77,9 @@ void main() {
             modifier: FieldModifier.const_,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 const dynamic state;
               ''',
@@ -97,9 +97,9 @@ void main() {
             isStatic: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 static dynamic state;
               ''',
@@ -117,9 +117,9 @@ void main() {
             isLate: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 late dynamic state;
               ''',

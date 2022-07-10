@@ -18,9 +18,9 @@ void main() {
             name: 'CatState',
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 enum CatState {
                 }
@@ -43,9 +43,9 @@ void main() {
             ],
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 enum CatState {
                   sleep,
@@ -71,9 +71,9 @@ void main() {
         () {
           const element = EnumValue('sleep');
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 sleep
               ''',

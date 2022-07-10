@@ -33,9 +33,18 @@ class ParameterEmitter extends Emitter<Parameter> {
 /// {@template parameter_list_emitter}
 ///
 /// {@endtemplate}
-class ParameterListEmitter extends ListEmitter<Parameter> {
+class ParameterListEmitter extends Emitter<List<Parameter>> {
   /// {@macro parameter_list_emitter}
   const ParameterListEmitter(super.context);
+
+  T? elementAtOrNull<T>(List<T> elements, int index) {
+    try {
+      return elements[index];
+    } //
+    catch (_) {
+      return null;
+    }
+  }
 
   @override
   StringSink emit(
@@ -44,44 +53,33 @@ class ParameterListEmitter extends ListEmitter<Parameter> {
   ]) {
     output ??= StringBuffer();
 
-    final required_ = elements.where((v) => !v.isNamed && !v.isOptional);
-    final named = elements.where((v) => v.isNamed);
-    final optional = elements.where((v) => v.isOptional);
+    for (int i = 0; i < elements.length; i++) {
+      //
+      final prev = elementAtOrNull(elements, i - 1);
+      final curr = elements[i];
+      final next = elementAtOrNull(elements, i + 1);
 
-    for (final v in required_) {
-      ParameterEmitter(context).emit(v, output);
-
-      if (v != required_.last || named.isNotEmpty || optional.isNotEmpty) {
-        output.write(',');
-      }
-    }
-
-    if (named.isNotEmpty) {
-      output.write('{');
-
-      for (final v in named) {
-        ParameterEmitter(context).emit(v, output);
-
-        if (v != named.last) {
-          output.write(',');
-        }
+      if (curr.isNamed && (prev == null || !prev.isNamed)) {
+        output.write('{');
       }
 
-      output.write('}');
-    }
-
-    if (optional.isNotEmpty) {
-      output.write('[');
-
-      for (final v in optional) {
-        ParameterEmitter(context).emit(v, output);
-
-        if (v != optional.last) {
-          output.write(',');
-        }
+      if (curr.isOptional && (prev == null || !prev.isOptional)) {
+        output.write('[');
       }
 
-      output.write(']');
+      ParameterEmitter(context).emit(curr, output);
+
+      if (curr.isNamed && (next == null || !next.isNamed)) {
+        output.write('}');
+      }
+
+      if (curr.isOptional && (next == null || !next.isOptional)) {
+        output.write(']');
+      }
+
+      if (curr != elements.last) {
+        output.write(', ');
+      }
     }
 
     return output;

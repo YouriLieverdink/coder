@@ -16,9 +16,9 @@ void main() {
         () {
           const element = TypeReference('String');
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 String
               ''',
@@ -38,9 +38,9 @@ void main() {
             ],
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 List<String>
               ''',
@@ -61,9 +61,9 @@ void main() {
             ],
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 Map<String,dynamic>
               ''',
@@ -81,9 +81,9 @@ void main() {
             isNullable: true,
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 String?
               ''',
@@ -107,9 +107,9 @@ void main() {
             returns: TypeReference('String'),
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 String Function()
               ''',
@@ -131,9 +131,9 @@ void main() {
             ],
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 void Function(CatState state)
               ''',

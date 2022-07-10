@@ -15,9 +15,9 @@ void main() {
         () {
           const element = Class(name: 'Cat');
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 class Cat {
                 }
@@ -36,9 +36,9 @@ void main() {
             extends_: TypeReference('Animal'),
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 class Cat extends Animal {
                 }
@@ -59,9 +59,9 @@ void main() {
             ],
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 class Cat {
                   Cat() {
@@ -87,9 +87,9 @@ void main() {
             ],
           );
 
-          cExpect(
+          Expect(
             element,
-            cEquals(
+            const Equals(
               '''
                 class Cat {
                   String name;

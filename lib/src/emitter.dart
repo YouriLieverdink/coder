@@ -12,35 +12,15 @@ part './emitters/reference.dart';
 /// {@template emitter}
 ///
 /// {@endtemplate}
-abstract class Emitter<T extends Element> {
+abstract class Emitter<T> {
   /// {@macro emitter}
-  const Emitter(
-    this.context,
-  );
+  const Emitter(this.context);
 
   final Context context;
 
-  /// Emits [element] as valid Dart code into [output].
+  /// Emits [value] as valid Dart code into [output].
   StringSink emit(
-    T element, [
-    StringSink? output,
-  ]);
-}
-
-/// {@template list_emitter}
-///
-/// {@endtemplate}
-abstract class ListEmitter<T extends Element> {
-  /// {@macro list_emitter}
-  const ListEmitter(
-    this.context,
-  );
-
-  final Context context;
-
-  /// Emits [elements] as valid Dart code into [output].
-  StringSink emit(
-    List<T> elements, [
+    T value, [
     StringSink? output,
   ]);
 }
