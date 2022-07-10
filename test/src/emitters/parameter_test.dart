@@ -56,7 +56,7 @@ void main() {
           const element = Parameter(
             name: 'state',
             type: TypeReference('CatState'),
-            assign: Statement('CatState.purring'),
+            assign: StaticStatement('CatState.purring'),
           );
 
           Expect(

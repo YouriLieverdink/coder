@@ -13,7 +13,7 @@ void main() {
       test(
         'should emit a statement',
         () {
-          const element = Statement('print("Hello, world");');
+          const element = StaticStatement('print("Hello, world");');
 
           Expect(
             element,
