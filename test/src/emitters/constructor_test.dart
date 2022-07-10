@@ -112,6 +112,35 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a constructor with a body',
+        () {
+          const element = Constructor(
+            parameters: [
+              Parameter(
+                name: 'name',
+                type: TypeReference('String'),
+              ),
+            ],
+            body: [
+              Statement('this.name = name;'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                Cat(String name) {
+                  this.name = name;
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

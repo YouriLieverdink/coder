@@ -37,7 +37,13 @@ class ConstructorEmitter extends Emitter<Constructor> {
     output.write(')');
 
     if (!element.isConst) {
-      output.write(' { } ');
+      output.write(' {');
+
+      for (final v in element.body) {
+        StatementEmitter(context).emit(v, output);
+      }
+
+      output.write(' }');
     } //
     else {
       output.write(';');
