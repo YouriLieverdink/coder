@@ -1,7 +1,7 @@
 part of emitter;
 
 /// {@template field_emitter}
-///
+/// Transforms the [Field] element into Dart source code.
 /// {@endtemplate}
 class FieldEmitter extends Emitter<Field> {
   /// {@macro field_emitter}

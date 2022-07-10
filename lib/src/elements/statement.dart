@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template statement}
-///
+/// Configuration for defining a `statement`.
 /// {@endtemplate}
 class Statement extends Element {
   /// {@macro statement}
@@ -9,6 +9,7 @@ class Statement extends Element {
     this.value,
   );
 
+  /// The value of this statement.
   final String value;
 
   @override

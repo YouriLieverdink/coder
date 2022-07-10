@@ -1,7 +1,7 @@
 part of emitter;
 
 /// {@template enum_emitter}
-///
+/// Transforms the [Enum] element into Dart source code.
 /// {@endtemplate}
 class EnumEmitter extends Emitter<Enum> {
   /// {@macro enum_emitter}
@@ -31,7 +31,7 @@ class EnumEmitter extends Emitter<Enum> {
 }
 
 /// {@template enum_value_emitter}
-///
+/// Transforms the [EnumValue] element into Dart source code.
 /// {@endtemple}
 class EnumValueEmitter extends Emitter<EnumValue> {
   /// {@macro enum_value_emitter}

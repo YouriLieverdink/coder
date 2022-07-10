@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template enum}
-///
+/// Configuration for defining an `enum`.
 /// {@endtemplate}
 class Enum extends Element {
   /// {@macro enum}
@@ -10,8 +10,10 @@ class Enum extends Element {
     this.values = const [],
   });
 
+  /// The name of this enum.
   final String name;
 
+  /// The values of this enum.
   final List<EnumValue> values;
 
   @override
@@ -27,7 +29,7 @@ class Enum extends Element {
 }
 
 /// {@template enum_value}
-///
+/// Configuration for defining an enum `value`.
 /// {@endtemplate}
 class EnumValue extends Element {
   /// {@macro enum_value}
@@ -35,6 +37,7 @@ class EnumValue extends Element {
     this.name,
   );
 
+  /// The name of this enum value.
   final String name;
 
   @override

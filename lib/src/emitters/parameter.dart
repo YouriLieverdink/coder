@@ -1,7 +1,7 @@
 part of emitter;
 
 /// {@template parameter_emitter}
-///
+/// Transforms the [Parameter] element into Dart source code.
 /// {@endtemplate}
 class ParameterEmitter extends Emitter<Parameter> {
   /// {@macro parameter_emitter}
@@ -37,7 +37,7 @@ class ParameterEmitter extends Emitter<Parameter> {
 }
 
 /// {@template parameter_list_emitter}
-///
+/// Transforms a list of the [Parameter] element into Dart source code.
 /// {@endtemplate}
 class ParameterListEmitter extends Emitter<List<Parameter>> {
   /// {@macro parameter_list_emitter}

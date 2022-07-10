@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template reference}
-///
+/// Configuration for defining a `reference`.
 /// {@endtemplate}
 abstract class Reference extends Element {
   /// {@macro reference}
@@ -9,11 +9,12 @@ abstract class Reference extends Element {
     this.isNullable = false,
   });
 
+  /// Whether this reference can be null.
   final bool isNullable;
 }
 
 /// {@template type_reference}
-///
+/// Configuration for defining a `type reference`.
 /// {@endtemplate}
 class TypeReference extends Reference {
   /// {@macro type_reference}
@@ -24,10 +25,13 @@ class TypeReference extends Reference {
     this.types = const [],
   }) : super(isNullable: isNullable);
 
+  /// The symbol of this type reference.
   final String symbol;
 
+  /// The url of the package to which this reference belongs.
   final String? url;
 
+  /// The types of this reference.
   final List<Reference> types;
 
   @override
@@ -47,7 +51,7 @@ class TypeReference extends Reference {
 }
 
 /// {@template function_reference}
-///
+/// Configuration for defining a `function reference`.
 /// {@endtemplate}
 class FunctionReference extends Reference {
   /// {@macro function_reference}
@@ -57,8 +61,10 @@ class FunctionReference extends Reference {
     this.parameters = const [],
   }) : super(isNullable: isNullable);
 
+  /// The type this function reference returns.
   final Reference returns;
 
+  /// The parameters of this function reference.
   final List<Parameter> parameters;
 
   @override
