@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template class}
-///
+/// Configuration for defining a `class`.
 /// {@endtemplate}
 class Class extends Element {
   /// {@macro class}
@@ -15,18 +15,25 @@ class Class extends Element {
     this.fields = const [],
   });
 
+  /// The name of the class.
   final String name;
 
+  /// The class this class should extend.
   final Reference? extends_;
 
+  /// The classes this class should implement.
   final List<Reference> implements;
 
+  /// The mixins this class should use.
   final List<Reference> with_;
 
+  /// Whether this is class is abstract.
   final bool isAbstract;
 
+  /// The constructors of this class.
   final List<Constructor> constructors;
 
+  /// The fields of this class.
   final List<Field> fields;
 
   @override

@@ -1,7 +1,7 @@
 part of emitter;
 
 /// {@template method_emitter}
-///
+/// Transforms the [Method] element into Dart source code.
 /// {@endtemplate}
 class MethodEmitter extends Emitter<Method> {
   /// {@macro method_emitter}

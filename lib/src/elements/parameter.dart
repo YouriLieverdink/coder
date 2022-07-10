@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template parameter}
-///
+/// Configuration for defining a `parameter`.
 /// {@endtemplate}
 class Parameter extends Element {
   /// {@macro parameter}
@@ -15,18 +15,25 @@ class Parameter extends Element {
     this.isOptional = false,
   });
 
+  /// The type of this parameter.
   final Reference type;
 
+  /// The name of this parameter.
   final String name;
 
+  /// The statement used to assign a value to this parameter.
   final Statement? assign;
 
+  /// Whether this parameter is required.
   final bool isRequired;
 
+  /// Whether this field references `this`.
   final bool isToThis;
 
+  /// Whether this field is named.
   final bool isNamed;
 
+  /// Whether this field is optional.
   final bool isOptional;
 
   @override

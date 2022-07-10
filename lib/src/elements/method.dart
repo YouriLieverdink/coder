@@ -1,13 +1,17 @@
 part of element;
 
 /// {@template method_modifier}
+/// Used to indicate whether a method should be `async`, `async*` or `sync*`.
+/// {@endtemplate}
 enum MethodMofifier { async, asyncStar, syncStar }
 
 /// {@template method_kind}
+/// Used to indicate whether a method should be a `getter` or a `setter`.
+/// {@endtemplate}
 enum MethodKind { get, set }
 
 /// {@template method}
-///
+/// Configuration for defining a `method`.
 /// {@endtemplate}
 class Method extends Element {
   /// {@macro method}
@@ -21,18 +25,28 @@ class Method extends Element {
     this.body = const [],
   });
 
+  /// The type this method returns.
   final Reference returns;
 
+  /// The name of this method.
   final String name;
 
+  /// Whether this method is static.
   final bool isStatic;
 
+  /// The modifier to apply to this method.
   final MethodMofifier? modifier;
 
+  /// What kind this field is.
+  ///
+  /// This value can be left unset or set to `null` when the method should be a
+  /// 'normal' method.
   final MethodKind? kind;
 
+  /// The parameters of this method.
   final List<Parameter> parameters;
 
+  /// The body of this method.
   final List<Statement> body;
 
   @override

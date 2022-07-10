@@ -1,7 +1,7 @@
 part of emitter;
 
 /// {@template reference_emitter}
-///
+/// Transforms the [Reference] element into Dart source code.
 /// {@endtemplate}
 class ReferenceEmitter extends Emitter<Reference> {
   /// {@macro reference_emitter}
@@ -26,7 +26,7 @@ class ReferenceEmitter extends Emitter<Reference> {
 }
 
 /// {@template type_reference_emitter}
-///
+/// Transforms the [TypeReference] element into Dart source code.
 /// {@endtemplate}
 class TypeReferenceEmitter extends Emitter<TypeReference> {
   /// {@macro type_reference_emitter}
@@ -64,7 +64,7 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
 }
 
 /// {@template function_reference_emitter}
-///
+/// Transforms the [FunctionReference] element into Dart source code.
 /// {@endtemplate}
 class FunctionReferenceEmitter extends Emitter<FunctionReference> {
   /// {@macro function_reference_emitter}

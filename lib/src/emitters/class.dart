@@ -1,7 +1,7 @@
 part of emitter;
 
 /// {@template class_emitter}
-///
+/// Transforms the [Class] element into Dart source code.
 /// {@endtemplate}
 class ClassEmitter extends Emitter<Class> {
   /// {@macro class_emitter}
