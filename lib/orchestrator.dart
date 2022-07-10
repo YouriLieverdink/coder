@@ -1,4 +1,4 @@
-library coder;
+library orchestrator;
 
 export './src/context.dart';
 export './src/element.dart';

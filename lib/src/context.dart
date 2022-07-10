@@ -1,6 +1,6 @@
 library context;
 
-import 'package:coder/coder.dart';
+import 'package:orchestrator/orchestrator.dart';
 
 /// {@template context}
 /// A set of rules which is used to specify certain features throughout all the
