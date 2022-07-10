@@ -5,6 +5,7 @@ import 'package:coder/coder.dart';
 part './elements/class.dart';
 part './elements/constructor.dart';
 part './elements/enum.dart';
+part './elements/extension.dart';
 part './elements/field.dart';
 part './elements/method.dart';
 part './elements/parameter.dart';
