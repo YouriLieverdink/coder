@@ -1,8 +1,7 @@
 ![Continuous Integration](https://github.com/YouriLieverdink/orchestrator/actions/workflows/ci.yaml/badge.svg)
+[![pub package](https://img.shields.io/pub/v/orchestrator.svg)](https://pub.dev/packages/orchestrator)
 
-# Orchestrator
-
-A Dart package which can be used to programatically generate Dart code.
+Easily define code structures in Dart using a Flutter widget like syntax.
 
 ## Usage
 
