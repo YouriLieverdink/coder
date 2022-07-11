@@ -1,3 +1,8 @@
+# 0.2.1
+
+- chore: add license
+- chore: add changelog
+
 # 0.2.0
 
 - docs: add README and update inline documentation
