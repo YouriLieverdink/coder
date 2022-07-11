@@ -245,6 +245,37 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a class with methods',
+        () {
+          const element = Class(
+            name: 'Cat',
+            methods: [
+              Method(
+                name: 'meow',
+                body: [
+                  StaticStatement('print("meow!");'),
+                ],
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                class Cat {
+                  void meow() {
+                    print("meow!");
+                  }
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

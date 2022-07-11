@@ -1,11 +1,10 @@
+# 0.3.1
+
+- fix: allow classes to have methods
+
 # 0.3.0
 
 - chore: add example
-
-# 0.2.1
-
-- chore: add license
-- chore: add changelog
 
 # 0.2.0
 

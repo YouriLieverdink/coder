@@ -13,6 +13,7 @@ class Class extends Element {
     this.isAbstract = false,
     this.constructors = const [],
     this.fields = const [],
+    this.methods = const [],
   });
 
   /// The name of the class.
@@ -36,6 +37,9 @@ class Class extends Element {
   /// The fields of this class.
   final List<Field> fields;
 
+  /// The methods of this class.
+  final List<Method> methods;
+
   @override
   Class copyWith({
     String? name,
@@ -45,6 +49,7 @@ class Class extends Element {
     bool? isAbstract,
     List<Constructor>? constructors,
     List<Field>? fields,
+    List<Method>? methods,
   }) {
     return Class(
       name: name ?? this.name,
@@ -54,6 +59,7 @@ class Class extends Element {
       isAbstract: isAbstract ?? this.isAbstract,
       constructors: constructors ?? this.constructors,
       fields: fields ?? this.fields,
+      methods: methods ?? this.methods,
     );
   }
 }
