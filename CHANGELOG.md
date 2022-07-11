@@ -1,3 +1,7 @@
+# 0.4.0
+
+- feat: add a spec emitter
+
 # 0.3.1
 
 - fix: allow classes to have methods
