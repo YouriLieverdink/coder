@@ -107,6 +107,30 @@ class WhileStatementEmitter extends Emitter<WhileStatement> {
   /// {@macro while_statement_emitter}
   const WhileStatementEmitter(super.context);
 
+  void condition(
+    WhileStatement value,
+    StringSink output,
+  ) {
+    output.write(' while (');
+
+    StatementEmitter(context).emit(value.condition, output);
+
+    output.write(')');
+  }
+
+  void body(
+    WhileStatement value,
+    StringSink output,
+  ) {
+    output.write(' { ');
+
+    for (final v in value.body) {
+      StatementEmitter(context).emit(v, output);
+    }
+
+    output.write(' }');
+  }
+
   @override
   StringSink emit(
     WhileStatement value, [
@@ -114,17 +138,21 @@ class WhileStatementEmitter extends Emitter<WhileStatement> {
   ]) {
     output ??= StringBuffer();
 
-    output.write('while (');
+    switch (value.kind) {
+      case WhileStatementKind.while_:
+        condition(value, output);
+        body(value, output);
+        break;
 
-    StatementEmitter(context).emit(value.condition, output);
+      case WhileStatementKind.doWhile:
+        output.write('do ');
 
-    output.write(') { ');
+        body(value, output);
+        condition(value, output);
 
-    for (final v in value.body) {
-      StatementEmitter(context).emit(v, output);
+        output.write(';');
+        break;
     }
-
-    output.write(' }');
 
     return output;
   }

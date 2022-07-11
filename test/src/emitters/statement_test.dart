@@ -199,6 +199,31 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a do while statement',
+        () {
+          const element = WhileStatement(
+            condition: StaticStatement('i < 42'),
+            kind: WhileStatementKind.doWhile,
+            body: [
+              StaticStatement('i++;'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                do {
+                  i++;
+                } while (i < 42);
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }
