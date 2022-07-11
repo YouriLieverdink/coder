@@ -22,6 +22,9 @@ class StatementEmitter extends Emitter<Statement> {
     } //
     else if (value is StaticStatement) {
       StaticStatementEmitter(context).emit(value, output);
+    } //
+    else if (value is WhileStatement) {
+      WhileStatementEmitter(context).emit(value, output);
     }
 
     return output;
@@ -92,6 +95,36 @@ class StaticStatementEmitter extends Emitter<StaticStatement> {
     output ??= StringBuffer();
 
     output.write(value.value);
+
+    return output;
+  }
+}
+
+/// {@template while_statement_emitter}
+/// Transforms the [WhileStatement] into Dart source code.
+/// {@endtemplate}
+class WhileStatementEmitter extends Emitter<WhileStatement> {
+  /// {@macro while_statement_emitter}
+  const WhileStatementEmitter(super.context);
+
+  @override
+  StringSink emit(
+    WhileStatement value, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    output.write('while (');
+
+    StatementEmitter(context).emit(value.condition, output);
+
+    output.write(') { ');
+
+    for (final v in value.body) {
+      StatementEmitter(context).emit(v, output);
+    }
+
+    output.write(' }');
 
     return output;
   }

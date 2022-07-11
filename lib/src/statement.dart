@@ -5,6 +5,7 @@ import 'package:orchestrator/orchestrator.dart';
 part './statements/binary.dart';
 part './statements/literal.dart';
 part './statements/static.dart';
+part './statements/while.dart';
 
 /// {@template statement}
 /// Represents a couple lines source code like an if-else clause, switch, or a

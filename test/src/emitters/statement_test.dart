@@ -5,12 +5,11 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
+  const emitter = StatementEmitter(context);
 
   group(
     'StatementEmitter',
     () {
-      const emitter = StatementEmitter(context);
-
       test(
         'should emit a equal to statement',
         () {
@@ -56,8 +55,6 @@ void main() {
   group(
     'BinaryStatementEmitter',
     () {
-      const emitter = BinaryStatementEmitter(context);
-
       test(
         'should emit a binary statement',
         () {
@@ -84,8 +81,6 @@ void main() {
   group(
     'LiteralStatementEmitter',
     () {
-      const emitter = LiteralStatementEmitter(context);
-
       test(
         'should emit a literal bool statement',
         () {
@@ -159,8 +154,6 @@ void main() {
   group(
     'StaticStatementEmitter',
     () {
-      const emitter = StaticStatementEmitter(context);
-
       test(
         'should emit a static statement',
         () {
@@ -171,6 +164,35 @@ void main() {
             const Equals(
               '''
               print("Hello, world");
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'WhileStatementEmitter',
+    () {
+      test(
+        'should emit a while statement',
+        () {
+          const element = WhileStatement(
+            condition: StaticStatement('i < 42'),
+            body: [
+              StaticStatement('i++;'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                while (i < 42) {
+                  i++;
+                }
               ''',
               emitter: emitter,
             ),
