@@ -1,3 +1,7 @@
+# 0.3.0
+
+- chore: add example
+
 # 0.2.1
 
 - chore: add license
