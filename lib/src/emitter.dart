@@ -10,6 +10,7 @@ part './emitters/field.dart';
 part './emitters/method.dart';
 part './emitters/parameter.dart';
 part './emitters/reference.dart';
+part './emitters/spec.dart';
 part './emitters/statement.dart';
 
 /// {@template emitter}
