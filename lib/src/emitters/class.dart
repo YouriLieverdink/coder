@@ -60,6 +60,10 @@ class ClassEmitter extends Emitter<Class> {
       FieldEmitter(context).emit(v, output);
     }
 
+    for (final v in value.methods) {
+      MethodEmitter(context).emit(v, output);
+    }
+
     output.write(' } ');
 
     return output;
