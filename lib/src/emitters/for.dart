@@ -20,7 +20,9 @@ class ForEmitter extends Emitter<For> {
 
     output.write(') { ');
 
-    BlockEmitter(context).emit(value.body, output);
+    if (value.body != null) {
+      ColumnEmitter(context).emit(value.body!, output);
+    }
 
     output.write(' }');
 

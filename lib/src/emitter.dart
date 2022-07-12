@@ -2,8 +2,8 @@ library emitter;
 
 import 'package:orchestrator/orchestrator.dart';
 
-part './emitters/block.dart';
 part './emitters/class.dart';
+part './emitters/column.dart';
 part './emitters/constructor.dart';
 part './emitters/element.dart';
 part './emitters/enum.dart';

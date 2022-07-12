@@ -1,15 +1,15 @@
 part of emitter;
 
-/// {@template block_emitter}
-/// Transforms the [Block] element into Dart source code.
+/// {@template column_emitter}
+/// Transforms the [Column] element into Dart source code.
 /// {@endtemplate}
-class BlockEmitter extends Emitter<Block> {
-  /// {@macro block_emitter}
-  const BlockEmitter(super.context);
+class ColumnEmitter extends Emitter<Column> {
+  /// {@macro column_emitter}
+  const ColumnEmitter(super.context);
 
   @override
   StringSink emit(
-    Block value, [
+    Column value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();

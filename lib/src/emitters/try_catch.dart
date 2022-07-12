@@ -16,18 +16,20 @@ class TryCatchEmitter extends Emitter<TryCatch> {
 
     output.write('try { ');
 
-    BlockEmitter(context).emit(value.try_, output);
+    ColumnEmitter(context).emit(value.try_, output);
 
     output.write(' } catch (e) { ');
 
-    BlockEmitter(context).emit(value.catch_, output);
+    if (value.catch_ != null) {
+      ColumnEmitter(context).emit(value.catch_!, output);
+    }
 
     output.write(' }');
 
-    if (value.finally_.elements.isNotEmpty) {
+    if (value.finally_ != null) {
       output.write(' finally { ');
 
-      BlockEmitter(context).emit(value.finally_, output);
+      ColumnEmitter(context).emit(value.finally_!, output);
 
       output.write(' }');
     }

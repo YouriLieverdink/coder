@@ -254,11 +254,9 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
-                body: Block(
-                  elements: [
-                    Static('print("meow!");'),
-                  ],
-                ),
+                body: Column([
+                  Static('print("meow!");'),
+                ]),
               ),
             ],
           );

@@ -14,8 +14,8 @@ class ElementEmitter extends Emitter<Element> {
   ]) {
     output ??= StringBuffer();
 
-    if (value is Block) {
-      BlockEmitter(context).emit(value, output);
+    if (value is Column) {
+      ColumnEmitter(context).emit(value, output);
     } //
     else if (value is Class) {
       ClassEmitter(context).emit(value, output);

@@ -87,11 +87,9 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
-                body: Block(
-                  elements: [
-                    Static('numberOfMeows++;'),
-                  ],
-                ),
+                body: Column([
+                  Static('numberOfMeows++;'),
+                ]),
               ),
             ],
           );

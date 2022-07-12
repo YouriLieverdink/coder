@@ -18,13 +18,13 @@ class Switch extends Element {
   final List<SwitchCase> cases;
 
   /// The default case of this switch.
-  final Block? default_;
+  final Column? default_;
 
   @override
   Switch copyWith({
     Element? condition,
     List<SwitchCase>? cases,
-    Block? default_,
+    Column? default_,
   }) {
     return Switch(
       condition: condition ?? this.condition,

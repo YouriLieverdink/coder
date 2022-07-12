@@ -5,20 +5,18 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = BlockEmitter(context);
+  const emitter = ColumnEmitter(context);
 
   group(
-    'BlockEmitter',
+    'ColumnEmitter',
     () {
       test(
         'should emit a block of elements',
         () {
-          const element = Block(
-            elements: [
-              Static('// Hello, my name is Pip!'),
-              Static('final cat = Cat(name: "Pip");'),
-            ],
-          );
+          const element = Column([
+            Static('// Hello, my name is Pip!'),
+            Static('final cat = Cat(name: "Pip");'),
+          ]);
 
           Expect(
             element,

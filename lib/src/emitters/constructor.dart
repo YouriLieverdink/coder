@@ -39,7 +39,9 @@ class ConstructorEmitter extends Emitter<Constructor> {
     if (!value.isConst) {
       output.write(' {');
 
-      BlockEmitter(context).emit(value.body, output);
+      if (value.body != null) {
+        ColumnEmitter(context).emit(value.body!, output);
+      }
 
       output.write(' }');
     } //
