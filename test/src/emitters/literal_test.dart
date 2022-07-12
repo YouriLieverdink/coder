@@ -11,7 +11,7 @@ void main() {
     'LiteralEmitter',
     () {
       test(
-        'should emit a literal bool statement',
+        'should emit a literal bool',
         () {
           const statement = Literal(true);
 
@@ -28,7 +28,7 @@ void main() {
       );
 
       test(
-        'should emit a literal null statement',
+        'should emit a literal null',
         () {
           const statement = Literal(null);
 
@@ -45,7 +45,7 @@ void main() {
       );
 
       test(
-        'should emit a literal num statement',
+        'should emit a literal num',
         () {
           const statement = Literal(42);
 
@@ -62,7 +62,7 @@ void main() {
       );
 
       test(
-        'should emit a literal string statement',
+        'should emit a literal string',
         () {
           const statement = Literal('cat');
 

@@ -11,12 +11,12 @@ void main() {
     'StaticEmitter',
     () {
       test(
-        'should emit a static statement',
+        'should emit a static',
         () {
-          const statement = Static('print("Hello, world");');
+          const element = Static('print("Hello, world");');
 
           Expect(
-            statement,
+            element,
             const Equals(
               '''
               print("Hello, world");

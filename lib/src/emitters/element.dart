@@ -36,6 +36,12 @@ class ElementEmitter extends Emitter<Element> {
     else if (value is Field) {
       FieldEmitter(context).emit(value, output);
     } //
+    else if (value is For) {
+      ForEmitter(context).emit(value, output);
+    } //
+    else if (value is IfElse) {
+      IfElseEmitter(context).emit(value, output);
+    } //
     else if (value is Literal) {
       LiteralEmitter(context).emit(value, output);
     } //
@@ -50,6 +56,15 @@ class ElementEmitter extends Emitter<Element> {
     } //
     else if (value is Static) {
       StaticEmitter(context).emit(value, output);
+    } //
+    else if (value is Switch) {
+      SwitchEmitter(context).emit(value, output);
+    } //
+    else if (value is TryCatch) {
+      TryCatchEmitter(context).emit(value, output);
+    } //
+    else if (value is While) {
+      WhileEmitter(context).emit(value, output);
     } //
 
     return output;

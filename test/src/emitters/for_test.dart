@@ -5,25 +5,28 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = BinaryEmitter(context);
+  const emitter = ForEmitter(context);
 
   group(
-    'BinaryEmitter',
+    'ForEmitter',
     () {
       test(
-        'should emit a binary',
+        'should emit a for',
         () {
-          const statement = Binary(
-            left: Literal('cat'),
-            right: Literal('dog'),
-            operator: '!=',
+          const element = For(
+            condition: Static('int i = 0; i < 10; i++'),
+            body: [
+              Static('print(i);'),
+            ],
           );
 
           Expect(
-            statement,
+            element,
             const Equals(
               '''
-                'cat' != 'dog'
+                for (int i = 0; i < 10; i++) {
+                  print(i);
+                }
               ''',
               emitter: emitter,
             ),
