@@ -8,8 +8,29 @@ void main() {
   const emitter = ElementEmitter(context);
 
   group(
-    'SpecEmitter',
+    'ElementEmitter',
     () {
+      test(
+        'should emit a binary',
+        () {
+          const statement = Binary(
+            left: Literal('cat'),
+            right: Literal('dog'),
+            operator: '!=',
+          );
+
+          Expect(
+            statement,
+            const Equals(
+              '''
+                'cat' != 'dog'
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
       test(
         'should emit a class',
         () {
@@ -100,6 +121,71 @@ void main() {
       );
 
       test(
+        'should emit a for',
+        () {
+          const element = For(
+            condition: Static('int i = 0; i < 10; i++'),
+            body: [
+              Static('print(i);'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                for (int i = 0; i < 10; i++) {
+                  print(i);
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an if',
+        () {
+          const element = If(
+            condition: Static('i > 42'),
+            then: [
+              Static("print('Found the meaning of life!');"),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                if (i > 42) {
+                  print('Found the meaning of life!');
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a literal',
+        () {
+          const statement = Literal(true);
+
+          Expect(
+            statement,
+            const Equals(
+              '''
+                true
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a method',
         () {
           const element = Method(
@@ -157,15 +243,39 @@ void main() {
       );
 
       test(
-        'should emit a statement',
+        'should emit a static',
         () {
-          const statement = Literal('cat');
+          const element = Static('print("Hello, world");');
 
           Expect(
-            statement,
+            element,
             const Equals(
               '''
-                'cat'
+              print("Hello, world");
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a while',
+        () {
+          const element = While(
+            condition: Static('i < 42'),
+            body: [
+              Static('i++;'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                while (i < 42) {
+                  i++;
+                }
               ''',
               emitter: emitter,
             ),

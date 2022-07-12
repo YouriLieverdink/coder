@@ -11,7 +11,7 @@ void main() {
     'ForEmitter',
     () {
       test(
-        'should create a for element',
+        'should emit a for',
         () {
           const element = For(
             condition: Static('int i = 0; i < 10; i++'),

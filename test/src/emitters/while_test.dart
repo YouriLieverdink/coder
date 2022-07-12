@@ -11,7 +11,7 @@ void main() {
     'WhileEmitter',
     () {
       test(
-        'should emit a while element',
+        'should emit a while',
         () {
           const element = While(
             condition: Static('i < 42'),
@@ -35,7 +35,7 @@ void main() {
       );
 
       test(
-        'should emit a do while element',
+        'should emit a do while',
         () {
           const element = While(
             condition: Static('i < 42'),

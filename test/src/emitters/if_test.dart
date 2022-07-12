@@ -11,7 +11,7 @@ void main() {
     'IfEmitter',
     () {
       test(
-        'should emit an if element',
+        'should emit an if',
         () {
           const element = If(
             condition: Static('i > 42'),

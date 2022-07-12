@@ -11,7 +11,7 @@ void main() {
     'BinaryEmitter',
     () {
       test(
-        'should emit a binary statement',
+        'should emit a binary',
         () {
           const statement = Binary(
             left: Literal('cat'),
