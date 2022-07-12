@@ -137,6 +137,35 @@ void main() {
   );
 
   group(
+    'ForStatementEmitter',
+    () {
+      test(
+        'should create a for statement',
+        () {
+          const statement = ForStatement(
+            condition: StaticStatement('int i = 0; i < 10; i++'),
+            body: [
+              StaticStatement('print(i);'),
+            ],
+          );
+
+          Expect(
+            statement,
+            const Equals(
+              '''
+                for (int i = 0; i < 10; i++) {
+                  print(i);
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
     'LiteralStatementEmitter',
     () {
       test(

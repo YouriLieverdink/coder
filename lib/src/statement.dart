@@ -3,6 +3,7 @@ library statement;
 import 'package:orchestrator/orchestrator.dart';
 
 part './statements/binary.dart';
+part './statements/for.dart';
 part './statements/if.dart';
 part './statements/literal.dart';
 part './statements/static.dart';

@@ -17,6 +17,9 @@ class StatementEmitter extends Emitter<Statement> {
     if (value is BinaryStatement) {
       BinaryStatementEmitter(context).emit(value, output);
     } //
+    else if (value is ForStatement) {
+      ForStatementEmitter(context).emit(value, output);
+    } //
     else if (value is IfStatement) {
       IfStatementEmitter(context).emit(value, output);
     } //
@@ -53,6 +56,36 @@ class BinaryStatementEmitter extends Emitter<BinaryStatement> {
     output.write(' ${value.operator} ');
 
     StatementEmitter(context).emit(value.right, output);
+
+    return output;
+  }
+}
+
+/// {@template for_statement_emitter}
+/// Transforms the [ForStatement] into Dart source code.
+/// {@endtemplate}
+class ForStatementEmitter extends Emitter<ForStatement> {
+  /// {@macro for_statement_emitter}
+  const ForStatementEmitter(super.context);
+
+  @override
+  StringSink emit(
+    ForStatement value, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    output.write('for (');
+
+    StatementEmitter(context).emit(value.condition, output);
+
+    output.write(') { ');
+
+    for (final v in value.body) {
+      StatementEmitter(context).emit(v, output);
+    }
+
+    output.write(' }');
 
     return output;
   }
