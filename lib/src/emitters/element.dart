@@ -60,6 +60,9 @@ class ElementEmitter extends Emitter<Element> {
     else if (value is Switch) {
       SwitchEmitter(context).emit(value, output);
     } //
+    else if (value is TryCatch) {
+      TryCatchEmitter(context).emit(value, output);
+    } //
     else if (value is While) {
       WhileEmitter(context).emit(value, output);
     } //

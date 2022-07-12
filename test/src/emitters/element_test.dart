@@ -280,6 +280,34 @@ void main() {
       );
 
       test(
+        'should emit a try-catch block',
+        () {
+          const element = TryCatch(
+            try_: [
+              Static('cat.pickUp();'),
+            ],
+            catch_: [
+              Static('print("ouch!");'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                try {
+                  cat.pickUp();
+                } catch (e) {
+                  print("ouch!");
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a while',
         () {
           const element = While(
