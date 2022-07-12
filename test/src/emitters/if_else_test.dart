@@ -15,9 +15,11 @@ void main() {
         () {
           const element = IfElse(
             condition: Static('i > 42'),
-            then: [
-              Static("print('Found the meaning of life!');"),
-            ],
+            then: Block(
+              elements: [
+                Static("print('Found the meaning of life!');"),
+              ],
+            ),
           );
 
           Expect(
@@ -39,12 +41,16 @@ void main() {
         () {
           const statement = IfElse(
             condition: Static('i > 42'),
-            then: [
-              Static("print('Found the meaning of life!');"),
-            ],
-            else_: [
-              Static("print('Not yet!');"),
-            ],
+            then: Block(
+              elements: [
+                Static("print('Found the meaning of life!');"),
+              ],
+            ),
+            else_: Block(
+              elements: [
+                Static("print('Not yet!');"),
+              ],
+            ),
           );
 
           Expect(

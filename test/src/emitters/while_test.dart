@@ -15,9 +15,11 @@ void main() {
         () {
           const element = While(
             condition: Static('i < 42'),
-            body: [
-              Static('i++;'),
-            ],
+            body: Block(
+              elements: [
+                Static('i++;'),
+              ],
+            ),
           );
 
           Expect(
@@ -40,9 +42,11 @@ void main() {
           const element = While(
             condition: Static('i < 42'),
             kind: WhileKind.doWhile,
-            body: [
-              Static('i++;'),
-            ],
+            body: Block(
+              elements: [
+                Static('i++;'),
+              ],
+            ),
           );
 
           Expect(

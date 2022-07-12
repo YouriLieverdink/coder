@@ -20,18 +20,14 @@ class IfElseEmitter extends Emitter<IfElse> {
 
     output.write(') { ');
 
-    for (final v in value.then) {
-      ElementEmitter(context).emit(v, output);
-    }
+    BlockEmitter(context).emit(value.then, output);
 
     output.write(' }');
 
-    if (value.else_.isNotEmpty) {
+    if (value.else_.elements.isNotEmpty) {
       output.write(' else { ');
 
-      for (final v in value.else_) {
-        ElementEmitter(context).emit(v, output);
-      }
+      BlockEmitter(context).emit(value.else_, output);
 
       output.write(' }');
     }

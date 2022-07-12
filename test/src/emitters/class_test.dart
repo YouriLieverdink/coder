@@ -254,9 +254,11 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
-                body: [
-                  Static('print("meow!");'),
-                ],
+                body: Block(
+                  elements: [
+                    Static('print("meow!");'),
+                  ],
+                ),
               ),
             ],
           );

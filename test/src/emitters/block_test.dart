@@ -5,30 +5,27 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = ForEmitter(context);
+  const emitter = BlockEmitter(context);
 
   group(
-    'ForEmitter',
+    'BlockEmitter',
     () {
       test(
-        'should emit a for',
+        'should emit a block of elements',
         () {
-          const element = For(
-            condition: Static('int i = 0; i < 10; i++'),
-            body: Block(
-              elements: [
-                Static('print(i);'),
-              ],
-            ),
+          const element = Block(
+            elements: [
+              Static('// Hello, my name is Pip!'),
+              Static('final cat = Cat(name: "Pip");'),
+            ],
           );
 
           Expect(
             element,
             const Equals(
               '''
-                for (int i = 0; i < 10; i++) {
-                  print(i);
-                }
+                // Hello, my name is Pip!
+                final cat = Cat(name: "Pip");
               ''',
               emitter: emitter,
             ),

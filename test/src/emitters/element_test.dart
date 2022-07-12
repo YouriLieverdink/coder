@@ -32,6 +32,29 @@ void main() {
       );
 
       test(
+        'should emit a block of elements',
+        () {
+          const element = Block(
+            elements: [
+              Static('// Hello, my name is Pip!'),
+              Static('final cat = Cat(name: "Pip");'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                // Hello, my name is Pip!
+                final cat = Cat(name: "Pip");
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a class',
         () {
           const element = Class(name: 'Cat');
@@ -125,9 +148,11 @@ void main() {
         () {
           const element = For(
             condition: Static('int i = 0; i < 10; i++'),
-            body: [
-              Static('print(i);'),
-            ],
+            body: Block(
+              elements: [
+                Static('print(i);'),
+              ],
+            ),
           );
 
           Expect(
@@ -149,9 +174,11 @@ void main() {
         () {
           const element = IfElse(
             condition: Static('i > 42'),
-            then: [
-              Static("print('Found the meaning of life!');"),
-            ],
+            then: Block(
+              elements: [
+                Static("print('Found the meaning of life!');"),
+              ],
+            ),
           );
 
           Expect(
@@ -283,12 +310,16 @@ void main() {
         'should emit a try-catch block',
         () {
           const element = TryCatch(
-            try_: [
-              Static('cat.pickUp();'),
-            ],
-            catch_: [
-              Static('print("ouch!");'),
-            ],
+            try_: Block(
+              elements: [
+                Static('cat.pickUp();'),
+              ],
+            ),
+            catch_: Block(
+              elements: [
+                Static('print("ouch!");'),
+              ],
+            ),
           );
 
           Expect(
@@ -312,9 +343,11 @@ void main() {
         () {
           const element = While(
             condition: Static('i < 42'),
-            body: [
-              Static('i++;'),
-            ],
+            body: Block(
+              elements: [
+                Static('i++;'),
+              ],
+            ),
           );
 
           Expect(

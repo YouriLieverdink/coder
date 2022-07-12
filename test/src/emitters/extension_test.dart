@@ -87,9 +87,11 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
-                body: [
-                  Static('numberOfMeows++;'),
-                ],
+                body: Block(
+                  elements: [
+                    Static('numberOfMeows++;'),
+                  ],
+                ),
               ),
             ],
           );
