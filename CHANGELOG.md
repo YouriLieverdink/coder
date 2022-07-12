@@ -1,3 +1,8 @@
+# 0.7.0
+
+- refactor: replace binary element with a more flexible row element
+- feat: add many, many more builder methods
+
 # 0.6.0
 
 - feat: add if-else statement
