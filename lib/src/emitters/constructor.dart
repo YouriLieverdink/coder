@@ -40,7 +40,7 @@ class ConstructorEmitter extends Emitter<Constructor> {
       output.write(' {');
 
       for (final v in value.body) {
-        StatementEmitter(context).emit(v, output);
+        ElementEmitter(context).emit(v, output);
       }
 
       output.write(' }');

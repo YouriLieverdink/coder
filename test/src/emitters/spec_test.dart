@@ -5,7 +5,7 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = SpecEmitter(context);
+  const emitter = ElementEmitter(context);
 
   group(
     'SpecEmitter',
@@ -159,7 +159,7 @@ void main() {
       test(
         'should emit a statement',
         () {
-          const statement = LiteralStatement('cat');
+          const statement = Literal('cat');
 
           Expect(
             statement,

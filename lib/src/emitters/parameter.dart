@@ -29,7 +29,7 @@ class ParameterEmitter extends Emitter<Parameter> {
     if (value.assign != null) {
       output.write(' = ');
 
-      StatementEmitter(context).emit(value.assign!, output);
+      ElementEmitter(context).emit(value.assign!, output);
     }
 
     return output;

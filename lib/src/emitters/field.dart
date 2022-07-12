@@ -42,7 +42,7 @@ class FieldEmitter extends Emitter<Field> {
     if (value.assign != null) {
       output.write(' = ');
 
-      StatementEmitter(context).emit(value.assign!, output);
+      ElementEmitter(context).emit(value.assign!, output);
     }
 
     output.write(';');

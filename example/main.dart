@@ -15,7 +15,7 @@ void main() {
           Parameter(
             name: 'state',
             isToThis: true,
-            assign: StaticStatement('CatState.eating'),
+            assign: Static('CatState.eating'),
           ),
         ],
       ),
