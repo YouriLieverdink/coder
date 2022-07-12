@@ -16,7 +16,7 @@ abstract class Reference extends Element {
 /// {@template type_reference}
 /// Configuration for defining a `type reference`.
 /// {@endtemplate}
-class TypeReference extends Reference {
+class TypeReference extends Reference with Builder {
   /// {@macro type_reference}
   const TypeReference(
     this.symbol, {
