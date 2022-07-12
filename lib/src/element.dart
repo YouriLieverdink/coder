@@ -9,7 +9,6 @@ part './elements/enum.dart';
 part './elements/extension.dart';
 part './elements/field.dart';
 part './elements/for.dart';
-part './elements/if.dart';
 part './elements/literal.dart';
 part './elements/method.dart';
 part './elements/parameter.dart';

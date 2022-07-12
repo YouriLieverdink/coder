@@ -5,15 +5,15 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = IfEmitter(context);
+  const emitter = IfElseEmitter(context);
 
   group(
-    'IfEmitter',
+    'IfElseEmitter',
     () {
       test(
         'should emit an if',
         () {
-          const element = If(
+          const element = IfElse(
             condition: Static('i > 42'),
             then: [
               Static("print('Found the meaning of life!');"),
@@ -37,7 +37,7 @@ void main() {
       test(
         'should emit an if element with an else block',
         () {
-          const statement = If(
+          const statement = IfElse(
             condition: Static('i > 42'),
             then: [
               Static("print('Found the meaning of life!');"),

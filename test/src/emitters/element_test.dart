@@ -147,7 +147,7 @@ void main() {
       test(
         'should emit an if',
         () {
-          const element = If(
+          const element = IfElse(
             condition: Static('i > 42'),
             then: [
               Static("print('Found the meaning of life!');"),

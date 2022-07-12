@@ -1,32 +1,32 @@
 part of element;
 
-/// {@template if}
-/// Configuration for defining an `if statement`.
+/// {@template if_else}
+/// Configuration for defining an `if-else statement`.
 /// {@endtemplate}
-class If extends Element {
-  /// {@macro if}
-  const If({
+class IfElse extends Element {
+  /// {@macro if_else}
+  const IfElse({
     required this.condition,
     required this.then,
     this.else_ = const [],
   });
 
-  /// The condition of this if statement.
+  /// The condition of this if-else statement.
   final Element condition;
 
-  /// The then block of this if statement.
+  /// The then block of this if-else statement.
   final List<Element> then;
 
-  /// The else block of this if statement.
+  /// The else block of this if-else statement.
   final List<Element> else_;
 
   @override
-  If copyWith({
+  IfElse copyWith({
     Element? condition,
     List<Element>? then,
     List<Element>? else_,
   }) {
-    return If(
+    return IfElse(
       condition: condition ?? this.condition,
       then: then ?? this.then,
       else_: else_ ?? this.else_,

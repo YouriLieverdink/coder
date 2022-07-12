@@ -1,15 +1,15 @@
 part of emitter;
 
-/// {@template if_emitter}
-/// Transforms the [If] into Dart source code.
+/// {@template if_else_emitter}
+/// Transforms the [IfElse] into Dart source code.
 /// {@endtemplate}
-class IfEmitter extends Emitter<If> {
-  /// {@macro if_emitter}
-  const IfEmitter(super.context);
+class IfElseEmitter extends Emitter<IfElse> {
+  /// {@macro if_else_emitter}
+  const IfElseEmitter(super.context);
 
   @override
   StringSink emit(
-    If value, [
+    IfElse value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
