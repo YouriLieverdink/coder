@@ -1,3 +1,17 @@
+# 0.6.0
+
+- feat: add if-else statement
+- feat: add switch statement
+- feat: add try-catch-finally block
+- feat: add while loop
+- feat: add do-while loop
+- feat: add for loop
+
+# 0.5.0
+
+- refactor: merge the elements and statements into one
+- feat: add a builder mixin to allow chaining elements
+
 # 0.4.0
 
 - feat: add a spec emitter
