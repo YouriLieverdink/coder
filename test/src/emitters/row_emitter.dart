@@ -5,25 +5,26 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = BinaryEmitter(context);
+  const emitter = RowEmitter(context);
 
   group(
-    'BinaryEmitter',
+    'RowEmitter',
     () {
       test(
-        'should emit a binary',
+        'should emit a row of elements',
         () {
-          const statement = Binary(
-            left: Literal('cat'),
-            right: Literal('dog'),
-            operator: '!=',
-          );
+          const element = Row([
+            Static('final '),
+            Static('cat'),
+            Static(' = '),
+            Static('Cat()'),
+          ]);
 
           Expect(
-            statement,
+            element,
             const Equals(
               '''
-                'cat' != 'dog'
+                final cat = Cat()
               ''',
               emitter: emitter,
             ),

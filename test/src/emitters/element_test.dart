@@ -11,27 +11,6 @@ void main() {
     'ElementEmitter',
     () {
       test(
-        'should emit a binary',
-        () {
-          const statement = Binary(
-            left: Literal('cat'),
-            right: Literal('dog'),
-            operator: '!=',
-          );
-
-          Expect(
-            statement,
-            const Equals(
-              '''
-                'cat' != 'dog'
-              ''',
-              emitter: emitter,
-            ),
-          );
-        },
-      );
-
-      test(
         'should emit a block of elements',
         () {
           const element = Block(
@@ -262,6 +241,28 @@ void main() {
             const Equals(
               '''
                 String
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a row of elements',
+        () {
+          const element = Row([
+            Static('final '),
+            Static('cat'),
+            Static(' = '),
+            Static('Cat()'),
+          ]);
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                final cat = Cat()
               ''',
               emitter: emitter,
             ),

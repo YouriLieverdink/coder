@@ -14,10 +14,7 @@ class ElementEmitter extends Emitter<Element> {
   ]) {
     output ??= StringBuffer();
 
-    if (value is Binary) {
-      BinaryEmitter(context).emit(value, output);
-    } //
-    else if (value is Block) {
+    if (value is Block) {
       BlockEmitter(context).emit(value, output);
     } //
     else if (value is Class) {
@@ -56,6 +53,9 @@ class ElementEmitter extends Emitter<Element> {
     } //
     else if (value is Reference) {
       ReferenceEmitter(context).emit(value, output);
+    } //
+    else if (value is Row) {
+      RowEmitter(context).emit(value, output);
     } //
     else if (value is Static) {
       StaticEmitter(context).emit(value, output);

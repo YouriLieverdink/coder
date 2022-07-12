@@ -2,7 +2,6 @@ library element;
 
 import 'package:orchestrator/orchestrator.dart';
 
-part './elements/binary.dart';
 part './elements/block.dart';
 part './elements/class.dart';
 part './elements/constructor.dart';
@@ -15,6 +14,7 @@ part './elements/literal.dart';
 part './elements/method.dart';
 part './elements/parameter.dart';
 part './elements/reference.dart';
+part './elements/row.dart';
 part './elements/static.dart';
 part './elements/switch.dart';
 part './elements/try_catch.dart';
