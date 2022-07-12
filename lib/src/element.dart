@@ -15,6 +15,7 @@ part './elements/method.dart';
 part './elements/parameter.dart';
 part './elements/reference.dart';
 part './elements/static.dart';
+part './elements/switch.dart';
 part './elements/while.dart';
 
 /// {@template element}

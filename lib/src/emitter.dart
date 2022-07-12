@@ -16,6 +16,7 @@ part './emitters/method.dart';
 part './emitters/parameter.dart';
 part './emitters/reference.dart';
 part './emitters/static.dart';
+part './emitters/switch.dart';
 part './emitters/while.dart';
 
 /// {@template emitter}
