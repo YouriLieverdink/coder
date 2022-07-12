@@ -1,10 +1,10 @@
-part of statement;
+part of element;
 
-/// {@template binary_statement}
-/// Configuration for defining a `binary statement`.
+/// {@template binary}
+/// Configuration for defining a `binary` element.
 /// {@endtemplate}
-class Binary extends Statement {
-  /// {@macro binary_statement}
+class Binary extends Element with Builder {
+  /// {@macro binary_element}
   const Binary({
     required this.left,
     required this.right,
@@ -12,18 +12,18 @@ class Binary extends Statement {
   });
 
   /// The left side of this statement.
-  final Statement left;
+  final Element left;
 
   /// The right side of this statement.
-  final Statement right;
+  final Element right;
 
   /// The operator between left and right of this statement.
   final String operator;
 
   @override
   Binary copyWith({
-    Statement? left,
-    Statement? right,
+    Element? left,
+    Element? right,
     String? operator,
   }) {
     return Binary(

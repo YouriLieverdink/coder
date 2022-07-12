@@ -1,10 +1,10 @@
-part of statement;
+part of element;
 
-/// {@template literal_statement}
-/// Configuration for defining a `literal statement`.
+/// {@template literal}
+/// Configuration for defining a `literal` element.
 /// {@endtemplate}
-class Literal<T> extends Statement {
-  /// {@macro literal_statement}
+class Literal<T> extends Element with Builder {
+  /// {@macro literal}
   const Literal(
     this.value,
   );

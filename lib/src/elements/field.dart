@@ -27,7 +27,7 @@ class Field extends Element {
   final String name;
 
   /// The statement used to assign a value to this field.
-  final Statement? assign;
+  final Element? assign;
 
   /// The modifier to apply to this field.
   final FieldModifier? modifier;
@@ -42,7 +42,7 @@ class Field extends Element {
   Field copyWith({
     Reference? type,
     String? name,
-    Statement? assign,
+    Element? assign,
     FieldModifier? modifier,
     bool? isStatic,
     bool? isLate,

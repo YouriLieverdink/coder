@@ -47,7 +47,7 @@ class Method extends Element {
   final List<Parameter> parameters;
 
   /// The body of this method.
-  final List<Statement> body;
+  final List<Element> body;
 
   @override
   Method copyWith({
@@ -57,7 +57,7 @@ class Method extends Element {
     MethodMofifier? modifier,
     MethodKind? kind,
     List<Parameter>? parameters,
-    List<Statement>? body,
+    List<Element>? body,
   }) {
     return Method(
       returns: returns ?? this.returns,

@@ -5,7 +5,7 @@ import '../../utilities/utilities.dart';
 
 void main() {
   const context = Context();
-  const emitter = SpecEmitter(context);
+  const emitter = ElementEmitter(context);
 
   group(
     'SpecEmitter',
