@@ -260,6 +260,26 @@ void main() {
       );
 
       test(
+        'should emit a switch',
+        () {
+          const element = Switch(
+            Static('cat.state'),
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                switch (cat.state) {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a while',
         () {
           const element = While(
