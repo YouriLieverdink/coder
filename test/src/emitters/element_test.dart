@@ -32,6 +32,29 @@ void main() {
       );
 
       test(
+        'should emit a block of elements',
+        () {
+          const element = Block(
+            elements: [
+              Static('// Hello, my name is Pip!'),
+              Static('final cat = Cat(name: "Pip");'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                // Hello, my name is Pip!
+                final cat = Cat(name: "Pip");
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a class',
         () {
           const element = Class(name: 'Cat');

@@ -16,8 +16,11 @@ class ElementEmitter extends Emitter<Element> {
 
     if (value is Binary) {
       BinaryEmitter(context).emit(value, output);
-    }
-    if (value is Class) {
+    } //
+    else if (value is Block) {
+      BlockEmitter(context).emit(value, output);
+    } //
+    else if (value is Class) {
       ClassEmitter(context).emit(value, output);
     } //
     else if (value is Constructor) {

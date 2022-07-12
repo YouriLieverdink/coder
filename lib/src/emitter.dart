@@ -3,6 +3,7 @@ library emitter;
 import 'package:orchestrator/orchestrator.dart';
 
 part './emitters/binary.dart';
+part './emitters/block.dart';
 part './emitters/class.dart';
 part './emitters/constructor.dart';
 part './emitters/element.dart';

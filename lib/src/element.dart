@@ -3,6 +3,7 @@ library element;
 import 'package:orchestrator/orchestrator.dart';
 
 part './elements/binary.dart';
+part './elements/block.dart';
 part './elements/class.dart';
 part './elements/constructor.dart';
 part './elements/enum.dart';
