@@ -123,9 +123,11 @@ void main() {
                 type: TypeReference('String'),
               ),
             ],
-            body: [
-              Static('this.name = name;'),
-            ],
+            body: Block(
+              elements: [
+                Static('this.name = name;'),
+              ],
+            ),
           );
 
           Expect(

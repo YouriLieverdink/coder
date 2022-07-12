@@ -12,7 +12,7 @@ class While extends Element {
   /// {@macro while}
   const While({
     required this.condition,
-    this.body = const [],
+    this.body = const Block(),
     this.kind = WhileKind.while_,
   });
 
@@ -20,7 +20,7 @@ class While extends Element {
   final Element condition;
 
   /// The body of this while statement.
-  final List<Element> body;
+  final Block body;
 
   /// The kind of while statement this is.
   final WhileKind kind;
@@ -28,7 +28,7 @@ class While extends Element {
   @override
   While copyWith({
     Element? condition,
-    List<Element>? body,
+    Block? body,
     WhileKind? kind,
   }) {
     return While(

@@ -7,19 +7,19 @@ class For extends Element {
   /// {@macro for}
   const For({
     required this.condition,
-    this.body = const [],
+    this.body = const Block(),
   });
 
   /// The condition of this for.
   final Element condition;
 
   /// The body of this for.
-  final List<Element> body;
+  final Block body;
 
   @override
   For copyWith({
     Element? condition,
-    List<Element>? body,
+    Block? body,
   }) {
     return For(
       condition: condition ?? this.condition,

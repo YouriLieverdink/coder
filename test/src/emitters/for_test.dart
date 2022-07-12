@@ -15,9 +15,11 @@ void main() {
         () {
           const element = For(
             condition: Static('int i = 0; i < 10; i++'),
-            body: [
-              Static('print(i);'),
-            ],
+            body: Block(
+              elements: [
+                Static('print(i);'),
+              ],
+            ),
           );
 
           Expect(

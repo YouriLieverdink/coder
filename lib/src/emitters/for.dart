@@ -20,9 +20,7 @@ class ForEmitter extends Emitter<For> {
 
     output.write(') { ');
 
-    for (final v in value.body) {
-      ElementEmitter(context).emit(v, output);
-    }
+    BlockEmitter(context).emit(value.body, output);
 
     output.write(' }');
 

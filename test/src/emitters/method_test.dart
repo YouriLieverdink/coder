@@ -158,9 +158,11 @@ void main() {
                 type: TypeReference('Cat'),
               ),
             ],
-            body: [
-              Static('return cat.state;'),
-            ],
+            body: Block(
+              elements: [
+                Static('return cat.state;'),
+              ],
+            ),
           );
 
           Expect(

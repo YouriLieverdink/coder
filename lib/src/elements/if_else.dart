@@ -8,23 +8,23 @@ class IfElse extends Element {
   const IfElse({
     required this.condition,
     required this.then,
-    this.else_ = const [],
+    this.else_ = const Block(),
   });
 
   /// The condition of this if-else statement.
   final Element condition;
 
   /// The then block of this if-else statement.
-  final List<Element> then;
+  final Block then;
 
   /// The else block of this if-else statement.
-  final List<Element> else_;
+  final Block else_;
 
   @override
   IfElse copyWith({
     Element? condition,
-    List<Element>? then,
-    List<Element>? else_,
+    Block? then,
+    Block? else_,
   }) {
     return IfElse(
       condition: condition ?? this.condition,
