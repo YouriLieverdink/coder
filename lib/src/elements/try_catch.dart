@@ -7,24 +7,24 @@ class TryCatch extends Element {
   /// {@macro try_catch}
   const TryCatch({
     required this.try_,
-    this.catch_ = const Block(),
-    this.finally_ = const Block(),
+    this.catch_,
+    this.finally_,
   });
 
   /// The `try` section of this try-catch block.
-  final Block try_;
+  final Column try_;
 
   /// The `catch` section of this try-catch block.
-  final Block catch_;
+  final Column? catch_;
 
   /// The `finally` section of this try-catch block.
-  final Block finally_;
+  final Column? finally_;
 
   @override
   TryCatch copyWith({
-    Block? try_,
-    Block? catch_,
-    Block? finally_,
+    Column? try_,
+    Column? catch_,
+    Column? finally_,
   }) {
     return TryCatch(
       try_: try_ ?? this.try_,

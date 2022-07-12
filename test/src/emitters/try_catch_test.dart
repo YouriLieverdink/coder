@@ -14,16 +14,12 @@ void main() {
         'should emit a try-catch block',
         () {
           const element = TryCatch(
-            try_: Block(
-              elements: [
-                Static('cat.pickUp();'),
-              ],
-            ),
-            catch_: Block(
-              elements: [
-                Static('print("ouch!");'),
-              ],
-            ),
+            try_: Column([
+              Static('cat.pickUp();'),
+            ]),
+            catch_: Column([
+              Static('print("ouch!");'),
+            ]),
           );
 
           Expect(
@@ -46,21 +42,15 @@ void main() {
         'should emit a try-catch block with finally',
         () {
           const element = TryCatch(
-            try_: Block(
-              elements: [
-                Static('cat.pickUp();'),
-              ],
-            ),
-            catch_: Block(
-              elements: [
-                Static('print("ouch!");'),
-              ],
-            ),
-            finally_: Block(
-              elements: [
-                Static('// You never know what happens!'),
-              ],
-            ),
+            try_: Column([
+              Static('cat.pickUp();'),
+            ]),
+            catch_: Column([
+              Static('print("ouch!");'),
+            ]),
+            finally_: Column([
+              Static('// You never know what happens!'),
+            ]),
           );
 
           Expect(

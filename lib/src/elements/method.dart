@@ -22,7 +22,7 @@ class Method extends Element {
     this.modifier,
     this.kind,
     this.parameters = const [],
-    this.body = const Block(),
+    this.body,
   });
 
   /// The type this method returns.
@@ -47,7 +47,7 @@ class Method extends Element {
   final List<Parameter> parameters;
 
   /// The body of this method.
-  final Block body;
+  final Column? body;
 
   @override
   Method copyWith({
@@ -57,7 +57,7 @@ class Method extends Element {
     MethodMofifier? modifier,
     MethodKind? kind,
     List<Parameter>? parameters,
-    Block? body,
+    Column? body,
   }) {
     return Method(
       returns: returns ?? this.returns,

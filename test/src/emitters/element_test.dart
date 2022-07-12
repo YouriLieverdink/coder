@@ -13,12 +13,10 @@ void main() {
       test(
         'should emit a block of elements',
         () {
-          const element = Block(
-            elements: [
-              Static('// Hello, my name is Pip!'),
-              Static('final cat = Cat(name: "Pip");'),
-            ],
-          );
+          const element = Column([
+            Static('// Hello, my name is Pip!'),
+            Static('final cat = Cat(name: "Pip");'),
+          ]);
 
           Expect(
             element,
@@ -127,11 +125,9 @@ void main() {
         () {
           const element = For(
             condition: Static('int i = 0; i < 10; i++'),
-            body: Block(
-              elements: [
-                Static('print(i);'),
-              ],
-            ),
+            body: Column([
+              Static('print(i);'),
+            ]),
           );
 
           Expect(
@@ -153,11 +149,9 @@ void main() {
         () {
           const element = IfElse(
             condition: Static('i > 42'),
-            then: Block(
-              elements: [
-                Static("print('Found the meaning of life!');"),
-              ],
-            ),
+            then: Column([
+              Static("print('Found the meaning of life!');"),
+            ]),
           );
 
           Expect(
@@ -311,16 +305,12 @@ void main() {
         'should emit a try-catch block',
         () {
           const element = TryCatch(
-            try_: Block(
-              elements: [
-                Static('cat.pickUp();'),
-              ],
-            ),
-            catch_: Block(
-              elements: [
-                Static('print("ouch!");'),
-              ],
-            ),
+            try_: Column([
+              Static('cat.pickUp();'),
+            ]),
+            catch_: Column([
+              Static('print("ouch!");'),
+            ]),
           );
 
           Expect(
@@ -344,11 +334,9 @@ void main() {
         () {
           const element = While(
             condition: Static('i < 42'),
-            body: Block(
-              elements: [
-                Static('i++;'),
-              ],
-            ),
+            body: Column([
+              Static('i++;'),
+            ]),
           );
 
           Expect(

@@ -2,8 +2,8 @@ library element;
 
 import 'package:orchestrator/orchestrator.dart';
 
-part './elements/block.dart';
 part './elements/class.dart';
+part './elements/column.dart';
 part './elements/constructor.dart';
 part './elements/enum.dart';
 part './elements/extension.dart';

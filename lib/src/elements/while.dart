@@ -12,29 +12,29 @@ class While extends Element {
   /// {@macro while}
   const While({
     required this.condition,
-    this.body = const Block(),
     this.kind = WhileKind.while_,
+    this.body,
   });
 
   /// The condition of this while statement.
   final Element condition;
 
-  /// The body of this while statement.
-  final Block body;
-
   /// The kind of while statement this is.
   final WhileKind kind;
+
+  /// The body of this while statement.
+  final Column? body;
 
   @override
   While copyWith({
     Element? condition,
-    Block? body,
     WhileKind? kind,
+    Column? body,
   }) {
     return While(
       condition: condition ?? this.condition,
-      body: body ?? this.body,
       kind: kind ?? this.kind,
+      body: body ?? this.body,
     );
   }
 }

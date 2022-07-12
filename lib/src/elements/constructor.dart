@@ -10,7 +10,7 @@ class Constructor extends Element {
     this.isFactory = false,
     this.name,
     this.parameters = const [],
-    this.body = const Block(),
+    this.body,
   });
 
   /// Whether this constructor is a constant constructor.
@@ -26,7 +26,7 @@ class Constructor extends Element {
   final List<Parameter> parameters;
 
   /// The body of this constructor.
-  final Block body;
+  final Column? body;
 
   @override
   Constructor copyWith({
@@ -34,7 +34,7 @@ class Constructor extends Element {
     bool? isFactory,
     String? name,
     List<Parameter>? parameters,
-    Block? body,
+    Column? body,
   }) {
     return Constructor(
       isConst: isConst ?? this.isConst,
