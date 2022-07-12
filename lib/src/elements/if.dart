@@ -1,32 +1,32 @@
-part of statement;
+part of element;
 
-/// {@template if_statement}
+/// {@template if}
 /// Configuration for defining an `if statement`.
 /// {@endtemplate}
-class IfStatement extends Statement {
-  /// {@macro if_statement}
-  const IfStatement({
+class If extends Element {
+  /// {@macro if}
+  const If({
     required this.condition,
     required this.then,
     this.else_ = const [],
   });
 
   /// The condition of this if statement.
-  final Statement condition;
+  final Element condition;
 
   /// The then block of this if statement.
-  final List<Statement> then;
+  final List<Element> then;
 
   /// The else block of this if statement.
-  final List<Statement> else_;
+  final List<Element> else_;
 
   @override
-  IfStatement copyWith({
-    Statement? condition,
-    List<Statement>? then,
-    List<Statement>? else_,
+  If copyWith({
+    Element? condition,
+    List<Element>? then,
+    List<Element>? else_,
   }) {
-    return IfStatement(
+    return If(
       condition: condition ?? this.condition,
       then: then ?? this.then,
       else_: else_ ?? this.else_,

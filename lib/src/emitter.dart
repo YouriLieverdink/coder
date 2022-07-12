@@ -2,16 +2,21 @@ library emitter;
 
 import 'package:orchestrator/orchestrator.dart';
 
+part './emitters/binary.dart';
 part './emitters/class.dart';
 part './emitters/constructor.dart';
+part './emitters/element.dart';
 part './emitters/enum.dart';
 part './emitters/extension.dart';
 part './emitters/field.dart';
+part './emitters/for.dart';
+part './emitters/if.dart';
+part './emitters/literal.dart';
 part './emitters/method.dart';
 part './emitters/parameter.dart';
 part './emitters/reference.dart';
-part './emitters/spec.dart';
-part './emitters/statement.dart';
+part './emitters/static.dart';
+part './emitters/while.dart';
 
 /// {@template emitter}
 /// The [Emitter] is used to transform any object [T] into an output.

@@ -26,7 +26,7 @@ class Parameter extends Element {
   final String name;
 
   /// The statement used to assign a value to this parameter.
-  final Statement? assign;
+  final Element? assign;
 
   /// Whether this parameter is required.
   final bool isRequired;
@@ -44,7 +44,7 @@ class Parameter extends Element {
   Parameter copyWith({
     Reference? type,
     String? name,
-    Statement? assign,
+    Element? assign,
     bool? isRequired,
     bool? isToThis,
     ParameterKind? kind,

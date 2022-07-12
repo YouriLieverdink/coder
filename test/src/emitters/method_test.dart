@@ -159,7 +159,7 @@ void main() {
               ),
             ],
             body: [
-              StaticStatement('return cat.state;'),
+              Static('return cat.state;'),
             ],
           );
 
