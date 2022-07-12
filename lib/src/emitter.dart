@@ -2,7 +2,6 @@ library emitter;
 
 import 'package:orchestrator/orchestrator.dart';
 
-part './emitters/binary.dart';
 part './emitters/block.dart';
 part './emitters/class.dart';
 part './emitters/constructor.dart';
@@ -16,6 +15,7 @@ part './emitters/literal.dart';
 part './emitters/method.dart';
 part './emitters/parameter.dart';
 part './emitters/reference.dart';
+part './emitters/row.dart';
 part './emitters/static.dart';
 part './emitters/switch.dart';
 part './emitters/try_catch.dart';
