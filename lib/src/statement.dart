@@ -26,7 +26,7 @@ abstract class Statement extends Spec {
   Statement equalTo(
     Statement other,
   ) {
-    return BinaryStatement(left: this, right: other, operator: '==');
+    return Binary(left: this, right: other, operator: '==');
   }
 
   /// Returns the not equal to operator of `this` and [other].
@@ -37,6 +37,6 @@ abstract class Statement extends Spec {
   Statement notEqualTo(
     Statement other,
   ) {
-    return BinaryStatement(left: this, right: other, operator: '!=');
+    return Binary(left: this, right: other, operator: '!=');
   }
 }

@@ -3,9 +3,9 @@ part of statement;
 /// {@template static_statement}
 /// Configuration for defining a `static statement`.
 /// {@endtemplate}
-class StaticStatement extends Statement {
+class Static extends Statement {
   /// {@macro static_statement}
-  const StaticStatement(
+  const Static(
     this.value,
   );
 
@@ -13,10 +13,10 @@ class StaticStatement extends Statement {
   final String value;
 
   @override
-  StaticStatement copyWith({
+  Static copyWith({
     String? value,
   }) {
-    return StaticStatement(
+    return Static(
       value ?? this.value,
     );
   }

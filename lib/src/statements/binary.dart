@@ -3,9 +3,9 @@ part of statement;
 /// {@template binary_statement}
 /// Configuration for defining a `binary statement`.
 /// {@endtemplate}
-class BinaryStatement extends Statement {
+class Binary extends Statement {
   /// {@macro binary_statement}
-  const BinaryStatement({
+  const Binary({
     required this.left,
     required this.right,
     required this.operator,
@@ -21,12 +21,12 @@ class BinaryStatement extends Statement {
   final String operator;
 
   @override
-  BinaryStatement copyWith({
+  Binary copyWith({
     Statement? left,
     Statement? right,
     String? operator,
   }) {
-    return BinaryStatement(
+    return Binary(
       left: left ?? this.left,
       right: right ?? this.right,
       operator: operator ?? this.operator,

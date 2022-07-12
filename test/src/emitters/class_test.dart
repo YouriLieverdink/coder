@@ -255,7 +255,7 @@ void main() {
               Method(
                 name: 'meow',
                 body: [
-                  StaticStatement('print("meow!");'),
+                  Static('print("meow!");'),
                 ],
               ),
             ],

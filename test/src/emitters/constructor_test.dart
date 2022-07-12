@@ -124,7 +124,7 @@ void main() {
               ),
             ],
             body: [
-              StaticStatement('this.name = name;'),
+              Static('this.name = name;'),
             ],
           );
 

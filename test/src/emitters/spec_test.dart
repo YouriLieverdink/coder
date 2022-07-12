@@ -159,7 +159,7 @@ void main() {
       test(
         'should emit a statement',
         () {
-          const statement = LiteralStatement('cat');
+          const statement = Literal('cat');
 
           Expect(
             statement,

@@ -3,19 +3,19 @@ part of statement;
 /// {@template literal_statement}
 /// Configuration for defining a `literal statement`.
 /// {@endtemplate}
-class LiteralStatement<T> extends Statement {
+class Literal<T> extends Statement {
   /// {@macro literal_statement}
-  const LiteralStatement(
+  const Literal(
     this.value,
   );
 
   final T value;
 
   @override
-  LiteralStatement copyWith({
+  Literal copyWith({
     T? value,
   }) {
-    return LiteralStatement<T>(
+    return Literal<T>(
       value ?? this.value,
     );
   }

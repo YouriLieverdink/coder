@@ -14,8 +14,8 @@ void main() {
       test(
         'should emit a equal to statement',
         () {
-          const left = LiteralStatement('cat');
-          const right = LiteralStatement('dog');
+          const left = Literal('cat');
+          const right = Literal('dog');
 
           final statement = left.equalTo(right);
 
@@ -34,8 +34,8 @@ void main() {
       test(
         'should emit a not equal to statement',
         () {
-          const left = LiteralStatement('cat');
-          const right = LiteralStatement('dog');
+          const left = Literal('cat');
+          const right = Literal('dog');
 
           final statement = left.notEqualTo(right);
 
@@ -54,16 +54,16 @@ void main() {
   );
 
   group(
-    'BinaryStatementEmitter',
+    'BinaryEmitter',
     () {
-      const emitter = BinaryStatementEmitter(context);
+      const emitter = BinaryEmitter(context);
 
       test(
         'should emit a binary statement',
         () {
-          const statement = BinaryStatement(
-            left: LiteralStatement('cat'),
-            right: LiteralStatement('dog'),
+          const statement = Binary(
+            left: Literal('cat'),
+            right: Literal('dog'),
             operator: '!=',
           );
 
@@ -82,14 +82,14 @@ void main() {
   );
 
   group(
-    'LiteralStatementEmitter',
+    'LiteralEmitter',
     () {
-      const emitter = LiteralStatementEmitter(context);
+      const emitter = LiteralEmitter(context);
 
       test(
         'should emit a literal bool statement',
         () {
-          const statement = LiteralStatement(true);
+          const statement = Literal(true);
 
           Expect(
             statement,
@@ -106,7 +106,7 @@ void main() {
       test(
         'should emit a literal null statement',
         () {
-          const statement = LiteralStatement(null);
+          const statement = Literal(null);
 
           Expect(
             statement,
@@ -123,7 +123,7 @@ void main() {
       test(
         'should emit a literal num statement',
         () {
-          const statement = LiteralStatement(42);
+          const statement = Literal(42);
 
           Expect(
             statement,
@@ -140,7 +140,7 @@ void main() {
       test(
         'should emit a literal string statement',
         () {
-          const statement = LiteralStatement('cat');
+          const statement = Literal('cat');
 
           Expect(
             statement,
@@ -157,14 +157,14 @@ void main() {
   );
 
   group(
-    'StaticStatementEmitter',
+    'StaticEmitter',
     () {
-      const emitter = StaticStatementEmitter(context);
+      const emitter = StaticEmitter(context);
 
       test(
         'should emit a static statement',
         () {
-          const statement = StaticStatement('print("Hello, world");');
+          const statement = Static('print("Hello, world");');
 
           Expect(
             statement,

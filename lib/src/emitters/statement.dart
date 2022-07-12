@@ -14,14 +14,14 @@ class StatementEmitter extends Emitter<Statement> {
   ]) {
     output ??= StringBuffer();
 
-    if (value is BinaryStatement) {
-      BinaryStatementEmitter(context).emit(value, output);
+    if (value is Binary) {
+      BinaryEmitter(context).emit(value, output);
     } //
-    else if (value is LiteralStatement) {
-      LiteralStatementEmitter(context).emit(value, output);
+    else if (value is Literal) {
+      LiteralEmitter(context).emit(value, output);
     } //
-    else if (value is StaticStatement) {
-      StaticStatementEmitter(context).emit(value, output);
+    else if (value is Static) {
+      StaticEmitter(context).emit(value, output);
     }
 
     return output;
@@ -29,15 +29,15 @@ class StatementEmitter extends Emitter<Statement> {
 }
 
 /// {@template binary_statement_emitter}
-/// Transforms the [BinaryStatement] into Dart source code.
+/// Transforms the [Binary] into Dart source code.
 /// {@endtemplate}
-class BinaryStatementEmitter extends Emitter<BinaryStatement> {
+class BinaryEmitter extends Emitter<Binary> {
   /// {@macro binary_statement}
-  const BinaryStatementEmitter(super.context);
+  const BinaryEmitter(super.context);
 
   @override
   StringSink emit(
-    BinaryStatement value, [
+    Binary value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
@@ -53,15 +53,15 @@ class BinaryStatementEmitter extends Emitter<BinaryStatement> {
 }
 
 /// {@template literal_statement_emitter}
-/// Transforms the [LiteralStatement] into Dart source code.
+/// Transforms the [Literal] into Dart source code.
 /// {@endtemplate}
-class LiteralStatementEmitter extends Emitter<LiteralStatement> {
+class LiteralEmitter extends Emitter<Literal> {
   /// {@macro literal_statement_emitter}
-  const LiteralStatementEmitter(super.context);
+  const LiteralEmitter(super.context);
 
   @override
   StringSink emit(
-    LiteralStatement value, [
+    Literal value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
@@ -78,15 +78,15 @@ class LiteralStatementEmitter extends Emitter<LiteralStatement> {
 }
 
 /// {@template static_statement_emitter}
-/// Transforms the [StaticStatement] into Dart source code.
+/// Transforms the [Static] into Dart source code.
 /// {@endtemplate}
-class StaticStatementEmitter extends Emitter<StaticStatement> {
+class StaticEmitter extends Emitter<Static> {
   /// {@macro static_statement_emitter}
-  const StaticStatementEmitter(super.context);
+  const StaticEmitter(super.context);
 
   @override
   StringSink emit(
-    StaticStatement value, [
+    Static value, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();

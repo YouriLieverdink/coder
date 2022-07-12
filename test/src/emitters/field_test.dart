@@ -55,7 +55,7 @@ void main() {
           const element = Field(
             name: 'state',
             type: TypeReference('CatState'),
-            assign: StaticStatement('CatState.purring'),
+            assign: Static('CatState.purring'),
           );
 
           Expect(
