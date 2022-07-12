@@ -17,6 +17,9 @@ class StatementEmitter extends Emitter<Statement> {
     if (value is BinaryStatement) {
       BinaryStatementEmitter(context).emit(value, output);
     } //
+    else if (value is IfStatement) {
+      IfStatementEmitter(context).emit(value, output);
+    } //
     else if (value is LiteralStatement) {
       LiteralStatementEmitter(context).emit(value, output);
     } //
@@ -50,6 +53,46 @@ class BinaryStatementEmitter extends Emitter<BinaryStatement> {
     output.write(' ${value.operator} ');
 
     StatementEmitter(context).emit(value.right, output);
+
+    return output;
+  }
+}
+
+/// {@template if_statement_emitter}
+/// Transforms the [IfStatement] into Dart source code.
+/// {@endtemplate}
+class IfStatementEmitter extends Emitter<IfStatement> {
+  /// {@macro if_statement_emitter}
+  const IfStatementEmitter(super.context);
+
+  @override
+  StringSink emit(
+    IfStatement value, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    output.write('if (');
+
+    StatementEmitter(context).emit(value.condition, output);
+
+    output.write(') { ');
+
+    for (final v in value.then) {
+      StatementEmitter(context).emit(v, output);
+    }
+
+    output.write(' }');
+
+    if (value.else_.isNotEmpty) {
+      output.write(' else { ');
+
+      for (final v in value.else_) {
+        StatementEmitter(context).emit(v, output);
+      }
+
+      output.write(' }');
+    }
 
     return output;
   }

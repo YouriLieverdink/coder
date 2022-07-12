@@ -79,6 +79,64 @@ void main() {
   );
 
   group(
+    'IfStatementEmitter',
+    () {
+      test(
+        'should emit an if statement',
+        () {
+          const statement = IfStatement(
+            condition: StaticStatement('i > 42'),
+            then: [
+              StaticStatement("print('Found the meaning of life!');"),
+            ],
+          );
+
+          Expect(
+            statement,
+            const Equals(
+              '''
+                if (i > 42) {
+                  print('Found the meaning of life!');
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an if statement with an else block',
+        () {
+          const statement = IfStatement(
+            condition: StaticStatement('i > 42'),
+            then: [
+              StaticStatement("print('Found the meaning of life!');"),
+            ],
+            else_: [
+              StaticStatement("print('Not yet!');"),
+            ],
+          );
+
+          Expect(
+            statement,
+            const Equals(
+              '''
+                if (i > 42) {
+                  print('Found the meaning of life!');
+                } else {
+                  print('Not yet!');
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
     'LiteralStatementEmitter',
     () {
       test(
