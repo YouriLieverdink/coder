@@ -5,8 +5,8 @@ part of element;
 /// {@endtemplate}
 class Switch extends Element {
   /// {@macro switch}
-  const Switch(
-    this.condition, {
+  const Switch({
+    required this.condition,
     this.cases = const [],
     this.default_,
   });
@@ -27,7 +27,7 @@ class Switch extends Element {
     List<Element>? default_,
   }) {
     return Switch(
-      condition ?? this.condition,
+      condition: condition ?? this.condition,
       cases: cases ?? this.cases,
       default_: default_ ?? this.default_,
     );
@@ -39,8 +39,8 @@ class Switch extends Element {
 /// {@endtemplate}
 class SwitchCase extends Element {
   /// {@macro switch_case}
-  const SwitchCase(
-    this.condition, {
+  const SwitchCase({
+    required this.condition,
     this.body = const [],
   });
 
@@ -56,7 +56,7 @@ class SwitchCase extends Element {
     List<Element>? body,
   }) {
     return SwitchCase(
-      condition ?? this.condition,
+      condition: condition ?? this.condition,
       body: body ?? this.body,
     );
   }

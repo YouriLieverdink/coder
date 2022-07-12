@@ -263,7 +263,7 @@ void main() {
         'should emit a switch',
         () {
           const element = Switch(
-            Static('cat.state'),
+            condition: Static('cat.state'),
           );
 
           Expect(

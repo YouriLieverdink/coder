@@ -15,7 +15,7 @@ void main() {
         'should emit a switch',
         () {
           const element = Switch(
-            Static('cat.state'),
+            condition: Static('cat.state'),
           );
 
           Expect(
@@ -42,7 +42,7 @@ void main() {
         'should emit a switch case',
         () {
           const element = SwitchCase(
-            TypeReference('CatState.sleeping'),
+            condition: TypeReference('CatState.sleeping'),
             body: [
               Static('print("zzz");'),
               Static('break;'),
