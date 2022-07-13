@@ -618,6 +618,25 @@ void main() {
       );
 
       test(
+        'should emit a statement',
+        () {
+          const left = Static('cat');
+
+          final operation = left.statement();
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                cat;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit an subtract operation',
         () {
           const left = Literal(42);
