@@ -130,22 +130,6 @@ mixin Builder on Element {
     ]);
   }
 
-  /// Returns the invocation of `this`.
-  ///
-  /// ```dart
-  /// this()
-  /// ```
-  Builder invoke([
-    List<Element>? elements,
-  ]) {
-    elements ??= const [];
-
-    return Row([
-      this,
-      Invoke(elements),
-    ]);
-  }
-
   /// Returns the / operator of `this` and [other].
   ///
   /// ```dart
@@ -221,6 +205,22 @@ mixin Builder on Element {
       const Static('['),
       other,
       const Static(']'),
+    ]);
+  }
+
+  /// Returns the invocation of `this`.
+  ///
+  /// ```dart
+  /// this()
+  /// ```
+  Builder invoke([
+    List<Element>? elements,
+  ]) {
+    elements ??= const [];
+
+    return Row([
+      this,
+      Invoke(elements),
     ]);
   }
 
@@ -393,6 +393,18 @@ mixin Builder on Element {
     return Row([
       const Static('...'),
       this,
+    ]);
+  }
+
+  /// Returns `this` as a statement with a suffixed ;.
+  ///
+  /// ```dart
+  /// this;
+  /// ```
+  Builder statement() {
+    return Row([
+      this,
+      const Static(';'),
     ]);
   }
 
