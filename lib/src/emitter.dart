@@ -11,6 +11,7 @@ part './emitters/extension.dart';
 part './emitters/field.dart';
 part './emitters/for.dart';
 part './emitters/if.dart';
+part './emitters/invoke.dart';
 part './emitters/literal.dart';
 part './emitters/method.dart';
 part './emitters/parameter.dart';

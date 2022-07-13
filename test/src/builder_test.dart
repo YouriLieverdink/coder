@@ -187,11 +187,11 @@ void main() {
       );
 
       test(
-        'should emit a call operation',
+        'should emit an invoke operation',
         () {
           const left = Static('Cat');
 
-          final operation = left.call();
+          final operation = left.invoke();
 
           Expect(
             operation,
@@ -418,6 +418,25 @@ void main() {
             const Equals(
               '''
                 42 * 8
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a named argument',
+        () {
+          const left = Literal('Pip');
+
+          final operation = left.named('name');
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                name: 'Pip'
               ''',
               emitter: emitter,
             ),
