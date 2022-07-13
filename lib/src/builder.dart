@@ -135,10 +135,14 @@ mixin Builder on Element {
   /// ```dart
   /// this()
   /// ```
-  Builder call() {
+  Builder invoke([
+    List<Element>? elements,
+  ]) {
+    elements ??= const [];
+
     return Row([
       this,
-      const Static('()'),
+      Invoke(elements),
     ]);
   }
 
@@ -262,6 +266,20 @@ mixin Builder on Element {
     Builder other,
   ) {
     return Row.binary(left: this, right: other, operator: '*');
+  }
+
+  /// Returns `this` as a named parameter with [name].
+  ///
+  /// ```dart
+  /// name: this
+  /// ```
+  Builder named(
+    String name,
+  ) {
+    return Row([
+      Static('$name: '),
+      this,
+    ]);
   }
 
   /// Returns the negated version of `this`.
