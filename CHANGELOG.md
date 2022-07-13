@@ -1,3 +1,8 @@
+# 0.8.0
+
+- refactor: rename call builder to invoke
+- feat: add invocation element and allow arguments to be used
+
 # 0.7.0
 
 - refactor: replace binary element with a more flexible row element
