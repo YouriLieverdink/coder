@@ -12,9 +12,9 @@ void main() {
     () {
       final element = Method(
         name: 'main',
-        body: const Static('print') //
-            .invoke([const Literal('Hello, World!')]) //
-            .statement(),
+        body: static('print') //
+            .invoke([literal('Hello, World!')]) //
+            .statement,
       );
 
       Expect(
