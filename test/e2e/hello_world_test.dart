@@ -12,8 +12,8 @@ void main() {
     () {
       final element = Method(
         name: 'main',
-        body: static('print') //
-            .invoke([literal('Hello, World!')]) //
+        body: const Static('print') //
+            .invoke([Literal.of('Hello, World!')]) //
             .statement,
       );
 
