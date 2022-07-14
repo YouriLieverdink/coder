@@ -1,3 +1,7 @@
+# 0.8.1
+
+- refactor: allow the bodies to be all elements
+
 # 0.8.0
 
 - refactor: rename call builder to invoke
