@@ -171,7 +171,7 @@ void main() {
       test(
         'should emit a literal',
         () {
-          const statement = Literal(true);
+          const statement = LiteralBool(true);
 
           Expect(
             statement,
