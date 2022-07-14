@@ -172,7 +172,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.await_();
+          final operation = left.awaited;
 
           Expect(
             operation,
@@ -351,7 +351,7 @@ void main() {
           const left = LiteralString('cat');
           const right = LiteralString('dog');
 
-          final operation = left.is_(right);
+          final operation = left.isA(right);
 
           Expect(
             operation,
@@ -371,7 +371,7 @@ void main() {
           const left = LiteralString('cat');
           const right = LiteralString('dog');
 
-          final operation = left.isNot(right);
+          final operation = left.isNotA(right);
 
           Expect(
             operation,
@@ -449,7 +449,7 @@ void main() {
         () {
           const left = LiteralNum(42);
 
-          final operation = left.negate();
+          final operation = left.negated;
 
           Expect(
             operation,
@@ -584,7 +584,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.return_();
+          final operation = left.returned;
 
           Expect(
             operation,
@@ -603,7 +603,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.spread();
+          final operation = left.spread;
 
           Expect(
             operation,
@@ -622,7 +622,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.statement();
+          final operation = left.statement;
 
           Expect(
             operation,
@@ -661,7 +661,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.throw_();
+          final operation = left.thrown;
 
           Expect(
             operation,
@@ -680,7 +680,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.yield_();
+          final operation = left.yielded;
 
           Expect(
             operation,
