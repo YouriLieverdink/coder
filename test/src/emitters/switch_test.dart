@@ -43,10 +43,10 @@ void main() {
         () {
           const element = SwitchCase(
             condition: TypeReference('CatState.sleeping'),
-            body: [
+            body: Column([
               Static('print("zzz");'),
               Static('break;'),
-            ],
+            ]),
           );
 
           Expect(

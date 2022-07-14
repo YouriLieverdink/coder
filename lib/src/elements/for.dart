@@ -14,12 +14,12 @@ class For extends Element {
   final Element condition;
 
   /// The body of this for.
-  final Column? body;
+  final Element? body;
 
   @override
   For copyWith({
     Element? condition,
-    Column? body,
+    Element? body,
   }) {
     return For(
       condition: condition ?? this.condition,

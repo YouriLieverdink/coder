@@ -15,16 +15,16 @@ class IfElse extends Element {
   final Element condition;
 
   /// The then block of this if-else statement.
-  final Column then;
+  final Element then;
 
   /// The else block of this if-else statement.
-  final Column? else_;
+  final Element? else_;
 
   @override
   IfElse copyWith({
     Element? condition,
-    Column? then,
-    Column? else_,
+    Element? then,
+    Element? else_,
   }) {
     return IfElse(
       condition: condition ?? this.condition,

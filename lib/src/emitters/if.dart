@@ -20,14 +20,14 @@ class IfElseEmitter extends Emitter<IfElse> {
 
     output.write(') { ');
 
-    ColumnEmitter(context).emit(value.then, output);
+    ElementEmitter(context).emit(value.then, output);
 
     output.write(' }');
 
     if (value.else_ != null) {
       output.write(' else { ');
 
-      ColumnEmitter(context).emit(value.else_!, output);
+      ElementEmitter(context).emit(value.else_!, output);
 
       output.write(' }');
     }

@@ -26,7 +26,7 @@ class Constructor extends Element {
   final List<Parameter> parameters;
 
   /// The body of this constructor.
-  final Column? body;
+  final Element? body;
 
   @override
   Constructor copyWith({
@@ -34,7 +34,7 @@ class Constructor extends Element {
     bool? isFactory,
     String? name,
     List<Parameter>? parameters,
-    Column? body,
+    Element? body,
   }) {
     return Constructor(
       isConst: isConst ?? this.isConst,

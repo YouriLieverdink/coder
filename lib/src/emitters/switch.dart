@@ -50,10 +50,8 @@ class SwitchCaseEmitter extends Emitter<SwitchCase> {
 
     output.write(': ');
 
-    for (final v in value.body) {
-      ElementEmitter(context).emit(v, output);
-
-      output.write('\n');
+    if (value.body != null) {
+      ElementEmitter(context).emit(value.body!, output);
     }
 
     return output;

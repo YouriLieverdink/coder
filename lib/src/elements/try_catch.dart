@@ -12,19 +12,19 @@ class TryCatch extends Element {
   });
 
   /// The `try` section of this try-catch block.
-  final Column try_;
+  final Element try_;
 
   /// The `catch` section of this try-catch block.
-  final Column? catch_;
+  final Element? catch_;
 
   /// The `finally` section of this try-catch block.
-  final Column? finally_;
+  final Element? finally_;
 
   @override
   TryCatch copyWith({
-    Column? try_,
-    Column? catch_,
-    Column? finally_,
+    Element? try_,
+    Element? catch_,
+    Element? finally_,
   }) {
     return TryCatch(
       try_: try_ ?? this.try_,

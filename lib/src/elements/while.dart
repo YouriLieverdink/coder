@@ -23,13 +23,13 @@ class While extends Element {
   final WhileKind kind;
 
   /// The body of this while statement.
-  final Column? body;
+  final Element? body;
 
   @override
   While copyWith({
     Element? condition,
     WhileKind? kind,
-    Column? body,
+    Element? body,
   }) {
     return While(
       condition: condition ?? this.condition,

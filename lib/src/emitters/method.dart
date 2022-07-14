@@ -48,7 +48,7 @@ class MethodEmitter extends Emitter<Method> {
     output.write('{');
 
     if (value.body != null) {
-      ColumnEmitter(context).emit(value.body!, output);
+      ElementEmitter(context).emit(value.body!, output);
     }
 
     output.write(' }');

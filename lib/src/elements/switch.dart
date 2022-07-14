@@ -18,13 +18,13 @@ class Switch extends Element {
   final List<SwitchCase> cases;
 
   /// The default case of this switch.
-  final Column? default_;
+  final Element? default_;
 
   @override
   Switch copyWith({
     Element? condition,
     List<SwitchCase>? cases,
-    Column? default_,
+    Element? default_,
   }) {
     return Switch(
       condition: condition ?? this.condition,
@@ -41,19 +41,19 @@ class SwitchCase extends Element {
   /// {@macro switch_case}
   const SwitchCase({
     required this.condition,
-    this.body = const [],
+    this.body,
   });
 
   /// The condition of this switch case.
   final Element condition;
 
   /// The body of this switch case.
-  final List<Element> body;
+  final Element? body;
 
   @override
   SwitchCase copyWith({
     Element? condition,
-    List<Element>? body,
+    Element? body,
   }) {
     return SwitchCase(
       condition: condition ?? this.condition,
