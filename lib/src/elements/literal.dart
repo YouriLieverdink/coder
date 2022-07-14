@@ -9,6 +9,30 @@ abstract class Literal<T> extends Element with Builder {
     this.value,
   );
 
+  /// {@macro literal}
+  factory Literal.of(T value) {
+    if (value is bool) {
+      return LiteralBool(value) as Literal<T>;
+    } //
+    else if (value is List) {
+      return LiteralList(value) as Literal<T>;
+    } //
+    else if (value is Map) {
+      return LiteralMap(value) as Literal<T>;
+    } //
+    else if (value is num) {
+      return LiteralNum(value) as Literal<T>;
+    } //
+    else if (value is String) {
+      return LiteralString(value) as Literal<T>;
+    } //
+    else if (value == null) {
+      return const LiteralNull() as Literal<T>;
+    }
+
+    throw UnsupportedError('');
+  }
+
   /// The value of this literal.
   final T value;
 }
@@ -43,6 +67,23 @@ class LiteralList extends Literal<List> {
     List? value,
   }) {
     return LiteralList(
+      value ?? this.value,
+    );
+  }
+}
+
+/// {@template literal_map}
+/// Configuration for defining a literal `map` element.
+/// {@endtemplate}
+class LiteralMap extends Literal<Map> {
+  /// {@macro literal_map}
+  const LiteralMap(super.value);
+
+  @override
+  LiteralMap copyWith({
+    Map? value,
+  }) {
+    return LiteralMap(
       value ?? this.value,
     );
   }

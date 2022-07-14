@@ -69,6 +69,55 @@ void main() {
   );
 
   group(
+    'LiteralMapEmitter',
+    () {
+      test(
+        'should emit a map',
+        () {
+          const element = LiteralMap({
+            'cats': ['Pip', 'Bo'],
+          });
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                {
+                  'cats': ['Pip', 'Bo']
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a map with nested elements',
+        () {
+          const element = LiteralMap({
+            'cats': LiteralList(['Pip']),
+            TypeReference('Cat'): 'new',
+          });
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                {
+                  'cats': ['Pip'],
+                  Cat: 'new'
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
     'LiteralNullEmitter',
     () {
       test(

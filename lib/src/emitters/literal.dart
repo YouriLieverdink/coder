@@ -20,6 +20,9 @@ class LiteralEmitter extends Emitter<Literal> {
     else if (value is LiteralList) {
       LiteralListEmitter(context).emit(value, output);
     } //
+    else if (value is LiteralMap) {
+      LiteralMapEmitter(context).emit(value, output);
+    } //
     else if (value is LiteralNull) {
       LiteralNullEmitter(context).emit(value, output);
     } //
@@ -61,6 +64,22 @@ class LiteralListEmitter extends Emitter<LiteralList> {
   /// {@macro literal_list_emitter}
   const LiteralListEmitter(super.context);
 
+  ///
+  StringSink emitDynamic(
+    dynamic value, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    if (value is Element) {
+      return ElementEmitter(context).emit(value, output);
+    }
+
+    final literal = Literal.of(value);
+
+    return LiteralEmitter(context).emit(literal, output);
+  }
+
   @override
   StringSink emit(
     LiteralList value, [
@@ -71,12 +90,7 @@ class LiteralListEmitter extends Emitter<LiteralList> {
     output.write('[');
 
     for (final v in value.value) {
-      if (v is Element) {
-        ElementEmitter(context).emit(v, output);
-      } //
-      else {
-        LiteralEmitter(context).emit(literal(v), output);
-      }
+      emitDynamic(v, output);
 
       if (v != value.value.last) {
         output.write(', ');
@@ -84,6 +98,56 @@ class LiteralListEmitter extends Emitter<LiteralList> {
     }
 
     output.write(']');
+
+    return output;
+  }
+}
+
+/// {@template literal_map_emitter}
+/// Transforms the [LiteralMap] into Dart source code.
+/// {@endtemplate}
+class LiteralMapEmitter extends Emitter<LiteralMap> {
+  /// {@macro literal_map_emitter}
+  const LiteralMapEmitter(super.context);
+
+  ///
+  StringSink emitDynamic(
+    dynamic value, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    if (value is Element) {
+      return ElementEmitter(context).emit(value, output);
+    }
+
+    final literal = Literal.of(value);
+
+    return LiteralEmitter(context).emit(literal, output);
+  }
+
+  @override
+  StringSink emit(
+    LiteralMap value, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    output.write('{ ');
+
+    for (final v in value.value.entries) {
+      emitDynamic(v.key, output);
+
+      output.write(': ');
+
+      emitDynamic(v.value, output);
+
+      if (v.key != value.value.keys.last) {
+        output.write(', ');
+      }
+    }
+
+    output.write(' }');
 
     return output;
   }
