@@ -14,7 +14,7 @@ void main() {
         'should emit an invocation',
         () {
           const element = Invoke([
-            Literal('Hello, world!'),
+            LiteralString('Hello, world!'),
           ]);
 
           Expect(
@@ -33,8 +33,8 @@ void main() {
         'should emit an invocation with multiple arguments',
         () {
           final element = Invoke([
-            const Literal('Pip'),
-            const Literal(8).named('age'),
+            const LiteralString('Pip'),
+            const LiteralNum(8).named('age'),
           ]);
 
           Expect(

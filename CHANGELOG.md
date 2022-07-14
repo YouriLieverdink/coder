@@ -1,3 +1,8 @@
+# 0.9.0
+
+- refactor: allow builders to be called globally too
+- refactor: expand the Literal element into multiple
+
 # 0.8.1
 
 - refactor: allow the bodies to be all elements

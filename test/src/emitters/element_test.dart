@@ -1,4 +1,4 @@
-import 'package:orchestrator/orchestrator.dart';
+import 'package:orchestrator/orchestrator.dart' hide isA;
 import 'package:test/test.dart';
 
 import '../../utilities/utilities.dart';
@@ -171,7 +171,7 @@ void main() {
       test(
         'should emit a literal',
         () {
-          const statement = Literal(true);
+          const statement = LiteralBool(true);
 
           Expect(
             statement,

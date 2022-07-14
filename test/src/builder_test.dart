@@ -13,8 +13,8 @@ void main() {
       test(
         'should emit an add operation',
         () {
-          const left = Literal(42);
-          const right = Literal(8);
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
 
           final operation = left.add(right);
 
@@ -33,8 +33,8 @@ void main() {
       test(
         'should emit an and operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.and(right);
 
@@ -53,8 +53,8 @@ void main() {
       test(
         'should emit an as operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.as(right);
 
@@ -73,8 +73,8 @@ void main() {
       test(
         'should emit an assign operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.assign(right);
 
@@ -93,8 +93,8 @@ void main() {
       test(
         'should emit an assign coalescing operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.assignCoalescing(right);
 
@@ -113,7 +113,7 @@ void main() {
       test(
         'should emit an assign const operation',
         () {
-          const left = Literal('cat');
+          const left = LiteralString('cat');
 
           final operation = left.assignConst('myCat');
 
@@ -132,7 +132,7 @@ void main() {
       test(
         'should emit an assign final operation',
         () {
-          const left = Literal('cat');
+          const left = LiteralString('cat');
 
           final operation = left.assignFinal('myCat');
 
@@ -151,7 +151,7 @@ void main() {
       test(
         'should emit an assign var operation',
         () {
-          const left = Literal('cat');
+          const left = LiteralString('cat');
 
           final operation = left.assignVar('myCat');
 
@@ -172,7 +172,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.await_();
+          final operation = left.awaited;
 
           Expect(
             operation,
@@ -208,8 +208,8 @@ void main() {
       test(
         'should emit an divide operation',
         () {
-          const left = Literal(42);
-          const right = Literal(8);
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
 
           final operation = left.divide(right);
 
@@ -228,8 +228,8 @@ void main() {
       test(
         'should emit a equal to operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.equalTo(right);
 
@@ -248,8 +248,8 @@ void main() {
       test(
         'should emit a greater than operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.greaterThan(right);
 
@@ -268,8 +268,8 @@ void main() {
       test(
         'should emit a reversed greater than operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.greaterThan(right, reverse: true);
 
@@ -288,8 +288,8 @@ void main() {
       test(
         'should emit a greater than or equal operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.greaterThanOrEqualTo(right);
 
@@ -308,8 +308,8 @@ void main() {
       test(
         'should emit a reversed greater than or equal operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.greaterThanOrEqualTo(right, reverse: true);
 
@@ -329,7 +329,7 @@ void main() {
         'should emit an index operation',
         () {
           const left = Static('cats');
-          const right = Literal(0);
+          const right = LiteralNum(0);
 
           final operation = left.index(right);
 
@@ -348,10 +348,10 @@ void main() {
       test(
         'should emit an is operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
-          final operation = left.is_(right);
+          final operation = left.isA(right);
 
           Expect(
             operation,
@@ -368,10 +368,10 @@ void main() {
       test(
         'should emit an is not operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
-          final operation = left.isNot(right);
+          final operation = left.isNotA(right);
 
           Expect(
             operation,
@@ -388,8 +388,8 @@ void main() {
       test(
         'should emit an modulo operation',
         () {
-          const left = Literal(42);
-          const right = Literal(8);
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
 
           final operation = left.modulo(right);
 
@@ -408,8 +408,8 @@ void main() {
       test(
         'should emit an multiply operation',
         () {
-          const left = Literal(42);
-          const right = Literal(8);
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
 
           final operation = left.multiply(right);
 
@@ -428,7 +428,7 @@ void main() {
       test(
         'should emit a named argument',
         () {
-          const left = Literal('Pip');
+          const left = LiteralString('Pip');
 
           final operation = left.named('name');
 
@@ -447,9 +447,9 @@ void main() {
       test(
         'should emit a negate operation',
         () {
-          const left = Literal(42);
+          const left = LiteralNum(42);
 
-          final operation = left.negate();
+          final operation = left.negated;
 
           Expect(
             operation,
@@ -466,8 +466,8 @@ void main() {
       test(
         'should emit a not equal to operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.notEqualTo(right);
 
@@ -486,8 +486,8 @@ void main() {
       test(
         'should emit a not equal to operation',
         () {
-          const left = Literal('cat');
-          const right = Literal('dog');
+          const left = LiteralString('cat');
+          const right = LiteralString('dog');
 
           final operation = left.or(right);
 
@@ -584,7 +584,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.return_();
+          final operation = left.returned;
 
           Expect(
             operation,
@@ -603,7 +603,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.spread();
+          final operation = left.spread;
 
           Expect(
             operation,
@@ -622,7 +622,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.statement();
+          final operation = left.statement;
 
           Expect(
             operation,
@@ -639,8 +639,8 @@ void main() {
       test(
         'should emit an subtract operation',
         () {
-          const left = Literal(42);
-          const right = Literal(8);
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
 
           final operation = left.subtract(right);
 
@@ -661,7 +661,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.throw_();
+          final operation = left.thrown;
 
           Expect(
             operation,
@@ -680,7 +680,7 @@ void main() {
         () {
           const left = Static('cat');
 
-          final operation = left.yield_();
+          final operation = left.yielded;
 
           Expect(
             operation,

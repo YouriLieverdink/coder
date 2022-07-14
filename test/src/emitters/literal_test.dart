@@ -8,15 +8,15 @@ void main() {
   const emitter = LiteralEmitter(context);
 
   group(
-    'LiteralEmitter',
+    'LiteralBoolEmitter',
     () {
       test(
-        'should emit a literal bool',
+        'should emit a bool',
         () {
-          const statement = Literal(true);
+          const element = LiteralBool(true);
 
           Expect(
-            statement,
+            element,
             const Equals(
               '''
                 true
@@ -26,14 +26,58 @@ void main() {
           );
         },
       );
+    },
+  );
 
+  group(
+    'LiteralListEmitter',
+    () {
       test(
-        'should emit a literal null',
+        'should emit a list',
         () {
-          const statement = Literal(null);
+          const element = LiteralList(['cat', 'dog']);
 
           Expect(
-            statement,
+            element,
+            const Equals(
+              '''
+                ['cat', 'dog']
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a list with nested elements',
+        () {
+          const element = LiteralList(['cat', TypeReference('Cat')]);
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                ['cat', Cat]
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'LiteralNullEmitter',
+    () {
+      test(
+        'should emit null',
+        () {
+          const element = LiteralNull();
+
+          Expect(
+            element,
             const Equals(
               '''
                 null
@@ -43,14 +87,19 @@ void main() {
           );
         },
       );
+    },
+  );
 
+  group(
+    'LiteralNumEmitter',
+    () {
       test(
-        'should emit a literal num',
+        'should emit an int',
         () {
-          const statement = Literal(42);
+          const element = LiteralNum(42);
 
           Expect(
-            statement,
+            element,
             const Equals(
               '''
                 42
@@ -62,15 +111,37 @@ void main() {
       );
 
       test(
-        'should emit a literal string',
+        'should emit a double',
         () {
-          const statement = Literal('cat');
+          const element = LiteralNum(42.0);
 
           Expect(
-            statement,
+            element,
             const Equals(
               '''
-                'cat'
+                42.0
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'LiteralStringEmitter',
+    () {
+      test(
+        'should emit a string',
+        () {
+          const element = LiteralString('Pip');
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                'Pip'
               ''',
               emitter: emitter,
             ),
