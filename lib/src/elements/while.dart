@@ -24,17 +24,4 @@ class While extends Element {
 
   /// The body of this while statement.
   final Element? body;
-
-  @override
-  While copyWith({
-    Element? condition,
-    WhileKind? kind,
-    Element? body,
-  }) {
-    return While(
-      condition: condition ?? this.condition,
-      kind: kind ?? this.kind,
-      body: body ?? this.body,
-    );
-  }
 }

@@ -10,13 +10,4 @@ class Column extends Element {
   );
 
   final List<Element> elements;
-
-  @override
-  Column copyWith({
-    List<Element>? elements,
-  }) {
-    return Column(
-      elements ?? this.elements,
-    );
-  }
 }

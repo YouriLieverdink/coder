@@ -11,13 +11,4 @@ class Invoke extends Element with Builder {
 
   /// The elements within this invocation.
   final List<Element> elements;
-
-  @override
-  Invoke copyWith({
-    List<Element>? elements,
-  }) {
-    return Invoke(
-      elements ?? this.elements,
-    );
-  }
 }

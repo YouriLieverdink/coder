@@ -44,15 +44,6 @@ class LiteralBool extends Literal<bool> {
   /// {@macro literal_bool}
   // ignore: avoid_positional_boolean_parameters
   const LiteralBool(super.value);
-
-  @override
-  LiteralBool copyWith({
-    bool? value,
-  }) {
-    return LiteralBool(
-      value ?? this.value,
-    );
-  }
 }
 
 /// {@template literal_list}
@@ -61,15 +52,6 @@ class LiteralBool extends Literal<bool> {
 class LiteralList extends Literal<List> {
   /// {@macro literal_list}
   const LiteralList(super.value);
-
-  @override
-  LiteralList copyWith({
-    List? value,
-  }) {
-    return LiteralList(
-      value ?? this.value,
-    );
-  }
 }
 
 /// {@template literal_map}
@@ -78,15 +60,6 @@ class LiteralList extends Literal<List> {
 class LiteralMap extends Literal<Map> {
   /// {@macro literal_map}
   const LiteralMap(super.value);
-
-  @override
-  LiteralMap copyWith({
-    Map? value,
-  }) {
-    return LiteralMap(
-      value ?? this.value,
-    );
-  }
 }
 
 /// {@template literal_null}
@@ -95,11 +68,6 @@ class LiteralMap extends Literal<Map> {
 class LiteralNull extends Literal<void> {
   /// {@macro literal_null}
   const LiteralNull() : super(null);
-
-  @override
-  LiteralNull copyWith() {
-    return const LiteralNull();
-  }
 }
 
 /// {@template literal_num}
@@ -108,15 +76,6 @@ class LiteralNull extends Literal<void> {
 class LiteralNum extends Literal<num> {
   /// {@macro literal_num}
   const LiteralNum(super.value);
-
-  @override
-  LiteralNum copyWith({
-    num? value,
-  }) {
-    return LiteralNum(
-      value ?? this.value,
-    );
-  }
 }
 
 /// {@template literal_string}
@@ -125,13 +84,4 @@ class LiteralNum extends Literal<num> {
 class LiteralString extends Literal<String> {
   /// {@macro literal_string}
   const LiteralString(super.value);
-
-  @override
-  LiteralString copyWith({
-    String? value,
-  }) {
-    return LiteralString(
-      value ?? this.value,
-    );
-  }
 }

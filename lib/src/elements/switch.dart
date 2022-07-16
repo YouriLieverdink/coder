@@ -19,19 +19,6 @@ class Switch extends Element {
 
   /// The default case of this switch.
   final Element? default_;
-
-  @override
-  Switch copyWith({
-    Element? condition,
-    List<SwitchCase>? cases,
-    Element? default_,
-  }) {
-    return Switch(
-      condition: condition ?? this.condition,
-      cases: cases ?? this.cases,
-      default_: default_ ?? this.default_,
-    );
-  }
 }
 
 /// {@template switch_case}
@@ -49,15 +36,4 @@ class SwitchCase extends Element {
 
   /// The body of this switch case.
   final Element? body;
-
-  @override
-  SwitchCase copyWith({
-    Element? condition,
-    Element? body,
-  }) {
-    return SwitchCase(
-      condition: condition ?? this.condition,
-      body: body ?? this.body,
-    );
-  }
 }
