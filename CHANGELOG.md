@@ -1,3 +1,7 @@
+# 0.11.0
+
+- refactor: removal of copyWith methods
+
 # 0.10.0
 
 - feat: add option to generate a literal map
