@@ -1,3 +1,7 @@
+# 0.12.0
+
+- docs: update example and readme
+
 # 0.11.0
 
 - refactor: removal of copyWith methods
