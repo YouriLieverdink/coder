@@ -1,5 +1,5 @@
 name: orchestrator
-description: A Dart package which can be used to programatically generate Dart code.
+description: Easily define complex code structures in Dart using many out-of-the-box elements.
 version: 0.11.0
 repository: https://github.com/YouriLieverdink/orchestrator
 
