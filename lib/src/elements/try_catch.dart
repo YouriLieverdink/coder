@@ -19,17 +19,4 @@ class TryCatch extends Element {
 
   /// The `finally` section of this try-catch block.
   final Element? finally_;
-
-  @override
-  TryCatch copyWith({
-    Element? try_,
-    Element? catch_,
-    Element? finally_,
-  }) {
-    return TryCatch(
-      try_: try_ ?? this.try_,
-      catch_: catch_ ?? this.catch_,
-      finally_: finally_ ?? this.finally_,
-    );
-  }
 }

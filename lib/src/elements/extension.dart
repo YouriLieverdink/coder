@@ -23,19 +23,4 @@ class Extension extends Element {
 
   /// The methods of this extension.
   final List<Method> methods;
-
-  @override
-  Extension copyWith({
-    Reference? on,
-    String? name,
-    List<Field>? fields,
-    List<Method>? methods,
-  }) {
-    return Extension(
-      on: on ?? this.on,
-      name: name ?? this.name,
-      fields: fields ?? this.fields,
-      methods: methods ?? this.methods,
-    );
-  }
 }

@@ -15,15 +15,4 @@ class For extends Element {
 
   /// The body of this for.
   final Element? body;
-
-  @override
-  For copyWith({
-    Element? condition,
-    Element? body,
-  }) {
-    return For(
-      condition: condition ?? this.condition,
-      body: body ?? this.body,
-    );
-  }
 }

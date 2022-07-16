@@ -11,13 +11,4 @@ class Static extends Element with Builder {
 
   /// The value of this.
   final String value;
-
-  @override
-  Static copyWith({
-    String? value,
-  }) {
-    return Static(
-      value ?? this.value,
-    );
-  }
 }

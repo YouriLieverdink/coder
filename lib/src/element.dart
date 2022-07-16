@@ -31,7 +31,4 @@ part './elements/while.dart';
 abstract class Element {
   /// {@macro element}
   const Element();
-
-  /// Returns an instance of `this` with the provided values.
-  Element copyWith();
 }

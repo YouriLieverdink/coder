@@ -19,17 +19,4 @@ class IfElse extends Element {
 
   /// The else block of this if-else statement.
   final Element? else_;
-
-  @override
-  IfElse copyWith({
-    Element? condition,
-    Element? then,
-    Element? else_,
-  }) {
-    return IfElse(
-      condition: condition ?? this.condition,
-      then: then ?? this.then,
-      else_: else_ ?? this.else_,
-    );
-  }
 }

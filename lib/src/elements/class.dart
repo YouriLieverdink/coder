@@ -39,27 +39,4 @@ class Class extends Element {
 
   /// The methods of this class.
   final List<Method> methods;
-
-  @override
-  Class copyWith({
-    String? name,
-    Reference? extends_,
-    List<Reference>? implements,
-    List<Reference>? with_,
-    bool? isAbstract,
-    List<Constructor>? constructors,
-    List<Field>? fields,
-    List<Method>? methods,
-  }) {
-    return Class(
-      name: name ?? this.name,
-      extends_: extends_ ?? this.extends_,
-      implements: implements ?? this.implements,
-      with_: with_ ?? this.with_,
-      isAbstract: isAbstract ?? this.isAbstract,
-      constructors: constructors ?? this.constructors,
-      fields: fields ?? this.fields,
-      methods: methods ?? this.methods,
-    );
-  }
 }
