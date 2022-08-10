@@ -13,6 +13,7 @@ part './elements/if.dart';
 part './elements/invoke.dart';
 part './elements/literal.dart';
 part './elements/method.dart';
+part './elements/mixin.dart';
 part './elements/parameter.dart';
 part './elements/reference.dart';
 part './elements/row.dart';

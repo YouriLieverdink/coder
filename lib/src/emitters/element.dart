@@ -51,6 +51,9 @@ class ElementEmitter extends Emitter<Element> {
     else if (value is Method) {
       MethodEmitter(context).emit(value, output);
     } //
+    else if (value is Mixin) {
+      MixinEmitter(context).emit(value, output);
+    } //
     else if (value is Parameter) {
       ParameterEmitter(context).emit(value, output);
     } //

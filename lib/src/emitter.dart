@@ -14,6 +14,7 @@ part './emitters/if.dart';
 part './emitters/invoke.dart';
 part './emitters/literal.dart';
 part './emitters/method.dart';
+part './emitters/mixin.dart';
 part './emitters/parameter.dart';
 part './emitters/reference.dart';
 part './emitters/row.dart';
