@@ -37,23 +37,4 @@ class Field extends Element {
 
   /// Whether this field is late.
   final bool isLate;
-
-  @override
-  Field copyWith({
-    Reference? type,
-    String? name,
-    Element? assign,
-    FieldModifier? modifier,
-    bool? isStatic,
-    bool? isLate,
-  }) {
-    return Field(
-      type: type ?? this.type,
-      name: name ?? this.name,
-      assign: assign ?? this.assign,
-      modifier: modifier ?? this.modifier,
-      isStatic: isStatic ?? this.isStatic,
-      isLate: isLate ?? this.isLate,
-    );
-  }
 }

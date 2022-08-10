@@ -15,17 +15,6 @@ class Enum extends Element {
 
   /// The values of this enum.
   final List<EnumValue> values;
-
-  @override
-  Enum copyWith({
-    String? name,
-    List<EnumValue>? values,
-  }) {
-    return Enum(
-      name: name ?? this.name,
-      values: values ?? this.values,
-    );
-  }
 }
 
 /// {@template enum_value}
@@ -39,13 +28,4 @@ class EnumValue extends Element {
 
   /// The name of this enum value.
   final String name;
-
-  @override
-  EnumValue copyWith({
-    String? name,
-  }) {
-    return EnumValue(
-      name ?? this.name,
-    );
-  }
 }

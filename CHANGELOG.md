@@ -1,3 +1,15 @@
+# 0.12.0
+
+- docs: update example and readme
+
+# 0.11.0
+
+- refactor: removal of copyWith methods
+
+# 0.10.0
+
+- feat: add option to generate a literal map
+
 # 0.9.0
 
 - refactor: allow builders to be called globally too

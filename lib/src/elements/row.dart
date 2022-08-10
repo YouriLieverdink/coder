@@ -20,13 +20,4 @@ class Row extends Element with Builder {
 
   /// The elements in this row.
   final List<Element> elements;
-
-  @override
-  Row copyWith({
-    List<Element>? elements,
-  }) {
-    return Row(
-      elements ?? this.elements,
-    );
-  }
 }

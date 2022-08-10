@@ -27,21 +27,4 @@ class Constructor extends Element {
 
   /// The body of this constructor.
   final Element? body;
-
-  @override
-  Constructor copyWith({
-    bool? isConst,
-    bool? isFactory,
-    String? name,
-    List<Parameter>? parameters,
-    Element? body,
-  }) {
-    return Constructor(
-      isConst: isConst ?? this.isConst,
-      isFactory: isFactory ?? this.isFactory,
-      name: name ?? this.name,
-      parameters: parameters ?? this.parameters,
-      body: body ?? this.body,
-    );
-  }
 }

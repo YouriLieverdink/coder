@@ -33,21 +33,6 @@ class TypeReference extends Reference with Builder {
 
   /// The types of this reference.
   final List<Reference> types;
-
-  @override
-  TypeReference copyWith({
-    String? symbol,
-    String? url,
-    bool? isNullable,
-    List<Reference>? types,
-  }) {
-    return TypeReference(
-      symbol ?? this.symbol,
-      url: url ?? this.url,
-      isNullable: isNullable ?? this.isNullable,
-      types: types ?? this.types,
-    );
-  }
 }
 
 /// {@template function_reference}
@@ -66,17 +51,4 @@ class FunctionReference extends Reference {
 
   /// The parameters of this function reference.
   final List<Parameter> parameters;
-
-  @override
-  FunctionReference copyWith({
-    Reference? returns,
-    bool? isNullable,
-    List<Parameter>? parameters,
-  }) {
-    return FunctionReference(
-      returns: returns ?? this.returns,
-      isNullable: isNullable ?? this.isNullable,
-      parameters: parameters ?? this.parameters,
-    );
-  }
 }

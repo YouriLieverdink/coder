@@ -211,6 +211,20 @@ Builder greaterThanOrEqualTo(
   return Row.binary(left: value, right: other, operator: operator);
 }
 
+/// {@template builder_in}
+/// Returns the in operation of `this` and [other].
+///
+/// ```dart
+/// this in other
+/// ```
+/// {@endtemplate}
+Builder in_(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: 'in');
+}
+
 /// {@template builder_index}
 /// Returns the index operation on `this` with [other].
 ///
@@ -636,6 +650,13 @@ mixin Builder on Element {
     bool reverse = false,
   }) {
     return builder.greaterThanOrEqualTo(this, other, reverse: reverse);
+  }
+
+  /// {@macro builder_in}
+  Builder in_(
+    Builder other,
+  ) {
+    return builder.in_(this, other);
   }
 
   /// {@macro builder_index}

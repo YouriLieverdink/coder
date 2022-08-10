@@ -39,23 +39,4 @@ class Parameter extends Element {
   /// This value can be left unset or set to `null` when the parameter should be
   /// a 'normal' parameter.
   final ParameterKind? kind;
-
-  @override
-  Parameter copyWith({
-    Reference? type,
-    String? name,
-    Element? assign,
-    bool? isRequired,
-    bool? isToThis,
-    ParameterKind? kind,
-  }) {
-    return Parameter(
-      type: type ?? this.type,
-      name: name ?? this.name,
-      assign: assign ?? this.assign,
-      isRequired: isRequired ?? this.isRequired,
-      isToThis: isToThis ?? this.isToThis,
-      kind: kind ?? this.kind,
-    );
-  }
 }

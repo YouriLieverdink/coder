@@ -48,25 +48,4 @@ class Method extends Element {
 
   /// The body of this method.
   final Element? body;
-
-  @override
-  Method copyWith({
-    Reference? returns,
-    String? name,
-    bool? isStatic,
-    MethodMofifier? modifier,
-    MethodKind? kind,
-    List<Parameter>? parameters,
-    Element? body,
-  }) {
-    return Method(
-      returns: returns ?? this.returns,
-      name: name ?? this.name,
-      modifier: modifier ?? this.modifier,
-      kind: kind ?? this.kind,
-      parameters: parameters ?? this.parameters,
-      isStatic: isStatic ?? this.isStatic,
-      body: body ?? this.body,
-    );
-  }
 }
