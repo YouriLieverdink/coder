@@ -326,6 +326,26 @@ void main() {
       );
 
       test(
+        'should emit an in operation',
+        () {
+          const left = Static('cats');
+          const right = LiteralList(['cats', 'dogs']);
+
+          final operation = left.in_(right);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                cats in ['cats', 'dogs']
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit an index operation',
         () {
           const left = Static('cats');
