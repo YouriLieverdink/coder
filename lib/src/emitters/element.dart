@@ -39,8 +39,8 @@ class ElementEmitter extends Emitter<Element> {
     else if (value is For) {
       ForEmitter(context).emit(value, output);
     } //
-    else if (value is IfElse) {
-      IfElseEmitter(context).emit(value, output);
+    else if (value is If) {
+      IfEmitter(context).emit(value, output);
     } //
     else if (value is Invoke) {
       InvokeEmitter(context).emit(value, output);
