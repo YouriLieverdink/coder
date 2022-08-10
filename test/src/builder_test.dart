@@ -111,63 +111,6 @@ void main() {
       );
 
       test(
-        'should emit an assign const operation',
-        () {
-          const left = LiteralString('cat');
-
-          final operation = left.assignConst('myCat');
-
-          Expect(
-            operation,
-            const Equals(
-              '''
-                const myCat = 'cat'
-              ''',
-              emitter: emitter,
-            ),
-          );
-        },
-      );
-
-      test(
-        'should emit an assign final operation',
-        () {
-          const left = LiteralString('cat');
-
-          final operation = left.assignFinal('myCat');
-
-          Expect(
-            operation,
-            const Equals(
-              '''
-                final myCat = 'cat'
-              ''',
-              emitter: emitter,
-            ),
-          );
-        },
-      );
-
-      test(
-        'should emit an assign var operation',
-        () {
-          const left = LiteralString('cat');
-
-          final operation = left.assignVar('myCat');
-
-          Expect(
-            operation,
-            const Equals(
-              '''
-                var myCat = 'cat'
-              ''',
-              emitter: emitter,
-            ),
-          );
-        },
-      );
-
-      test(
         'should emit an awaited operation',
         () {
           const left = Static('cat');
@@ -179,6 +122,82 @@ void main() {
             const Equals(
               '''
                 await cat
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a declare const operation',
+        () {
+          const left = Static('cat');
+
+          final operation = left.declareConst;
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                const cat
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a declare final operation',
+        () {
+          const left = Static('cat');
+
+          final operation = left.declareFinal;
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                final cat
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a declare type operation',
+        () {
+          const left = Static('cat');
+
+          final operation = left.declareType(const TypeReference('Cat'));
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                Cat cat
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a declare var operation',
+        () {
+          const left = Static('cat');
+
+          final operation = left.declareVar;
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                var cat
               ''',
               emitter: emitter,
             ),

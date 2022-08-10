@@ -11,22 +11,31 @@ void main() {
     'should emit the Dart variables sample',
     () {
       final element = Column([
-        Literal.of('Voyager I') //
-            .assignVar('name')
+        const Static('name') //
+            .declareVar
+            .assign(Literal.of('Voyager I'))
             .statement,
-        Literal.of(1977) //
-            .assignVar('year')
+        const Static('year') //
+            .declareVar
+            .assign(Literal.of(1977))
             .statement,
-        Literal.of(3.7) //
-            .assignVar('antennaDiameter')
+        const Static('antennaDiameter') //
+            .declareVar
+            .assign(Literal.of(3.7))
             .statement,
-        Literal.of(['Jupiter', 'Saturn', 'Uranus', 'Neptune'])
-            .assignVar('flybyObjects')
+        const Static('flybyObjects') //
+            .declareVar
+            .assign(Literal.of(['Jupiter', 'Saturn', 'Uranus', 'Neptune']))
             .statement,
-        Literal.of({
-          'tags': ['saturn'],
-          'url': '//path/to/saturn.jpg'
-        }).assignVar('image').statement,
+        const Static('image') //
+            .declareVar
+            .assign(
+              Literal.of({
+                'tags': ['saturn'],
+                'url': '//path/to/saturn.jpg'
+              }),
+            )
+            .statement,
       ]);
 
       Expect(
