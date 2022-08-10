@@ -5,6 +5,7 @@ import 'package:orchestrator/orchestrator.dart';
 part './emitters/class.dart';
 part './emitters/column.dart';
 part './emitters/constructor.dart';
+part './emitters/directive.dart';
 part './emitters/element.dart';
 part './emitters/enum.dart';
 part './emitters/extension.dart';
