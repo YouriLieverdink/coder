@@ -1,3 +1,7 @@
+# 0.13.0
+
+- feat: add if-else clauses to if statements
+
 # 0.12.0
 
 - docs: update example and readme
