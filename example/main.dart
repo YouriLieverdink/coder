@@ -14,14 +14,18 @@ void main() {
       ],
       // Use [Column]s to add multiple elements within a body.
       body: Column([
-        IfElse(
-          condition: or(
-            const Static('n').equalTo(Literal.of(0)),
-            const Static('n').equalTo(Literal.of(1)),
-          ),
-          then: const Static('n') //
-              .returned
-              .statement,
+        If(
+          clauses: [
+            IfClause(
+              condition: or(
+                const Static('n').equalTo(Literal.of(0)),
+                const Static('n').equalTo(Literal.of(1)),
+              ),
+              body: const Static('n') //
+                  .returned
+                  .statement,
+            ),
+          ],
         ),
         const Static(''),
         // Builders can be used as top level functions...
