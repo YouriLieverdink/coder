@@ -43,9 +43,9 @@ void main() {
       ]),
     ),
     const Static(''),
-    const Static('fibonacci')
-        .invoke([Literal.of(20)])
-        .assignVar('result')
+    const Static('result') //
+        .declareVar
+        .assign(const Static('fibonacci').invoke([Literal.of(20)]))
         .statement,
   ]);
 
