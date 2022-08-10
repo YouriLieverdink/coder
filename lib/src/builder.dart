@@ -70,57 +70,6 @@ Builder assignCoalescing(
   return Row.binary(left: value, right: other, operator: '??=');
 }
 
-/// {@template builder_assign_const}
-/// Returns `this` assigned to [name] as const.
-///
-/// ```dart
-/// const name = this
-/// ```
-/// {@endtemplate}
-Builder assignConst(
-  Builder value,
-  String name,
-) {
-  return Row([
-    const Static('const '),
-    Static(name).assign(value),
-  ]);
-}
-
-/// {@template builder_assign_final}
-/// Returns `this` assigned to [name] as final.
-///
-/// ```dart
-/// final name = this
-/// ```
-/// {@endtemplate}
-Builder assignFinal(
-  Builder value,
-  String name,
-) {
-  return Row([
-    const Static('final '),
-    Static(name).assign(value),
-  ]);
-}
-
-/// {@template builder_assign_var}
-/// Returns `this` assigned to [name] as var.
-///
-/// ```dart
-/// var name = this
-/// ```
-/// {@endtemplate}
-Builder assignVar(
-  Builder value,
-  String name,
-) {
-  return Row([
-    const Static('var '),
-    Static(name).assign(value),
-  ]);
-}
-
 /// {@template builder_awaited}
 /// Returns `this` prefixed with await.
 ///
@@ -133,6 +82,72 @@ Builder awaited(
 ) {
   return Row([
     const Static('await '),
+    value,
+  ]);
+}
+
+/// {@template declare_const}
+/// Returns `this` prefixed with const.
+///
+/// ```dart
+/// const this
+/// ```
+/// {@endtemplate}
+Builder declareConst(
+  Builder value,
+) {
+  return Row([
+    const Static('const '),
+    value,
+  ]);
+}
+
+/// {@template declare_final}
+/// Returns `this` prefixed with final.
+///
+/// ```dart
+/// final this
+/// ```
+/// {@endtemplate}
+Builder declareFinal(
+  Builder value,
+) {
+  return Row([
+    const Static('final '),
+    value,
+  ]);
+}
+
+/// {@template declare_type}
+/// Returns `this` prefixed with the provided type.
+///
+/// ```dart
+/// type this
+/// ```
+/// {@endtemplate}
+Builder declareType(
+  Builder value,
+  Reference type,
+) {
+  return Row([
+    type,
+    const Static(' '),
+    value,
+  ]);
+}
+
+/// {@template declare_var}
+/// Returns `this` prefixed with var.
+///
+/// ```dart
+/// var this
+/// ```
+/// {@endtemplate}
+Builder declareVar(
+  Builder value,
+) {
+  return Row([
+    const Static('var '),
     value,
   ]);
 }
@@ -596,25 +611,47 @@ mixin Builder on Element {
     return builder.assignCoalescing(this, other);
   }
 
-  /// {@macro builder_assign_const}
-  Builder assignConst(
-    String name,
-  ) {
-    return builder.assignConst(this, name);
+  // /// {@macro builder_assign_const}
+  // Builder assignConst(
+  //   String name,
+  // ) {
+  //   return builder.assignConst(this, name);
+  // }
+
+  // /// {@macro builder_assign_final}
+  // Builder assignFinal(
+  //   String name,
+  // ) {
+  //   return builder.assignFinal(this, name);
+  // }
+
+  // /// {@macro builder_assign_var}
+  // Builder assignVar(
+  //   String name,
+  // ) {
+  //   return builder.assignVar(this, name);
+  // }
+
+  /// {@macro declare_const}
+  Builder get declareConst {
+    return builder.declareConst(this);
   }
 
-  /// {@macro builder_assign_final}
-  Builder assignFinal(
-    String name,
-  ) {
-    return builder.assignFinal(this, name);
+  /// {@macro declare_final}
+  Builder get declareFinal {
+    return builder.declareFinal(this);
   }
 
-  /// {@macro builder_assign_var}
-  Builder assignVar(
-    String name,
+  /// {@macro declare_type}
+  Builder declareType(
+    Reference type,
   ) {
-    return builder.assignVar(this, name);
+    return builder.declareType(this, type);
+  }
+
+  /// {@macro declare_var}
+  Builder get declareVar {
+    return builder.declareVar(this);
   }
 
   /// {@macro builder_awaited}
