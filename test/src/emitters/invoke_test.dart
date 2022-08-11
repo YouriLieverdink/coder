@@ -48,6 +48,28 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit an invocation with a trailling comma',
+        () {
+          const context = Context(useTraillingCommas: true);
+
+          const element = Invoke([
+            LiteralString('Pip'),
+            LiteralNum(8),
+          ]);
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                ('Pip', 8, )
+              ''',
+              emitter: InvokeEmitter(context),
+            ),
+          );
+        },
+      );
     },
   );
 }
