@@ -9,27 +9,27 @@ class ParameterEmitter extends Emitter<Parameter> {
 
   @override
   StringSink emit(
-    Parameter value, [
+    Parameter element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value.kind == ParameterKind.named && value.isRequired) {
+    if (element.kind == ParameterKind.named && element.isRequired) {
       output.write('required ');
     }
 
-    if (!value.isToThis) {
-      ReferenceEmitter(context).emit(value.type, output);
+    if (!element.isToThis) {
+      ReferenceEmitter(context).emit(element.type, output);
     }
 
     output
-      ..write(value.isToThis ? ' this.' : ' ')
-      ..write(value.name);
+      ..write(element.isToThis ? ' this.' : ' ')
+      ..write(element.name);
 
-    if (value.assign != null) {
+    if (element.assign != null) {
       output.write(' = ');
 
-      ElementEmitter(context).emit(value.assign!, output);
+      ElementEmitter(context).emit(element.assign!, output);
     }
 
     return output;
@@ -54,16 +54,16 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
 
   @override
   StringSink emit(
-    List<Parameter> values, [
+    List<Parameter> elements, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    for (int i = 0; i < values.length; i++) {
+    for (int i = 0; i < elements.length; i++) {
       //
-      final prev = valueAtOrNull(values, i - 1);
-      final curr = values[i];
-      final next = valueAtOrNull(values, i + 1);
+      final prev = valueAtOrNull(elements, i - 1);
+      final curr = elements[i];
+      final next = valueAtOrNull(elements, i + 1);
 
       if (curr.kind != null && (prev == null || !(prev.kind != null))) {
         output.write(curr.kind == ParameterKind.named ? '{' : '[');
@@ -71,7 +71,7 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
 
       ParameterEmitter(context).emit(curr, output);
 
-      if (curr != values.last || context.useTraillingCommas) {
+      if (curr != elements.last || context.useTraillingCommas) {
         output.write(', ');
       }
 

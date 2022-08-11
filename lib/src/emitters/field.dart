@@ -9,20 +9,20 @@ class FieldEmitter extends Emitter<Field> {
 
   @override
   StringSink emit(
-    Field value, [
+    Field element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value.isStatic) {
+    if (element.isStatic) {
       output.write('static ');
     }
 
-    if (value.isLate) {
+    if (element.isLate) {
       output.write('late ');
     }
 
-    switch (value.modifier) {
+    switch (element.modifier) {
       case FieldModifier.final_:
         output.write('final ');
         break;
@@ -35,14 +35,14 @@ class FieldEmitter extends Emitter<Field> {
         break;
     }
 
-    ReferenceEmitter(context).emit(value.type, output);
+    ReferenceEmitter(context).emit(element.type, output);
 
-    output.write(' ${value.name}');
+    output.write(' ${element.name}');
 
-    if (value.assign != null) {
+    if (element.assign != null) {
       output.write(' = ');
 
-      ElementEmitter(context).emit(value.assign!, output);
+      ElementEmitter(context).emit(element.assign!, output);
     }
 
     output.write(';');

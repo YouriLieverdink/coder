@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template constructor}
-/// Configuration for defining a class `constructor`.
+/// Configuration for defining a constructor.
 /// {@endtemplate}
 class Constructor extends Element {
   /// {@macro constructor}

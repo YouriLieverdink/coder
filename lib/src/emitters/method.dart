@@ -9,26 +9,26 @@ class MethodEmitter extends Emitter<Method> {
 
   @override
   StringSink emit(
-    Method value, [
+    Method element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value.isStatic) {
+    if (element.isStatic) {
       output.write('static ');
     }
 
-    ReferenceEmitter(context).emit(value.returns, output);
+    ReferenceEmitter(context).emit(element.returns, output);
 
     output
-      ..write(' ${value.name}')
+      ..write(' ${element.name}')
       ..write('(');
 
-    ParameterListEmitter(context).emit(value.parameters, output);
+    ParameterListEmitter(context).emit(element.parameters, output);
 
     output.write(') ');
 
-    switch (value.modifier) {
+    switch (element.modifier) {
       case MethodMofifier.async:
         output.write('async ');
         break;
@@ -47,8 +47,8 @@ class MethodEmitter extends Emitter<Method> {
 
     output.write('{ ');
 
-    if (value.body != null) {
-      ElementEmitter(context).emit(value.body!, output);
+    if (element.body != null) {
+      ElementEmitter(context).emit(element.body!, output);
     }
 
     output.write(' }');

@@ -9,12 +9,12 @@ class ColumnEmitter extends Emitter<Column> {
 
   @override
   StringSink emit(
-    Column value, [
+    Column element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    for (final v in value.elements) {
+    for (final v in element.elements) {
       ElementEmitter(context).emit(v, output);
 
       output.write('\n');

@@ -7,7 +7,7 @@ part of element;
 enum DirectiveKind { import, export, part, partOf }
 
 /// {@template directive}
-/// Configuration for defining a `directive`.
+/// Configuration for defining a directive.
 /// {@endtemplate}
 class Directive extends Element {
   /// {@macro directive}

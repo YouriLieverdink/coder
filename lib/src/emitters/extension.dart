@@ -9,30 +9,30 @@ class ExtensionEmitter extends Emitter<Extension> {
 
   @override
   StringSink emit(
-    Extension value, [
+    Extension element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     output.write('extension ');
 
-    if (value.name != null) {
-      output.write(value.name);
+    if (element.name != null) {
+      output.write(element.name);
     }
 
     output.write(' on ');
 
-    ReferenceEmitter(context).emit(value.on, output);
+    ReferenceEmitter(context).emit(element.on, output);
 
     output.write(' { ');
 
-    for (final v in value.fields) {
+    for (final v in element.fields) {
       FieldEmitter(context).emit(v, output);
 
       output.writeln('\n');
     }
 
-    for (final v in value.methods) {
+    for (final v in element.methods) {
       MethodEmitter(context).emit(v, output);
 
       output.writeln('\n');

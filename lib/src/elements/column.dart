@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template column}
-/// Configuration for defining a `column` of elements.
+/// Configuration for defining a column.
 /// {@endtemplate}
 class Column extends Element {
   /// {@macro column}
@@ -9,5 +9,6 @@ class Column extends Element {
     this.elements,
   );
 
+  /// The list of elements this column holds.
   final List<Element> elements;
 }

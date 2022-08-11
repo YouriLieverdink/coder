@@ -11,7 +11,7 @@ enum MethodMofifier { async, asyncStar, syncStar }
 enum MethodKind { get, set }
 
 /// {@template method}
-/// Configuration for defining a `method`.
+/// Configuration for defining a method.
 /// {@endtemplate}
 class Method extends Element {
   /// {@macro method}

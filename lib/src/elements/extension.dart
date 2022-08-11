@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template extension}
-/// Configuration for defining an `extension`.
+/// Configuration for defining an extension.
 /// {@endtemplate}
 class Extension extends Element {
   /// {@macro extension}

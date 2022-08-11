@@ -9,12 +9,12 @@ class DirectiveEmitter extends Emitter<Directive> {
 
   @override
   StringSink emit(
-    Directive value, [
+    Directive element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    switch (value.kind) {
+    switch (element.kind) {
       case DirectiveKind.import:
         output.write('import ');
         break;
@@ -32,7 +32,7 @@ class DirectiveEmitter extends Emitter<Directive> {
         break;
     }
 
-    LiteralEmitter(context).emit(Literal.of(value.url), output);
+    LiteralEmitter(context).emit(Literal.of(element.url), output);
 
     output.write(';');
 

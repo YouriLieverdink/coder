@@ -9,16 +9,16 @@ class ReferenceEmitter extends Emitter<Reference> {
 
   @override
   StringSink emit(
-    Reference value, [
+    Reference element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value is TypeReference) {
-      TypeReferenceEmitter(context).emit(value, output);
+    if (element is TypeReference) {
+      TypeReferenceEmitter(context).emit(element, output);
     } //
-    else if (value is FunctionReference) {
-      FunctionReferenceEmitter(context).emit(value, output);
+    else if (element is FunctionReference) {
+      FunctionReferenceEmitter(context).emit(element, output);
     }
 
     return output;

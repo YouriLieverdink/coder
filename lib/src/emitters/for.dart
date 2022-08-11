@@ -9,19 +9,19 @@ class ForEmitter extends Emitter<For> {
 
   @override
   StringSink emit(
-    For value, [
+    For element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     output.write('for (');
 
-    ElementEmitter(context).emit(value.condition, output);
+    ElementEmitter(context).emit(element.condition, output);
 
     output.write(') { ');
 
-    if (value.body != null) {
-      ElementEmitter(context).emit(value.body!, output);
+    if (element.body != null) {
+      ElementEmitter(context).emit(element.body!, output);
     }
 
     output.write(' }');

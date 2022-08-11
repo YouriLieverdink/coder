@@ -7,7 +7,7 @@ part of element;
 enum FieldModifier { const_, final_ }
 
 /// {@template field}
-/// Configuration for defining a `field`.
+/// Configuration for defining a field.
 /// {@endtemplate}
 class Field extends Element {
   /// {@macro field}

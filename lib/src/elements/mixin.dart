@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template mixin}
-/// Configuration for defining a `mixin`.
+/// Configuration for defining a mixin.
 /// {@endtemplate}
 class Mixin extends Element {
   /// {@macro mixin}

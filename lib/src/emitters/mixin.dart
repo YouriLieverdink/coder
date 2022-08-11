@@ -9,30 +9,30 @@ class MixinEmitter extends Emitter<Mixin> {
 
   @override
   StringSink emit(
-    Mixin value, [
+    Mixin element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     output
       ..write('mixin ')
-      ..write(value.name);
+      ..write(element.name);
 
-    if (value.on != null) {
+    if (element.on != null) {
       output.write(' on ');
 
-      ReferenceEmitter(context).emit(value.on!, output);
+      ReferenceEmitter(context).emit(element.on!, output);
     }
 
     output.write(' { ');
 
-    for (final v in value.fields) {
+    for (final v in element.fields) {
       FieldEmitter(context).emit(v, output);
 
       output.writeln('\n');
     }
 
-    for (final v in value.methods) {
+    for (final v in element.methods) {
       MethodEmitter(context).emit(v, output);
 
       output.writeln('\n');

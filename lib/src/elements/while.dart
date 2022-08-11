@@ -6,7 +6,7 @@ part of element;
 enum WhileKind { while_, doWhile }
 
 /// {@template while}
-/// Configuration for defining a `while`.
+/// Configuration for defining a while loop.
 /// {@endtemplate}
 class While extends Element {
   /// {@macro while}

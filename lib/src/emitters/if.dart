@@ -9,19 +9,19 @@ class IfEmitter extends Emitter<If> {
 
   @override
   StringSink emit(
-    If value, [
+    If element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    for (final v in value.clauses) {
-      IfClauseEmitter(context, value).emit(v, output);
+    for (final v in element.clauses) {
+      IfClauseEmitter(context, element).emit(v, output);
     }
 
-    if (value.else_ != null) {
+    if (element.else_ != null) {
       output.write(' else { ');
 
-      ElementEmitter(context).emit(value.else_!, output);
+      ElementEmitter(context).emit(element.else_!, output);
 
       output.write(' }');
     }

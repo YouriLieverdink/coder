@@ -9,12 +9,12 @@ class StaticEmitter extends Emitter<Static> {
 
   @override
   StringSink emit(
-    Static value, [
+    Static element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    output.write(value.value);
+    output.write(element.value);
 
     return output;
   }

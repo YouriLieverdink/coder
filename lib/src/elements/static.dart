@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template static}
-/// Configuration for defining a `static` element.
+/// Configuration for defining a static.
 /// {@endtemplate}
 class Static extends Element with Builder {
   /// {@macro static}
