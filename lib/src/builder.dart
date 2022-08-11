@@ -10,7 +10,10 @@ import 'package:orchestrator/src/builder.dart' as builder;
 /// this + other
 /// ```
 /// {@endtemplate}
-Builder add(Builder value, Builder other) {
+Builder add(
+  Builder value,
+  Builder other,
+) {
   return Row.binary(left: value, right: other, operator: '+');
 }
 
