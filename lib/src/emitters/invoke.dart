@@ -19,7 +19,7 @@ class InvokeEmitter extends Emitter<Invoke> {
     for (final v in value.elements) {
       ElementEmitter(context).emit(v, output);
 
-      if (v != value.elements.last) {
+      if (v != value.elements.last || context.useTraillingCommas) {
         output.write(', ');
       }
     }
