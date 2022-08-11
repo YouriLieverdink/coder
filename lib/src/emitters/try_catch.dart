@@ -9,27 +9,27 @@ class TryCatchEmitter extends Emitter<TryCatch> {
 
   @override
   StringSink emit(
-    TryCatch value, [
+    TryCatch element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     output.write('try { ');
 
-    ElementEmitter(context).emit(value.try_, output);
+    ElementEmitter(context).emit(element.try_, output);
 
     output.write(' } catch (e) { ');
 
-    if (value.catch_ != null) {
-      ElementEmitter(context).emit(value.catch_!, output);
+    if (element.catch_ != null) {
+      ElementEmitter(context).emit(element.catch_!, output);
     }
 
     output.write(' }');
 
-    if (value.finally_ != null) {
+    if (element.finally_ != null) {
       output.write(' finally { ');
 
-      ElementEmitter(context).emit(value.finally_!, output);
+      ElementEmitter(context).emit(element.finally_!, output);
 
       output.write(' }');
     }

@@ -9,28 +9,28 @@ class LiteralEmitter extends Emitter<Literal> {
 
   @override
   StringSink emit(
-    Literal value, [
+    Literal element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value is LiteralBool) {
-      LiteralBoolEmitter(context).emit(value, output);
+    if (element is LiteralBool) {
+      LiteralBoolEmitter(context).emit(element, output);
     } //
-    else if (value is LiteralList) {
-      LiteralListEmitter(context).emit(value, output);
+    else if (element is LiteralList) {
+      LiteralListEmitter(context).emit(element, output);
     } //
-    else if (value is LiteralMap) {
-      LiteralMapEmitter(context).emit(value, output);
+    else if (element is LiteralMap) {
+      LiteralMapEmitter(context).emit(element, output);
     } //
-    else if (value is LiteralNull) {
-      LiteralNullEmitter(context).emit(value, output);
+    else if (element is LiteralNull) {
+      LiteralNullEmitter(context).emit(element, output);
     } //
-    else if (value is LiteralNum) {
-      LiteralNumEmitter(context).emit(value, output);
+    else if (element is LiteralNum) {
+      LiteralNumEmitter(context).emit(element, output);
     } //
-    else if (value is LiteralString) {
-      LiteralStringEmitter(context).emit(value, output);
+    else if (element is LiteralString) {
+      LiteralStringEmitter(context).emit(element, output);
     }
 
     return output;
@@ -46,12 +46,12 @@ class LiteralBoolEmitter extends Emitter<LiteralBool> {
 
   @override
   StringSink emit(
-    LiteralBool value, [
+    LiteralBool element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    output.write(value.value);
+    output.write(element.value);
 
     return output;
   }
@@ -66,33 +66,33 @@ class LiteralListEmitter extends Emitter<LiteralList> {
 
   ///
   StringSink emitDynamic(
-    dynamic value, [
+    dynamic element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value is Element) {
-      return ElementEmitter(context).emit(value, output);
+    if (element is Element) {
+      return ElementEmitter(context).emit(element, output);
     }
 
-    final literal = Literal.of(value);
+    final literal = Literal.of(element);
 
     return LiteralEmitter(context).emit(literal, output);
   }
 
   @override
   StringSink emit(
-    LiteralList value, [
+    LiteralList element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     output.write('[');
 
-    for (final v in value.value) {
+    for (final v in element.value) {
       emitDynamic(v, output);
 
-      if (v != value.value.last) {
+      if (v != element.value.last) {
         output.write(', ');
       }
     }
@@ -112,37 +112,37 @@ class LiteralMapEmitter extends Emitter<LiteralMap> {
 
   ///
   StringSink emitDynamic(
-    dynamic value, [
+    dynamic element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value is Element) {
-      return ElementEmitter(context).emit(value, output);
+    if (element is Element) {
+      return ElementEmitter(context).emit(element, output);
     }
 
-    final literal = Literal.of(value);
+    final literal = Literal.of(element);
 
     return LiteralEmitter(context).emit(literal, output);
   }
 
   @override
   StringSink emit(
-    LiteralMap value, [
+    LiteralMap element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     output.write('{ ');
 
-    for (final v in value.value.entries) {
+    for (final v in element.value.entries) {
       emitDynamic(v.key, output);
 
       output.write(': ');
 
       emitDynamic(v.value, output);
 
-      if (v.key != value.value.keys.last) {
+      if (v.key != element.value.keys.last) {
         output.write(', ');
       }
     }
@@ -162,7 +162,7 @@ class LiteralNullEmitter extends Emitter<LiteralNull> {
 
   @override
   StringSink emit(
-    LiteralNull value, [
+    LiteralNull element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
@@ -182,12 +182,12 @@ class LiteralNumEmitter extends Emitter<LiteralNum> {
 
   @override
   StringSink emit(
-    LiteralNum value, [
+    LiteralNum element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    output.write(value.value);
+    output.write(element.value);
 
     return output;
   }
@@ -202,12 +202,12 @@ class LiteralStringEmitter extends Emitter<LiteralString> {
 
   @override
   StringSink emit(
-    LiteralString value, [
+    LiteralString element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    output.write("'${value.value}'");
+    output.write("'${element.value}'");
 
     return output;
   }

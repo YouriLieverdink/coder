@@ -9,71 +9,71 @@ class ElementEmitter extends Emitter<Element> {
 
   @override
   StringSink emit(
-    Element value, [
+    Element element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value is Column) {
-      ColumnEmitter(context).emit(value, output);
+    if (element is Column) {
+      ColumnEmitter(context).emit(element, output);
     } //
-    else if (value is Class) {
-      ClassEmitter(context).emit(value, output);
+    else if (element is Class) {
+      ClassEmitter(context).emit(element, output);
     } //
-    else if (value is Constructor) {
+    else if (element is Constructor) {
       throw UnsupportedError(
         'Emitting a [Constructor] element is not possible via the abstract '
         '[SpecEmitter] due to the fact that a [Constructor] emitter should '
         'receive an instance of its parent [Class] in order to emit.',
       );
     } //
-    else if (value is Enum) {
-      EnumEmitter(context).emit(value, output);
+    else if (element is Enum) {
+      EnumEmitter(context).emit(element, output);
     } //
-    else if (value is Extension) {
-      ExtensionEmitter(context).emit(value, output);
+    else if (element is Extension) {
+      ExtensionEmitter(context).emit(element, output);
     } //
-    else if (value is Field) {
-      FieldEmitter(context).emit(value, output);
+    else if (element is Field) {
+      FieldEmitter(context).emit(element, output);
     } //
-    else if (value is For) {
-      ForEmitter(context).emit(value, output);
+    else if (element is For) {
+      ForEmitter(context).emit(element, output);
     } //
-    else if (value is If) {
-      IfEmitter(context).emit(value, output);
+    else if (element is If) {
+      IfEmitter(context).emit(element, output);
     } //
-    else if (value is Invoke) {
-      InvokeEmitter(context).emit(value, output);
+    else if (element is Invoke) {
+      InvokeEmitter(context).emit(element, output);
     } //
-    else if (value is Literal) {
-      LiteralEmitter(context).emit(value, output);
+    else if (element is Literal) {
+      LiteralEmitter(context).emit(element, output);
     } //
-    else if (value is Method) {
-      MethodEmitter(context).emit(value, output);
+    else if (element is Method) {
+      MethodEmitter(context).emit(element, output);
     } //
-    else if (value is Mixin) {
-      MixinEmitter(context).emit(value, output);
+    else if (element is Mixin) {
+      MixinEmitter(context).emit(element, output);
     } //
-    else if (value is Parameter) {
-      ParameterEmitter(context).emit(value, output);
+    else if (element is Parameter) {
+      ParameterEmitter(context).emit(element, output);
     } //
-    else if (value is Reference) {
-      ReferenceEmitter(context).emit(value, output);
+    else if (element is Reference) {
+      ReferenceEmitter(context).emit(element, output);
     } //
-    else if (value is Row) {
-      RowEmitter(context).emit(value, output);
+    else if (element is Row) {
+      RowEmitter(context).emit(element, output);
     } //
-    else if (value is Static) {
-      StaticEmitter(context).emit(value, output);
+    else if (element is Static) {
+      StaticEmitter(context).emit(element, output);
     } //
-    else if (value is Switch) {
-      SwitchEmitter(context).emit(value, output);
+    else if (element is Switch) {
+      SwitchEmitter(context).emit(element, output);
     } //
-    else if (value is TryCatch) {
-      TryCatchEmitter(context).emit(value, output);
+    else if (element is TryCatch) {
+      TryCatchEmitter(context).emit(element, output);
     } //
-    else if (value is While) {
-      WhileEmitter(context).emit(value, output);
+    else if (element is While) {
+      WhileEmitter(context).emit(element, output);
     } //
 
     return output;

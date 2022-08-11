@@ -41,19 +41,19 @@ class SwitchCaseEmitter extends Emitter<SwitchCase> {
 
   @override
   StringSink emit(
-    SwitchCase value, [
+    SwitchCase element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     output.write('case ');
 
-    ElementEmitter(context).emit(value.condition, output);
+    ElementEmitter(context).emit(element.condition, output);
 
     output.write(': ');
 
-    if (value.body != null) {
-      ElementEmitter(context).emit(value.body!, output);
+    if (element.body != null) {
+      ElementEmitter(context).emit(element.body!, output);
     }
 
     return output;

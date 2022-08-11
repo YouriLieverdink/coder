@@ -9,42 +9,42 @@ class ClassEmitter extends Emitter<Class> {
 
   @override
   StringSink emit(
-    Class value, [
+    Class element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    if (value.isAbstract) {
+    if (element.isAbstract) {
       output.write('abstract ');
     }
 
-    output.write('class ${value.name} ');
+    output.write('class ${element.name} ');
 
-    if (value.extends_ != null) {
+    if (element.extends_ != null) {
       output.write(' extends ');
 
-      ReferenceEmitter(context).emit(value.extends_!, output);
+      ReferenceEmitter(context).emit(element.extends_!, output);
     }
 
-    if (value.with_.isNotEmpty) {
+    if (element.with_.isNotEmpty) {
       output.write(' with ');
 
-      for (final v in value.with_) {
+      for (final v in element.with_) {
         ReferenceEmitter(context).emit(v, output);
 
-        if (v != value.with_.last) {
+        if (v != element.with_.last) {
           output.write(', ');
         }
       }
     }
 
-    if (value.implements.isNotEmpty) {
+    if (element.implements.isNotEmpty) {
       output.write(' implements ');
 
-      for (final v in value.implements) {
+      for (final v in element.implements) {
         ReferenceEmitter(context).emit(v, output);
 
-        if (v != value.implements.last) {
+        if (v != element.implements.last) {
           output.write(', ');
         }
       }
@@ -52,19 +52,19 @@ class ClassEmitter extends Emitter<Class> {
 
     output.write(' { ');
 
-    for (final v in value.constructors) {
-      ConstructorEmitter(context, value).emit(v, output);
+    for (final v in element.constructors) {
+      ConstructorEmitter(context, element).emit(v, output);
 
       output.writeln('\n');
     }
 
-    for (final v in value.fields) {
+    for (final v in element.fields) {
       FieldEmitter(context).emit(v, output);
 
       output.writeln('\n');
     }
 
-    for (final v in value.methods) {
+    for (final v in element.methods) {
       MethodEmitter(context).emit(v, output);
 
       output.writeln('\n');

@@ -8,24 +8,24 @@ class WhileEmitter extends Emitter<While> {
   const WhileEmitter(super.context);
 
   void condition(
-    While value,
+    While element,
     StringSink output,
   ) {
     output.write(' while (');
 
-    ElementEmitter(context).emit(value.condition, output);
+    ElementEmitter(context).emit(element.condition, output);
 
     output.write(')');
   }
 
   void body(
-    While value,
+    While element,
     StringSink output,
   ) {
     output.write(' { ');
 
-    if (value.body != null) {
-      ElementEmitter(context).emit(value.body!, output);
+    if (element.body != null) {
+      ElementEmitter(context).emit(element.body!, output);
     }
 
     output.write(' }');
@@ -33,22 +33,22 @@ class WhileEmitter extends Emitter<While> {
 
   @override
   StringSink emit(
-    While value, [
+    While element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    switch (value.kind) {
+    switch (element.kind) {
       case WhileKind.while_:
-        condition(value, output);
-        body(value, output);
+        condition(element, output);
+        body(element, output);
         break;
 
       case WhileKind.doWhile:
         output.write('do ');
 
-        body(value, output);
-        condition(value, output);
+        body(element, output);
+        condition(element, output);
 
         output.write(';');
         break;

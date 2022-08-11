@@ -37,9 +37,9 @@ abstract class Emitter<T> {
 
   final Context context;
 
-  /// Emits [value] as valid Dart code into [output].
+  /// Emits [element] as valid Dart code into [output].
   StringSink emit(
-    T value, [
+    T element, [
     StringSink? output,
   ]);
 }

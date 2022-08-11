@@ -9,12 +9,12 @@ class RowEmitter extends Emitter<Row> {
 
   @override
   StringSink emit(
-    Row value, [
+    Row element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
-    for (final v in value.elements) {
+    for (final v in element.elements) {
       ElementEmitter(context).emit(v, output);
     }
 
