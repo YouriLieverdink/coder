@@ -109,6 +109,47 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit an extension with spaced out elements',
+        () {
+          const element = Extension(
+            name: 'Features',
+            on: TypeReference('Cat'),
+            fields: [
+              Field(
+                name: 'age',
+                modifier: FieldModifier.final_,
+                type: TypeReference('int'),
+              ),
+            ],
+            methods: [
+              Method(
+                name: 'meow',
+                body: Column([
+                  Static('print("meow!");'),
+                ]),
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                extension Features on Cat {
+                  final int age;
+
+                  void meow() {
+                    print("meow!");
+                  }
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }
