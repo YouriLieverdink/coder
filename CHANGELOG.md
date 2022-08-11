@@ -1,3 +1,10 @@
+# 0.14.0
+
+- feat: add ability to generate mixins
+- feat: add ability to generate directives
+- fix: trailling commas are now also placed on invocations
+- ci: development branch is also run within workflow
+
 # 0.13.0
 
 - feat: add if-else clauses to if statements
