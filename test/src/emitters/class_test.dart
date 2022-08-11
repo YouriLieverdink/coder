@@ -276,6 +276,59 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a class with spaced out elements',
+        () {
+          const element = Class(
+            name: 'Cat',
+            constructors: [
+              Constructor(
+                isConst: true,
+                parameters: [
+                  Parameter(
+                    name: 'age',
+                    isToThis: true,
+                  ),
+                ],
+              ),
+            ],
+            fields: [
+              Field(
+                name: 'age',
+                modifier: FieldModifier.final_,
+                type: TypeReference('int'),
+              ),
+            ],
+            methods: [
+              Method(
+                name: 'meow',
+                body: Column([
+                  Static('print("meow!");'),
+                ]),
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                class Cat {
+                  const Cat(this.age);
+
+                  final int age;
+
+                  void meow() {
+                    print("meow!");
+                  }
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

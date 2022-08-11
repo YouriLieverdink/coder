@@ -22,6 +22,8 @@ class SwitchEmitter extends Emitter<Switch> {
 
     for (final v in value.cases) {
       SwitchCaseEmitter(context).emit(v, output);
+
+      output.writeln('\n');
     }
 
     output.write(' }');

@@ -28,10 +28,14 @@ class ExtensionEmitter extends Emitter<Extension> {
 
     for (final v in value.fields) {
       FieldEmitter(context).emit(v, output);
+
+      output.writeln('\n');
     }
 
     for (final v in value.methods) {
       MethodEmitter(context).emit(v, output);
+
+      output.writeln('\n');
     }
 
     output.write(' } ');

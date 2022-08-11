@@ -30,6 +30,49 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a switch with spaced out cases',
+        () {
+          const element = Switch(
+            condition: Static('cat.state'),
+            cases: [
+              SwitchCase(
+                condition: Static('CatState.sleeping'),
+                body: Column([
+                  Static('print("zzz");'),
+                  Static('break;'),
+                ]),
+              ),
+              SwitchCase(
+                condition: Static('CatState.eating'),
+                body: Column([
+                  Static('print("mmm");'),
+                  Static('break;'),
+                ]),
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                switch (cat.state) {
+                  case CatState.sleeping:
+                    print("zzz");
+                    break;
+
+                  case CatState.eating:
+                    print("mmm");
+                    break;
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 
