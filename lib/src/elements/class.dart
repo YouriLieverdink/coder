@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template class}
-/// Configuration for defining a `class`.
+/// Configuration for defining a class.
 /// {@endtemplate}
 class Class extends Element {
   /// {@macro class}

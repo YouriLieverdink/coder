@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template row}
-/// Configuration for defining a row of elements.
+/// Configuration for defining a row.
 /// {@endtemplate}
 class Row extends Element with Builder {
   /// {@macro row}

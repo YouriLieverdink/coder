@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template switch}
-/// Configuration for defining a `switch`.
+/// Configuration for defining a switch.
 /// {@endtemplate}
 class Switch extends Element {
   /// {@macro switch}
@@ -22,7 +22,7 @@ class Switch extends Element {
 }
 
 /// {@template switch_case}
-/// Configuration for defining a `switch case`.
+/// Configuration for defining a switch case.
 /// {@endtemplate}
 class SwitchCase extends Element {
   /// {@macro switch_case}

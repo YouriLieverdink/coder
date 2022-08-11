@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template if}
-/// Configuration for defining an `if` statement.
+/// Configuration for defining an if statement.
 /// {@endtemplate}
 class If extends Element {
   /// {@macro if}
@@ -18,7 +18,7 @@ class If extends Element {
 }
 
 /// {@template if_clause}
-/// Configuration for defining an `if` or `else if` clause.
+/// Configuration for defining an if statement clause.
 /// {@endtemplate}
 class IfClause extends Element {
   /// {@macro if}

@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template try_catch}
-/// Configuration for defining a try-catch block.
+/// Configuration for defining a try catch statement.
 /// {@endtemplate}
 class TryCatch extends Element {
   /// {@macro try_catch}

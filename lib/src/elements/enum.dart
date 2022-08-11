@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template enum}
-/// Configuration for defining an `enum`.
+/// Configuration for defining an enum.
 /// {@endtemplate}
 class Enum extends Element {
   /// {@macro enum}
@@ -18,7 +18,7 @@ class Enum extends Element {
 }
 
 /// {@template enum_value}
-/// Configuration for defining an enum `value`.
+/// Configuration for defining an enum value.
 /// {@endtemplate}
 class EnumValue extends Element {
   /// {@macro enum_value}

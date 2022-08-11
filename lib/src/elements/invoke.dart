@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template invoke}
-/// Configuration for defining an `invocation`.
+/// Configuration for defining a invocation.
 /// {@endtemplate}
 class Invoke extends Element with Builder {
   /// {@macro invoke}

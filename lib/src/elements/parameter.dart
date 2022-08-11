@@ -6,7 +6,7 @@ part of element;
 enum ParameterKind { named, optional }
 
 /// {@template parameter}
-/// Configuration for defining a `parameter`.
+/// Configuration for defining a parameter.
 /// {@endtemplate}
 class Parameter extends Element {
   /// {@macro parameter}

@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template literal}
-/// Configuration for defining a `literal` element.
+/// Configuration for defining a literal.
 /// {@endtemplate}
 abstract class Literal<T> extends Element with Builder {
   /// {@macro literal}
@@ -38,7 +38,7 @@ abstract class Literal<T> extends Element with Builder {
 }
 
 /// {@template literal_bool}
-/// Configuration for defining a literal `bool` element.
+/// Configuration for defining a literal bool.
 /// {@endtemplate}
 class LiteralBool extends Literal<bool> {
   /// {@macro literal_bool}
@@ -47,7 +47,7 @@ class LiteralBool extends Literal<bool> {
 }
 
 /// {@template literal_list}
-/// Configuration for defining a literal `list` element.
+/// Configuration for defining a literal list.
 /// {@endtemplate}
 class LiteralList extends Literal<List> {
   /// {@macro literal_list}
@@ -55,7 +55,7 @@ class LiteralList extends Literal<List> {
 }
 
 /// {@template literal_map}
-/// Configuration for defining a literal `map` element.
+/// Configuration for defining a literal map.
 /// {@endtemplate}
 class LiteralMap extends Literal<Map> {
   /// {@macro literal_map}
@@ -63,7 +63,7 @@ class LiteralMap extends Literal<Map> {
 }
 
 /// {@template literal_null}
-/// Configuration for defining a literal `null` element.
+/// Configuration for defining a literal null.
 /// {@endtemplate}
 class LiteralNull extends Literal<void> {
   /// {@macro literal_null}
@@ -71,7 +71,7 @@ class LiteralNull extends Literal<void> {
 }
 
 /// {@template literal_num}
-/// Configuration for defining a literal `num` element.
+/// Configuration for defining a literal num.
 /// {@endtemplate}
 class LiteralNum extends Literal<num> {
   /// {@macro literal_num}
@@ -79,7 +79,7 @@ class LiteralNum extends Literal<num> {
 }
 
 /// {@template literal_string}
-/// Configuration for defining a literal `string` element.
+/// Configuration for defining a literal string.
 /// {@endtemplate}
 class LiteralString extends Literal<String> {
   /// {@macro literal_string}

@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template for}
-/// Configuration for defining a `for`.
+/// Configuration for defining a for loop.
 /// {@endtemplate}
 class For extends Element {
   /// {@macro for}

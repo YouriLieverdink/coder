@@ -1,7 +1,7 @@
 part of element;
 
 /// {@template reference}
-/// Configuration for defining a `reference`.
+/// Configuration for defining a reference.
 /// {@endtemplate}
 abstract class Reference extends Element {
   /// {@macro reference}
@@ -14,7 +14,7 @@ abstract class Reference extends Element {
 }
 
 /// {@template type_reference}
-/// Configuration for defining a `type reference`.
+/// Configuration for defining a type reference.
 /// {@endtemplate}
 class TypeReference extends Reference with Builder {
   /// {@macro type_reference}
@@ -36,7 +36,7 @@ class TypeReference extends Reference with Builder {
 }
 
 /// {@template function_reference}
-/// Configuration for defining a `function reference`.
+/// Configuration for defining a function reference.
 /// {@endtemplate}
 class FunctionReference extends Reference {
   /// {@macro function_reference}
