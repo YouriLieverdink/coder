@@ -31,6 +31,26 @@ void main() {
       );
 
       test(
+        'should emit an add assign operation',
+        () {
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
+
+          final operation = addAssign(left, right);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                42 += 8
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit an and operation',
         () {
           const left = LiteralString('cat');
@@ -245,6 +265,26 @@ void main() {
       );
 
       test(
+        'should emit a divide assign operation',
+        () {
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
+
+          final operation = divideAssign(left, right);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                42 /= 8
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a equal to operation',
         () {
           const left = LiteralString('cat');
@@ -445,6 +485,26 @@ void main() {
       );
 
       test(
+        'should emit an modulo assign operation',
+        () {
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
+
+          final operation = moduloAssign(left, right);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                42 %= 8
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit an multiply operation',
         () {
           const left = LiteralNum(42);
@@ -457,6 +517,26 @@ void main() {
             const Equals(
               '''
                 42 * 8
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an multiply assign operation',
+        () {
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
+
+          final operation = multiplyAssign(left, right);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                42 *= 8
               ''',
               emitter: emitter,
             ),
@@ -688,6 +768,26 @@ void main() {
             const Equals(
               '''
                 42 - 8
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a subtract assign operation',
+        () {
+          const left = LiteralNum(42);
+          const right = LiteralNum(8);
+
+          final operation = subtractAssign(left, right);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                42 -= 8
               ''',
               emitter: emitter,
             ),
