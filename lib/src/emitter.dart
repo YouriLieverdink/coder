@@ -13,6 +13,7 @@ part './emitters/field.dart';
 part './emitters/for.dart';
 part './emitters/if.dart';
 part './emitters/invoke.dart';
+part './emitters/library.dart';
 part './emitters/literal.dart';
 part './emitters/method.dart';
 part './emitters/mixin.dart';

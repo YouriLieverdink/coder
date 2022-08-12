@@ -12,6 +12,7 @@ part './elements/field.dart';
 part './elements/for.dart';
 part './elements/if.dart';
 part './elements/invoke.dart';
+part './elements/library.dart';
 part './elements/literal.dart';
 part './elements/method.dart';
 part './elements/mixin.dart';
