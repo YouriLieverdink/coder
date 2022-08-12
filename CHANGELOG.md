@@ -1,3 +1,7 @@
+# 0.17.0
+
+- feat: add +=, \*=, /=, -=, %= builders
+
 # 0.16.1
 
 - fix: add missing directive and library emitters
