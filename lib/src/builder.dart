@@ -17,6 +17,20 @@ Builder add(
   return Row.binary(left: value, right: other, operator: '+');
 }
 
+/// {@template builder_add_assign}
+/// Returns the += operator of `this` and [other].
+///
+/// ```dart
+/// this += other
+/// ```
+/// {@endtemplate}
+Builder addAssign(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: '+=');
+}
+
 /// {@template builder_and}
 /// Returns the and operation of `this` and [other].
 ///
@@ -167,6 +181,20 @@ Builder divide(
   Builder other,
 ) {
   return Row.binary(left: value, right: other, operator: '/');
+}
+
+/// {@template builder_divide_assign}
+/// Returns the /= operator of `this` and [other].
+///
+/// ```dart
+/// this /= other
+/// ```
+/// {@endtemplate}
+Builder divideAssign(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: '/=');
 }
 
 /// {@template builder_equal_to}
@@ -323,6 +351,20 @@ Builder modulo(
   return Row.binary(left: value, right: other, operator: '%');
 }
 
+/// {@template builder_modulo_assign}
+/// Returns the %= operator of `this` and [other].
+///
+/// ```dart
+/// this %= other
+/// ```
+/// {@endtemplate}
+Builder moduloAssign(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: '%=');
+}
+
 /// {@template builder_multiply}
 /// Returns the * operator of `this` and [other].
 ///
@@ -335,6 +377,20 @@ Builder multiply(
   Builder other,
 ) {
   return Row.binary(left: value, right: other, operator: '*');
+}
+
+/// {@template builder_multiply_assign}
+/// Returns the *= operator of `this` and [other].
+///
+/// ```dart
+/// this *= other
+/// ```
+/// {@endtemplate}
+Builder multiplyAssign(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: '*=');
 }
 
 /// {@template builder_named}
@@ -528,6 +584,20 @@ Builder subtract(
   return Row.binary(left: value, right: other, operator: '-');
 }
 
+/// {@template builder_subtract_assign}
+/// Returns the -= operator of `this` and [other].
+///
+/// ```dart
+/// this -= other
+/// ```
+/// {@endtemplate}
+Builder subtractAssign(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: '-=');
+}
+
 /// {@template builder_thrown}
 /// Returns `this` prefixed with throw.
 ///
@@ -586,6 +656,13 @@ mixin Builder on Element {
     return builder.add(this, other);
   }
 
+  /// {@macro builder_add_assign}
+  Builder addAssign(
+    Builder other,
+  ) {
+    return builder.addAssign(this, other);
+  }
+
   /// {@macro builder_and}
   Builder and(
     Builder other,
@@ -613,27 +690,6 @@ mixin Builder on Element {
   ) {
     return builder.assignCoalescing(this, other);
   }
-
-  // /// {@macro builder_assign_const}
-  // Builder assignConst(
-  //   String name,
-  // ) {
-  //   return builder.assignConst(this, name);
-  // }
-
-  // /// {@macro builder_assign_final}
-  // Builder assignFinal(
-  //   String name,
-  // ) {
-  //   return builder.assignFinal(this, name);
-  // }
-
-  // /// {@macro builder_assign_var}
-  // Builder assignVar(
-  //   String name,
-  // ) {
-  //   return builder.assignVar(this, name);
-  // }
 
   /// {@macro declare_const}
   Builder get declareConst {
@@ -667,6 +723,13 @@ mixin Builder on Element {
     Builder other,
   ) {
     return builder.divide(this, other);
+  }
+
+  /// {@macro builder_divide_assign}
+  Builder divideAssign(
+    Builder other,
+  ) {
+    return builder.divideAssign(this, other);
   }
 
   /// {@macro builder_equal_to}
@@ -739,6 +802,13 @@ mixin Builder on Element {
     Builder other,
   ) {
     return builder.multiply(this, other);
+  }
+
+  /// {@macro builder_multiply_assign}
+  Builder multiplyAssign(
+    Builder other,
+  ) {
+    return builder.multiplyAssign(this, other);
   }
 
   /// {@macro builder_named}
@@ -815,6 +885,13 @@ mixin Builder on Element {
     Builder other,
   ) {
     return builder.subtract(this, other);
+  }
+
+  /// {@macro builder_subtract_assign}
+  Builder subtractAssign(
+    Builder other,
+  ) {
+    return builder.subtractAssign(this, other);
   }
 
   /// {@macro builder_thrown}
