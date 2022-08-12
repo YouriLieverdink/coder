@@ -14,11 +14,11 @@ class ElementEmitter extends Emitter<Element> {
   ]) {
     output ??= StringBuffer();
 
-    if (element is Column) {
-      ColumnEmitter(context).emit(element, output);
-    } //
-    else if (element is Class) {
+    if (element is Class) {
       ClassEmitter(context).emit(element, output);
+    } //
+    else if (element is Column) {
+      ColumnEmitter(context).emit(element, output);
     } //
     else if (element is Constructor) {
       throw UnsupportedError(
@@ -26,6 +26,9 @@ class ElementEmitter extends Emitter<Element> {
         '[SpecEmitter] due to the fact that a [Constructor] emitter should '
         'receive an instance of its parent [Class] in order to emit.',
       );
+    } //
+    else if (element is Directive) {
+      DirectiveEmitter(context).emit(element, output);
     } //
     else if (element is Enum) {
       EnumEmitter(context).emit(element, output);
@@ -44,6 +47,9 @@ class ElementEmitter extends Emitter<Element> {
     } //
     else if (element is Invoke) {
       InvokeEmitter(context).emit(element, output);
+    } //
+    else if (element is Library) {
+      LibraryEmitter(context).emit(element, output);
     } //
     else if (element is Literal) {
       LiteralEmitter(context).emit(element, output);
