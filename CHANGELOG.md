@@ -1,3 +1,7 @@
+# 0.16.1
+
+- fix: add missing directive and library emitters
+
 # 0.16.0
 
 - feat: add ability to generate a library
