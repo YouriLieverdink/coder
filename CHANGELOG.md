@@ -1,3 +1,7 @@
+# 0.16.0
+
+- feat: add ability to generate a library
+
 # 0.15.0
 
 - refactor: add extra whitespace between elements
