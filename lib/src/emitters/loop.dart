@@ -1,25 +1,34 @@
 part of emitter;
 
-/// {@template while_emitter}
-/// Transforms the [While] into Dart source code.
+/// {@template loop_emitter}
+/// Emits the [Loop] configuration into Dart source code.
 /// {@endtemplate}
-class WhileEmitter extends Emitter<While> {
-  /// {@macro while_emitter}
-  const WhileEmitter(super.context);
+class LoopEmitter extends Emitter<Loop> {
+  /// {@macro loop_emitter}
+  const LoopEmitter(super.context);
 
   void condition(
-    While element,
+    Loop element,
     StringSink output,
   ) {
-    output.write(' while (');
+    switch (element.kind) {
+      case LoopKind.for_:
+        output.write(' for (');
+        break;
 
-    ElementEmitter(context).emit(element.condition, output);
+      case LoopKind.while_:
+      case LoopKind.doWhile:
+        output.write(' while (');
+        break;
+    }
+
+    ElementEmitter(context).emit(element.clause, output);
 
     output.write(')');
   }
 
   void body(
-    While element,
+    Loop element,
     StringSink output,
   ) {
     output.write(' { ');
@@ -33,19 +42,20 @@ class WhileEmitter extends Emitter<While> {
 
   @override
   StringSink emit(
-    While element, [
+    Loop element, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
 
     switch (element.kind) {
-      case WhileKind.while_:
+      case LoopKind.for_:
+      case LoopKind.while_:
         condition(element, output);
         body(element, output);
         break;
 
-      case WhileKind.doWhile:
-        output.write('do ');
+      case LoopKind.doWhile:
+        output.write('do');
 
         body(element, output);
         condition(element, output);
