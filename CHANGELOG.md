@@ -1,3 +1,7 @@
+# 0.18.0
+
+- refactor: merge for and while elements into loop element
+
 # 0.17.0
 
 - feat: add +=, \*=, /=, -=, %= builders
