@@ -39,9 +39,6 @@ class ElementEmitter extends Emitter<Element> {
     else if (element is Field) {
       FieldEmitter(context).emit(element, output);
     } //
-    else if (element is For) {
-      ForEmitter(context).emit(element, output);
-    } //
     else if (element is If) {
       IfEmitter(context).emit(element, output);
     } //
@@ -53,6 +50,9 @@ class ElementEmitter extends Emitter<Element> {
     } //
     else if (element is Literal) {
       LiteralEmitter(context).emit(element, output);
+    } //
+    else if (element is Loop) {
+      LoopEmitter(context).emit(element, output);
     } //
     else if (element is Method) {
       MethodEmitter(context).emit(element, output);
@@ -77,9 +77,6 @@ class ElementEmitter extends Emitter<Element> {
     } //
     else if (element is TryCatch) {
       TryCatchEmitter(context).emit(element, output);
-    } //
-    else if (element is While) {
-      WhileEmitter(context).emit(element, output);
     } //
 
     return output;
