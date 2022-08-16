@@ -9,6 +9,7 @@ class Library extends Element {
     this.name,
     this.directives = const [],
     this.elements = const [],
+    this.docs = const [],
   });
 
   /// The name of this library.
@@ -19,4 +20,7 @@ class Library extends Element {
 
   /// The elements contained within this library.
   final List<Element> elements;
+
+  /// The documentation for this library.
+  final List<Docs> docs;
 }

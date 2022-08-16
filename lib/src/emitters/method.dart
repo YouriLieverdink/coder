@@ -14,6 +14,12 @@ class MethodEmitter extends Emitter<Method> {
   ]) {
     output ??= StringBuffer();
 
+    for (final v in element.docs) {
+      DocsEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     if (element.isStatic) {
       output.write('static ');
     }

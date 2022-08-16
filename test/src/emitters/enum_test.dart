@@ -88,6 +88,38 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit an enum with docs',
+        () {
+          const element = Enum(
+            name: 'CatState',
+            values: [
+              EnumValue('sleep'),
+              EnumValue('eat'),
+              EnumValue('purr'),
+            ],
+            docs: [
+              Docs('What has the cat been doing?'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// What has the cat been doing?
+                enum CatState {
+                  sleep,
+                  eat,
+                  purr
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 
@@ -105,6 +137,29 @@ void main() {
             element,
             const Equals(
               '''
+                sleep
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an enum value with docs',
+        () {
+          const element = EnumValue(
+            'sleep',
+            docs: [
+              Docs('Only for tired people'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// Only for tired people
                 sleep
               ''',
               emitter: emitter,

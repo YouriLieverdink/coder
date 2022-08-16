@@ -141,6 +141,29 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a constructor with docs',
+        () {
+          const element = Constructor(
+            docs: [
+              Docs('Create a new Cat from scratch!'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// Create a new Cat from scratch!
+                Cat() {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

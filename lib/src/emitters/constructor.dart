@@ -16,6 +16,12 @@ class ConstructorEmitter extends Emitter<Constructor> {
   ]) {
     output ??= StringBuffer();
 
+    for (final v in element.docs) {
+      DocsEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     if (element.isConst) {
       output.write(' const ');
     }

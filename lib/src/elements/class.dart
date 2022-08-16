@@ -14,6 +14,7 @@ class Class extends Element {
     this.constructors = const [],
     this.fields = const [],
     this.methods = const [],
+    this.docs = const [],
   });
 
   /// The name of the class.
@@ -39,4 +40,7 @@ class Class extends Element {
 
   /// The methods of this class.
   final List<Method> methods;
+
+  /// The documentation for this class.
+  final List<Docs> docs;
 }

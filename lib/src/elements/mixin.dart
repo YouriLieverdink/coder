@@ -10,6 +10,7 @@ class Mixin extends Element {
     this.on,
     this.fields = const [],
     this.methods = const [],
+    this.docs = const [],
   });
 
   /// The name of the mixin.
@@ -46,4 +47,13 @@ class Mixin extends Element {
   /// }
   /// ```
   final List<Method> methods;
+
+  /// The documentation for this mixin.
+  ///
+  /// ```dart
+  /// /// Hello, this is a mixin!
+  /// mixin Walkable {
+  /// }
+  /// ```
+  final List<Docs> docs;
 }

@@ -14,6 +14,12 @@ class ExtensionEmitter extends Emitter<Extension> {
   ]) {
     output ??= StringBuffer();
 
+    for (final v in element.docs) {
+      DocsEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     output.write('extension ');
 
     if (element.name != null) {

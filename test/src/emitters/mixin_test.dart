@@ -146,6 +146,31 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a mixin with docs',
+        () {
+          const element = Mixin(
+            name: 'Features',
+            on: TypeReference('Cat'),
+            docs: [
+              Docs('Additional cat features'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// Additional cat features
+                mixin Features on Cat {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

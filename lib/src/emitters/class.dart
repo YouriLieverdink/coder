@@ -14,6 +14,12 @@ class ClassEmitter extends Emitter<Class> {
   ]) {
     output ??= StringBuffer();
 
+    for (final v in element.docs) {
+      DocsEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     if (element.isAbstract) {
       output.write('abstract ');
     }

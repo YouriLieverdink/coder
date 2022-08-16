@@ -149,6 +149,29 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a field with docs',
+        () {
+          const element = Field(
+            name: 'state',
+            docs: [
+              Docs('Indicates whatever the cat is doing'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// Indicates whatever the cat is doing
+                dynamic state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }
