@@ -1,3 +1,7 @@
+# 0.19.0
+
+- feat: add docs element
+
 # 0.18.0
 
 - refactor: merge for and while elements into loop element
