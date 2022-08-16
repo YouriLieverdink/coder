@@ -329,6 +329,30 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a class with docs',
+        () {
+          const element = Class(
+            name: 'Cat',
+            docs: [
+              Docs('This class says purr'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// This class says purr
+                class Cat {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

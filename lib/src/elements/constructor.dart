@@ -11,6 +11,7 @@ class Constructor extends Element {
     this.name,
     this.parameters = const [],
     this.body,
+    this.docs = const [],
   });
 
   /// Whether this constructor is a constant constructor.
@@ -27,4 +28,7 @@ class Constructor extends Element {
 
   /// The body of this constructor.
   final Element? body;
+
+  /// The documentation for this constructor.
+  final List<Docs> docs;
 }

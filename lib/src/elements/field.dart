@@ -18,6 +18,7 @@ class Field extends Element {
     this.modifier,
     this.isStatic = false,
     this.isLate = false,
+    this.docs = const [],
   });
 
   /// The type of this field.
@@ -37,4 +38,7 @@ class Field extends Element {
 
   /// Whether this field is late.
   final bool isLate;
+
+  /// The documentation for this field.
+  final List<Docs> docs;
 }

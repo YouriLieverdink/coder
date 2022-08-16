@@ -131,6 +131,29 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a library with docs',
+        () {
+          const element = Library(
+            name: 'cats_and_dogs',
+            docs: [
+              Docs('This is an awesome library!'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// This is an awesome library!
+                library cats_and_dogs;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

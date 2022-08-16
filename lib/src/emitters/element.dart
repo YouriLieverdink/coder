@@ -30,6 +30,9 @@ class ElementEmitter extends Emitter<Element> {
     else if (element is Directive) {
       DirectiveEmitter(context).emit(element, output);
     } //
+    else if (element is Docs) {
+      DocsEmitter(context).emit(element, output);
+    } //
     else if (element is Enum) {
       EnumEmitter(context).emit(element, output);
     } //

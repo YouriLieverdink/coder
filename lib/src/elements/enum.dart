@@ -8,6 +8,7 @@ class Enum extends Element {
   const Enum({
     required this.name,
     this.values = const [],
+    this.docs = const [],
   });
 
   /// The name of this enum.
@@ -15,6 +16,9 @@ class Enum extends Element {
 
   /// The values of this enum.
   final List<EnumValue> values;
+
+  /// The documentation for this enum.
+  final List<Docs> docs;
 }
 
 /// {@template enum_value}
@@ -23,9 +27,13 @@ class Enum extends Element {
 class EnumValue extends Element {
   /// {@macro enum_value}
   const EnumValue(
-    this.name,
-  );
+    this.name, {
+    this.docs = const [],
+  });
 
   /// The name of this enum value.
   final String name;
+
+  /// The documentation for this enum value.
+  final List<Docs> docs;
 }

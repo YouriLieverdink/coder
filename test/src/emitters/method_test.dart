@@ -176,6 +176,30 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a method with docs',
+        () {
+          const element = Method(
+            name: 'getState',
+            docs: [
+              Docs('Returns the state of a cat'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// Returns the state of a cat
+                void getState() {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

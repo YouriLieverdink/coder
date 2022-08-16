@@ -150,6 +150,31 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit an extension with docs',
+        () {
+          const element = Extension(
+            name: 'Features',
+            on: TypeReference('Cat'),
+            docs: [
+              Docs('Additional cat features'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                /// Additional cat features
+                extension Features on Cat {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

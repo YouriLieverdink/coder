@@ -23,6 +23,7 @@ class Method extends Element {
     this.kind,
     this.parameters = const [],
     this.body,
+    this.docs = const [],
   });
 
   /// The type this method returns.
@@ -48,4 +49,7 @@ class Method extends Element {
 
   /// The body of this method.
   final Element? body;
+
+  /// The documentation for this method.
+  final List<Docs> docs;
 }

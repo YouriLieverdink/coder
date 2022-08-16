@@ -6,6 +6,7 @@ part './elements/class.dart';
 part './elements/column.dart';
 part './elements/constructor.dart';
 part './elements/directive.dart';
+part './elements/docs.dart';
 part './elements/enum.dart';
 part './elements/extension.dart';
 part './elements/field.dart';
