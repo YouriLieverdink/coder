@@ -1,3 +1,7 @@
+# 1.0.0
+
+- feat: initial release
+
 # 0.19.0
 
 - feat: add docs element
