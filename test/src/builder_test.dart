@@ -642,6 +642,25 @@ void main() {
       );
 
       test(
+        'should emit a null-safe property operation',
+        () {
+          const left = Static('cat');
+
+          final operation = left.property('name', isNullSafe: true);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                cat?.name
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a property asserted',
         () {
           const left = Static('cat');
