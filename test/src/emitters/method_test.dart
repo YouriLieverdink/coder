@@ -13,6 +13,24 @@ void main() {
       test(
         'should emit a method',
         () {
+          const element = Method();
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                () {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a method with a name',
+        () {
           const element = Method(
             name: 'getState',
             returns: TypeReference('CatState'),
@@ -182,6 +200,7 @@ void main() {
         () {
           const element = Method(
             name: 'getState',
+            returns: TypeReference('void'),
             docs: [
               Docs('Returns the state of a cat'),
             ],
@@ -194,6 +213,55 @@ void main() {
                 /// Returns the state of a cat
                 void getState() {
                 }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an anonymous method',
+        () {
+          const element = Method(
+            parameters: [
+              Parameter(
+                name: 'v',
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                (v) {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a lambda method',
+        () {
+          const element = Method(
+            lambda: true,
+            parameters: [
+              Parameter(
+                name: 'v',
+              ),
+            ],
+            body: Static('print("Hello!")'),
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                (v) => print("Hello!")
               ''',
               emitter: emitter,
             ),

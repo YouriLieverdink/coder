@@ -87,6 +87,7 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
+                returns: TypeReference('void'),
                 body: Column([
                   Static('numberOfMeows++;'),
                 ]),
@@ -126,6 +127,7 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
+                returns: TypeReference('void'),
                 body: Column([
                   Static('print("meow!");'),
                 ]),

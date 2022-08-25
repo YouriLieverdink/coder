@@ -18,13 +18,16 @@ class ParameterEmitter extends Emitter<Parameter> {
       output.write('required ');
     }
 
-    if (!element.isToThis) {
-      ReferenceEmitter(context).emit(element.type, output);
+    if (element.isToThis) {
+      output.write('this.');
+    } //
+    else if (element.type != null) {
+      ReferenceEmitter(context).emit(element.type!, output);
+
+      output.write(' ');
     }
 
-    output
-      ..write(element.isToThis ? ' this.' : ' ')
-      ..write(element.name);
+    output.write(element.name);
 
     if (element.assign != null) {
       output.write(' = ');
