@@ -1,3 +1,7 @@
+# 1.2.0
+
+- refactor: deprecate propertyConditional for property
+
 # 1.1.0
 
 - feat: add ability to generate anonymous/lambda methods
