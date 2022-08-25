@@ -15,6 +15,7 @@ void main() {
         'should emit a parameter',
         () {
           const element = Parameter(
+            type: TypeReference('dynamic'),
             name: 'state',
           );
 
@@ -145,8 +146,14 @@ void main() {
         'shoud emit a list of parameters',
         () {
           const elements = [
-            Parameter(name: 'name'),
-            Parameter(name: 'state'),
+            Parameter(
+              name: 'name',
+              type: TypeReference('dynamic'),
+            ),
+            Parameter(
+              name: 'state',
+              type: TypeReference('dynamic'),
+            ),
           ];
 
           Expect(
@@ -165,8 +172,14 @@ void main() {
         'should emit a list of parameters with a trailling comma',
         () {
           const elements = [
-            Parameter(name: 'name'),
-            Parameter(name: 'state'),
+            Parameter(
+              name: 'name',
+              type: TypeReference('dynamic'),
+            ),
+            Parameter(
+              name: 'state',
+              type: TypeReference('dynamic'),
+            ),
           ];
 
           Expect(
@@ -189,10 +202,12 @@ void main() {
           const elements = [
             Parameter(
               name: 'name',
+              type: TypeReference('dynamic'),
               kind: ParameterKind.named,
             ),
             Parameter(
               name: 'state',
+              type: TypeReference('dynamic'),
               kind: ParameterKind.named,
             ),
           ];
@@ -215,10 +230,12 @@ void main() {
           const elements = [
             Parameter(
               name: 'name',
+              type: TypeReference('dynamic'),
               kind: ParameterKind.optional,
             ),
             Parameter(
               name: 'state',
+              type: TypeReference('dynamic'),
               kind: ParameterKind.optional,
             ),
           ];

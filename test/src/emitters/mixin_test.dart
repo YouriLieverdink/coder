@@ -87,6 +87,7 @@ void main() {
             methods: [
               Method(
                 name: 'jump',
+                returns: TypeReference('void'),
               ),
             ],
           );
@@ -122,6 +123,7 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
+                returns: TypeReference('void'),
                 body: Column([
                   Static('print("meow!");'),
                 ]),

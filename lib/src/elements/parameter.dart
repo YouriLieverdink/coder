@@ -11,7 +11,7 @@ enum ParameterKind { named, optional }
 class Parameter extends Element {
   /// {@macro parameter}
   const Parameter({
-    this.type = const TypeReference('dynamic'),
+    this.type,
     required this.name,
     this.assign,
     this.isRequired = false,
@@ -20,7 +20,7 @@ class Parameter extends Element {
   });
 
   /// The type of this parameter.
-  final Reference type;
+  final Reference? type;
 
   /// The name of this parameter.
   final String name;

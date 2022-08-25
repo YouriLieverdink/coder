@@ -24,11 +24,15 @@ class MethodEmitter extends Emitter<Method> {
       output.write('static ');
     }
 
-    ReferenceEmitter(context).emit(element.returns, output);
+    if (element.returns != null) {
+      ReferenceEmitter(context).emit(element.returns!, output);
+    }
 
-    output
-      ..write(' ${element.name}')
-      ..write('(');
+    if (element.name != null) {
+      output.write(' ${element.name}');
+    }
+
+    output.write('(');
 
     ParameterListEmitter(context).emit(element.parameters, output);
 
@@ -51,13 +55,20 @@ class MethodEmitter extends Emitter<Method> {
         break;
     }
 
-    output.write('{ ');
+    if (element.lambda) {
+      output.write('=> ');
+    } //
+    else {
+      output.write('{ ');
+    }
 
     if (element.body != null) {
       ElementEmitter(context).emit(element.body!, output);
     }
 
-    output.write(' }');
+    if (!element.lambda) {
+      output.write(' }');
+    }
 
     return output;
   }

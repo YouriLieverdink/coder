@@ -254,6 +254,7 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
+                returns: TypeReference('void'),
                 body: Column([
                   Static('print("meow!");'),
                 ]),
@@ -303,6 +304,7 @@ void main() {
             methods: [
               Method(
                 name: 'meow',
+                returns: TypeReference('void'),
                 body: Column([
                   Static('print("meow!");'),
                 ]),

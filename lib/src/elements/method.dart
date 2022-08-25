@@ -13,24 +13,25 @@ enum MethodKind { get, set }
 /// {@template method}
 /// Configuration for defining a method.
 /// {@endtemplate}
-class Method extends Element {
+class Method extends Element with Builder {
   /// {@macro method}
   const Method({
-    this.returns = const TypeReference('void'),
-    required this.name,
+    this.returns,
+    this.name,
     this.isStatic = false,
     this.modifier,
     this.kind,
     this.parameters = const [],
     this.body,
     this.docs = const [],
+    this.lambda = false,
   });
 
   /// The type this method returns.
-  final Reference returns;
+  final Reference? returns;
 
   /// The name of this method.
-  final String name;
+  final String? name;
 
   /// Whether this method is static.
   final bool isStatic;
@@ -52,4 +53,7 @@ class Method extends Element {
 
   /// The documentation for this method.
   final List<Docs> docs;
+
+  /// Whether this is a lambda method.
+  final bool lambda;
 }
