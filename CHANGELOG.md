@@ -1,3 +1,7 @@
+# 1.1.0
+
+- feat: add ability to generate anonymous/lambda methods
+
 # 1.0.0
 
 - feat: initial release
