@@ -460,13 +460,20 @@ Builder or(
 /// ```dart
 /// this.name
 /// ```
+/// or
+/// ```dart
+/// this?.name
+/// ```
+/// when [isNullSafe] is `true`.
 /// {@endtemplate}
 Builder property(
   Builder value,
-  String name,
-) {
+  String name, {
+  bool isNullSafe = false,
+}) {
   return Row([
     value,
+    if (isNullSafe) const Static('?'),
     Static('.$name'),
   ]);
 }
@@ -512,6 +519,7 @@ Builder propertyCascade(
 /// this?.name
 /// ```
 /// {@endtemplate}
+@Deprecated('Use [Builder.property] with `isNullSafe` set to true.')
 Builder propetyConditional(
   Builder value,
   String name,
@@ -839,9 +847,10 @@ mixin Builder on Element {
 
   /// {@macro builder_property}
   Builder property(
-    String name,
-  ) {
-    return builder.property(this, name);
+    String name, {
+    bool isNullSafe = false,
+  }) {
+    return builder.property(this, name, isNullSafe: isNullSafe);
   }
 
   /// {@macro builder_property_asserted}
@@ -862,6 +871,7 @@ mixin Builder on Element {
   Builder propetyConditional(
     String name,
   ) {
+    // ignore: deprecated_member_use_from_same_package
     return builder.propetyConditional(this, name);
   }
 
