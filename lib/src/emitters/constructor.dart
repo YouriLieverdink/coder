@@ -42,6 +42,18 @@ class ConstructorEmitter extends Emitter<Constructor> {
 
     output.write(')');
 
+    if (element.initializers.isNotEmpty) {
+      output.write(' : ');
+
+      for (final v in element.initializers) {
+        ElementEmitter(context).emit(v, output);
+
+        if (v != element.initializers.last) {
+          output.write(', ');
+        }
+      }
+    }
+
     if (!element.isConst) {
       output.write(' {');
 
