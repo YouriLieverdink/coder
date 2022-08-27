@@ -278,6 +278,20 @@ Builder greaterThanOrEqualTo(
   return Row.binary(left: value, right: other, operator: operator);
 }
 
+/// {@template builder_if_null_then}
+/// Returns the ?? operation of `this` and [other].
+///
+/// ```dart
+/// this ?? other
+/// ```
+/// {@endtemplate}
+Builder ifNullThen(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: '??');
+}
+
 /// {@template builder_in}
 /// Returns the in operation of `this` and [other].
 ///
