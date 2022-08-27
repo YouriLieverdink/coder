@@ -228,6 +228,25 @@ void main() {
       );
 
       test(
+        'should emit a declare typedef operation',
+        () {
+          const a = Static('cat');
+
+          final operation = declareTypedef(a);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                typedef cat
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a declare var operation',
         () {
           const left = Static('cat');
