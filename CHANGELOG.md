@@ -1,3 +1,7 @@
+# 1.3.0
+
+- feat: add the conditional builder
+
 # 1.2.0
 
 - refactor: deprecate propertyConditional for property
