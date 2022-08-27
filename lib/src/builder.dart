@@ -103,6 +103,27 @@ Builder awaited(
   ]);
 }
 
+/// {@template builder_conditional}
+/// Returns a conditional based on `this`.
+///
+/// ```dart
+/// this ? isTrue : isFalse
+/// ```
+/// {@endtemplate}
+Builder conditional(
+  Builder value,
+  Builder isTrue,
+  Builder isFalse,
+) {
+  return Row([
+    value,
+    const Static(' ? '),
+    isTrue,
+    const Static(' : '),
+    isFalse,
+  ]);
+}
+
 /// {@template declare_const}
 /// Returns `this` prefixed with const.
 ///
@@ -697,6 +718,14 @@ mixin Builder on Element {
     Builder other,
   ) {
     return builder.assignCoalescing(this, other);
+  }
+
+  /// {@macro builder_conditional}
+  Builder conditional(
+    Builder isTrue,
+    Builder isFalse,
+  ) {
+    return builder.conditional(this, isTrue, isFalse);
   }
 
   /// {@macro declare_const}

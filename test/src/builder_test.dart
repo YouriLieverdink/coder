@@ -150,6 +150,27 @@ void main() {
       );
 
       test(
+        'should emit a conditional operation',
+        () {
+          const left = Static('cat');
+          const middle = Static('true');
+          const right = Static('false');
+
+          final operation = left.conditional(middle, right);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                cat ? true : false
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a declare const operation',
         () {
           const left = Static('cat');
