@@ -406,6 +406,26 @@ void main() {
       );
 
       test(
+        'should emit an if null then operation',
+        () {
+          const a = Static('cat');
+          const b = Static('dog');
+
+          final operation = ifNullThen(a, b);
+
+          Expect(
+            operation,
+            const Equals(
+              '''
+                cat ?? dog
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit an in operation',
         () {
           const left = Static('cats');
