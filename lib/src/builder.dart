@@ -806,6 +806,13 @@ mixin Builder on Element {
     return builder.greaterThanOrEqualTo(this, other, reverse: reverse);
   }
 
+  /// {@macro builder_if_null_then}
+  Builder ifNullThen(
+    Builder other,
+  ) {
+    return builder.ifNullThen(this, other);
+  }
+
   /// {@macro builder_in}
   Builder in_(
     Builder other,
