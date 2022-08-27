@@ -1,3 +1,9 @@
+# 1.4.0
+
+- feat: add the ?? builder
+- feat: add the declareTypedef builder
+- feat: add constructor initializers
+
 # 1.3.0
 
 - feat: add the conditional builder
