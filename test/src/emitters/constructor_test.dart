@@ -164,6 +164,73 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a constructor with one initializer when not constant',
+        () {
+          const element = Constructor(
+            initializers: [
+              Static("super('Pip')"),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                Cat() : super('Pip') {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a constructor with one initializer when constant',
+        () {
+          const element = Constructor(
+            isConst: true,
+            initializers: [
+              Static("super('Pip')"),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                const Cat() : super('Pip');
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a constructor with multiple initializers',
+        () {
+          const element = Constructor(
+            initializers: [
+              Static("super('Pip')"),
+              Static('livesLeft = 9'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                Cat() : super('Pip'), livesLeft = 9 {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

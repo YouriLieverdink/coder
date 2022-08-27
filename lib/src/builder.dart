@@ -174,6 +174,22 @@ Builder declareType(
   ]);
 }
 
+/// {@template declare_typedef}
+/// Returns `this` prefixed with typedef.
+///
+/// ```dart
+/// typedef this
+/// ```
+/// {@endtemplate}
+Builder declareTypedef(
+  Builder value,
+) {
+  return Row([
+    const Static('typedef '),
+    value,
+  ]);
+}
+
 /// {@template declare_var}
 /// Returns `this` prefixed with var.
 ///
@@ -276,6 +292,20 @@ Builder greaterThanOrEqualTo(
   final operator = reverse ? '<=' : '>=';
 
   return Row.binary(left: value, right: other, operator: operator);
+}
+
+/// {@template builder_if_null_then}
+/// Returns the ?? operation of `this` and [other].
+///
+/// ```dart
+/// this ?? other
+/// ```
+/// {@endtemplate}
+Builder ifNullThen(
+  Builder value,
+  Builder other,
+) {
+  return Row.binary(left: value, right: other, operator: '??');
 }
 
 /// {@template builder_in}
@@ -745,6 +775,11 @@ mixin Builder on Element {
     return builder.declareType(this, type);
   }
 
+  /// {@macro declare_typedef}
+  Builder get declareTypedef {
+    return builder.declareTypedef(this);
+  }
+
   /// {@macro declare_var}
   Builder get declareVar {
     return builder.declareVar(this);
@@ -790,6 +825,13 @@ mixin Builder on Element {
     bool reverse = false,
   }) {
     return builder.greaterThanOrEqualTo(this, other, reverse: reverse);
+  }
+
+  /// {@macro builder_if_null_then}
+  Builder ifNullThen(
+    Builder other,
+  ) {
+    return builder.ifNullThen(this, other);
   }
 
   /// {@macro builder_in}
