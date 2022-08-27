@@ -174,6 +174,22 @@ Builder declareType(
   ]);
 }
 
+/// {@template declare_typedef}
+/// Returns `this` prefixed with typedef.
+///
+/// ```dart
+/// typedef this
+/// ```
+/// {@endtemplate}
+Builder declareTypedef(
+  Builder value,
+) {
+  return Row([
+    const Static('typedef '),
+    value,
+  ]);
+}
+
 /// {@template declare_var}
 /// Returns `this` prefixed with var.
 ///
@@ -743,6 +759,11 @@ mixin Builder on Element {
     Reference type,
   ) {
     return builder.declareType(this, type);
+  }
+
+  /// {@macro declare_typedef}
+  Builder get declareTypedef {
+    return builder.declareTypedef(this);
   }
 
   /// {@macro declare_var}
