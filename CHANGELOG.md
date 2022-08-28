@@ -1,3 +1,7 @@
+# 1.4.1
+
+- fix: add parenthesis around the 'as' builder
+
 # 1.4.0
 
 - feat: add the ?? builder
