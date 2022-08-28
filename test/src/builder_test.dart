@@ -82,7 +82,7 @@ void main() {
             operation,
             const Equals(
               '''
-                'cat' as 'dog'
+                ('cat' as 'dog')
               ''',
               emitter: emitter,
             ),
