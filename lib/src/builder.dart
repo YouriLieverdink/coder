@@ -49,14 +49,20 @@ Builder and(
 /// Returns the as operation of `this` and [other].
 ///
 /// ```dart
-/// this as other
+/// (this as other)
 /// ```
 /// {@endtemplate}
 Builder as(
   Builder value,
   Builder other,
 ) {
-  return Row.binary(left: value, right: other, operator: 'as');
+  return Row([
+    const Static('('),
+    value,
+    const Static(' as '),
+    other,
+    const Static(')'),
+  ]);
 }
 
 /// {@template builder_assign}
