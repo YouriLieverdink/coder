@@ -134,6 +134,29 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a parameter with annotations',
+        () {
+          const element = Parameter(
+            name: 'state',
+            type: TypeReference('State'),
+            annotations: [
+              Annotation('Deprecated'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                @Deprecated State state
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 

@@ -19,6 +19,7 @@ class Field extends Element {
     this.isStatic = false,
     this.isLate = false,
     this.docs = const [],
+    this.annotations = const [],
   });
 
   /// The type of this field.
@@ -41,4 +42,7 @@ class Field extends Element {
 
   /// The documentation for this field.
   final List<Docs> docs;
+
+  /// The annotations of this field.
+  final List<Annotation> annotations;
 }

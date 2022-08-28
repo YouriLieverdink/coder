@@ -17,6 +17,7 @@ class Parameter extends Element {
     this.isRequired = false,
     this.isToThis = false,
     this.kind,
+    this.annotations = const [],
   });
 
   /// The type of this parameter.
@@ -39,4 +40,7 @@ class Parameter extends Element {
   /// This value can be left unset or set to `null` when the parameter should be
   /// a 'normal' parameter.
   final ParameterKind? kind;
+
+  /// The annotations of this parameter.
+  final List<Annotation> annotations;
 }

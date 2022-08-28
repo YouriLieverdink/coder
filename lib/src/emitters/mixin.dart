@@ -20,6 +20,12 @@ class MixinEmitter extends Emitter<Mixin> {
       output.write('\n');
     }
 
+    for (final v in element.annotations) {
+      AnnotationEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     output
       ..write('mixin ')
       ..write(element.name);

@@ -20,6 +20,12 @@ class ExtensionEmitter extends Emitter<Extension> {
       output.write('\n');
     }
 
+    for (final v in element.annotations) {
+      AnnotationEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     output.write('extension ');
 
     if (element.name != null) {

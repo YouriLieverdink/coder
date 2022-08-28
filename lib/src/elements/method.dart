@@ -25,6 +25,7 @@ class Method extends Element with Builder {
     this.body,
     this.docs = const [],
     this.lambda = false,
+    this.annotations = const [],
   });
 
   /// The type this method returns.
@@ -56,4 +57,7 @@ class Method extends Element with Builder {
 
   /// Whether this is a lambda method.
   final bool lambda;
+
+  /// The annotations of this method.
+  final List<Annotation> annotations;
 }

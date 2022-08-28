@@ -11,6 +11,7 @@ class Extension extends Element {
     this.fields = const [],
     this.methods = const [],
     this.docs = const [],
+    this.annotations = const [],
   });
 
   /// The class on which this extension should be defined.
@@ -27,4 +28,7 @@ class Extension extends Element {
 
   /// The documentation for this extension.
   final List<Docs> docs;
+
+  /// The annotations of this extension.
+  final List<Annotation> annotations;
 }

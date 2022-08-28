@@ -173,6 +173,31 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a mixin with annotations',
+        () {
+          const element = Mixin(
+            name: 'Features',
+            on: TypeReference('Cat'),
+            annotations: [
+              Annotation('Extra'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                @Extra
+                mixin Features on Cat {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }
