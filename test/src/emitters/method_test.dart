@@ -268,10 +268,10 @@ void main() {
           );
         },
       );
-
+      
       test(
         'should emit a method with annotations',
-        () {
+         () {
           const element = Method(
             name: 'getState',
             returns: TypeReference('void'),
@@ -279,13 +279,63 @@ void main() {
               Annotation('Deprecated'),
             ],
           );
-
+          
           Expect(
             element,
             const Equals(
               '''
                 @Deprecated
                 void getState() {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+         },
+       );
+
+      test(
+        'should emit a get method',
+        () {
+          const element = Method(
+            name: 'state',
+            returns: TypeReference('CatState'),
+            kind: MethodKind.get,
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                CatState get state {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a set method',
+        () {
+          const element = Method(
+            name: 'state',
+            returns: TypeReference('void'),
+            kind: MethodKind.set,
+            parameters: [
+              Parameter(
+                name: 'state',
+                type: TypeReference('CatState'),
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                void set state(CatState state) {
                 }
               ''',
               emitter: emitter,
