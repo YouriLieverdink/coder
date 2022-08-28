@@ -1,3 +1,7 @@
+# 1.4.2
+
+- feat: implement Method's MethodKind property
+
 # 1.4.1
 
 - fix: add parenthesis around the 'as' builder
