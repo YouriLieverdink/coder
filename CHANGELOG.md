@@ -1,3 +1,7 @@
+# 1.5.0
+
+- feat: add the Annotation element
+
 # 1.4.2
 
 - feat: implement Method's MethodKind property
