@@ -31,7 +31,7 @@ class EnumEmitter extends Emitter<Enum> {
     for (final v in element.values) {
       EnumValueEmitter(context).emit(v, output);
 
-      if (v != element.values.last || context.useTraillingCommas) {
+      if (v != element.values.last) {
         output.write(' , ');
       }
     }

@@ -50,7 +50,30 @@ void main() {
       );
 
       test(
-        'should emit an invocation with a trailling comma',
+        'should emit an invocation without a trailling comma when only one '
+        'element is present',
+        () {
+          const context = Context(useTraillingCommas: true);
+
+          const element = Invoke([
+            LiteralString('Pip'),
+          ]);
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                ('Pip')
+              ''',
+              emitter: InvokeEmitter(context),
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an invocation with a trailling comma when multiple '
+        'elements are present',
         () {
           const context = Context(useTraillingCommas: true);
 
