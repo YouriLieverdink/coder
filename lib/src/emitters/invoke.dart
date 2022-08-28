@@ -7,6 +7,12 @@ class InvokeEmitter extends Emitter<Invoke> {
   /// {@macro invoke_emitter}
   const InvokeEmitter(super.context);
 
+  bool useTraillingCommas(
+    Invoke element,
+  ) {
+    return context.useTraillingCommas && element.elements.length > 1;
+  }
+
   @override
   StringSink emit(
     Invoke element, [
@@ -19,7 +25,7 @@ class InvokeEmitter extends Emitter<Invoke> {
     for (final v in element.elements) {
       ElementEmitter(context).emit(v, output);
 
-      if (v != element.elements.last || context.useTraillingCommas) {
+      if (v != element.elements.last || useTraillingCommas(element)) {
         output.write(', ');
       }
     }

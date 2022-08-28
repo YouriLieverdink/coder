@@ -192,7 +192,33 @@ void main() {
       );
 
       test(
-        'should emit a list of parameters with a trailling comma',
+        'should emit a list of parameters without a trailling comma when one '
+        'element is present',
+        () {
+          const elements = [
+            Parameter(
+              name: 'name',
+              type: TypeReference('dynamic'),
+            ),
+          ];
+
+          Expect(
+            elements,
+            const Equals(
+              '''
+                dynamic name
+              ''',
+              emitter: ParameterListEmitter(
+                Context(useTraillingCommas: true),
+              ),
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a list of parameters with a trailling comma when multiple '
+        'elements are present',
         () {
           const elements = [
             Parameter(

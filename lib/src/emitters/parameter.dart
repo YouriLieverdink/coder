@@ -61,6 +61,12 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
     }
   }
 
+  bool useTraillingCommas(
+    List<Parameter> elements,
+  ) {
+    return context.useTraillingCommas && elements.length > 1;
+  }
+
   @override
   StringSink emit(
     List<Parameter> elements, [
@@ -80,7 +86,7 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
 
       ParameterEmitter(context).emit(curr, output);
 
-      if (curr != elements.last || context.useTraillingCommas) {
+      if (curr != elements.last || useTraillingCommas(elements)) {
         output.write(', ');
       }
 
