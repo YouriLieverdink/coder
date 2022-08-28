@@ -28,15 +28,30 @@ class MethodEmitter extends Emitter<Method> {
       ReferenceEmitter(context).emit(element.returns!, output);
     }
 
+    switch (element.kind) {
+      case MethodKind.get:
+        output.write(' get ');
+        break;
+
+      case MethodKind.set:
+        output.write(' set ');
+        break;
+
+      default:
+        break;
+    }
+
     if (element.name != null) {
       output.write(' ${element.name}');
     }
 
-    output.write('(');
+    if (element.kind != MethodKind.get) {
+      output.write('(');
 
-    ParameterListEmitter(context).emit(element.parameters, output);
+      ParameterListEmitter(context).emit(element.parameters, output);
 
-    output.write(') ');
+      output.write(') ');
+    }
 
     switch (element.modifier) {
       case MethodMofifier.async:
