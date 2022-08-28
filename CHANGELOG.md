@@ -1,3 +1,7 @@
+# 1.5.1
+
+- fix: resolve small mistakes with trailling commas
+
 # 1.5.0
 
 - feat: add the Annotation element
