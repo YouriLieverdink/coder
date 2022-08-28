@@ -2,6 +2,7 @@ library element;
 
 import 'package:orchestrator/orchestrator.dart';
 
+part './elements/annotation.dart';
 part './elements/class.dart';
 part './elements/column.dart';
 part './elements/constructor.dart';

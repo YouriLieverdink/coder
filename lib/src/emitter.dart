@@ -2,6 +2,7 @@ library emitter;
 
 import 'package:orchestrator/orchestrator.dart';
 
+part './emitters/annotation.dart';
 part './emitters/class.dart';
 part './emitters/column.dart';
 part './emitters/constructor.dart';
