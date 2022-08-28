@@ -9,6 +9,7 @@ class Enum extends Element {
     required this.name,
     this.values = const [],
     this.docs = const [],
+    this.annotations = const [],
   });
 
   /// The name of this enum.
@@ -19,6 +20,9 @@ class Enum extends Element {
 
   /// The documentation for this enum.
   final List<Docs> docs;
+
+  /// The annotations of this enum.
+  final List<Annotation> annotations;
 }
 
 /// {@template enum_value}
@@ -29,6 +33,7 @@ class EnumValue extends Element {
   const EnumValue(
     this.name, {
     this.docs = const [],
+    this.annotations = const [],
   });
 
   /// The name of this enum value.
@@ -36,4 +41,7 @@ class EnumValue extends Element {
 
   /// The documentation for this enum value.
   final List<Docs> docs;
+
+  /// The annotations of this enum.
+  final List<Annotation> annotations;
 }

@@ -120,6 +120,38 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit an enum with annotations',
+        () {
+          const element = Enum(
+            name: 'CatState',
+            values: [
+              EnumValue('sleep'),
+              EnumValue('eat'),
+              EnumValue('purr'),
+            ],
+            annotations: [
+              Annotation('Roar'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                @Roar
+                enum CatState {
+                  sleep,
+                  eat,
+                  purr
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 
@@ -160,6 +192,29 @@ void main() {
             const Equals(
               '''
                 /// Only for tired people
+                sleep
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit an enum value with annotations',
+        () {
+          const element = EnumValue(
+            'sleep',
+            annotations: [
+              Annotation('Deprecated'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                @Deprecated
                 sleep
               ''',
               emitter: emitter,

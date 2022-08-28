@@ -268,6 +268,31 @@ void main() {
           );
         },
       );
+      
+      test(
+        'should emit a method with annotations',
+         () {
+          const element = Method(
+            name: 'getState',
+            returns: TypeReference('void'),
+            annotations: [
+              Annotation('Deprecated'),
+            ],
+          );
+          
+          Expect(
+            element,
+            const Equals(
+              '''
+                @Deprecated
+                void getState() {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+         },
+       );
 
       test(
         'should emit a get method',

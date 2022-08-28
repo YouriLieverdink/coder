@@ -20,6 +20,12 @@ class ClassEmitter extends Emitter<Class> {
       output.write('\n');
     }
 
+    for (final v in element.annotations) {
+      AnnotationEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     if (element.isAbstract) {
       output.write('abstract ');
     }

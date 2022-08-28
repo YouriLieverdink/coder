@@ -172,6 +172,29 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a field with annotations',
+        () {
+          const element = Field(
+            name: 'state',
+            annotations: [
+              Annotation('override'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                @override
+                dynamic state;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

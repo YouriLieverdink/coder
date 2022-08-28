@@ -177,6 +177,31 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit an extension with annotations',
+        () {
+          const element = Extension(
+            name: 'Features',
+            on: TypeReference('Cat'),
+            annotations: [
+              Annotation('Superb'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                @Superb
+                extension Features on Cat {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

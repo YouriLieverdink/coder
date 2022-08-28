@@ -20,6 +20,12 @@ class EnumEmitter extends Emitter<Enum> {
       output.write('\n');
     }
 
+    for (final v in element.annotations) {
+      AnnotationEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     output.write(' enum ${element.name} { ');
 
     for (final v in element.values) {
@@ -53,6 +59,12 @@ class EnumValueEmitter extends Emitter<EnumValue> {
 
     for (final v in element.docs) {
       DocsEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
+    for (final v in element.annotations) {
+      AnnotationEmitter(context).emit(v, output);
 
       output.write('\n');
     }

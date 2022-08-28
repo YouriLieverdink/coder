@@ -15,6 +15,7 @@ class Class extends Element {
     this.fields = const [],
     this.methods = const [],
     this.docs = const [],
+    this.annotations = const [],
   });
 
   /// The name of the class.
@@ -43,4 +44,7 @@ class Class extends Element {
 
   /// The documentation for this class.
   final List<Docs> docs;
+
+  /// The annotations of this class.
+  final List<Annotation> annotations;
 }

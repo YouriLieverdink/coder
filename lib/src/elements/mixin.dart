@@ -11,6 +11,7 @@ class Mixin extends Element {
     this.fields = const [],
     this.methods = const [],
     this.docs = const [],
+    this.annotations = const [],
   });
 
   /// The name of the mixin.
@@ -56,4 +57,13 @@ class Mixin extends Element {
   /// }
   /// ```
   final List<Docs> docs;
+
+  /// The annotations of this mixin.
+  ///
+  /// ```dart
+  /// @Superb
+  /// mixin Walkable {
+  /// }
+  /// ```
+  final List<Annotation> annotations;
 }

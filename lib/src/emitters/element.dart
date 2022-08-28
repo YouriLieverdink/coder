@@ -14,7 +14,10 @@ class ElementEmitter extends Emitter<Element> {
   ]) {
     output ??= StringBuffer();
 
-    if (element is Class) {
+    if (element is Annotation) {
+      AnnotationEmitter(context).emit(element, output);
+    } //
+    else if (element is Class) {
       ClassEmitter(context).emit(element, output);
     } //
     else if (element is Column) {

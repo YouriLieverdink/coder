@@ -20,6 +20,12 @@ class MethodEmitter extends Emitter<Method> {
       output.write('\n');
     }
 
+    for (final v in element.annotations) {
+      AnnotationEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     if (element.isStatic) {
       output.write('static ');
     }

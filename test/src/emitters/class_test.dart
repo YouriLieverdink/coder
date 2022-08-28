@@ -355,6 +355,30 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a class with annotations',
+        () {
+          const element = Class(
+            name: 'Cat',
+            annotations: [
+              Annotation('Roar'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                @Roar
+                class Cat {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 }

@@ -14,6 +14,12 @@ class ParameterEmitter extends Emitter<Parameter> {
   ]) {
     output ??= StringBuffer();
 
+    for (final v in element.annotations) {
+      AnnotationEmitter(context).emit(v, output);
+
+      output.write('\n');
+    }
+
     if (element.kind == ParameterKind.named && element.isRequired) {
       output.write('required ');
     }
