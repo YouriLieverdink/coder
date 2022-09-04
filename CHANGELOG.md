@@ -1,3 +1,7 @@
+# 1.7.0
+
+- feat: add isToSuper property on Parameter
+
 # 1.6.0
 
 - refactor: emit semicolon instead of empty constructor body
