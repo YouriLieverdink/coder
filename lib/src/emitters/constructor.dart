@@ -54,7 +54,7 @@ class ConstructorEmitter extends Emitter<Constructor> {
       }
     }
 
-    if (!element.isConst) {
+    if (!element.isConst && element.body != null) {
       output.write(' {');
 
       if (element.body != null) {
