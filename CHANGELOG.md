@@ -1,3 +1,7 @@
+# 1.6.0
+
+- refactor: emit semicolon instead of empty constructor body
+
 # 1.5.2
 
 - fix: also emit the default case of the switch element
