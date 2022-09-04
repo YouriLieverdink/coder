@@ -20,8 +20,7 @@ void main() {
             element,
             const Equals(
               '''
-                Cat() {
-                }
+                Cat();
               ''',
               emitter: emitter,
             ),
@@ -59,8 +58,7 @@ void main() {
             element,
             const Equals(
               '''
-                factory Cat() {
-                } 
+                factory Cat();
               ''',
               emitter: emitter,
             ),
@@ -79,8 +77,7 @@ void main() {
             element,
             const Equals(
               '''
-                Cat.fromJson() {
-                }
+                Cat.fromJson();
               ''',
               emitter: emitter,
             ),
@@ -104,8 +101,7 @@ void main() {
             element,
             const Equals(
               '''
-                Cat(String name) {
-                }
+                Cat(String name);
               ''',
               emitter: emitter,
             ),
@@ -143,6 +139,30 @@ void main() {
       );
 
       test(
+        'should emit a constructor with a semicolon when the body is empty',
+        () {
+          const element = Constructor(
+            parameters: [
+              Parameter(
+                name: 'name',
+                type: TypeReference('String'),
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                Cat(String name);
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a constructor with docs',
         () {
           const element = Constructor(
@@ -156,8 +176,7 @@ void main() {
             const Equals(
               '''
                 /// Create a new Cat from scratch!
-                Cat() {
-                }
+                Cat();
               ''',
               emitter: emitter,
             ),
@@ -178,8 +197,7 @@ void main() {
             element,
             const Equals(
               '''
-                Cat() : super('Pip') {
-                }
+                Cat() : super('Pip');
               ''',
               emitter: emitter,
             ),
@@ -223,8 +241,7 @@ void main() {
             element,
             const Equals(
               '''
-                Cat() : super('Pip'), livesLeft = 9 {
-                }
+                Cat() : super('Pip'), livesLeft = 9;
               ''',
               emitter: emitter,
             ),

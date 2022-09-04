@@ -209,8 +209,7 @@ void main() {
             const Equals(
               '''
                 class Cat {
-                  Cat() {
-                  }
+                  Cat();
                 }
               ''',
               emitter: emitter,
