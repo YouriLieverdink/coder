@@ -26,6 +26,12 @@ class SwitchEmitter extends Emitter<Switch> {
       output.writeln('\n');
     }
 
+    if (value.default_ != null) {
+      output.write('default: ');
+
+      ElementEmitter(context).emit(value.default_!, output);
+    }
+
     output.write(' }');
 
     return output;

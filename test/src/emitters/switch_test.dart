@@ -73,6 +73,33 @@ void main() {
           );
         },
       );
+
+      test(
+        'should emit a switch with a default case',
+        () {
+          const element = Switch(
+            condition: Static('cat.state'),
+            default_: Column([
+                Static('print("mmm");'),
+                Static('break;'),
+              ]),
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                switch (cat.state) {
+                  default:
+                    print("mmm");
+                    break;
+                } 
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
     },
   );
 
