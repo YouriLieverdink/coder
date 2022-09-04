@@ -1,3 +1,7 @@
+# 1.5.2
+
+- fix: also emit the default case of the switch element
+
 # 1.5.1
 
 - fix: resolve small mistakes with trailling commas
