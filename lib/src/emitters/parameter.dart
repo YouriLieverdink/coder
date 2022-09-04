@@ -27,6 +27,9 @@ class ParameterEmitter extends Emitter<Parameter> {
     if (element.isToThis) {
       output.write('this.');
     } //
+    else if (element.isToSuper) {
+      output.write('super.');
+    } //
     else if (element.type != null) {
       ReferenceEmitter(context).emit(element.type!, output);
 

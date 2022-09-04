@@ -136,6 +136,26 @@ void main() {
       );
 
       test(
+        'should emit a to super parameter',
+        () {
+          const element = Parameter(
+            name: 'state',
+            isToSuper: true,
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                super.state
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a parameter with annotations',
         () {
           const element = Parameter(

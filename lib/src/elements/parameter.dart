@@ -16,6 +16,7 @@ class Parameter extends Element {
     this.assign,
     this.isRequired = false,
     this.isToThis = false,
+    this.isToSuper = false,
     this.kind,
     this.annotations = const [],
   });
@@ -34,6 +35,9 @@ class Parameter extends Element {
 
   /// Whether this field references `this`.
   final bool isToThis;
+
+  /// Whether this field references `super`.
+  final bool isToSuper;
 
   /// What kind of parameter this is.
   ///
