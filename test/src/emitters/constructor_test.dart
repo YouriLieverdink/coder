@@ -4,9 +4,10 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
   const class_ = Class(name: 'Cat');
-  const emitter = ConstructorEmitter(context, class_);
+
+  final context = Context();
+  final emitter = ConstructorEmitter(context, class_);
 
   group(
     'ConstructorEmitter',
@@ -18,7 +19,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Cat();
               ''',
@@ -37,7 +38,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 const Cat();
               ''',
@@ -56,7 +57,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 factory Cat();
               ''',
@@ -75,7 +76,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Cat.fromJson();
               ''',
@@ -99,7 +100,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Cat(String name);
               ''',
@@ -126,7 +127,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Cat(String name) {
                   this.name = name;
@@ -152,7 +153,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Cat(String name);
               ''',
@@ -173,7 +174,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 /// Create a new Cat from scratch!
                 Cat();
@@ -195,7 +196,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Cat() : super('Pip');
               ''',
@@ -217,7 +218,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 const Cat() : super('Pip');
               ''',
@@ -239,7 +240,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Cat() : super('Pip'), livesLeft = 9;
               ''',

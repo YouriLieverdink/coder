@@ -4,12 +4,12 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
+  final context = Context();
 
   group(
     'TypeReferenceEmitter',
     () {
-      const emitter = TypeReferenceEmitter(context);
+      final emitter = TypeReferenceEmitter(context);
 
       test(
         'should emit a type reference',
@@ -18,7 +18,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 String
               ''',
@@ -40,7 +40,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 List<String>
               ''',
@@ -63,7 +63,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 Map<String,dynamic>
               ''',
@@ -83,7 +83,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 String?
               ''',
@@ -98,7 +98,7 @@ void main() {
   group(
     'FunctionReferenceEmitter',
     () {
-      const emitter = FunctionReferenceEmitter(context);
+      final emitter = FunctionReferenceEmitter(context);
 
       test(
         'should emit a function reference',
@@ -109,7 +109,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 String Function()
               ''',
@@ -133,7 +133,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 void Function(CatState state)
               ''',

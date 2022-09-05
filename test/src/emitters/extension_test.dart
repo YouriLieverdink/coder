@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = ExtensionEmitter(context);
+  final context = Context();
+  final emitter = ExtensionEmitter(context);
 
   group(
     'ExtensionEmitter',
@@ -19,7 +19,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 extension on Cat {
                 }
@@ -40,7 +40,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 extension CatExtension on Cat {
                 } 
@@ -67,7 +67,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 extension on Cat {
                   int numberOfMeows = 0;
@@ -97,7 +97,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 extension on Cat {
                   void meow() {
@@ -137,7 +137,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 extension Features on Cat {
                   final int age;
@@ -166,7 +166,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 /// Additional cat features
                 extension Features on Cat {
@@ -191,7 +191,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 @Superb
                 extension Features on Cat {

@@ -8,7 +8,7 @@ import 'package:orchestrator/orchestrator.dart';
 /// {@endtemplate}
 class Context {
   /// {@macro context}
-  const Context({
+  Context({
     this.useTraillingCommas = false,
   });
 

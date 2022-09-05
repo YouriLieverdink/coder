@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = DirectiveEmitter(context);
+  final context = Context();
+  final emitter = DirectiveEmitter(context);
 
   group(
     'DirectiveEmitter',
@@ -20,7 +20,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 import 'dart:core';
               ''',
@@ -40,7 +40,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 export 'dart:core';
               ''',
@@ -60,7 +60,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 part 'dart:core';
               ''',
@@ -80,7 +80,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 part of 'dart:core';
               ''',

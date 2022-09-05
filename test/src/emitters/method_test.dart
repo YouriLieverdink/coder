@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = MethodEmitter(context);
+  final context = Context();
+  final emitter = MethodEmitter(context);
 
   group(
     'MethodEmitter',
@@ -17,7 +17,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 () {
                 }
@@ -38,7 +38,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState getState() {
                 }
@@ -65,7 +65,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState getState(Cat cat) {
                 }
@@ -87,7 +87,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 static CatState getState() {
                 }
@@ -109,7 +109,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState getState() async {
                 }
@@ -131,7 +131,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState getState() async* {
                 }
@@ -153,7 +153,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState getState() sync* {
                 }
@@ -183,7 +183,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState getState(Cat cat) {
                   return cat.state;
@@ -208,7 +208,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 /// Returns the state of a cat
                 void getState() {
@@ -233,7 +233,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 (v) {
                 }
@@ -259,7 +259,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 (v) => print("Hello!")
               ''',
@@ -268,10 +268,10 @@ void main() {
           );
         },
       );
-      
+
       test(
         'should emit a method with annotations',
-         () {
+        () {
           const element = Method(
             name: 'getState',
             returns: TypeReference('void'),
@@ -279,10 +279,10 @@ void main() {
               Annotation('Deprecated'),
             ],
           );
-          
+
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 @Deprecated
                 void getState() {
@@ -291,8 +291,8 @@ void main() {
               emitter: emitter,
             ),
           );
-         },
-       );
+        },
+      );
 
       test(
         'should emit a get method',
@@ -305,7 +305,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState get state {
                 }
@@ -333,7 +333,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 void set state(CatState state) {
                 }

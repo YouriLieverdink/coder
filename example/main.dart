@@ -50,8 +50,8 @@ void main() {
   ]);
 
   // Each element has their own [Emitter], this one can be used for (almost) all.
-  const context = Context();
-  const emitter = ElementEmitter(context);
+  final context = Context();
+  final emitter = ElementEmitter(context);
 
   emitter.emit(element);
 }

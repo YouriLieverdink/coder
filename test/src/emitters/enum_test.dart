@@ -4,12 +4,12 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
+  final context = Context();
 
   group(
     'EnumEmitter',
     () {
-      const emitter = EnumEmitter(context);
+      final emitter = EnumEmitter(context);
 
       test(
         'should emit an enum',
@@ -20,7 +20,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 enum CatState {
                 }
@@ -45,7 +45,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 enum CatState {
                   sleep,
@@ -76,7 +76,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 /// What has the cat been doing?
                 enum CatState {
@@ -108,7 +108,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 @Roar
                 enum CatState {
@@ -128,7 +128,7 @@ void main() {
   group(
     'EnumValueEmitter',
     () {
-      const emitter = EnumValueEmitter(context);
+      final emitter = EnumValueEmitter(context);
 
       test(
         'should emit an enum value',
@@ -137,7 +137,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 sleep
               ''',
@@ -159,7 +159,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 /// Only for tired people
                 sleep
@@ -182,7 +182,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 @Deprecated
                 sleep

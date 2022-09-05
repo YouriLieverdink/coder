@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = LiteralEmitter(context);
+  final context = Context();
+  final emitter = LiteralEmitter(context);
 
   group(
     'LiteralBoolEmitter',
@@ -17,7 +17,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 true
               ''',
@@ -39,7 +39,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ['cat', 'dog']
               ''',
@@ -56,7 +56,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ['cat', Cat]
               ''',
@@ -80,7 +80,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 {
                   'cats': ['Pip', 'Bo']
@@ -102,7 +102,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 {
                   'cats': ['Pip'],
@@ -127,7 +127,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 null
               ''',
@@ -149,7 +149,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 42
               ''',
@@ -166,7 +166,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 42.0
               ''',
@@ -188,7 +188,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 'Pip'
               ''',

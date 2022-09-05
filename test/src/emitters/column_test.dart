@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = ColumnEmitter(context);
+  final context = Context();
+  final emitter = ColumnEmitter(context);
 
   group(
     'ColumnEmitter',
@@ -20,7 +20,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 // Hello, my name is Pip!
                 final cat = Cat(name: "Pip");

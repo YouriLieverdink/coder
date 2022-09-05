@@ -4,12 +4,12 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
+  final context = Context();
 
   group(
     'ParameterEmitter',
     () {
-      const emitter = ParameterEmitter(context);
+      final emitter = ParameterEmitter(context);
 
       test(
         'should emit a parameter',
@@ -21,7 +21,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 dynamic state 
               ''',
@@ -41,7 +41,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState state 
               ''',
@@ -62,7 +62,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState state = CatState.purring
               ''',
@@ -84,7 +84,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 required CatState state
               ''',
@@ -105,7 +105,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 CatState state
               ''',
@@ -125,7 +125,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 this.state
               ''',
@@ -145,7 +145,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 super.state
               ''',
@@ -168,7 +168,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 @Deprecated State state
               ''',
@@ -183,7 +183,7 @@ void main() {
   group(
     'ParameterListEmitter',
     () {
-      const emitter = ParameterListEmitter(context);
+      final emitter = ParameterListEmitter(context);
 
       test(
         'shoud emit a list of parameters',
@@ -201,7 +201,7 @@ void main() {
 
           Expect(
             elements,
-            const Equals(
+            Equals(
               '''
                 dynamic name, dynamic state
               ''',
@@ -224,7 +224,7 @@ void main() {
 
           Expect(
             elements,
-            const Equals(
+            Equals(
               '''
                 dynamic name
               ''',
@@ -253,7 +253,7 @@ void main() {
 
           Expect(
             elements,
-            const Equals(
+            Equals(
               '''
                 dynamic name, dynamic state,
               ''',
@@ -283,7 +283,7 @@ void main() {
 
           Expect(
             elements,
-            const Equals(
+            Equals(
               '''
                 {dynamic name, dynamic state}
               ''',
@@ -311,7 +311,7 @@ void main() {
 
           Expect(
             elements,
-            const Equals(
+            Equals(
               '''
                 [dynamic name, dynamic state]
               ''',
@@ -344,7 +344,7 @@ void main() {
 
           Expect(
             elements,
-            const Equals(
+            Equals(
               '''
                 String name, {required CatState state, DateTime? birthday}
               ''',

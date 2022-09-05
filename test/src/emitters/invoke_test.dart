@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = InvokeEmitter(context);
+  final context = Context();
+  final emitter = InvokeEmitter(context);
 
   group(
     'InvokeEmitter',
@@ -19,7 +19,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ('Hello, world!')
               ''',
@@ -39,7 +39,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ('Pip', age: 8)
               ''',
@@ -53,7 +53,7 @@ void main() {
         'should emit an invocation without a trailling comma when only one '
         'element is present',
         () {
-          const context = Context(useTraillingCommas: true);
+          final context = Context(useTraillingCommas: true);
 
           const element = Invoke([
             LiteralString('Pip'),
@@ -61,7 +61,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ('Pip')
               ''',
@@ -75,7 +75,7 @@ void main() {
         'should emit an invocation with a trailling comma when multiple '
         'elements are present',
         () {
-          const context = Context(useTraillingCommas: true);
+          final context = Context(useTraillingCommas: true);
 
           const element = Invoke([
             LiteralString('Pip'),
@@ -84,7 +84,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ('Pip', 8, )
               ''',

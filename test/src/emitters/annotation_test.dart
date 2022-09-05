@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = AnnotationEmitter(context);
+  final context = Context();
+  final emitter = AnnotationEmitter(context);
 
   group(
     'AnnotationEmitter',
@@ -17,7 +17,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 @override
               ''',
@@ -39,7 +39,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 @Deprecated('Use another method')
               ''',

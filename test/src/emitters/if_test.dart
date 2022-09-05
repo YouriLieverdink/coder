@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = IfEmitter(context);
+  final context = Context();
+  final emitter = IfEmitter(context);
 
   group(
     'IfEmitter',
@@ -24,7 +24,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 if (true) {
                   print("true!");
@@ -54,7 +54,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 if (true) {
                   print("true!");
@@ -83,7 +83,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 if (true) {
                   print("true!");
@@ -114,7 +114,7 @@ void main() {
 
   //         Expect(
   //           element,
-  //           const Equals(
+  //           Equals(
   //             '''
   //               if (i > 42) {
   //                 print('Found the meaning of life!');
@@ -141,7 +141,7 @@ void main() {
 
   //         Expect(
   //           statement,
-  //           const Equals(
+  //           Equals(
   //             '''
   //               if (i > 42) {
   //                 print('Found the meaning of life!');
