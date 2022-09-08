@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = MixinEmitter(context);
+  const context = Context();
+  const emitter = MixinEmitter(context);
 
   group(
     'MixinEmitter',
@@ -19,7 +19,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 mixin Walkable {
                 }
@@ -40,7 +40,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 mixin Walkable on Cat {
                 }
@@ -67,7 +67,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 mixin Walkable {
                   int legs = 4;
@@ -94,7 +94,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 mixin Walkable {
                   void jump() {
@@ -133,7 +133,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 mixin Features on Cat {
                   final int age;
@@ -162,7 +162,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 /// Additional cat features
                 mixin Features on Cat {
@@ -187,7 +187,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 @Extra
                 mixin Features on Cat {

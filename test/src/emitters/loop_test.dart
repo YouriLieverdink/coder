@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = LoopEmitter(context);
+  const context = Context();
+  const emitter = LoopEmitter(context);
 
   group(
     'LoopEmitter',
@@ -27,7 +27,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 for (var i = 0; i < 10; i++) {
                   print(i);
@@ -52,7 +52,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 while (i < 10) {
                   print(i);
@@ -77,7 +77,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 do {
                   print(i);

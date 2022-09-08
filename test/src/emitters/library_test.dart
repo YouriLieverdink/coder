@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = LibraryEmitter(context);
+  const context = Context();
+  const emitter = LibraryEmitter(context);
 
   group(
     'LibraryEmitter',
@@ -27,7 +27,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 enum CatState { sleeping, eating }
               ''',
@@ -55,7 +55,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 library enums;
 
@@ -85,7 +85,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 import 'dart:core';
                 import 'package:test/test.dart';
@@ -120,7 +120,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 enum CatState { sleeping, eating }
 
@@ -144,7 +144,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 /// This is an awesome library!
                 library cats_and_dogs;

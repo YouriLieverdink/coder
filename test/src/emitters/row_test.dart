@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = RowEmitter(context);
+  const context = Context();
+  const emitter = RowEmitter(context);
 
   group(
     'RowEmitter',
@@ -22,7 +22,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 final cat = Cat()
               ''',

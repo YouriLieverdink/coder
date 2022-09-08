@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = ClassEmitter(context);
+  const context = Context();
+  const emitter = ClassEmitter(context);
 
   group(
     'ClassEmitter',
@@ -17,7 +17,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat {
                 }
@@ -38,7 +38,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 abstract class Animal {
                 }
@@ -59,7 +59,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat extends Animal {
                 }
@@ -82,7 +82,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat implements CatBehaviour {
                 }
@@ -106,7 +106,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat implements CatBehaviour, CatSounds {
                 }
@@ -129,7 +129,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat with Sleeping {
                 }
@@ -153,7 +153,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat with Sleeping, Purring {
                 }
@@ -181,7 +181,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat extends Animal 
                   with Sleeping, Purring 
@@ -206,7 +206,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat {
                   Cat();
@@ -233,7 +233,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat {
                   String name;
@@ -263,7 +263,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat {
                   void meow() {
@@ -313,7 +313,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 class Cat {
                   const Cat(this.age);
@@ -343,7 +343,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 /// This class says purr
                 class Cat {
@@ -367,7 +367,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 @Roar
                 class Cat {

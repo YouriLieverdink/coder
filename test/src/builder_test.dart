@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = ElementEmitter(context);
+  const context = Context();
+  const emitter = ElementEmitter(context);
 
   group(
     'Builder',
@@ -20,7 +20,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 + 8
               ''',
@@ -40,7 +40,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 += 8
               ''',
@@ -60,7 +60,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' && 'dog'
               ''',
@@ -80,7 +80,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 ('cat' as 'dog')
               ''',
@@ -100,7 +100,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' = 'dog'
               ''',
@@ -120,7 +120,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' ??= 'dog'
               ''',
@@ -139,7 +139,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 await cat
               ''',
@@ -160,7 +160,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat ? true : false
               ''',
@@ -179,7 +179,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 const cat
               ''',
@@ -198,7 +198,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 final cat
               ''',
@@ -217,7 +217,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 Cat cat
               ''',
@@ -236,7 +236,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 typedef cat
               ''',
@@ -255,7 +255,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 var cat
               ''',
@@ -274,7 +274,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 Cat()
               ''',
@@ -294,7 +294,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 / 8
               ''',
@@ -314,7 +314,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 /= 8
               ''',
@@ -334,7 +334,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' == 'dog'
               ''',
@@ -354,7 +354,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' > 'dog'
               ''',
@@ -374,7 +374,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' < 'dog'
               ''',
@@ -394,7 +394,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' >= 'dog'
               ''',
@@ -414,7 +414,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' <= 'dog'
               ''',
@@ -434,7 +434,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat ?? dog
               ''',
@@ -454,7 +454,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cats in ['cats', 'dogs']
               ''',
@@ -474,7 +474,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cats[0]
               ''',
@@ -494,7 +494,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' is 'dog'
               ''',
@@ -514,7 +514,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' is! 'dog'
               ''',
@@ -534,7 +534,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 % 8
               ''',
@@ -554,7 +554,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 %= 8
               ''',
@@ -574,7 +574,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 * 8
               ''',
@@ -594,7 +594,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 *= 8
               ''',
@@ -613,7 +613,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 name: 'Pip'
               ''',
@@ -632,7 +632,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 !42
               ''',
@@ -652,7 +652,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' != 'dog'
               ''',
@@ -672,7 +672,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 'cat' || 'dog'
               ''',
@@ -691,7 +691,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat.name
               ''',
@@ -710,7 +710,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat?.name
               ''',
@@ -729,7 +729,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat!.name
               ''',
@@ -748,7 +748,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat..name
               ''',
@@ -767,7 +767,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat?.name
               ''',
@@ -786,7 +786,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 return cat
               ''',
@@ -805,7 +805,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 ...cat
               ''',
@@ -824,7 +824,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 cat;
               ''',
@@ -844,7 +844,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 - 8
               ''',
@@ -864,7 +864,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 42 -= 8
               ''',
@@ -883,7 +883,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 throw cat
               ''',
@@ -902,7 +902,7 @@ void main() {
 
           Expect(
             operation,
-            Equals(
+            const Equals(
               '''
                 yield cat
               ''',

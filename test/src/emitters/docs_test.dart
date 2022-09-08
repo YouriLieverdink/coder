@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = DocsEmitter(context);
+  const context = Context();
+  const emitter = DocsEmitter(context);
 
   group(
     'DocsEmitter',
@@ -17,7 +17,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 /// Hello!
               ''',
@@ -37,7 +37,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 /// Hello, this is a piece of text which is much longer than 80 characters so we
                 /// can see the wrapping of text in action.

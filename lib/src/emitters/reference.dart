@@ -39,6 +39,13 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
   ]) {
     output ??= StringBuffer();
 
+    // When an [Importer] is available, register it to be imported.
+    final prefix = context.importer.register(element);
+
+    if (prefix != null) {
+      output.write(prefix);
+    }
+
     output.write(element.symbol);
 
     if (element.types.isNotEmpty) {

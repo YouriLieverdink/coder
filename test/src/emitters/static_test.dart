@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = StaticEmitter(context);
+  const context = Context();
+  const emitter = StaticEmitter(context);
 
   group(
     'StaticEmitter',
@@ -17,7 +17,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
               print("Hello, world");
               ''',

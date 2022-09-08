@@ -4,12 +4,12 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
+  const context = Context();
 
   group(
     'SwitchEmitter',
     () {
-      final emitter = SwitchEmitter(context);
+      const emitter = SwitchEmitter(context);
 
       test(
         'should emit a switch',
@@ -20,7 +20,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 switch (cat.state) {
                 }
@@ -56,7 +56,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 switch (cat.state) {
                   case CatState.sleeping:
@@ -87,7 +87,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 switch (cat.state) {
                   default:
@@ -106,7 +106,7 @@ void main() {
   group(
     'SwitchCaseEmitter',
     () {
-      final emitter = SwitchCaseEmitter(context);
+      const emitter = SwitchCaseEmitter(context);
 
       test(
         'should emit a switch case',
@@ -121,7 +121,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 case CatState.sleeping:
                     print("zzz");

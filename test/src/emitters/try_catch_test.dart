@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = TryCatchEmitter(context);
+  const context = Context();
+  const emitter = TryCatchEmitter(context);
 
   group(
     'TryCatchEmitter',
@@ -24,7 +24,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 try {
                   cat.pickUp();
@@ -55,7 +55,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 try {
                   cat.pickUp();

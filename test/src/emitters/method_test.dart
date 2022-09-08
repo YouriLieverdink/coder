@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = MethodEmitter(context);
+  const context = Context();
+  const emitter = MethodEmitter(context);
 
   group(
     'MethodEmitter',
@@ -17,7 +17,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 () {
                 }
@@ -38,7 +38,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState getState() {
                 }
@@ -65,7 +65,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState getState(Cat cat) {
                 }
@@ -87,7 +87,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 static CatState getState() {
                 }
@@ -109,7 +109,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState getState() async {
                 }
@@ -131,7 +131,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState getState() async* {
                 }
@@ -153,7 +153,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState getState() sync* {
                 }
@@ -183,7 +183,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState getState(Cat cat) {
                   return cat.state;
@@ -208,7 +208,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 /// Returns the state of a cat
                 void getState() {
@@ -233,7 +233,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 (v) {
                 }
@@ -259,7 +259,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 (v) => print("Hello!")
               ''',
@@ -282,7 +282,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 @Deprecated
                 void getState() {
@@ -305,7 +305,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState get state {
                 }
@@ -333,7 +333,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 void set state(CatState state) {
                 }

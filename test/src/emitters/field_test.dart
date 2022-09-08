@@ -4,8 +4,8 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  final context = Context();
-  final emitter = FieldEmitter(context);
+  const context = Context();
+  const emitter = FieldEmitter(context);
 
   group(
     'FieldEmitter',
@@ -19,7 +19,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 dynamic state;
               ''',
@@ -39,7 +39,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState state;
               ''',
@@ -60,7 +60,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 CatState state = CatState.purring;
               ''',
@@ -80,7 +80,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 final dynamic state;
               ''',
@@ -100,7 +100,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 const dynamic state;
               ''',
@@ -120,7 +120,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 static dynamic state;
               ''',
@@ -140,7 +140,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 late dynamic state;
               ''',
@@ -162,7 +162,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 /// Indicates whatever the cat is doing
                 dynamic state;
@@ -185,7 +185,7 @@ void main() {
 
           Expect(
             element,
-            Equals(
+            const Equals(
               '''
                 @override
                 dynamic state;

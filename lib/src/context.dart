@@ -8,9 +8,13 @@ import 'package:orchestrator/orchestrator.dart';
 /// {@endtemplate}
 class Context {
   /// {@macro context}
-  Context({
+  const Context({
     this.useTraillingCommas = false,
+    this.importer = const NoImporter(),
   });
+
+  ///
+  final Importer importer;
 
   /// Whether the emitters should use trailling commas.
   ///
