@@ -13,7 +13,8 @@ class Context {
     this.importer = const NoImporter(),
   });
 
-  ///
+  /// An [Importer] can be used to automatically resolve all the dependencies
+  /// within the configuration.
   final Importer importer;
 
   /// Whether the emitters should use trailling commas.

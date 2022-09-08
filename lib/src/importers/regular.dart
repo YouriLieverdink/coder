@@ -1,7 +1,8 @@
 part of importer;
 
 /// {@template regular_importer}
-///
+/// Used to register all dependencies of the [TypeReference]s used within the
+/// configuration.
 /// {@endtemplate}
 class RegularImporter extends Importer {
   /// {@macro regular_importer}
