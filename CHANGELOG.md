@@ -1,3 +1,7 @@
+# 1.8.0
+
+- feat: add an Importer which automatically resolves dependencies
+
 # 1.7.0
 
 - feat: add isToSuper property on Parameter
