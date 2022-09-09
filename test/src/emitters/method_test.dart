@@ -268,10 +268,10 @@ void main() {
           );
         },
       );
-      
+
       test(
         'should emit a method with annotations',
-         () {
+        () {
           const element = Method(
             name: 'getState',
             returns: TypeReference('void'),
@@ -279,7 +279,7 @@ void main() {
               Annotation('Deprecated'),
             ],
           );
-          
+
           Expect(
             element,
             const Equals(
@@ -291,8 +291,8 @@ void main() {
               emitter: emitter,
             ),
           );
-         },
-       );
+        },
+      );
 
       test(
         'should emit a get method',

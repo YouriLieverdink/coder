@@ -39,6 +39,9 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
   ]) {
     output ??= StringBuffer();
 
+    // Register the reference to be imported.
+    context.importer.register(element);
+
     output.write(element.symbol);
 
     if (element.types.isNotEmpty) {

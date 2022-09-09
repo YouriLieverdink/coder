@@ -114,7 +114,7 @@ void main() {
 
   //         Expect(
   //           element,
-  //           const Equals(
+  //           Equals(
   //             '''
   //               if (i > 42) {
   //                 print('Found the meaning of life!');
@@ -141,7 +141,7 @@ void main() {
 
   //         Expect(
   //           statement,
-  //           const Equals(
+  //           Equals(
   //             '''
   //               if (i > 42) {
   //                 print('Found the meaning of life!');

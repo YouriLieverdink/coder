@@ -4,8 +4,9 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
   const class_ = Class(name: 'Cat');
+
+  const context = Context();
   const emitter = ConstructorEmitter(context, class_);
 
   group(

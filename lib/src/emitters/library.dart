@@ -28,8 +28,19 @@ class LibraryEmitter extends Emitter<Library> {
         ..writeln('\n');
     }
 
+    // Retrieve all imports from the importer and emit them als directives.
+    for (final v in context.importer.imports) {
+      final import = Directive.import(v);
+
+      DirectiveEmitter(context).emit(import, output);
+
+      output.write('\n');
+    }
+
     for (final v in element.directives) {
       DirectiveEmitter(context).emit(v, output);
+
+      output.write('\n');
     }
 
     for (final v in element.elements) {

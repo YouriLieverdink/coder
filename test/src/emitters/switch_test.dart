@@ -80,9 +80,9 @@ void main() {
           const element = Switch(
             condition: Static('cat.state'),
             default_: Column([
-                Static('print("mmm");'),
-                Static('break;'),
-              ]),
+              Static('print("mmm");'),
+              Static('break;'),
+            ]),
           );
 
           Expect(
