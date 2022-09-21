@@ -1,3 +1,7 @@
+# 1.8.1
+
+- fix: ensure the importer works correctly
+
 # 1.8.0
 
 - feat: add an Importer which automatically resolves dependencies
