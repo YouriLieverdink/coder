@@ -1,3 +1,7 @@
+# 1.8.2
+
+- test: expand importer with one test
+
 # 1.8.1
 
 - fix: ensure the importer works correctly
