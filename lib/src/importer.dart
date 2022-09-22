@@ -3,6 +3,7 @@ library importer;
 import 'package:orchestrator/orchestrator.dart';
 
 part './importers/no.dart';
+part './importers/prefix.dart';
 part './importers/regular.dart';
 
 /// {@template importer}

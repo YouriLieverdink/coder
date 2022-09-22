@@ -40,7 +40,11 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
     output ??= StringBuffer();
 
     // Register the reference to be imported.
-    context.importer.register(element);
+    final prefix = context.importer.register(element);
+
+    if (prefix != null) {
+      output.write('$prefix.');
+    }
 
     output.write(element.symbol);
 
