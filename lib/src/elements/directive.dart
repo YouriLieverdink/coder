@@ -14,6 +14,7 @@ class Directive extends Element {
   const Directive({
     required this.url,
     required this.kind,
+    this.as,
   });
 
   /// {@macro directive}
@@ -50,8 +51,15 @@ class Directive extends Element {
   /// What kind of directive this is.
   final DirectiveKind kind;
 
+  /// The name to use for the import
+  ///
+  /// ```dart
+  /// import 'dart:core' as core;
+  /// ```
+  final String? as;
+
   @override
   List<Object?> get props {
-    return [url, kind];
+    return [url, kind, as];
   }
 }

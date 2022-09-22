@@ -34,6 +34,17 @@ class DirectiveEmitter extends Emitter<Directive> {
 
     LiteralEmitter(context).emit(Literal.of(element.url), output);
 
+    switch (element.kind) {
+      case DirectiveKind.import:
+        if (element.as != null) {
+          output.write(' as ${element.as}');
+        }
+        break;
+
+      default:
+        break;
+    }
+
     output.write(';');
 
     return output;

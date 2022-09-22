@@ -31,6 +31,27 @@ void main() {
       );
 
       test(
+        'should emit an import directive named with as',
+        () {
+          const element = Directive(
+            url: 'dart:core',
+            kind: DirectiveKind.import,
+            as: 'core',
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                import 'dart:core' as core;
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit an export directive',
         () {
           const element = Directive(
