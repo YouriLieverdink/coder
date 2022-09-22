@@ -1,3 +1,8 @@
+# 1.9.0
+
+- refactor: ensure all elements are equal by property
+- feat: add an PrefixImporter
+
 # 1.8.2
 
 - test: expand importer with one test
