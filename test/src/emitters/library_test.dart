@@ -4,8 +4,13 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = LibraryEmitter(context);
+  late Emitter emitter;
+
+  setUp(() {
+    final importer = RegularImporter();
+    final context = Context(importer: importer);
+    emitter = LibraryEmitter(context);
+  });
 
   group(
     'LibraryEmitter',
@@ -27,7 +32,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 enum CatState { sleeping, eating }
               ''',
@@ -55,7 +60,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 library enums;
 
@@ -85,10 +90,50 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 import 'dart:core';
                 import 'package:test/test.dart';
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a library with automatically imported directives',
+        () {
+          const element = Library(
+            elements: [
+              Method(
+                name: 'main',
+                returns: TypeReference(
+                  'String',
+                  url: 'dart:core',
+                ),
+                parameters: [
+                  Parameter(
+                    name: 'matcher',
+                    type: TypeReference(
+                      'Matcher',
+                      url: 'package:test/test.dart',
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            Equals(
+              '''
+                import 'dart:core';
+                import 'package:test/test.dart';
+
+                String main(Matcher matcher) {
+                }
               ''',
               emitter: emitter,
             ),
@@ -120,7 +165,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 enum CatState { sleeping, eating }
 
@@ -144,7 +189,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 /// This is an awesome library!
                 library cats_and_dogs;
