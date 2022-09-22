@@ -19,6 +19,11 @@ class Switch extends Element {
 
   /// The default case of this switch.
   final Element? default_;
+
+  @override
+  List<Object?> get props {
+    return [condition, cases, default_];
+  }
 }
 
 /// {@template switch_case}
@@ -36,4 +41,9 @@ class SwitchCase extends Element {
 
   /// The body of this switch case.
   final Element? body;
+
+  @override
+  List<Object?> get props {
+    return [condition, body];
+  }
 }

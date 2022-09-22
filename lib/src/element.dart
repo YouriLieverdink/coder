@@ -1,5 +1,6 @@
 library element;
 
+import 'package:equatable/equatable.dart';
 import 'package:orchestrator/orchestrator.dart';
 
 part './elements/annotation.dart';
@@ -34,7 +35,7 @@ part './elements/while.dart';
 /// be generated. Every [Element] has at least one [Emitter] that transforms
 /// its configuration into source code.
 /// {@endtemplate}
-abstract class Element {
+abstract class Element extends Equatable {
   /// {@macro element}
   const Element();
 }

@@ -15,4 +15,9 @@ class Annotation extends Element {
 
   /// The arguments of this.
   final List<Builder> arguments;
+
+  @override
+  List<Object?> get props {
+    return [value, arguments];
+  }
 }

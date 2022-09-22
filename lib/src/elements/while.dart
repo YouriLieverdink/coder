@@ -24,4 +24,9 @@ class While extends Element {
 
   /// The body of this while statement.
   final Element? body;
+
+  @override
+  List<Object?> get props {
+    return [condition, kind, body];
+  }
 }

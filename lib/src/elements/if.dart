@@ -15,6 +15,9 @@ class If extends Element {
 
   /// The else block of this `if` statement.
   final Element? else_;
+
+  @override
+  List<Object?> get props => [clauses, else_];
 }
 
 /// {@template if_clause}
@@ -32,4 +35,9 @@ class IfClause extends Element {
 
   /// The body of this `if` clause.
   final Element? body;
+
+  @override
+  List<Object?> get props {
+    return [condition, body];
+  }
 }

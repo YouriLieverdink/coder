@@ -11,6 +11,11 @@ abstract class Reference extends Element {
 
   /// Whether this reference can be null.
   final bool isNullable;
+
+  @override
+  List<Object?> get props {
+    return [isNullable];
+  }
 }
 
 /// {@template type_reference}
@@ -33,6 +38,11 @@ class TypeReference extends Reference with Builder {
 
   /// The types of this reference.
   final List<Reference> types;
+
+  @override
+  List<Object?> get props {
+    return [isNullable, symbol, url, types];
+  }
 }
 
 /// {@template function_reference}
@@ -51,4 +61,9 @@ class FunctionReference extends Reference {
 
   /// The parameters of this function reference.
   final List<Parameter> parameters;
+
+  @override
+  List<Object?> get props {
+    return [isNullable, returns, parameters];
+  }
 }

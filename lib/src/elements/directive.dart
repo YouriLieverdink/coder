@@ -49,4 +49,9 @@ class Directive extends Element {
 
   /// What kind of directive this is.
   final DirectiveKind kind;
+
+  @override
+  List<Object?> get props {
+    return [url, kind];
+  }
 }

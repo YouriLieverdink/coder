@@ -20,4 +20,9 @@ class Row extends Element with Builder {
 
   /// The elements in this row.
   final List<Element> elements;
+
+  @override
+  List<Object?> get props {
+    return [elements];
+  }
 }

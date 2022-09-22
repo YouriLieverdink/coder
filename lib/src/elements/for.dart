@@ -15,4 +15,9 @@ class For extends Element {
 
   /// The body of this for.
   final Element? body;
+
+  @override
+  List<Object?> get props {
+    return [condition, body];
+  }
 }

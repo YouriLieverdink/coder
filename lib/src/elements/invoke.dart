@@ -11,4 +11,9 @@ class Invoke extends Element with Builder {
 
   /// The elements within this invocation.
   final List<Element> elements;
+
+  @override
+  List<Object?> get props {
+    return [elements];
+  }
 }
