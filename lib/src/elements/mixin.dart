@@ -66,4 +66,9 @@ class Mixin extends Element {
   /// }
   /// ```
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [name, on, fields, methods, docs, annotations];
+  }
 }

@@ -95,9 +95,9 @@ void main() {
       test(
         'should emit a map with nested elements',
         () {
-          const element = LiteralMap({
-            'cats': LiteralList(['Pip']),
-            TypeReference('Cat'): 'new',
+          final element = LiteralMap({
+            'cats': const LiteralList(['Pip']),
+            const TypeReference('Cat'): 'new',
           });
 
           Expect(

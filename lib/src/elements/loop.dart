@@ -24,4 +24,9 @@ class Loop extends Element {
 
   /// The body of this loop.
   final Element? body;
+
+  @override
+  List<Object?> get props {
+    return [clause, kind, body];
+  }
 }

@@ -35,4 +35,9 @@ class Constructor extends Element {
 
   /// The initialisers of this constructor.
   final List<Element> initializers;
+
+  @override
+  List<Object?> get props {
+    return [isConst, isFactory, name, parameters, body, docs, initializers];
+  }
 }

@@ -23,6 +23,11 @@ class Enum extends Element {
 
   /// The annotations of this enum.
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [name, values, docs, annotations];
+  }
 }
 
 /// {@template enum_value}
@@ -44,4 +49,9 @@ class EnumValue extends Element {
 
   /// The annotations of this enum.
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [name, docs, annotations];
+  }
 }

@@ -14,34 +14,39 @@ class Directive extends Element {
   const Directive({
     required this.url,
     required this.kind,
+    this.as,
   });
 
   /// {@macro directive}
   factory Directive.import(
-    String url,
-  ) {
-    return Directive(url: url, kind: DirectiveKind.import);
+    String url, {
+    String? as,
+  }) {
+    return Directive(url: url, kind: DirectiveKind.import, as: as);
   }
 
   /// {@macro directive}
   factory Directive.export(
-    String url,
-  ) {
-    return Directive(url: url, kind: DirectiveKind.export);
+    String url, {
+    String? as,
+  }) {
+    return Directive(url: url, kind: DirectiveKind.export, as: as);
   }
 
   /// {@macro directive}
   factory Directive.part(
-    String url,
-  ) {
-    return Directive(url: url, kind: DirectiveKind.part);
+    String url, {
+    String? as,
+  }) {
+    return Directive(url: url, kind: DirectiveKind.part, as: as);
   }
 
   /// {@macro directive}
   factory Directive.partOf(
-    String url,
-  ) {
-    return Directive(url: url, kind: DirectiveKind.partOf);
+    String url, {
+    String? as,
+  }) {
+    return Directive(url: url, kind: DirectiveKind.partOf, as: as);
   }
 
   /// The url this directive references.
@@ -49,4 +54,16 @@ class Directive extends Element {
 
   /// What kind of directive this is.
   final DirectiveKind kind;
+
+  /// The name to use for the import
+  ///
+  /// ```dart
+  /// import 'dart:core' as core;
+  /// ```
+  final String? as;
+
+  @override
+  List<Object?> get props {
+    return [url, kind, as];
+  }
 }

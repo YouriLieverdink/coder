@@ -13,7 +13,9 @@ class RegularImporter extends Importer {
     TypeReference reference,
   ) {
     if (reference.url != null) {
-      imports.add(reference.url!);
+      final directive = Directive.import(reference.url!);
+
+      imports.add(directive);
     }
 
     return null;

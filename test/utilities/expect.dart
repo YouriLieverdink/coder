@@ -16,6 +16,9 @@ class Expect<T> {
   ) {
     if (matcher.matches(item, {})) return;
 
+    // We must clear the imports, because they already have been emitted.
+    matcher.emitter.context.importer.imports.clear();
+
     // Prepare a Buffer which holds the error description.
     final output = StringBuffer();
 

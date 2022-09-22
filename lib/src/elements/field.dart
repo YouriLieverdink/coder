@@ -45,4 +45,9 @@ class Field extends Element {
 
   /// The annotations of this field.
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [type, name, assign, modifier, isStatic, isLate, docs, annotations];
+  }
 }

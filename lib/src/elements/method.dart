@@ -60,4 +60,20 @@ class Method extends Element with Builder {
 
   /// The annotations of this method.
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [
+      returns,
+      name,
+      isStatic,
+      modifier,
+      kind,
+      parameters,
+      body,
+      docs,
+      lambda,
+      annotations
+    ];
+  }
 }

@@ -31,4 +31,9 @@ class Extension extends Element {
 
   /// The annotations of this extension.
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [on, name, fields, methods, docs, annotations];
+  }
 }

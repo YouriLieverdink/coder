@@ -11,4 +11,9 @@ class Static extends Element with Builder {
 
   /// The value of this.
   final String value;
+
+  @override
+  List<Object?> get props {
+    return [value];
+  }
 }

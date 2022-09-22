@@ -47,4 +47,18 @@ class Parameter extends Element {
 
   /// The annotations of this parameter.
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [
+      type,
+      name,
+      assign,
+      isRequired,
+      isToThis,
+      isToSuper,
+      kind,
+      annotations
+    ];
+  }
 }

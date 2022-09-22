@@ -23,4 +23,9 @@ class Library extends Element {
 
   /// The documentation for this library.
   final List<Docs> docs;
+
+  @override
+  List<Object?> get props {
+    return [name, directives, elements, docs];
+  }
 }

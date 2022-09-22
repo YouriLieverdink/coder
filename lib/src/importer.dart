@@ -3,6 +3,7 @@ library importer;
 import 'package:orchestrator/orchestrator.dart';
 
 part './importers/no.dart';
+part './importers/prefix.dart';
 part './importers/regular.dart';
 
 /// {@template importer}
@@ -16,10 +17,10 @@ abstract class Importer {
   });
 
   /// The imports registered by this importer.
-  final Set<String> imports;
+  final Set<Directive> imports;
 
   /// Registers the provided [reference] to be imported.
-  void register(
+  String? register(
     TypeReference reference,
   );
 }

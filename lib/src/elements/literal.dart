@@ -35,6 +35,11 @@ abstract class Literal<T> extends Element with Builder {
 
   /// The value of this literal.
   final T value;
+
+  @override
+  List<Object?> get props {
+    return [value];
+  }
 }
 
 /// {@template literal_bool}

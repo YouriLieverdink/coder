@@ -11,4 +11,9 @@ class Column extends Element {
 
   /// The list of elements this column holds.
   final List<Element> elements;
+
+  @override
+  List<Object?> get props {
+    return [elements];
+  }
 }

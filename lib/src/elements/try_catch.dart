@@ -19,4 +19,9 @@ class TryCatch extends Element {
 
   /// The `finally` section of this try-catch block.
   final Element? finally_;
+
+  @override
+  List<Object?> get props {
+    return [try_, catch_, finally_];
+  }
 }

@@ -47,4 +47,20 @@ class Class extends Element {
 
   /// The annotations of this class.
   final List<Annotation> annotations;
+
+  @override
+  List<Object?> get props {
+    return [
+      name,
+      extends_,
+      implements,
+      with_,
+      isAbstract,
+      constructors,
+      fields,
+      methods,
+      docs,
+      annotations
+    ];
+  }
 }
