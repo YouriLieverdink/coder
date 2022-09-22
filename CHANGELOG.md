@@ -1,3 +1,7 @@
+# 2.0.0
+
+- refactor!: change annotation to use TypeReference instead of String
+
 # 1.9.0
 
 - refactor: ensure all elements are equal by property
