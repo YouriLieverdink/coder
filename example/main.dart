@@ -6,8 +6,8 @@ void main() {
     Method(
       name: 'fibonacci',
       returns: const TypeReference('int'),
-      parameters: [
-        const Parameter(
+      parameters: const [
+        Parameter(
           name: 'n',
           type: TypeReference('int'),
         ),
