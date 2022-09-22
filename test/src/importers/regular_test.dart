@@ -25,7 +25,9 @@ void main() {
 
           expect(
             importer.imports,
-            contains('package:equatable/equatable.dart'),
+            contains(
+              Directive.import('package:equatable/equatable.dart'),
+            ),
           );
         },
       );
