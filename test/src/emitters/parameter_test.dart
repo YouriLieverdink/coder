@@ -162,7 +162,9 @@ void main() {
             name: 'state',
             type: TypeReference('State'),
             annotations: [
-              Annotation('Deprecated'),
+              Annotation(
+                type: TypeReference('Deprecated'),
+              ),
             ],
           );
 

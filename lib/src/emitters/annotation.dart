@@ -14,9 +14,9 @@ class AnnotationEmitter extends Emitter<Annotation> {
   ]) {
     output ??= StringBuffer();
 
-    output //
-      ..write('@')
-      ..write(element.value);
+    output.write('@');
+
+    ReferenceEmitter(context).emit(element.type, output);
 
     if (element.arguments.isNotEmpty) {
       output.write('(');

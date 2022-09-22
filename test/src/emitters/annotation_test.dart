@@ -13,7 +13,9 @@ void main() {
       test(
         'should emit an annotation',
         () {
-          const element = Annotation('override');
+          const element = Annotation(
+            type: TypeReference('override'),
+          );
 
           Expect(
             element,
@@ -31,7 +33,7 @@ void main() {
         'should emit an annotation with arguments',
         () {
           const element = Annotation(
-            'Deprecated',
+            type: TypeReference('Deprecated'),
             arguments: [
               LiteralString('Use another method'),
             ],

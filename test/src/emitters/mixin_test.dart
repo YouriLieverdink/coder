@@ -181,7 +181,9 @@ void main() {
             name: 'Features',
             on: TypeReference('Cat'),
             annotations: [
-              Annotation('Extra'),
+              Annotation(
+                type: TypeReference('Extra'),
+              ),
             ],
           );
 

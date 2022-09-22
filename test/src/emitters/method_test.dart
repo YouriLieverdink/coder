@@ -276,7 +276,9 @@ void main() {
             name: 'getState',
             returns: TypeReference('void'),
             annotations: [
-              Annotation('Deprecated'),
+              Annotation(
+                type: TypeReference('Deprecated'),
+              ),
             ],
           );
 

@@ -361,7 +361,9 @@ void main() {
           const element = Class(
             name: 'Cat',
             annotations: [
-              Annotation('Roar'),
+              Annotation(
+                type: TypeReference('Roar'),
+              ),
             ],
           );
 

@@ -102,7 +102,9 @@ void main() {
               EnumValue('purr'),
             ],
             annotations: [
-              Annotation('Roar'),
+              Annotation(
+                type: TypeReference('Roar'),
+              ),
             ],
           );
 
@@ -176,7 +178,9 @@ void main() {
           const element = EnumValue(
             'sleep',
             annotations: [
-              Annotation('Deprecated'),
+              Annotation(
+                type: TypeReference('Deprecated'),
+              ),
             ],
           );
 

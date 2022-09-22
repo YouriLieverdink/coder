@@ -179,7 +179,9 @@ void main() {
           const element = Field(
             name: 'state',
             annotations: [
-              Annotation('override'),
+              Annotation(
+                type: TypeReference('override'),
+              ),
             ],
           );
 
