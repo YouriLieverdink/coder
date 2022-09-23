@@ -6,13 +6,15 @@ part of importer;
 /// {@endtemplate}
 class PrefixImporter extends Importer {
   /// {@macro prefix_importer}
-  PrefixImporter() : super(imports: {});
+  PrefixImporter({
+    super.exclude,
+  }) : super(imports: {});
 
   @override
   String? register(
     TypeReference reference,
   ) {
-    if (reference.url == null) {
+    if (reference.url == null || exclude.contains(reference.url)) {
       return null;
     }
 
