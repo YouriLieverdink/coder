@@ -6,17 +6,21 @@ part of importer;
 /// {@endtemplate}
 class RegularImporter extends Importer {
   /// {@macro regular_importer}
-  RegularImporter() : super(imports: {});
+  RegularImporter({
+    super.exclude,
+  }) : super(imports: {});
 
   @override
   String? register(
     TypeReference reference,
   ) {
-    if (reference.url != null) {
-      final directive = Directive.import(reference.url!);
-
-      imports.add(directive);
+    if (reference.url == null || exclude.contains(reference.url)) {
+      return null;
     }
+
+    final directive = Directive.import(reference.url!);
+
+    imports.add(directive);
 
     return null;
   }

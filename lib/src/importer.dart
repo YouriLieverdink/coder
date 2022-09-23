@@ -14,10 +14,14 @@ abstract class Importer {
   /// {@macro importer}
   const Importer({
     this.imports = const {},
+    this.exclude = const ['dart:core'],
   });
 
   /// The imports registered by this importer.
   final Set<Directive> imports;
+
+  /// The imports to ignore whilst registering references.
+  final List<String> exclude;
 
   /// Registers the provided [reference] to be imported.
   String? register(

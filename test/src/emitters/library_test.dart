@@ -109,8 +109,8 @@ void main() {
               Method(
                 name: 'main',
                 returns: TypeReference(
-                  'String',
-                  url: 'dart:core',
+                  'Client',
+                  url: 'package:http/http.dart',
                 ),
                 parameters: [
                   Parameter(
@@ -129,10 +129,10 @@ void main() {
             element,
             Equals(
               '''
-                import 'dart:core';
+                import 'package:http/http.dart';
                 import 'package:test/test.dart';
 
-                String main(Matcher matcher) {
+                Client main(Matcher matcher) {
                 }
               ''',
               emitter: emitter,

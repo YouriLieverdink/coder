@@ -54,8 +54,8 @@ void main() {
                 url: 'package:equatable/equatable.dart',
               ),
               TypeReference(
-                'String',
-                url: 'dart:core',
+                'Client',
+                url: 'package:http/http.dart',
               ),
             ],
           );
@@ -70,7 +70,7 @@ void main() {
                 as: '_i1',
               ),
               Directive.import(
-                'dart:core',
+                'package:http/http.dart',
                 as: '_i2',
               ),
             ]),
@@ -110,8 +110,8 @@ void main() {
           const element = Library(
             elements: [
               TypeReference(
-                'String',
-                url: 'dart:core',
+                'Client',
+                url: 'package:http/http.dart',
               ),
               TypeReference(
                 'Equatable',
@@ -128,12 +128,36 @@ void main() {
             element,
             Equals(
               '''
-                import 'dart:core' as _i1;
+                import 'package:http/http.dart' as _i1;
                 import 'package:equatable/equatable.dart' as _i2;
 
-                _i1.String
+                _i1.Client
                 _i2.Equatable
                 _i2.Equatable
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should not emit and prefix excluded dependencies',
+        () {
+          const element = Library(
+            elements: [
+              TypeReference(
+                'String',
+                url: 'dart:core',
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            Equals(
+              '''
+                String
               ''',
               emitter: emitter,
             ),
