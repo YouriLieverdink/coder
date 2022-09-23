@@ -1,3 +1,7 @@
+# 2.1.0
+
+- feat: allow dependencies to be excluded from the importers
+
 # 2.0.0
 
 - refactor!: change annotation to use TypeReference instead of String
