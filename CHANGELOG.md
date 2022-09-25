@@ -1,3 +1,7 @@
+# 2.2.0
+
+- feat: add a method to automatically sort directives
+
 # 2.1.0
 
 - feat: allow dependencies to be excluded from the importers
