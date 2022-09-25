@@ -4,7 +4,7 @@ part of element;
 /// Used to indicate whether it should be an `import`, `export`, `part`, or
 /// `part of` directive.
 /// {@endtemplate}
-enum DirectiveKind { import, export, part, partOf }
+enum DirectiveKind { import, part, partOf, export }
 
 /// {@template directive}
 /// Configuration for defining a directive.
