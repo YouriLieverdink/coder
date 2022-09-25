@@ -128,8 +128,8 @@ void main() {
             element,
             Equals(
               '''
-                import 'package:http/http.dart' as _i1;
                 import 'package:equatable/equatable.dart' as _i2;
+                import 'package:http/http.dart' as _i1;
 
                 _i1.Client
                 _i2.Equatable
