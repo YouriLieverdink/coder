@@ -11,7 +11,7 @@ class If extends Element {
   });
 
   /// The clauses of this `if` statement.
-  final List<IfClause> clauses;
+  final Iterable<IfClause> clauses;
 
   /// The else block of this `if` statement.
   final Element? else_;

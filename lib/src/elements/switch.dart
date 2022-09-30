@@ -15,7 +15,7 @@ class Switch extends Element {
   final Element condition;
 
   /// The cases of this switch.
-  final List<SwitchCase> cases;
+  final Iterable<SwitchCase> cases;
 
   /// The default case of this switch.
   final Element? default_;

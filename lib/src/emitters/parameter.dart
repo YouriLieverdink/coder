@@ -51,13 +51,13 @@ class ParameterEmitter extends Emitter<Parameter> {
 /// {@template parameter_list_emitter}
 /// Transforms a list of the [Parameter] element into Dart source code.
 /// {@endtemplate}
-class ParameterListEmitter extends Emitter<List<Parameter>> {
+class ParameterListEmitter extends Emitter<Iterable<Parameter>> {
   /// {@macro parameter_list_emitter}
   const ParameterListEmitter(super.context);
 
-  T? valueAtOrNull<T>(List<T> values, int index) {
+  T? valueAtOrNull<T>(Iterable<T> values, int index) {
     try {
-      return values[index];
+      return values.elementAt(index);
     } //
     catch (_) {
       return null;
@@ -65,14 +65,14 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
   }
 
   bool useTraillingCommas(
-    List<Parameter> elements,
+    Iterable<Parameter> elements,
   ) {
     return context.useTraillingCommas && elements.length > 1;
   }
 
   @override
   StringSink emit(
-    List<Parameter> elements, [
+    Iterable<Parameter> elements, [
     StringSink? output,
   ]) {
     output ??= StringBuffer();
@@ -80,7 +80,7 @@ class ParameterListEmitter extends Emitter<List<Parameter>> {
     for (int i = 0; i < elements.length; i++) {
       //
       final prev = valueAtOrNull(elements, i - 1);
-      final curr = elements[i];
+      final curr = elements.elementAt(i);
       final next = valueAtOrNull(elements, i + 1);
 
       if (curr.kind != null && (prev == null || !(prev.kind != null))) {

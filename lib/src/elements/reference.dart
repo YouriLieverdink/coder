@@ -37,7 +37,7 @@ class TypeReference extends Reference with Builder {
   final String? url;
 
   /// The types of this reference.
-  final List<Reference> types;
+  final Iterable<Reference> types;
 
   @override
   List<Object?> get props {
@@ -60,7 +60,7 @@ class FunctionReference extends Reference {
   final Reference returns;
 
   /// The parameters of this function reference.
-  final List<Parameter> parameters;
+  final Iterable<Parameter> parameters;
 
   @override
   List<Object?> get props {

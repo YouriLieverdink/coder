@@ -21,16 +21,16 @@ class Extension extends Element {
   final String? name;
 
   /// The fields of this extension.
-  final List<Field> fields;
+  final Iterable<Field> fields;
 
   /// The methods of this extension.
-  final List<Method> methods;
+  final Iterable<Method> methods;
 
   /// The documentation for this extension.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// The annotations of this extension.
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {

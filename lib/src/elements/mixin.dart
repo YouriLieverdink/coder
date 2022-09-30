@@ -37,7 +37,7 @@ class Mixin extends Element {
   ///   int legs = 4;
   /// }
   /// ```
-  final List<Field> fields;
+  final Iterable<Field> fields;
 
   /// The methods of this mixin.
   ///
@@ -47,7 +47,7 @@ class Mixin extends Element {
   ///   }
   /// }
   /// ```
-  final List<Method> methods;
+  final Iterable<Method> methods;
 
   /// The documentation for this mixin.
   ///
@@ -56,7 +56,7 @@ class Mixin extends Element {
   /// mixin Walkable {
   /// }
   /// ```
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// The annotations of this mixin.
   ///
@@ -65,7 +65,7 @@ class Mixin extends Element {
   /// mixin Walkable {
   /// }
   /// ```
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {
