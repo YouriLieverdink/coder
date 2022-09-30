@@ -356,7 +356,7 @@ Builder index(
 /// {@endtemplate}
 Builder invoke(
   Builder value, [
-  List<Element>? elements,
+  Iterable<Element>? elements,
 ]) {
   elements ??= const [];
 
@@ -856,7 +856,7 @@ mixin Builder on Element {
 
   /// {@macro builder_invoke}
   Builder invoke([
-    List<Element>? elements,
+    Iterable<Element>? elements,
   ]) {
     return builder.invoke(this, elements);
   }
