@@ -1,3 +1,7 @@
+# 2.4.0
+
+- feat: add spacing between sorted directives
+
 # 2.3.0
 
 - refactor: change all List parameters to Iterable
