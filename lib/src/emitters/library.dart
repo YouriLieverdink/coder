@@ -36,16 +36,20 @@ class LibraryEmitter extends Emitter<Library> {
       content.writeln('\n');
     }
 
-    // Retrieve all imports from the importer and emit them als directives.
-    final imports = sortDirectives([...context.importer.imports]);
+    final directives = [...context.importer.imports, ...element.directives];
 
-    for (final v in imports) {
-      DirectiveEmitter(context).emit(v, output);
+    directives.sort();
 
-      output.write('\n');
-    }
+    int? index;
 
-    for (final v in element.directives) {
+    for (final v in directives) {
+      // When it's not the first, and not the same, add extra spacing.
+      if (index != null && index != v.index) {
+        output.write('\n');
+      }
+
+      index = v.index;
+
       DirectiveEmitter(context).emit(v, output);
 
       output.write('\n');
