@@ -1,3 +1,7 @@
+# 2.3.0
+
+- refactor: change all List parameters to Iterable
+
 # 2.2.0
 
 - feat: add a method to automatically sort directives
