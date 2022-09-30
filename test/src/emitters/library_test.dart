@@ -93,6 +93,7 @@ void main() {
             Equals(
               '''
                 import 'dart:core';
+
                 import 'package:test/test.dart';
               ''',
               emitter: emitter,
@@ -133,6 +134,47 @@ void main() {
                 import 'package:test/test.dart';
 
                 Client main(Matcher matcher) {
+                }
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a library with spaced out directives',
+        () {
+          const element = Library(
+            elements: [
+              Method(
+                name: 'main',
+                returns: TypeReference(
+                  'Future',
+                  url: 'dart:async',
+                ),
+                parameters: [
+                  Parameter(
+                    name: 'matcher',
+                    type: TypeReference(
+                      'Matcher',
+                      url: 'package:test/test.dart',
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+
+          Expect(
+            element,
+            Equals(
+              '''
+                import 'dart:async';
+
+                import 'package:test/test.dart';
+
+                Future main(Matcher matcher) {
                 }
               ''',
               emitter: emitter,

@@ -12,17 +12,17 @@ void main() {
   final h = Directive.export('./models.dart');
 
   group(
-    'sortDirectives',
+    'Directive',
     () {
       test(
-        'should order as imports, parts, part of, and exports',
+        'implements Comparable correctly',
         () {
           final directives = [f, c, a, e, h, b, d, g];
 
-          final sorted = sortDirectives(directives);
+          directives.sort();
 
           expect(
-            sorted,
+            directives,
             equals([b, a, d, c, e, f, h, g]),
           );
         },
