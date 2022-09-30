@@ -16,13 +16,13 @@ class Library extends Element {
   final String? name;
 
   /// The directives which this library should use.
-  final List<Directive> directives;
+  final Iterable<Directive> directives;
 
   /// The elements contained within this library.
-  final List<Element> elements;
+  final Iterable<Element> elements;
 
   /// The documentation for this library.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   @override
   List<Object?> get props {

@@ -41,10 +41,10 @@ class Field extends Element {
   final bool isLate;
 
   /// The documentation for this field.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// The annotations of this field.
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {

@@ -14,7 +14,7 @@ class Annotation extends Element {
   final TypeReference type;
 
   /// The arguments of this.
-  final List<Builder> arguments;
+  final Iterable<Builder> arguments;
 
   @override
   List<Object?> get props {

@@ -21,7 +21,7 @@ abstract class Importer {
   final Set<Directive> imports;
 
   /// The imports to ignore whilst registering references.
-  final List<String> exclude;
+  final Iterable<String> exclude;
 
   /// Registers the provided [reference] to be imported.
   String? register(

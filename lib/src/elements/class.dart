@@ -25,28 +25,28 @@ class Class extends Element {
   final Reference? extends_;
 
   /// The classes this class should implement.
-  final List<Reference> implements;
+  final Iterable<Reference> implements;
 
   /// The mixins this class should use.
-  final List<Reference> with_;
+  final Iterable<Reference> with_;
 
   /// Whether this is class is abstract.
   final bool isAbstract;
 
   /// The constructors of this class.
-  final List<Constructor> constructors;
+  final Iterable<Constructor> constructors;
 
   /// The fields of this class.
-  final List<Field> fields;
+  final Iterable<Field> fields;
 
   /// The methods of this class.
-  final List<Method> methods;
+  final Iterable<Method> methods;
 
   /// The documentation for this class.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// The annotations of this class.
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {

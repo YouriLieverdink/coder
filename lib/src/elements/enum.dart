@@ -16,13 +16,13 @@ class Enum extends Element {
   final String name;
 
   /// The values of this enum.
-  final List<EnumValue> values;
+  final Iterable<EnumValue> values;
 
   /// The documentation for this enum.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// The annotations of this enum.
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {
@@ -45,10 +45,10 @@ class EnumValue extends Element {
   final String name;
 
   /// The documentation for this enum value.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// The annotations of this enum.
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {

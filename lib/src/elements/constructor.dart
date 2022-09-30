@@ -25,16 +25,16 @@ class Constructor extends Element {
   final String? name;
 
   /// The parameters of this constructor.
-  final List<Parameter> parameters;
+  final Iterable<Parameter> parameters;
 
   /// The body of this constructor.
   final Element? body;
 
   /// The documentation for this constructor.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// The initialisers of this constructor.
-  final List<Element> initializers;
+  final Iterable<Element> initializers;
 
   @override
   List<Object?> get props {

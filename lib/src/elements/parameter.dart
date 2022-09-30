@@ -46,7 +46,7 @@ class Parameter extends Element {
   final ParameterKind? kind;
 
   /// The annotations of this parameter.
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {

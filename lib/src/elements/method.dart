@@ -47,19 +47,19 @@ class Method extends Element with Builder {
   final MethodKind? kind;
 
   /// The parameters of this method.
-  final List<Parameter> parameters;
+  final Iterable<Parameter> parameters;
 
   /// The body of this method.
   final Element? body;
 
   /// The documentation for this method.
-  final List<Docs> docs;
+  final Iterable<Docs> docs;
 
   /// Whether this is a lambda method.
   final bool lambda;
 
   /// The annotations of this method.
-  final List<Annotation> annotations;
+  final Iterable<Annotation> annotations;
 
   @override
   List<Object?> get props {
