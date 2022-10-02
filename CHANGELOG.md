@@ -1,3 +1,7 @@
+# 2.5.0
+
+- feat: add set literal
+
 # 2.4.0
 
 - feat: add spacing between sorted directives
