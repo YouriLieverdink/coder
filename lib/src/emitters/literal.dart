@@ -29,6 +29,9 @@ class LiteralEmitter extends Emitter<Literal> {
     else if (element is LiteralNum) {
       LiteralNumEmitter(context).emit(element, output);
     } //
+    else if (element is LiteralSet) {
+      LiteralSetEmitter(context).emit(element, output);
+    } //
     else if (element is LiteralString) {
       LiteralStringEmitter(context).emit(element, output);
     }
@@ -188,6 +191,52 @@ class LiteralNumEmitter extends Emitter<LiteralNum> {
     output ??= StringBuffer();
 
     output.write(element.value);
+
+    return output;
+  }
+}
+
+/// {@template literal_set_emitter}
+/// Transforms the [LiteralSet] into Dart source code.
+/// {@endtemplate}
+class LiteralSetEmitter extends Emitter<LiteralSet> {
+  /// {@macro literal_set_emitter}
+  const LiteralSetEmitter(super.context);
+
+  ///
+  StringSink emitDynamic(
+    dynamic element, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    if (element is Element) {
+      return ElementEmitter(context).emit(element, output);
+    }
+
+    final literal = Literal.of(element);
+
+    return LiteralEmitter(context).emit(literal, output);
+  }
+
+  @override
+  StringSink emit(
+    LiteralSet element, [
+    StringSink? output,
+  ]) {
+    output ??= StringBuffer();
+
+    output.write('{');
+
+    for (final v in element.value) {
+      emitDynamic(v, output);
+
+      if (v != element.value.last) {
+        output.write(', ');
+      }
+    }
+
+    output.write('}');
 
     return output;
   }

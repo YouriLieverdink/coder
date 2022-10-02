@@ -23,6 +23,9 @@ abstract class Literal<T> extends Element with Builder {
     else if (value is num) {
       return LiteralNum(value) as Literal<T>;
     } //
+    else if (value is Set) {
+      return LiteralSet(value) as Literal<T>;
+    } //
     else if (value is String) {
       return LiteralString(value) as Literal<T>;
     } //
@@ -81,6 +84,14 @@ class LiteralNull extends Literal<void> {
 class LiteralNum extends Literal<num> {
   /// {@macro literal_num}
   const LiteralNum(super.value);
+}
+
+/// {@template literal_set}
+/// Configuration for defining a literal set.
+/// {@endtemplate}
+class LiteralSet extends Literal<Set> {
+  /// {@macro literal_set}
+  const LiteralSet(super.value);
 }
 
 /// {@template literal_string}
