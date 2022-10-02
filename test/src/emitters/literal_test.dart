@@ -4,8 +4,13 @@ import 'package:test/test.dart';
 import '../../utilities/utilities.dart';
 
 void main() {
-  const context = Context();
-  const emitter = LiteralEmitter(context);
+  late Context context;
+  late LiteralEmitter emitter;
+
+  setUp(() {
+    context = const Context();
+    emitter = LiteralEmitter(context);
+  });
 
   group(
     'LiteralBoolEmitter',
@@ -17,7 +22,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 true
               ''',
@@ -39,7 +44,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ['cat', 'dog']
               ''',
@@ -56,7 +61,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 ['cat', Cat]
               ''',
@@ -80,7 +85,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 {
                   'cats': ['Pip', 'Bo']
@@ -102,7 +107,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 {
                   'cats': ['Pip'],
@@ -127,7 +132,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 null
               ''',
@@ -149,7 +154,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 42
               ''',
@@ -166,9 +171,54 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 42.0
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  group(
+    'LiteralSetEmitter',
+    () {
+      test(
+        'should emit a set',
+        () {
+          const element = LiteralSet({'Pip'});
+
+          Expect(
+            element,
+            Equals(
+              '''
+                {'Pip'}
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
+        'should emit a map-like type with a spread operator',
+        () {
+          final element = LiteralSet({
+            const LiteralString('cat').named("'type'"),
+            const Static('cat') //
+                .spread
+                .property('toJson')
+                .invoke(),
+          });
+
+          Expect(
+            element,
+            Equals(
+              '''
+                {'type': 'cat', ...cat.toJson()}
               ''',
               emitter: emitter,
             ),
@@ -188,7 +238,7 @@ void main() {
 
           Expect(
             element,
-            const Equals(
+            Equals(
               '''
                 'Pip'
               ''',
