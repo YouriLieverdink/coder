@@ -92,10 +92,14 @@ class LiteralListEmitter extends Emitter<LiteralList> {
 
     output.write('[');
 
+    var index = 0;
+
     for (final v in element.value) {
       emitDynamic(v, output);
 
-      if (v != element.value.last) {
+      index++;
+
+      if (index < element.value.length) {
         output.write(', ');
       }
     }
@@ -138,6 +142,8 @@ class LiteralMapEmitter extends Emitter<LiteralMap> {
 
     output.write('{ ');
 
+    var index = 0;
+
     for (final v in element.value.entries) {
       emitDynamic(v.key, output);
 
@@ -145,7 +151,9 @@ class LiteralMapEmitter extends Emitter<LiteralMap> {
 
       emitDynamic(v.value, output);
 
-      if (v.key != element.value.keys.last) {
+      index++;
+
+      if (index < element.value.length) {
         output.write(', ');
       }
     }
@@ -228,10 +236,14 @@ class LiteralSetEmitter extends Emitter<LiteralSet> {
 
     output.write('{');
 
+    var index = 0;
+
     for (final v in element.value) {
       emitDynamic(v, output);
 
-      if (v != element.value.last) {
+      index++;
+
+      if (index < element.value.length) {
         output.write(', ');
       }
     }

@@ -23,6 +23,8 @@ class DocsEmitter extends Emitter<Docs> {
     final value = StringBuffer();
     final words = element.value.split(' ');
 
+    var index = 0;
+
     for (final v in words) {
       // When the next word exceeds the limit, we add a line break.
       if (line('$value') + v.length > 76) {
@@ -31,7 +33,9 @@ class DocsEmitter extends Emitter<Docs> {
 
       value.write(v);
 
-      if (v != words.last) {
+      index++;
+
+      if (index < words.length) {
         value.write(' ');
       }
     }

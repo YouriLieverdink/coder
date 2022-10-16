@@ -74,6 +74,29 @@ void main() {
       );
 
       test(
+        'should emit a type reference with multiple equal type parameters',
+        () {
+          const element = TypeReference(
+            'Map',
+            types: [
+              TypeReference('String'),
+              TypeReference('String'),
+            ],
+          );
+
+          Expect(
+            element,
+            const Equals(
+              '''
+                Map<String,String>
+              ''',
+              emitter: emitter,
+            ),
+          );
+        },
+      );
+
+      test(
         'should emit a nullable type reference',
         () {
           const element = TypeReference(

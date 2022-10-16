@@ -51,10 +51,14 @@ class TypeReferenceEmitter extends Emitter<TypeReference> {
     if (element.types.isNotEmpty) {
       output.write('<');
 
+      var index = 0;
+
       for (final v in element.types) {
         ReferenceEmitter(context).emit(v, output);
 
-        if (v != element.types.last) {
+        index++;
+
+        if (index < element.types.length) {
           output.write(',');
         }
       }

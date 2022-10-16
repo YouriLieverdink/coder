@@ -1,5 +1,6 @@
 library emitter;
 
+import 'package:collection/collection.dart';
 import 'package:orchestrator/orchestrator.dart';
 
 part './emitters/annotation.dart';

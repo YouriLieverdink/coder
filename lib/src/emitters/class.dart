@@ -41,10 +41,14 @@ class ClassEmitter extends Emitter<Class> {
     if (element.with_.isNotEmpty) {
       output.write(' with ');
 
+      var index = 0;
+
       for (final v in element.with_) {
         ReferenceEmitter(context).emit(v, output);
 
-        if (v != element.with_.last) {
+        index++;
+
+        if (index < element.with_.length) {
           output.write(', ');
         }
       }
@@ -53,10 +57,14 @@ class ClassEmitter extends Emitter<Class> {
     if (element.implements.isNotEmpty) {
       output.write(' implements ');
 
+      var index = 0;
+
       for (final v in element.implements) {
         ReferenceEmitter(context).emit(v, output);
 
-        if (v != element.implements.last) {
+        index++;
+
+        if (index < element.implements.length) {
           output.write(', ');
         }
       }
