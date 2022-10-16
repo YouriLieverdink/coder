@@ -22,10 +22,14 @@ class InvokeEmitter extends Emitter<Invoke> {
 
     output.write('(');
 
+    var index = 0;
+
     for (final v in element.elements) {
       ElementEmitter(context).emit(v, output);
 
-      if (v != element.elements.last || useTraillingCommas(element)) {
+      index++;
+
+      if (index < element.elements.length || useTraillingCommas(element)) {
         output.write(', ');
       }
     }

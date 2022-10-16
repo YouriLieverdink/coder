@@ -28,10 +28,14 @@ class EnumEmitter extends Emitter<Enum> {
 
     output.write(' enum ${element.name} { ');
 
+    var index = 0;
+
     for (final v in element.values) {
       EnumValueEmitter(context).emit(v, output);
 
-      if (v != element.values.last) {
+      index++;
+
+      if (index < element.values.length) {
         output.write(' , ');
       }
     }

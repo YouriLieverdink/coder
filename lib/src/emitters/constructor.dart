@@ -45,10 +45,14 @@ class ConstructorEmitter extends Emitter<Constructor> {
     if (element.initializers.isNotEmpty) {
       output.write(' : ');
 
+      var index = 0;
+
       for (final v in element.initializers) {
         ElementEmitter(context).emit(v, output);
 
-        if (v != element.initializers.last) {
+        index++;
+
+        if (index < element.initializers.length) {
           output.write(', ');
         }
       }

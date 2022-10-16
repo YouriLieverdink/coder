@@ -89,7 +89,7 @@ class ParameterListEmitter extends Emitter<Iterable<Parameter>> {
 
       ParameterEmitter(context).emit(curr, output);
 
-      if (curr != elements.last || useTraillingCommas(elements)) {
+      if (i < elements.length - 1 || useTraillingCommas(elements)) {
         output.write(', ');
       }
 
