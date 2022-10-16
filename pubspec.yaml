@@ -1,6 +1,6 @@
 name: orchestrator
 description: Easily define complex code structures in Dart using many out-of-the-box elements.
-version: 2.5.0
+version: 2.5.1
 repository: https://github.com/YouriLieverdink/orchestrator
 
 environment:

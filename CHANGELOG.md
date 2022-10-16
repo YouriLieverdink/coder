@@ -1,3 +1,7 @@
+# 2.5.1
+
+- fix: resolve missing trailling comma on some places
+
 # 2.5.0
 
 - feat: add set literal
