@@ -1,3 +1,7 @@
+# 2.6.0
+
+- feat: implement ability to generate enhanced enums
+
 # 2.5.1
 
 - fix: resolve missing trailling comma on some places
