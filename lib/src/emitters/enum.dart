@@ -37,7 +37,26 @@ class EnumEmitter extends Emitter<Enum> {
 
       if (index < element.values.length) {
         output.write(' , ');
+      } //
+      else {
+        if (element.constructors.isNotEmpty) {
+          output.write(' ; ');
+        }
       }
+    }
+
+    for (final v in element.constructors) {
+      final class_ = Class(name: element.name);
+
+      ConstructorEmitter(context, class_).emit(v, output);
+    }
+
+    for (final v in element.fields) {
+      FieldEmitter(context).emit(v, output);
+    }
+
+    for (final v in element.methods) {
+      MethodEmitter(context).emit(v, output);
     }
 
     output.write(' } ');
@@ -73,7 +92,25 @@ class EnumValueEmitter extends Emitter<EnumValue> {
       output.write('\n');
     }
 
-    output.write(' ${element.name} ');
+    output.write(element.name);
+
+    if (element.arguments.isNotEmpty) {
+      output.write('(');
+
+      var index = 0;
+
+      for (final v in element.arguments) {
+        ElementEmitter(context).emit(v, output);
+
+        index++;
+
+        if (index < element.arguments.length) {
+          output.write(', ');
+        }
+      }
+
+      output.write(')');
+    }
 
     return output;
   }

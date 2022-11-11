@@ -10,6 +10,9 @@ class Enum extends Element {
     this.values = const [],
     this.docs = const [],
     this.annotations = const [],
+    this.constructors = const [],
+    this.fields = const [],
+    this.methods = const [],
   });
 
   /// The name of this enum.
@@ -24,9 +27,18 @@ class Enum extends Element {
   /// The annotations of this enum.
   final Iterable<Annotation> annotations;
 
+  /// The constructors of this enum.
+  final Iterable<Constructor> constructors;
+
+  /// The fields of this enum.
+  final Iterable<Field> fields;
+
+  /// The methods of this enum.
+  final Iterable<Method> methods;
+
   @override
   List<Object?> get props {
-    return [name, values, docs, annotations];
+    return [name, values, docs, annotations, constructors, fields, methods];
   }
 }
 
@@ -39,6 +51,7 @@ class EnumValue extends Element {
     this.name, {
     this.docs = const [],
     this.annotations = const [],
+    this.arguments = const [],
   });
 
   /// The name of this enum value.
@@ -50,8 +63,11 @@ class EnumValue extends Element {
   /// The annotations of this enum.
   final Iterable<Annotation> annotations;
 
+  /// The arguments of this enum value.
+  final Iterable<Builder> arguments;
+
   @override
   List<Object?> get props {
-    return [name, docs, annotations];
+    return [name, docs, annotations, arguments];
   }
 }
